@@ -35,10 +35,12 @@ public class ImmatriculationController {
     // Update record
     @PostMapping("/update")
     public ApiResponse update(@RequestBody ImmatriculationUpdatePayload payload) {
-        Immatriculation newImat = new Immatriculation.ImmatriculationBuilder()
-                .setImmatriculation_id(payload.getImmatriculation_id())
-                .build();
-        return new ApiResponse(true, immatriculationRepository.save(newImat), null);
+        Immatriculation fromDb = immatriculationRepository.findById(payload.getImmatriculation_id()).orElse(null);
+        if(fromDb == null){
+            return new ApiResponse(false, null, "api.immatriculation.update.not-found");
+        }
+        fromDb.setNum_plaque(payload.getNum_plaque());
+        return new ApiResponse(true, immatriculationRepository.save(fromDb), null);
     }
 
     // Delete record
