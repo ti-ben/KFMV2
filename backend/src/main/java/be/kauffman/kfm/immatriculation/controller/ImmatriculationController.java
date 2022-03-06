@@ -8,6 +8,8 @@ import be.kauffman.KFM.immatriculation.repository.ImmatriculationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/immatriculation")
@@ -30,6 +32,15 @@ public class ImmatriculationController {
     @GetMapping("/list")
     public ApiResponse get(){
         return new ApiResponse(true,immatriculationRepository.findAll(), null);
+    }
+    // Read detail
+    @GetMapping("/detail/{id}")
+    public ApiResponse detail(@PathVariable("id")UUID id){
+        Immatriculation fromDb = immatriculationRepository.findById(id).orElse(null);
+        if(fromDb == null){
+            return new ApiResponse(false, null, "api.immatriculation.detail.not-found");
+        }
+        return new ApiResponse(true,fromDb, null);
     }
 
     // Update record
