@@ -5,10 +5,10 @@ import be.kauffman.KFM.prestataire.entity.Prestataire;
 import be.kauffman.KFM.prestataire.entity.PrestataireCreatePayload;
 import be.kauffman.KFM.prestataire.entity.PrestataireUpdatePayload;
 import be.kauffman.KFM.prestataire.repository.PrestataireRepository;
-import be.kauffman.KFM.site.entity.Site;
-import be.kauffman.KFM.site.entity.SiteUpdatePayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -38,13 +38,25 @@ public class PrestataireController {
         return new ApiResponse(true,prestataireRepository.findAll(), null);
     }
 
+    // Read record detail
+    @GetMapping("/detail/{id}")
+    public ApiResponse detail(@PathVariable("id") UUID id){
+        Prestataire fromDb = prestataireRepository.findById(id).orElse(null);
+        if(fromDb == null){
+            return new ApiResponse(false, null, "api.prestataire.detail.not-found");
+        }
+        return new ApiResponse(true,fromDb, null);
+    }
+
     // Update record
     @PostMapping("/update")
     public ApiResponse update(@RequestBody PrestataireUpdatePayload payload){
-        Prestataire newPrestataire = new Prestataire.PrestataireBuilder()
-                .setPrestataire_id(payload.getPrestataire_id())
-                .build();
-        return new ApiResponse(true, prestataireRepository.save(newPrestataire), null);
+        Prestataire fromDb = prestataireRepository.findById(payload.getPrestataire_id()).orElse(null);
+        if(fromDb == null){
+            return new ApiResponse(false, null, "api.prestataire.update.not-found");
+        }
+        fromDb.setPrestataire_name(payload.getPrestataire_name());
+        return new ApiResponse(true, prestataireRepository.save(fromDb), null);
     }
 
     // Delete record

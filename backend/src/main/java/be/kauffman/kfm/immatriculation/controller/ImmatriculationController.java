@@ -33,7 +33,8 @@ public class ImmatriculationController {
     public ApiResponse get(){
         return new ApiResponse(true,immatriculationRepository.findAll(), null);
     }
-    // Read detail
+
+    // Read record detail
     @GetMapping("/detail/{id}")
     public ApiResponse detail(@PathVariable("id")UUID id){
         Immatriculation fromDb = immatriculationRepository.findById(id).orElse(null);
