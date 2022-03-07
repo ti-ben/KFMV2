@@ -1,8 +1,6 @@
 package be.kauffman.KFM.statut.controller;
 
 import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.immatriculation.entity.Immatriculation;
-import be.kauffman.KFM.immatriculation.entity.ImmatriculationUpdatePayload;
 import be.kauffman.KFM.statut.entity.Statut;
 import be.kauffman.KFM.statut.entity.StatutCreatePayload;
 import be.kauffman.KFM.statut.entity.StatutUpdatePayload;
@@ -29,6 +27,7 @@ public class StatutController {
                 .build();
         return new ApiResponse(true, statutRepository.save(newStatut), null);
     }
+
     // Read all records
     @GetMapping("/list")
     public ApiResponse get(){
