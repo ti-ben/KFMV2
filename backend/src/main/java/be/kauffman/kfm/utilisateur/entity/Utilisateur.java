@@ -1,15 +1,14 @@
 package be.kauffman.KFM.utilisateur.entity;
 
+import be.kauffman.kfm.adresse.entity.Adresse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -21,143 +20,149 @@ public class Utilisateur {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "utilisateur_id", updatable = false, nullable = false)
-    private UUID utilisateur_id;
-    String utilisateur_prenom;
-    String utilisateur_nom;
-    String utilisateur_genre;
-    String utilisateur_avatar;
-    Date utilisateur_dte_naissance;
-    String utilisateur_email;
-    String utilisateur_mdp;
-    String utilisateur_telpro;
-    String utilisateur_telperso;
-    String utilisateur_nationalite;
-    String utilisateur_numirn;
-    String utilisateur_adresse;
-    String utilisateur_cp;
-    String utilisateur_ville;
-    String utilisateur_permis;
-    String utilisateur_rang;
-    String utilisateur_statut;
-    private UUID site_id;
-    Date utilisateur_cree_le;
-    String utilisateur_lieu_naissance;
-    String utilisateur_actif;
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
+    String prenom;
+    String nom;
+    String genre;
+    String avatar;
+    Date dte_naissance;
+    String email;
+    String mdp;
+    String telpro;
+    String telperso;
+    String nationalite;
+    String numirn;
 
+    String permis;
+    String rang;
+    String statut;
+
+    Date cree_le;
+    String lieu_naissance;
+    String actif;
+
+    @ManyToOne()
+    @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
+    be.kauffman.KFM.site.entity.Site site;
+
+    @OneToOne()
+    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
+    Adresse adresseList;
     // Pattern
 
-    public static class UtilisateurBuilder{
-        UUID utilisateur_id;
-        String utilisateur_prenom = "";
-        String utilisateur_nom = "";
-        String utilisateur_genre = "";
-        String utilisateur_avatar = "";
-        Date utilisateur_dte_naissance;
-        String utilisateur_email = "";
-        String utilisateur_mdp = "";
-        String utilisateur_telpro = "";
-        String utilisateur_telperso = "";
-        String utilisateur_nationalite = "";
-        String utilisateur_numirn = "";
-        String utilisateur_adresse = "";
-        String utilisateur_cp = "";
-        String utilisateur_ville = "";
-        String utilisateur_permis = "";
-        String utilisateur_rang = "";
-        String utilisateur_statut = "";
+    public static class UtilisateurBuilder {
+        UUID id;
+        String prenom = "";
+        String nom = "";
+        String genre = "";
+        String avatar = "";
+        Date dte_naissance;
+        String email = "";
+        String mdp = "";
+        String telpro = "";
+        String telperso = "";
+        String nationalite = "";
+        String numirn = "";
+        String adresse = "";
+        String cp = "";
+        String ville = "";
+        String permis = "";
+        String rang = "";
+        String statut = "";
         UUID site_id;
-        Date utilisateur_cree_le;
-        String utilisateur_lieu_naissance = "";
-        String utilisateur_actif = "";
+        Date cree_le;
+        String lieu_naissance = "";
+        String actif = "";
+        be.kauffman.KFM.site.entity.Site site;
 
-        public UtilisateurBuilder setUtilisateur_id(UUID utilisateur_id) {
-            this.utilisateur_id = utilisateur_id;
+        public UtilisateurBuilder setid(UUID id) {
+            this.id = id;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_prenom(String utilisateur_prenom) {
-            this.utilisateur_prenom = utilisateur_prenom;
+        public UtilisateurBuilder setprenom(String prenom) {
+            this.prenom = prenom;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_nom(String utilisateur_nom) {
-            this.utilisateur_nom = utilisateur_nom;
+        public UtilisateurBuilder setnom(String nom) {
+            this.nom = nom;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_genre(String utilisateur_genre) {
-            this.utilisateur_genre = utilisateur_genre;
+        public UtilisateurBuilder setgenre(String genre) {
+            this.genre = genre;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_avatar(String utilisateur_avatar) {
-            this.utilisateur_avatar = utilisateur_avatar;
+        public UtilisateurBuilder setavatar(String avatar) {
+            this.avatar = avatar;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_dte_naissance(Date utilisateur_dte_naissance) {
-            this.utilisateur_dte_naissance = utilisateur_dte_naissance;
+        public UtilisateurBuilder setdte_naissance(Date dte_naissance) {
+            this.dte_naissance = dte_naissance;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_email(String utilisateur_email) {
-            this.utilisateur_email = utilisateur_email;
+        public UtilisateurBuilder setemail(String email) {
+            this.email = email;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_mdp(String utilisateur_mdp) {
-            this.utilisateur_mdp = utilisateur_mdp;
+        public UtilisateurBuilder setmdp(String mdp) {
+            this.mdp = mdp;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_telpro(String utilisateur_telpro) {
-            this.utilisateur_telpro = utilisateur_telpro;
+        public UtilisateurBuilder settelpro(String telpro) {
+            this.telpro = telpro;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_telperso(String utilisateur_telperso) {
-            this.utilisateur_telperso = utilisateur_telperso;
+        public UtilisateurBuilder settelperso(String telperso) {
+            this.telperso = telperso;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_nationalite(String utilisateur_nationalite) {
-            this.utilisateur_nationalite = utilisateur_nationalite;
+        public UtilisateurBuilder setnationalite(String nationalite) {
+            this.nationalite = nationalite;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_numirn(String utilisateur_numirn) {
-            this.utilisateur_numirn = utilisateur_numirn;
+        public UtilisateurBuilder setnumirn(String numirn) {
+            this.numirn = numirn;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_adresse(String utilisateur_adresse) {
-            this.utilisateur_adresse = utilisateur_adresse;
+        public UtilisateurBuilder setadresse(String adresse) {
+            this.adresse = adresse;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_cp(String utilisateur_cp) {
-            this.utilisateur_cp = utilisateur_cp;
+        public UtilisateurBuilder setcp(String cp) {
+            this.cp = cp;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_ville(String utilisateur_ville) {
-            this.utilisateur_ville = utilisateur_ville;
+        public UtilisateurBuilder setville(String ville) {
+            this.ville = ville;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_permis(String utilisateur_permis) {
-            this.utilisateur_permis = utilisateur_permis;
+        public UtilisateurBuilder setpermis(String permis) {
+            this.permis = permis;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_rang(String utilisateur_rang) {
-            this.utilisateur_rang = utilisateur_rang;
+        public UtilisateurBuilder setrang(String rang) {
+            this.rang = rang;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_statut(String utilisateur_statut) {
-            this.utilisateur_statut = utilisateur_statut;
+        public UtilisateurBuilder setstatut(String statut) {
+            this.statut = statut;
             return this;
         }
 
@@ -166,43 +171,46 @@ public class Utilisateur {
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_cree_le(Date utilisateur_cree_le) {
-            this.utilisateur_cree_le = utilisateur_cree_le;
+        public UtilisateurBuilder setcree_le(Date cree_le) {
+            this.cree_le = cree_le;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_lieu_naissance(String utilisateur_lieu_naissance) {
-            this.utilisateur_lieu_naissance = utilisateur_lieu_naissance;
+        public UtilisateurBuilder setlieu_naissance(String lieu_naissance) {
+            this.lieu_naissance = lieu_naissance;
             return this;
         }
 
-        public UtilisateurBuilder setUtilisateur_actif(String utilisateur_actif) {
-            this.utilisateur_actif = utilisateur_actif;
+        public UtilisateurBuilder setactif(String actif) {
+            this.actif = actif;
             return this;
         }
-        public Utilisateur build() { return new Utilisateur(
-                utilisateur_id,
-                utilisateur_prenom,
-                utilisateur_nom,
-                utilisateur_genre,
-                utilisateur_avatar,
-                utilisateur_dte_naissance,
-                utilisateur_email,
-                utilisateur_mdp,
-                utilisateur_telpro,
-                utilisateur_telperso,
-                utilisateur_nationalite,
-                utilisateur_numirn,
-                utilisateur_adresse,
-                utilisateur_cp,
-                utilisateur_ville,
-                utilisateur_permis,
-                utilisateur_rang,
-                utilisateur_statut,
-                site_id,
-                utilisateur_cree_le,
-                utilisateur_lieu_naissance,
-                utilisateur_actif
-        ); }
+
+        public Utilisateur build() {
+            return new Utilisateur(
+                    id,
+                    prenom,
+                    nom,
+                    genre,
+                    avatar,
+                    dte_naissance,
+                    email,
+                    mdp,
+                    telpro,
+                    telperso,
+                    nationalite,
+                    numirn,
+                    adresse,
+                    cp,
+                    ville,
+                    permis,
+                    rang,
+                    statut,
+                    site_id,
+                    cree_le,
+                    lieu_naissance,
+                    actif, site
+            );
+        }
     }
 }
