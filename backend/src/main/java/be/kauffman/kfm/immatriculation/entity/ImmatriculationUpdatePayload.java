@@ -10,6 +10,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ImmatriculationUpdatePayload {
-    UUID immatriculation_id;
+    int immatriculation_id;
     String num_plaque;
 }

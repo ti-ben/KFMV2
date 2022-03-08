@@ -35,7 +35,7 @@ public class ImmatriculationController {
     }
     // Read detail
     @GetMapping("/detail/{id}")
-    public ApiResponse detail(@PathVariable("id")UUID id){
+    public ApiResponse detail(@PathVariable("id")int id){
         Immatriculation fromDb = immatriculationRepository.findById(id).orElse(null);
         if(fromDb == null){
             return new ApiResponse(false, null, "api.immatriculation.detail.not-found");
