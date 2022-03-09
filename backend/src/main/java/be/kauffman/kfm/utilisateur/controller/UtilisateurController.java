@@ -33,8 +33,6 @@ public class UtilisateurController {
                 .setnationalite(payload.getUtilisateur_nationalite())
                 .setnumirn(payload.getUtilisateur_numirn())
                 .setpermis(payload.getUtilisateur_permis())
-                .setrang(payload.getUtilisateur_rang())
-                .setstatut(payload.getUtilisateur_statut())
                 .setcree_le(payload.getUtilisateur_cree_le())
                 .setlieu_naissance(payload.getUtilisateur_lieu_naissance())
                 .setactif(payload.getUtilisateur_actif())

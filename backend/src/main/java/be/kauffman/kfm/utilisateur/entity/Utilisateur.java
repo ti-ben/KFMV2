@@ -1,6 +1,5 @@
 package be.kauffman.KFM.utilisateur.entity;
 
-import be.kauffman.KFM.adresse.entity.Adresse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,11 +31,7 @@ public class Utilisateur {
     String telperso;
     String nationalite;
     String numirn;
-
     String permis;
-    String rang;
-    String statut;
-
     Date cree_le;
     String lieu_naissance;
     String actif;
@@ -48,6 +43,11 @@ public class Utilisateur {
     //@OneToOne()
     //@JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
     //Adresse adresseList;
+
+    //String rang; ajouter la FK
+    //String statut; ajouter la FK
+
+
     // Pattern
 
     public static class UtilisateurBuilder {
@@ -63,11 +63,7 @@ public class Utilisateur {
         String telperso = "";
         String nationalite = "";
         String numirn = "";
-
         String permis = "";
-        String rang = "";
-        String statut = "";
-
         Date cree_le;
         String lieu_naissance = "";
         String actif = "";
@@ -138,16 +134,6 @@ public class Utilisateur {
             return this;
         }
 
-        public UtilisateurBuilder setrang(String rang) {
-            this.rang = rang;
-            return this;
-        }
-
-        public UtilisateurBuilder setstatut(String statut) {
-            this.statut = statut;
-            return this;
-        }
-
         public UtilisateurBuilder setcree_le(Date cree_le) {
             this.cree_le = cree_le;
             return this;
@@ -178,9 +164,6 @@ public class Utilisateur {
                     nationalite,
                     numirn,
                     permis,
-                    rang,
-                    statut,
-
                     cree_le,
                     lieu_naissance,
                     actif,

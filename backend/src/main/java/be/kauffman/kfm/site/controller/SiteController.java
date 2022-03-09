@@ -51,6 +51,8 @@ public class SiteController {
         if(fromDb == null){
             return new ApiResponse(false, null, "api.site.update.not-found");
         }
+        fromDb.setSite_nom(payload.getSite_nom());
+        fromDb.setSite_adresse(payload.getSite_adresse());
         fromDb.setSite_description(payload.getSite_description());
         return new ApiResponse(true, siteRepository.save(fromDb), null);
     }
