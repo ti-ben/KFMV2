@@ -1,5 +1,11 @@
 package be.kauffman.KFM.utilisateur.entity;
 
+import be.kauffman.KFM.adresse.entity.Adresse;
+import be.kauffman.KFM.rang.entity.Rang;
+import be.kauffman.KFM.role.entity.Role;
+import be.kauffman.KFM.site.entity.Site;
+import be.kauffman.KFM.statut.entity.Statut;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,15 +44,23 @@ public class Utilisateur {
 
     @ManyToOne()
     @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
-    be.kauffman.KFM.site.entity.Site site;
+    Site site;
 
-    //@OneToOne()
-    //@JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
-    //Adresse adresseList;
+    @OneToOne()
+    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
+    Adresse adresseList;
 
-    //String rang; ajouter la FK
-    //String statut; ajouter la FK
+    @ManyToOne()
+    @JoinColumn(name = "rang_id_fk", referencedColumnName = "rang_id")
+    Rang rang;
 
+    @ManyToOne()
+    @JoinColumn(name = "statut_id_fk", referencedColumnName = "statut_id")
+    Statut statut;
+
+    @ManyToOne()
+    @JoinColumn(name = "role_id_fk", referencedColumnName = "role_id")
+    Role role;
 
     // Pattern
 
@@ -67,7 +81,11 @@ public class Utilisateur {
         Date cree_le;
         String lieu_naissance = "";
         String actif = "";
-        be.kauffman.KFM.site.entity.Site site;
+        String site;
+        String adresseList;
+        String rang;
+        String statut;
+        String role;
 
         public UtilisateurBuilder setid(UUID id) {
             this.id = id;
@@ -149,6 +167,31 @@ public class Utilisateur {
             return this;
         }
 
+        public UtilisateurBuilder setSite(String site) {
+            this.site = site;
+            return this;
+        }
+
+        public UtilisateurBuilder setAdresseList(String adresseList) {
+            this.adresseList = adresseList;
+            return this;
+        }
+
+        public UtilisateurBuilder setRang(String rang) {
+            this.rang = rang;
+            return this;
+        }
+
+        public UtilisateurBuilder setStatut(String statut) {
+            this.statut = statut;
+            return this;
+        }
+
+        public UtilisateurBuilder setRole(String role) {
+            this.role = role;
+            return this;
+        }
+
         public Utilisateur build() {
             return new Utilisateur(
                     id,
@@ -167,7 +210,11 @@ public class Utilisateur {
                     cree_le,
                     lieu_naissance,
                     actif,
-                    site
+                    adresseList,
+                    rang,
+                    site,
+                    statut,
+                    role
             );
         }
     }
