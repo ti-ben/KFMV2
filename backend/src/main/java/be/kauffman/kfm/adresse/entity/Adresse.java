@@ -1,15 +1,15 @@
-package be.kauffman.kfm.adresse.entity;
+package be.kauffman.KFM.adresse.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+        import lombok.AllArgsConstructor;
+        import lombok.Data;
+        import lombok.NoArgsConstructor;
+        import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.UUID;
+        import javax.persistence.Column;
+        import javax.persistence.Entity;
+        import javax.persistence.GeneratedValue;
+        import javax.persistence.Id;
+        import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -26,4 +26,47 @@ public class Adresse {
     private String town;
     private String country;
     private String num;
+
+    // Pattern
+
+    public static class AdresseBuilder{
+        UUID adresse_id;
+        String road;
+        String cp;
+        String town;
+        String country;
+        String num;
+
+        public AdresseBuilder setAdresse_id(UUID adresse_id) {
+            this.adresse_id = adresse_id;
+            return this;
+        }
+
+        public AdresseBuilder setRoad(String road) {
+            this.road = road;
+            return this;
+        }
+
+        public AdresseBuilder setCp(String cp) {
+            this.cp = cp;
+            return this;
+        }
+
+        public AdresseBuilder setTown(String town) {
+            this.town = town;
+            return this;
+        }
+
+        public AdresseBuilder setCountry(String country) {
+            this.country = country;
+            return this;
+        }
+
+        public AdresseBuilder setNum(String num) {
+            this.num = num;
+            return this;
+        }
+
+        public Adresse build() { return new Adresse(adresse_id, road, cp, town, country, num); }
+    }
 }

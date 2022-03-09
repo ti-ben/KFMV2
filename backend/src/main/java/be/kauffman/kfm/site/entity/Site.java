@@ -32,9 +32,9 @@ public class Site {
 
     public static class SiteBuilder{
         UUID site_id;
-        String site_nom;
+        String site_nom = "Pas de nom de site";
         String site_description = "pas de description";
-        String site_adresse = "pas d adresse";
+        String site_adresse = "pas d'adresse";
         Date site_cree_le = new Date();
 
         public SiteBuilder setSite_id(UUID site_id) {

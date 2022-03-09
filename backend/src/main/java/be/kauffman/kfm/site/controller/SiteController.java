@@ -1,15 +1,12 @@
 package be.kauffman.KFM.site.controller;
 
 import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.immatriculation.entity.Immatriculation;
-import be.kauffman.KFM.immatriculation.entity.ImmatriculationUpdatePayload;
 import be.kauffman.KFM.site.entity.Site;
 import be.kauffman.KFM.site.entity.SiteCreatePayload;
 import be.kauffman.KFM.site.entity.SiteUpdatePayload;
 import be.kauffman.KFM.site.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)

@@ -1,6 +1,6 @@
 package be.kauffman.KFM.utilisateur.entity;
 
-import be.kauffman.kfm.adresse.entity.Adresse;
+import be.kauffman.KFM.adresse.entity.Adresse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -46,9 +45,9 @@ public class Utilisateur {
     @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
     be.kauffman.KFM.site.entity.Site site;
 
-    @OneToOne()
-    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
-    Adresse adresseList;
+    //@OneToOne()
+    //@JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
+    //Adresse adresseList;
     // Pattern
 
     public static class UtilisateurBuilder {
@@ -64,13 +63,11 @@ public class Utilisateur {
         String telperso = "";
         String nationalite = "";
         String numirn = "";
-        String adresse = "";
-        String cp = "";
-        String ville = "";
+
         String permis = "";
         String rang = "";
         String statut = "";
-        UUID site_id;
+
         Date cree_le;
         String lieu_naissance = "";
         String actif = "";
@@ -136,21 +133,6 @@ public class Utilisateur {
             return this;
         }
 
-        public UtilisateurBuilder setadresse(String adresse) {
-            this.adresse = adresse;
-            return this;
-        }
-
-        public UtilisateurBuilder setcp(String cp) {
-            this.cp = cp;
-            return this;
-        }
-
-        public UtilisateurBuilder setville(String ville) {
-            this.ville = ville;
-            return this;
-        }
-
         public UtilisateurBuilder setpermis(String permis) {
             this.permis = permis;
             return this;
@@ -163,11 +145,6 @@ public class Utilisateur {
 
         public UtilisateurBuilder setstatut(String statut) {
             this.statut = statut;
-            return this;
-        }
-
-        public UtilisateurBuilder setSite_id(UUID site_id) {
-            this.site_id = site_id;
             return this;
         }
 
@@ -200,16 +177,14 @@ public class Utilisateur {
                     telperso,
                     nationalite,
                     numirn,
-                    adresse,
-                    cp,
-                    ville,
                     permis,
                     rang,
                     statut,
-                    site_id,
+
                     cree_le,
                     lieu_naissance,
-                    actif, site
+                    actif,
+                    site
             );
         }
     }
