@@ -5,6 +5,7 @@ import be.kauffman.KFM.rang.entity.Rang;
 import be.kauffman.KFM.role.entity.Role;
 import be.kauffman.KFM.site.entity.Site;
 import be.kauffman.KFM.statut.entity.Statut;
+import be.kauffman.KFM.uselectmedrdv.entity.Uselectmedrdv;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,25 +43,29 @@ public class Utilisateur {
     String lieu_naissance;
     String actif;
 
-    @ManyToOne()
-    @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
-    Site site;
+//    @ManyToOne()
+//    @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
+//    Site site;
+//
+//    @OneToOne()
+//    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
+//    Adresse adresseList;
+//
+//    @ManyToOne()
+//    @JoinColumn(name = "rang_id_fk", referencedColumnName = "rang_id")
+//    Rang rang;
+//
+//    @ManyToOne()
+//    @JoinColumn(name = "statut_id_fk", referencedColumnName = "statut_id")
+//    Statut statut;
+//
+//    @ManyToOne()
+//    @JoinColumn(name = "role_id_fk", referencedColumnName = "role_id")
+//    Role role;
 
-    @OneToOne()
-    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
-    Adresse adresseList;
-
-    @ManyToOne()
-    @JoinColumn(name = "rang_id_fk", referencedColumnName = "rang_id")
-    Rang rang;
-
-    @ManyToOne()
-    @JoinColumn(name = "statut_id_fk", referencedColumnName = "statut_id")
-    Statut statut;
-
-    @ManyToOne()
-    @JoinColumn(name = "role_id_fk", referencedColumnName = "role_id")
-    Role role;
+//    @OneToMany()
+//    @JoinColumn(name = "utilisateur_id_fk", referencedColumnName = "utilisateur_id")
+//    Uselectmedrdv uselectmedrdv;
 
     // Pattern
 
@@ -81,11 +86,11 @@ public class Utilisateur {
         Date cree_le;
         String lieu_naissance = "";
         String actif = "";
-        String site;
-        String adresseList;
-        String rang;
-        String statut;
-        String role;
+//        String site;
+//        String adresseList;
+//        String rang;
+//        String statut;
+//        String role;
 
         public UtilisateurBuilder setid(UUID id) {
             this.id = id;
@@ -167,30 +172,30 @@ public class Utilisateur {
             return this;
         }
 
-        public UtilisateurBuilder setSite(String site) {
-            this.site = site;
-            return this;
-        }
+//        public UtilisateurBuilder setSite(String site) {
+//            this.site = site;
+//            return this;
+//        }
 
-        public UtilisateurBuilder setAdresseList(String adresseList) {
-            this.adresseList = adresseList;
-            return this;
-        }
-
-        public UtilisateurBuilder setRang(String rang) {
-            this.rang = rang;
-            return this;
-        }
-
-        public UtilisateurBuilder setStatut(String statut) {
-            this.statut = statut;
-            return this;
-        }
-
-        public UtilisateurBuilder setRole(String role) {
-            this.role = role;
-            return this;
-        }
+//        public UtilisateurBuilder setAdresseList(String adresseList) {
+//            this.adresseList = adresseList;
+//            return this;
+//        }
+//
+//        public UtilisateurBuilder setRang(String rang) {
+//            this.rang = rang;
+//            return this;
+//        }
+//
+//        public UtilisateurBuilder setStatut(String statut) {
+//            this.statut = statut;
+//            return this;
+//        }
+//
+//        public UtilisateurBuilder setRole(String role) {
+//            this.role = role;
+//            return this;
+//        }
 
         public Utilisateur build() {
             return new Utilisateur(
@@ -209,12 +214,12 @@ public class Utilisateur {
                     permis,
                     cree_le,
                     lieu_naissance,
-                    actif,
-                    adresseList,
-                    rang,
-                    site,
-                    statut,
-                    role
+                    actif
+//                    adresseList,
+//                    rang,
+//                    site,
+//                    statut,
+//                    role
             );
         }
     }
