@@ -1,6 +1,6 @@
-package be.kauffman.KFM.utachygraphe.repository;
+package be.kauffman.kfm.utachygraphe.repository;
 
-import be.kauffman.KFM.utachygraphe.entity.Utachygraphe;
+import be.kauffman.kfm.utachygraphe.entity.Utachygraphe;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

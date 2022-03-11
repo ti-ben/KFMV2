@@ -1,4 +1,4 @@
-package be.kauffman.KFM.vehicule.entity;
+package be.kauffman.kfm.vehicule.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

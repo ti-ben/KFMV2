@@ -1,6 +1,6 @@
-package be.kauffman.KFM.vintervtech.repository;
+package be.kauffman.kfm.vintervtech.repository;
 
-import be.kauffman.KFM.vintervtech.entity.Vintervtech;
+import be.kauffman.kfm.vintervtech.entity.Vintervtech;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

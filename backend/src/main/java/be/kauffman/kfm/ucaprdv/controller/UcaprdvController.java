@@ -1,12 +1,12 @@
-package be.kauffman.KFM.ucaprdv.controller;
+package be.kauffman.kfm.ucaprdv.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.site.entity.Site;
-import be.kauffman.KFM.site.entity.SiteUpdatePayload;
-import be.kauffman.KFM.ucaprdv.entity.Ucaprdv;
-import be.kauffman.KFM.ucaprdv.entity.UcaprdvCreatePayload;
-import be.kauffman.KFM.ucaprdv.entity.UcaprdvUpdatePayload;
-import be.kauffman.KFM.ucaprdv.repository.UcaprdvRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.site.entity.Site;
+import be.kauffman.kfm.site.entity.SiteUpdatePayload;
+import be.kauffman.kfm.ucaprdv.entity.Ucaprdv;
+import be.kauffman.kfm.ucaprdv.entity.UcaprdvCreatePayload;
+import be.kauffman.kfm.ucaprdv.entity.UcaprdvUpdatePayload;
+import be.kauffman.kfm.ucaprdv.repository.UcaprdvRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

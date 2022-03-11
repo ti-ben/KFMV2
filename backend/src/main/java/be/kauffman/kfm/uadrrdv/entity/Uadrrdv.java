@@ -1,7 +1,7 @@
-package be.kauffman.KFM.uadrrdv.entity;
+package be.kauffman.kfm.uadrrdv.entity;
 
-import be.kauffman.KFM.uadrperiode.entity.Uadrperiode;
-import be.kauffman.KFM.utilisateur.entity.Utilisateur;
+import be.kauffman.kfm.uadrperiode.entity.Uadrperiode;
+import be.kauffman.kfm.utilisateur.entity.Utilisateur;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

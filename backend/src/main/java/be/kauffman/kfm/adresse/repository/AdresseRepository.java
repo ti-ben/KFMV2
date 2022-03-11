@@ -1,6 +1,6 @@
-package be.kauffman.KFM.adresse.repository;
+package be.kauffman.kfm.adresse.repository;
 
-import be.kauffman.KFM.adresse.entity.Adresse;
+import be.kauffman.kfm.adresse.entity.Adresse;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

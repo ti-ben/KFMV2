@@ -1,4 +1,4 @@
-package be.kauffman.KFM.vmetrologie.entity;
+package be.kauffman.kfm.vmetrologie.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

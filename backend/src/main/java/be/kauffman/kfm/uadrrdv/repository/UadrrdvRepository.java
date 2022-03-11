@@ -1,6 +1,6 @@
-package be.kauffman.KFM.uadrrdv.repository;
+package be.kauffman.kfm.uadrrdv.repository;
 
-import be.kauffman.KFM.uadrrdv.entity.Uadrrdv;
+import be.kauffman.kfm.uadrrdv.entity.Uadrrdv;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

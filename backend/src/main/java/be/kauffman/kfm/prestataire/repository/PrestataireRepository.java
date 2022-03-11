@@ -1,6 +1,6 @@
-package be.kauffman.KFM.prestataire.repository;
+package be.kauffman.kfm.prestataire.repository;
 
-import be.kauffman.KFM.prestataire.entity.Prestataire;
+import be.kauffman.kfm.prestataire.entity.Prestataire;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

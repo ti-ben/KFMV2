@@ -1,10 +1,10 @@
-package be.kauffman.KFM.immatriculation.controller;
+package be.kauffman.kfm.immatriculation.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.immatriculation.entity.Immatriculation;
-import be.kauffman.KFM.immatriculation.entity.ImmatriculationCreatePayload;
-import be.kauffman.KFM.immatriculation.entity.ImmatriculationUpdatePayload;
-import be.kauffman.KFM.immatriculation.repository.ImmatriculationRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.immatriculation.entity.Immatriculation;
+import be.kauffman.kfm.immatriculation.entity.ImmatriculationCreatePayload;
+import be.kauffman.kfm.immatriculation.entity.ImmatriculationUpdatePayload;
+import be.kauffman.kfm.immatriculation.repository.ImmatriculationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

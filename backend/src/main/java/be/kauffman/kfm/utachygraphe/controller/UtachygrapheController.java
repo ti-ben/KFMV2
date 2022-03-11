@@ -1,10 +1,10 @@
-package be.kauffman.KFM.utachygraphe.controller;
+package be.kauffman.kfm.utachygraphe.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.utachygraphe.entity.Utachygraphe;
-import be.kauffman.KFM.utachygraphe.entity.UtachygrapheCreatePayload;
-import be.kauffman.KFM.utachygraphe.entity.UtachygrapheUpdatePayload;
-import be.kauffman.KFM.utachygraphe.repository.UtachygrapheRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.utachygraphe.entity.Utachygraphe;
+import be.kauffman.kfm.utachygraphe.entity.UtachygrapheCreatePayload;
+import be.kauffman.kfm.utachygraphe.entity.UtachygrapheUpdatePayload;
+import be.kauffman.kfm.utachygraphe.repository.UtachygrapheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

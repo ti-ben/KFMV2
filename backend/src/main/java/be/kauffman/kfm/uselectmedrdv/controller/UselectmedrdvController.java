@@ -1,10 +1,10 @@
-package be.kauffman.KFM.uselectmedrdv.controller;
+package be.kauffman.kfm.uselectmedrdv.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.uselectmedrdv.entity.Uselectmedrdv;
-import be.kauffman.KFM.uselectmedrdv.entity.UselectmedrdvCreatePayload;
-import be.kauffman.KFM.uselectmedrdv.entity.UselectmedrdvUpdatePayload;
-import be.kauffman.KFM.uselectmedrdv.repository.UselectmedrdvRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.uselectmedrdv.entity.Uselectmedrdv;
+import be.kauffman.kfm.uselectmedrdv.entity.UselectmedrdvCreatePayload;
+import be.kauffman.kfm.uselectmedrdv.entity.UselectmedrdvUpdatePayload;
+import be.kauffman.kfm.uselectmedrdv.repository.UselectmedrdvRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

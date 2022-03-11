@@ -1,4 +1,4 @@
-package be.kauffman.KFM.role.entity;
+package be.kauffman.kfm.role.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,12 +1,12 @@
-package be.kauffman.KFM.role.controller;
+package be.kauffman.kfm.role.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.immatriculation.entity.Immatriculation;
-import be.kauffman.KFM.immatriculation.entity.ImmatriculationUpdatePayload;
-import be.kauffman.KFM.role.entity.Role;
-import be.kauffman.KFM.role.entity.RoleCreatePayload;
-import be.kauffman.KFM.role.entity.RoleUpdatePayload;
-import be.kauffman.KFM.role.repository.RoleRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.immatriculation.entity.Immatriculation;
+import be.kauffman.kfm.immatriculation.entity.ImmatriculationUpdatePayload;
+import be.kauffman.kfm.role.entity.Role;
+import be.kauffman.kfm.role.entity.RoleCreatePayload;
+import be.kauffman.kfm.role.entity.RoleUpdatePayload;
+import be.kauffman.kfm.role.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

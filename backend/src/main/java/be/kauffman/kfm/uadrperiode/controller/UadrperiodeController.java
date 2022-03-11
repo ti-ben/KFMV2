@@ -1,13 +1,13 @@
-package be.kauffman.KFM.uadrperiode.controller;
+package be.kauffman.kfm.uadrperiode.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.site.entity.Site;
-import be.kauffman.KFM.site.entity.SiteCreatePayload;
-import be.kauffman.KFM.site.entity.SiteUpdatePayload;
-import be.kauffman.KFM.uadrperiode.entity.Uadrperiode;
-import be.kauffman.KFM.uadrperiode.entity.UadrperiodeCreatePayload;
-import be.kauffman.KFM.uadrperiode.entity.UadrperiodeUpdatePayload;
-import be.kauffman.KFM.uadrperiode.repository.UadrperiodeRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.site.entity.Site;
+import be.kauffman.kfm.site.entity.SiteCreatePayload;
+import be.kauffman.kfm.site.entity.SiteUpdatePayload;
+import be.kauffman.kfm.uadrperiode.entity.Uadrperiode;
+import be.kauffman.kfm.uadrperiode.entity.UadrperiodeCreatePayload;
+import be.kauffman.kfm.uadrperiode.entity.UadrperiodeUpdatePayload;
+import be.kauffman.kfm.uadrperiode.repository.UadrperiodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

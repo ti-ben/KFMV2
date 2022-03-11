@@ -1,10 +1,10 @@
-package be.kauffman.KFM.statut.controller;
+package be.kauffman.kfm.statut.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.statut.entity.Statut;
-import be.kauffman.KFM.statut.entity.StatutCreatePayload;
-import be.kauffman.KFM.statut.entity.StatutUpdatePayload;
-import be.kauffman.KFM.statut.repository.StatutRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.statut.entity.Statut;
+import be.kauffman.kfm.statut.entity.StatutCreatePayload;
+import be.kauffman.kfm.statut.entity.StatutUpdatePayload;
+import be.kauffman.kfm.statut.repository.StatutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

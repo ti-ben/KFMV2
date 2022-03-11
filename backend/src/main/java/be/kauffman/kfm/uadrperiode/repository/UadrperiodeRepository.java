@@ -1,6 +1,6 @@
-package be.kauffman.KFM.uadrperiode.repository;
+package be.kauffman.kfm.uadrperiode.repository;
 
-import be.kauffman.KFM.uadrperiode.entity.Uadrperiode;
+import be.kauffman.kfm.uadrperiode.entity.Uadrperiode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package be.kauffman.KFM.ucapperiode.entity;
+package be.kauffman.kfm.ucapperiode.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

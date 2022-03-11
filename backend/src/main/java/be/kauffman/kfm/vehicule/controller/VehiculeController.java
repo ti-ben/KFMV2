@@ -1,10 +1,10 @@
-package be.kauffman.KFM.vehicule.controller;
+package be.kauffman.kfm.vehicule.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.vehicule.entity.Vehicule;
-import be.kauffman.KFM.vehicule.entity.VehiculeCreatePayload;
-import be.kauffman.KFM.vehicule.entity.VehiculeUpdatePayload;
-import be.kauffman.KFM.vehicule.repository.VehiculeRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.vehicule.entity.Vehicule;
+import be.kauffman.kfm.vehicule.entity.VehiculeCreatePayload;
+import be.kauffman.kfm.vehicule.entity.VehiculeUpdatePayload;
+import be.kauffman.kfm.vehicule.repository.VehiculeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

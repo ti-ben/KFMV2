@@ -1,4 +1,4 @@
-package be.kauffman.KFM.utilisateur.entity;
+package be.kauffman.kfm.utilisateur.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

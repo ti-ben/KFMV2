@@ -1,6 +1,6 @@
-package be.kauffman.KFM.utilisateur.repository;
+package be.kauffman.kfm.utilisateur.repository;
 
-import be.kauffman.KFM.utilisateur.entity.Utilisateur;
+import be.kauffman.kfm.utilisateur.entity.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

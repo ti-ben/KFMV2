@@ -1,4 +1,4 @@
-package be.kauffman.KFM.ucaprdv.entity;
+package be.kauffman.kfm.ucaprdv.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

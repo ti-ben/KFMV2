@@ -1,13 +1,13 @@
-package be.kauffman.KFM.ucapperiode.controller;
+package be.kauffman.kfm.ucapperiode.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.site.entity.Site;
-import be.kauffman.KFM.site.entity.SiteCreatePayload;
-import be.kauffman.KFM.site.entity.SiteUpdatePayload;
-import be.kauffman.KFM.ucapperiode.entity.Ucapperiode;
-import be.kauffman.KFM.ucapperiode.entity.UcapperiodeCreatePayload;
-import be.kauffman.KFM.ucapperiode.entity.UcapperiodeUpdatePayload;
-import be.kauffman.KFM.ucapperiode.repository.UcapperiodeRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.site.entity.Site;
+import be.kauffman.kfm.site.entity.SiteCreatePayload;
+import be.kauffman.kfm.site.entity.SiteUpdatePayload;
+import be.kauffman.kfm.ucapperiode.entity.Ucapperiode;
+import be.kauffman.kfm.ucapperiode.entity.UcapperiodeCreatePayload;
+import be.kauffman.kfm.ucapperiode.entity.UcapperiodeUpdatePayload;
+import be.kauffman.kfm.ucapperiode.repository.UcapperiodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

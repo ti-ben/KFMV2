@@ -1,6 +1,6 @@
-package be.kauffman.KFM.ucapperiode.entity;
+package be.kauffman.kfm.ucapperiode.entity;
 
-import be.kauffman.KFM.utilisateur.entity.Utilisateur;
+import be.kauffman.kfm.utilisateur.entity.Utilisateur;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

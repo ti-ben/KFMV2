@@ -1,4 +1,4 @@
-package be.kauffman.KFM.rang.entity;
+package be.kauffman.kfm.rang.entity;
 
 public class RangUpdatePayload {
 }

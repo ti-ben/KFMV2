@@ -1,6 +1,6 @@
-package be.kauffman.KFM.statut.repository;
+package be.kauffman.kfm.statut.repository;
 
-import be.kauffman.KFM.statut.entity.Statut;
+import be.kauffman.kfm.statut.entity.Statut;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

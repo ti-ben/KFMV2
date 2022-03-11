@@ -1,4 +1,4 @@
-package be.kauffman.KFM.vctrltech.entity;
+package be.kauffman.kfm.vctrltech.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

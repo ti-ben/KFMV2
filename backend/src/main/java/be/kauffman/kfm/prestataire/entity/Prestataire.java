@@ -1,4 +1,4 @@
-package be.kauffman.KFM.prestataire.entity;
+package be.kauffman.kfm.prestataire.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

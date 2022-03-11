@@ -1,13 +1,13 @@
-package be.kauffman.KFM.vctrltech.controller;
+package be.kauffman.kfm.vctrltech.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.site.entity.Site;
-import be.kauffman.KFM.site.entity.SiteCreatePayload;
-import be.kauffman.KFM.site.entity.SiteUpdatePayload;
-import be.kauffman.KFM.vctrltech.entity.Vctrltech;
-import be.kauffman.KFM.vctrltech.entity.VctrltechCreatePayload;
-import be.kauffman.KFM.vctrltech.entity.VctrltechUpdatePayload;
-import be.kauffman.KFM.vctrltech.repository.VctrltechRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.site.entity.Site;
+import be.kauffman.kfm.site.entity.SiteCreatePayload;
+import be.kauffman.kfm.site.entity.SiteUpdatePayload;
+import be.kauffman.kfm.vctrltech.entity.Vctrltech;
+import be.kauffman.kfm.vctrltech.entity.VctrltechCreatePayload;
+import be.kauffman.kfm.vctrltech.entity.VctrltechUpdatePayload;
+import be.kauffman.kfm.vctrltech.repository.VctrltechRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package be.kauffman.KFM.uselectmedrdv.entity;
+package be.kauffman.kfm.uselectmedrdv.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

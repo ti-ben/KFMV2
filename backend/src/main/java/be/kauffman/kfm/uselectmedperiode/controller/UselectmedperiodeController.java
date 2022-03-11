@@ -1,10 +1,10 @@
-package be.kauffman.KFM.uselectmedperiode.controller;
+package be.kauffman.kfm.uselectmedperiode.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.uselectmedperiode.entity.Uselectmedperiode;
-import be.kauffman.KFM.uselectmedperiode.entity.UselectmedperiodeCreatePayload;
-import be.kauffman.KFM.uselectmedperiode.entity.UselectmedperiodeUpdatePayload;
-import be.kauffman.KFM.uselectmedperiode.repository.UselectmedperiodeRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.uselectmedperiode.entity.Uselectmedperiode;
+import be.kauffman.kfm.uselectmedperiode.entity.UselectmedperiodeCreatePayload;
+import be.kauffman.kfm.uselectmedperiode.entity.UselectmedperiodeUpdatePayload;
+import be.kauffman.kfm.uselectmedperiode.repository.UselectmedperiodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

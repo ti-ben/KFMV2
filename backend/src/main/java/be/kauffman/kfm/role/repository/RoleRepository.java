@@ -1,6 +1,6 @@
-package be.kauffman.KFM.role.repository;
+package be.kauffman.kfm.role.repository;
 
-import be.kauffman.KFM.role.entity.Role;
+import be.kauffman.kfm.role.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 

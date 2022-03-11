@@ -1,4 +1,4 @@
-package be.kauffman.KFM.utachygraphe.entity;
+package be.kauffman.kfm.utachygraphe.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

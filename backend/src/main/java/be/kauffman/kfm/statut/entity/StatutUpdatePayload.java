@@ -1,4 +1,4 @@
-package be.kauffman.KFM.statut.entity;
+package be.kauffman.kfm.statut.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

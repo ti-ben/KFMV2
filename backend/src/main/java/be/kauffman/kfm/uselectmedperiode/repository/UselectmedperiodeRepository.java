@@ -1,6 +1,6 @@
-package be.kauffman.KFM.uselectmedperiode.repository;
+package be.kauffman.kfm.uselectmedperiode.repository;
 
-import be.kauffman.KFM.uselectmedperiode.entity.Uselectmedperiode;
+import be.kauffman.kfm.uselectmedperiode.entity.Uselectmedperiode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

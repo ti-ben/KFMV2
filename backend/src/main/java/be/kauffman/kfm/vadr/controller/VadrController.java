@@ -1,10 +1,10 @@
-package be.kauffman.KFM.vadr.controller;
+package be.kauffman.kfm.vadr.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.vadr.entity.Vadr;
-import be.kauffman.KFM.vadr.entity.VadrCreatePayload;
-import be.kauffman.KFM.vadr.entity.VadrUpdatePayload;
-import be.kauffman.KFM.vadr.repository.VadrRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.vadr.entity.Vadr;
+import be.kauffman.kfm.vadr.entity.VadrCreatePayload;
+import be.kauffman.kfm.vadr.entity.VadrUpdatePayload;
+import be.kauffman.kfm.vadr.repository.VadrRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.UUID;

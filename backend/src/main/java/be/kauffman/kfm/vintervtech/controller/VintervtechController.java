@@ -1,10 +1,10 @@
-package be.kauffman.KFM.vintervtech.controller;
+package be.kauffman.kfm.vintervtech.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.vintervtech.entity.Vintervtech;
-import be.kauffman.KFM.vintervtech.entity.VintervtechCreatePayload;
-import be.kauffman.KFM.vintervtech.entity.VintervtechUpdatePayload;
-import be.kauffman.KFM.vintervtech.repository.VintervtechRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.vintervtech.entity.Vintervtech;
+import be.kauffman.kfm.vintervtech.entity.VintervtechCreatePayload;
+import be.kauffman.kfm.vintervtech.entity.VintervtechUpdatePayload;
+import be.kauffman.kfm.vintervtech.repository.VintervtechRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

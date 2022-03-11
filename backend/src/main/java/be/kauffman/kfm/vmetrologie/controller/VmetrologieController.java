@@ -1,13 +1,13 @@
-package be.kauffman.KFM.vmetrologie.controller;
+package be.kauffman.kfm.vmetrologie.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.site.entity.Site;
-import be.kauffman.KFM.site.entity.SiteCreatePayload;
-import be.kauffman.KFM.site.entity.SiteUpdatePayload;
-import be.kauffman.KFM.vmetrologie.entity.Vmetrologie;
-import be.kauffman.KFM.vmetrologie.entity.VmetrologieCreatePayload;
-import be.kauffman.KFM.vmetrologie.entity.VmetrologieUpdatePayload;
-import be.kauffman.KFM.vmetrologie.repository.VmetrologieRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.site.entity.Site;
+import be.kauffman.kfm.site.entity.SiteCreatePayload;
+import be.kauffman.kfm.site.entity.SiteUpdatePayload;
+import be.kauffman.kfm.vmetrologie.entity.Vmetrologie;
+import be.kauffman.kfm.vmetrologie.entity.VmetrologieCreatePayload;
+import be.kauffman.kfm.vmetrologie.entity.VmetrologieUpdatePayload;
+import be.kauffman.kfm.vmetrologie.repository.VmetrologieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

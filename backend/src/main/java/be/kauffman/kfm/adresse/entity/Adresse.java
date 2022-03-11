@@ -1,4 +1,4 @@
-package be.kauffman.KFM.adresse.entity;
+package be.kauffman.kfm.adresse.entity;
 
         import lombok.AllArgsConstructor;
         import lombok.Data;

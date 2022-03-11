@@ -1,10 +1,10 @@
-package be.kauffman.KFM.utilisateur.controller;
+package be.kauffman.kfm.utilisateur.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.utilisateur.entity.Utilisateur;
-import be.kauffman.KFM.utilisateur.entity.UtilisateurCreatePayload;
-import be.kauffman.KFM.utilisateur.entity.UtilisateurUpdatePayload;
-import be.kauffman.KFM.utilisateur.repository.UtilisateurRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.utilisateur.entity.Utilisateur;
+import be.kauffman.kfm.utilisateur.entity.UtilisateurCreatePayload;
+import be.kauffman.kfm.utilisateur.entity.UtilisateurUpdatePayload;
+import be.kauffman.kfm.utilisateur.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package be.kauffman.KFM.uselectmedperiode.entity;
+package be.kauffman.kfm.uselectmedperiode.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

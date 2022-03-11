@@ -1,10 +1,10 @@
-package be.kauffman.KFM.prestataire.controller;
+package be.kauffman.kfm.prestataire.controller;
 
-import be.kauffman.KFM.common.entity.ApiResponse;
-import be.kauffman.KFM.prestataire.entity.Prestataire;
-import be.kauffman.KFM.prestataire.entity.PrestataireCreatePayload;
-import be.kauffman.KFM.prestataire.entity.PrestataireUpdatePayload;
-import be.kauffman.KFM.prestataire.repository.PrestataireRepository;
+import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.prestataire.entity.Prestataire;
+import be.kauffman.kfm.prestataire.entity.PrestataireCreatePayload;
+import be.kauffman.kfm.prestataire.entity.PrestataireUpdatePayload;
+import be.kauffman.kfm.prestataire.repository.PrestataireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

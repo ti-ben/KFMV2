@@ -1,12 +1,6 @@
-package be.kauffman.KFM.utilisateur.entity;
+package be.kauffman.kfm.utilisateur.entity;
 
-import be.kauffman.KFM.adresse.entity.Adresse;
-import be.kauffman.KFM.rang.entity.Rang;
-import be.kauffman.KFM.role.entity.Role;
-import be.kauffman.KFM.site.entity.Site;
-import be.kauffman.KFM.statut.entity.Statut;
-import be.kauffman.KFM.uselectmedrdv.entity.Uselectmedrdv;
-
+import be.kauffman.kfm.site.entity.Site;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,9 +37,9 @@ public class Utilisateur {
     String lieu_naissance;
     String actif;
 
-//    @ManyToOne()
-//    @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
-//    Site site;
+    @ManyToOne()
+    @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
+    Site site;
 //
 //    @OneToOne()
 //    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
@@ -86,7 +80,7 @@ public class Utilisateur {
         Date cree_le;
         String lieu_naissance = "";
         String actif = "";
-//        String site;
+        Site site;
 //        String adresseList;
 //        String rang;
 //        String statut;
@@ -172,10 +166,10 @@ public class Utilisateur {
             return this;
         }
 
-//        public UtilisateurBuilder setSite(String site) {
-//            this.site = site;
-//            return this;
-//        }
+        public UtilisateurBuilder setSite(Site site) {
+            this.site = site;
+            return this;
+        }
 
 //        public UtilisateurBuilder setAdresseList(String adresseList) {
 //            this.adresseList = adresseList;
@@ -214,10 +208,10 @@ public class Utilisateur {
                     permis,
                     cree_le,
                     lieu_naissance,
-                    actif
+                    actif,
 //                    adresseList,
 //                    rang,
-//                    site,
+                    site
 //                    statut,
 //                    role
             );

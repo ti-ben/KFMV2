@@ -1,6 +1,6 @@
-package be.kauffman.KFM.vctrltech.repository;
+package be.kauffman.kfm.vctrltech.repository;
 
-import be.kauffman.KFM.vctrltech.entity.Vctrltech;
+import be.kauffman.kfm.vctrltech.entity.Vctrltech;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

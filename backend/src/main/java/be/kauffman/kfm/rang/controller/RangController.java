@@ -1,4 +1,4 @@
-package be.kauffman.KFM.rang.controller;
+package be.kauffman.kfm.rang.controller;
 
 public class RangController {
 }
