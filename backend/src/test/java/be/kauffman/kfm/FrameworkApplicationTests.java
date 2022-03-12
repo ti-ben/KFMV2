@@ -1,4 +1,4 @@
-package be.kauffman.kfm;
+package be.kauffman.KFM;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

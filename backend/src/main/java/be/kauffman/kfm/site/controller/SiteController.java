@@ -1,9 +1,10 @@
 package be.kauffman.kfm.site.controller;
 
+import be.kauffman.KFM.site.entity.builder.SiteBuilder;
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.kfm.site.entity.Site;
-import be.kauffman.kfm.site.entity.SiteCreatePayload;
-import be.kauffman.kfm.site.entity.SiteUpdatePayload;
+import be.kauffman.KFM.site.entity.dto.Site;
+import be.kauffman.KFM.site.entity.payload.SiteCreatePayload;
+import be.kauffman.KFM.site.entity.payload.SiteUpdatePayload;
 import be.kauffman.kfm.site.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,11 @@ public class SiteController {
     // Create new record
     @PostMapping("/create")
     public ApiResponse create(@RequestBody SiteCreatePayload payload){
-        Site newSite = new Site.SiteBuilder()
-                .setSite_nom(payload.getSite_nom())
-                .setSite_adresse(payload.getSite_adresse())
-                .setSite_description(payload.getSite_description())
+        Site site = new SiteBuilder()
+                .setName(payload.getName())
+                .setDescription(payload.getDescription())
                 .build();
-        return new ApiResponse(true,siteRepository.save(newSite), null);
+        return new ApiResponse(true,siteRepository.save(site), null);
     }
 
     // Read all records
@@ -51,9 +51,8 @@ public class SiteController {
         if(fromDb == null){
             return new ApiResponse(false, null, "api.site.update.not-found");
         }
-        fromDb.setSite_nom(payload.getSite_nom());
-        fromDb.setSite_adresse(payload.getSite_adresse());
-        fromDb.setSite_description(payload.getSite_description());
+        fromDb.setName(payload.getName());
+        fromDb.setDescription(payload.getDescription());
         return new ApiResponse(true, siteRepository.save(fromDb), null);
     }
 

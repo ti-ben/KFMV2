@@ -1,9 +1,6 @@
 package be.kauffman.kfm.vctrltech.controller;
 
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.kfm.site.entity.Site;
-import be.kauffman.kfm.site.entity.SiteCreatePayload;
-import be.kauffman.kfm.site.entity.SiteUpdatePayload;
 import be.kauffman.kfm.vctrltech.entity.Vctrltech;
 import be.kauffman.kfm.vctrltech.entity.VctrltechCreatePayload;
 import be.kauffman.kfm.vctrltech.entity.VctrltechUpdatePayload;

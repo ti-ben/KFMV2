@@ -1,10 +1,11 @@
-package be.kauffman.kfm.prestataire.controller;
+package be.kauffman.KFM.prestataire.controller;
 
+import be.kauffman.KFM.prestataire.entity.builder.PrestataireBuilder;
+import be.kauffman.KFM.prestataire.repository.PrestataireRepository;
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.kfm.prestataire.entity.Prestataire;
-import be.kauffman.kfm.prestataire.entity.PrestataireCreatePayload;
-import be.kauffman.kfm.prestataire.entity.PrestataireUpdatePayload;
-import be.kauffman.kfm.prestataire.repository.PrestataireRepository;
+import be.kauffman.KFM.prestataire.entity.dto.Prestataire;
+import be.kauffman.KFM.prestataire.entity.payload.PrestataireCreatePayload;
+import be.kauffman.KFM.prestataire.entity.payload.PrestataireUpdatePayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,14 +23,13 @@ public class PrestataireController {
     // Create record
     @PostMapping("/create")
     public ApiResponse create(@RequestBody PrestataireCreatePayload payload){
-        Prestataire newPrestataire = new Prestataire.PrestataireBuilder()
-                .setPrestataire_name(payload.getPrestataire_name())
-                .setPrestataire_adresse(payload.getPrestataire_adresse())
-                .setPrestataire_email(payload.getPrestataire_email())
-                .setPrestataire_tel(payload.getPrestataire_tel())
-                .setPrestataire_role(payload.getPrestataire_role())
+        Prestataire prestataire = new PrestataireBuilder()
+                .setName(payload.getName())
+                .setEmail(payload.getEmail())
+                .setTel(payload.getTel())
+                .setService(payload.getRole())
                 .build();
-        return new ApiResponse(true, prestataireRepository.save(newPrestataire), null);
+        return new ApiResponse(true, prestataireRepository.save(prestataire), null);
     }
 
     // Read all records
@@ -55,7 +55,10 @@ public class PrestataireController {
         if(fromDb == null){
             return new ApiResponse(false, null, "api.prestataire.update.not-found");
         }
-        fromDb.setPrestataire_name(payload.getPrestataire_name());
+        fromDb.setName(payload.getName());
+        fromDb.setEmail(payload.getEmail());
+        fromDb.setTel(payload.getTel());
+        fromDb.setService(payload.getService());
         return new ApiResponse(true, prestataireRepository.save(fromDb), null);
     }
 

@@ -1,5 +1,6 @@
 package be.kauffman.kfm.appointment.entity.builder;
-
+import be.kauffman.KFM.period.entity.dto.Period;
+import be.kauffman.KFM.user.entity.dto.User;
 import be.kauffman.kfm.appointment.entity.dto.Appointment;
 
 import java.util.Date;
@@ -13,6 +14,9 @@ public class AppointmentBuilder {
     String theme;
     String comment;
     String type;
+    String category;
+    Period period;
+    User user;
 
     public AppointmentBuilder setAppointment_id(UUID appointment_id) {
         this.appointment_id = appointment_id;
@@ -48,9 +52,23 @@ public class AppointmentBuilder {
         this.type = type;
         return this;
     }
+    public AppointmentBuilder setCategory(String category) {
+        this.category = category;
+        return this;
+    }
+
+    public AppointmentBuilder setPeriod(Period period) {
+        this.period = period;
+        return this;
+    }
+
+    public AppointmentBuilder setUser(User user) {
+        this.user = user;
+        return this;
+    }
 
     public Appointment build() {
-        return new Appointment(appointment_id, start_date, end_date, price, theme, comment, type);
+        return new Appointment(appointment_id, start_date, end_date, price, theme, comment, type, category, period, user);
     }
 
 }
