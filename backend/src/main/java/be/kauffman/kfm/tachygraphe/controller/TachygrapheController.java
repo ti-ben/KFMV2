@@ -1,4 +1,4 @@
-package be.kauffman.kfm.utachygraphe.controller;
+package be.kauffman.KFM.tachygraphe.controller;
 
 import be.kauffman.KFM.tachygraphe.entity.builder.TachygrapheBuilder;
 import be.kauffman.KFM.tachygraphe.entity.dto.Tachygraphe;
@@ -23,8 +23,8 @@ public class TachygrapheController {
     @PostMapping("/create")
     public ApiResponse create(@RequestBody TachygrapheCreatePayload payload){
         Tachygraphe tachygraphe = new TachygrapheBuilder()
-                .setDte_start(payload.getDte_start())
-                .setDte_end(payload.getDte_end())
+                .setStart_date(payload.getStart_date())
+                .setEnd_date(payload.getEnd_date())
                 .setNum_carte(payload.getNum_carte())
                 .setComment(payload.getComment())
                 .build();
@@ -54,8 +54,8 @@ public class TachygrapheController {
         if(fromDb == null){
             return new ApiResponse(false, null, "api.site.update.not-found");
         }
-        fromDb.setDte_start(payload.getDte_start());
-        fromDb.setDte_end(payload.getDte_end());
+        fromDb.setStart_date(payload.getStart_date());
+        fromDb.setEnd_date(payload.getEnd_date());
         fromDb.setNum_carte(payload.getNum_carte());
         fromDb.setComment(payload.getComment());
         return new ApiResponse(true, tachygrapheRepository.save(fromDb), null);

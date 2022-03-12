@@ -8,8 +8,8 @@ import java.util.UUID;
 
 public class TachygrapheBuilder{
     UUID tachygraphe_id;
-    Date dte_start;
-    Date dte_end;
+    Date start_date;
+    Date end_date;
     String num_carte;
     String comment;
     User user;
@@ -19,13 +19,13 @@ public class TachygrapheBuilder{
         return this;
     }
 
-    public TachygrapheBuilder setDte_start(Date dte_start) {
-        this.dte_start = dte_start;
+    public TachygrapheBuilder setStart_date(Date start_date) {
+        this.start_date = start_date;
         return this;
     }
 
-    public TachygrapheBuilder setDte_end(Date dte_end) {
-        this.dte_end = dte_end;
+    public TachygrapheBuilder setEnd_date(Date end_date) {
+        this.end_date = end_date;
         return this;
     }
 
@@ -44,5 +44,5 @@ public class TachygrapheBuilder{
         return this;
     }
 
-    public Tachygraphe build() { return new Tachygraphe(tachygraphe_id, dte_start, dte_end, num_carte, comment, user); }
+    public Tachygraphe build() { return new Tachygraphe(tachygraphe_id, start_date, end_date, num_carte, comment, user); }
 }

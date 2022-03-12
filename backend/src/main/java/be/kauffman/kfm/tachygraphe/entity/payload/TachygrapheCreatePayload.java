@@ -10,8 +10,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TachygrapheCreatePayload {
-    Date dte_start;
-    Date dte_end;
+    Date start_date;
+    Date end_date;
     String num_carte;
     String comment;
 }

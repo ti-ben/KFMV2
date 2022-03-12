@@ -13,8 +13,8 @@ import java.util.UUID;
 
 public class TachygrapheUpdatePayload {
     UUID utachygraphe_id;
-    Date dte_start;
-    Date dte_end;
+    Date start_date;
+    Date end_date;
     String num_carte;
     String comment;
 }

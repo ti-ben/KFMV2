@@ -20,9 +20,9 @@ public class Tachygraphe {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
-    private UUID utachygraphe_id;
-    Date dte_start;
-    Date dte_end;
+    private UUID tachygraphe_id;
+    Date start_date;
+    Date end_date;
     String num_carte;
     String comment;
 
