@@ -1,7 +1,7 @@
 package be.kauffman.kfm.utilisateur.entity;
 
 import be.kauffman.kfm.site.entity.Site;
-import be.kauffman.kfm.adresse.entity.Adresse;
+import be.kauffman.kfm.address.entity.Adresse;
 import be.kauffman.kfm.rang.entity.Rang;
 import be.kauffman.kfm.statut.entity.Statut;
 

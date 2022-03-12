@@ -1,13 +1,10 @@
-package be.kauffman.kfm.adresse.controller;
+package be.kauffman.kfm.address.controller;
 
-import be.kauffman.kfm.adresse.entity.Adresse;
-import be.kauffman.kfm.adresse.entity.AdresseCreatePayload;
-import be.kauffman.kfm.adresse.entity.AdresseUpdatePayload;
-import be.kauffman.kfm.adresse.repository.AdresseRepository;
+import be.kauffman.kfm.address.entity.Adresse;
+import be.kauffman.kfm.address.entity.AdresseCreatePayload;
+import be.kauffman.kfm.address.entity.AdresseUpdatePayload;
+import be.kauffman.kfm.address.repository.AdresseRepository;
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.kfm.site.entity.Site;
-import be.kauffman.kfm.site.entity.SiteCreatePayload;
-import be.kauffman.kfm.site.entity.SiteUpdatePayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
