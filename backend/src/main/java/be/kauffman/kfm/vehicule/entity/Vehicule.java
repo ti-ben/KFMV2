@@ -1,14 +1,12 @@
 package be.kauffman.kfm.vehicule.entity;
 
+import be.kauffman.kfm.immatriculation.entity.Immatriculation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
@@ -41,6 +39,10 @@ public class Vehicule {
     String fuel;
     String type;
 
+    @OneToOne()
+    @JoinColumn(name = "immatriculation_id_fk", referencedColumnName = "immatriculation_id")
+    Immatriculation immatriculation;
+
     // Pattern
 
     public static class VehiculeBuilder{
@@ -62,6 +64,7 @@ public class Vehicule {
         String picture;
         String fuel;
         String type;
+        Immatriculation immatriculation;
 
         public VehiculeBuilder setVehicule_id(UUID vehicule_id) {
             this.vehicule_id = vehicule_id;
@@ -153,6 +156,11 @@ public class Vehicule {
             return this;
         }
 
-        public Vehicule build() { return new Vehicule(vehicule_id, dop, active,price, num_chassis, brand, cde_carrosserie,genre, mom, mma, mmat,mta, classe_enviro, nbr_km, metrologie, picture, fuel, type); }
+        public VehiculeBuilder setImmatriculation(Immatriculation immatriculation) {
+            this.immatriculation = immatriculation;
+            return this;
+        }
+
+        public Vehicule build() { return new Vehicule(vehicule_id, dop, active,price, num_chassis, brand, cde_carrosserie,genre, mom, mma, mmat,mta, classe_enviro, nbr_km, metrologie, picture, fuel, type, immatriculation); }
     }
 }

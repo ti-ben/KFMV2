@@ -42,7 +42,7 @@ public class TachygrapheController {
     public ApiResponse detail(@PathVariable("id") UUID id){
         Tachygraphe fromDb = tachygrapheRepository.findById(id).orElse(null);
         if(fromDb == null){
-            return new ApiResponse(false, null, "api.utachygraphe.detail.not-found");
+            return new ApiResponse(false, null, "api.tachygraphe.detail.not-found");
         }
         return new ApiResponse(true,fromDb, null);
     }
@@ -52,7 +52,7 @@ public class TachygrapheController {
     public ApiResponse update(@RequestBody TachygrapheUpdatePayload payload) {
         Tachygraphe fromDb = tachygrapheRepository.findById(payload.getUtachygraphe_id()).orElse(null);
         if(fromDb == null){
-            return new ApiResponse(false, null, "api.site.update.not-found");
+            return new ApiResponse(false, null, "api.tachygraphe.update.not-found");
         }
         fromDb.setStart_date(payload.getStart_date());
         fromDb.setEnd_date(payload.getEnd_date());
