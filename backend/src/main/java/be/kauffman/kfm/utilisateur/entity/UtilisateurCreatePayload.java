@@ -28,7 +28,6 @@ public class UtilisateurCreatePayload {
     String utilisateur_permis;
     String utilisateur_rang;
     String utilisateur_statut;
-    UUID site_id;
     Date utilisateur_cree_le;
     String utilisateur_lieu_naissance;
     String utilisateur_actif;

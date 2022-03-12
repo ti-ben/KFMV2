@@ -1,6 +1,10 @@
 package be.kauffman.kfm.utilisateur.entity;
 
 import be.kauffman.kfm.site.entity.Site;
+import be.kauffman.kfm.adresse.entity.Adresse;
+import be.kauffman.kfm.rang.entity.Rang;
+import be.kauffman.kfm.statut.entity.Statut;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +21,9 @@ import java.util.UUID;
 
 public class Utilisateur {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
     String prenom;
     String nom;
@@ -40,22 +44,19 @@ public class Utilisateur {
     @ManyToOne()
     @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
     Site site;
-//
-//    @OneToOne()
-//    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
-//    Adresse adresseList;
-//
-//    @ManyToOne()
-//    @JoinColumn(name = "rang_id_fk", referencedColumnName = "rang_id")
-//    Rang rang;
-//
-//    @ManyToOne()
-//    @JoinColumn(name = "statut_id_fk", referencedColumnName = "statut_id")
-//    Statut statut;
-//
-//    @ManyToOne()
-//    @JoinColumn(name = "role_id_fk", referencedColumnName = "role_id")
-//    Role role;
+
+    @OneToOne()
+    @JoinColumn(name = "adresse_id_fk", referencedColumnName = "adresse_id")
+    Adresse adresseList;
+
+    @ManyToOne()
+    @JoinColumn(name = "rang_id_fk", referencedColumnName = "rang_id")
+    Rang rang;
+
+    @ManyToOne()
+    @JoinColumn(name = "statut_id_fk", referencedColumnName = "statut_id")
+    Statut statut;
+
 
 //    @OneToMany()
 //    @JoinColumn(name = "utilisateur_id_fk", referencedColumnName = "utilisateur_id")
@@ -81,10 +82,9 @@ public class Utilisateur {
         String lieu_naissance = "";
         String actif = "";
         Site site;
-//        String adresseList;
-//        String rang;
-//        String statut;
-//        String role;
+        Adresse adresseList;
+        Rang rang;
+        Statut statut;
 
         public UtilisateurBuilder setid(UUID id) {
             this.id = id;
@@ -171,25 +171,20 @@ public class Utilisateur {
             return this;
         }
 
-//        public UtilisateurBuilder setAdresseList(String adresseList) {
-//            this.adresseList = adresseList;
-//            return this;
-//        }
-//
-//        public UtilisateurBuilder setRang(String rang) {
-//            this.rang = rang;
-//            return this;
-//        }
-//
-//        public UtilisateurBuilder setStatut(String statut) {
-//            this.statut = statut;
-//            return this;
-//        }
-//
-//        public UtilisateurBuilder setRole(String role) {
-//            this.role = role;
-//            return this;
-//        }
+        public UtilisateurBuilder setAdresseList(Adresse adresseList) {
+            this.adresseList = adresseList;
+            return this;
+        }
+
+        public UtilisateurBuilder setRang(Rang rang) {
+            this.rang = rang;
+            return this;
+        }
+
+        public UtilisateurBuilder setStatut(Statut statut) {
+            this.statut = statut;
+            return this;
+        }
 
         public Utilisateur build() {
             return new Utilisateur(
@@ -209,11 +204,10 @@ public class Utilisateur {
                     cree_le,
                     lieu_naissance,
                     actif,
-//                    adresseList,
-//                    rang,
-                    site
-//                    statut,
-//                    role
+                    site,
+                    adresseList,
+                    rang,
+                    statut
             );
         }
     }
