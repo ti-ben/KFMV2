@@ -4,42 +4,42 @@ import { UserDto } from '@user/model';
 export class UserHelper {
   public static fromDto(dto: UserDto): User {
     return {
-      actif: dto.actif,
+      user_id: dto.user_id,
+      firstname: dto.firstname,
+      lastname: dto.lastname,
+      gender: dto.gender,
       avatar: dto.avatar,
-      cree_le: dto.cree_le,
+      dob: dto.dob,
       email: dto.email,
-      genre: dto.genre,
-      id: dto.id,
-      lieu_naissance: dto.lieu_naissance,
-      naissance: dto.dte_naissance,
-      nationalite: dto.nationalite,
-      nom: dto.nom,
+      password: password.dto,
+      telpro: dto.telpro,
+      telperso: dto.telperso,
+      nationality: dto.nationality,
       numirn: dto.numirn,
-      permis: dto.permis,
-      prenom: dto.prenom,
-      telPro: dto.telpro,
-      telperso: dto.telperso
-
+      driver_license: dto.driver_license,
+      created_on: dto.created_on,
+      pob: dto.pob,
+      active: dto.active
     }
   }
   public toDto(user: User): UserDto {
     return {
-      actif: user.actif,
+      user_id: '',
+      firstname: '',
+      lastname: '',
+      gender: '',
       avatar: '',
-      cree_le: undefined,
-      dte_naissance: undefined,
+      dob: '',
       email: '',
-      genre: '',
-      id: '',
-      lieu_naissance: '',
-      nationalite: '',
-      nom: '',
-      numirn: '',
-      permis: '',
-      prenom: '',
+      password: '',
+      telpro: '',
       telperso: '',
-      telpro: ''
-
+      nationality: '',
+      numirn: '',
+      driver_license: '',
+      created_on: '',
+      pob: '',
+      active: ''
     };
   }
 }
