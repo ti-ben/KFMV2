@@ -1,6 +1,6 @@
-package be.kauffman.kfm.vehicule.entity;
+package be.kauffman.KFM.vehicule.entity;
 
-import be.kauffman.kfm.immatriculation.entity.Immatriculation;
+import be.kauffman.KFM.numberplate.entity.dto.Numberplate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,8 +40,8 @@ public class Vehicule {
     String type;
 
     @OneToOne()
-    @JoinColumn(name = "immatriculation_id_fk", referencedColumnName = "immatriculation_id")
-    Immatriculation immatriculation;
+    @JoinColumn(name = "numberplate_id_fk", referencedColumnName = "numberplate_id")
+    Numberplate numberplate;
 
     // Pattern
 
@@ -64,7 +64,7 @@ public class Vehicule {
         String picture;
         String fuel;
         String type;
-        Immatriculation immatriculation;
+        Numberplate numberplate;
 
         public VehiculeBuilder setVehicule_id(UUID vehicule_id) {
             this.vehicule_id = vehicule_id;
@@ -156,11 +156,11 @@ public class Vehicule {
             return this;
         }
 
-        public VehiculeBuilder setImmatriculation(Immatriculation immatriculation) {
-            this.immatriculation = immatriculation;
+        public VehiculeBuilder SetNumberplate(Numberplate numberplate) {
+            this.numberplate = numberplate;
             return this;
         }
 
-        public Vehicule build() { return new Vehicule(vehicule_id, dop, active,price, num_chassis, brand, cde_carrosserie,genre, mom, mma, mmat,mta, classe_enviro, nbr_km, metrologie, picture, fuel, type, immatriculation); }
+        public Vehicule build() { return new Vehicule(vehicule_id, dop, active,price, num_chassis, brand, cde_carrosserie,genre, mom, mma, mmat,mta, classe_enviro, nbr_km, metrologie, picture, fuel, type, numberplate); }
     }
 }
