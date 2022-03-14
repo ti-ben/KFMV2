@@ -1,4 +1,4 @@
-export interface Address{
+export interface Address {
   address_id: string,
   road: string,
   cp: string,

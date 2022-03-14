@@ -11,7 +11,7 @@ export class UserHelper {
       avatar: dto.avatar,
       dob: dto.dob,
       email: dto.email,
-      password: password.dto,
+      password: dto.password,
       telpro: dto.telpro,
       telperso: dto.telperso,
       nationality: dto.nationality,

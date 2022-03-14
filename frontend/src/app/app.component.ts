@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AddressDto } from '@address/model';
 import { AppointmentDto } from '@appointment/model';
 import { GradeDto } from '@grade/model';
-import { MetrologieDto } from '@metrologie/model';
 import { NumberplateDto } from '@numberplate/model';
 import { PeriodDto } from '@period/model';
 import { PrestataireDto } from '@prestataire/model';
@@ -22,7 +21,6 @@ export class AppComponent {
   address?: AddressDto;
   appointment?: AppointmentDto;
   grade?: GradeDto;
-  metrologie?: MetrologieDto;
   numberplate?: NumberplateDto;
   period?: PeriodDto;
   prestataire?: PrestataireDto;

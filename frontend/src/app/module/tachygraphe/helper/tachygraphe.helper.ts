@@ -1,8 +1,7 @@
 import { Tachygraphe } from '@tachygraphe/model/business';
 import { TachygrapheDto } from '@tachygraphe/model';
 
-export class  TachygrapheHelper
-{
+export class  TachygrapheHelper {
   public static fromDto(dto: TachygrapheDto): Tachygraphe  {
     return {
       tachygraphe_id: dto.tachygraphe_id,
