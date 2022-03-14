@@ -13,7 +13,8 @@
       "@site/*": ["app/module/site/*"],
       "@status/*": ["app/module/status/*"],
       "@tachygraphe/*": ["app/module/tachygraphe/*"],
-      "@user/*": ["app/module/user/*"]
+      "@user/*": ["app/module/user/*"],
+      "@shared/*": ["app/shared/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

@@ -24,12 +24,12 @@ export class UserHelper {
   }
   public toDto(user: User): UserDto {
     return {
-      user_id: '',
-      firstname: '',
-      lastname: '',
-      gender: '',
+      user_id: user.user_id,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      gender: user.gender,
       avatar: '',
-      dob: '',
+      dob: new Date(),
       email: '',
       password: '',
       telpro: '',
@@ -37,7 +37,7 @@ export class UserHelper {
       nationality: '',
       numirn: '',
       driver_license: '',
-      created_on: '',
+      created_on: new Date(),
       pob: '',
       active: ''
     };
