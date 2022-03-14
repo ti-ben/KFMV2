@@ -4,6 +4,15 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
+      "@address/*": ["app/module/address/*"],
+      "@appointment/*": ["app/module/appointment/*"],
+      "@grade/*": ["app/module/grade/*"],
+      "@numberplate/*": ["app/module/numberplate/*"],
+      "@period/*": ["app/module/period/*"],
+      "@prestataire/*": ["app/module/prestataire/*"],
+      "@site/*": ["app/module/site/*"],
+      "@status/*": ["app/module/status/*"],
+      "@tachygraphe/*": ["app/module/tachygraphe/*"],
       "@user/*": ["app/module/user/*"]
     },
     "outDir": "./dist/out-tsc",
