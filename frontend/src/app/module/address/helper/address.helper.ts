@@ -5,7 +5,7 @@ import { AddressDto } from '@address/model';
 export class AddressHelper {
   public static fromDto(dto: AddressDto): Address {
     return {
-      address_id: dto.addres_id,
+      address_id: dto.address_id,
       road: dto.road,
       cp: dto.cp,
       town: dto.town,
