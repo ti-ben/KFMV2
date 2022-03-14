@@ -42,4 +42,26 @@ export class UserHelper {
       active: ''
     };
   }
+
+  static getEmpty():User {
+    return {
+      active: '',
+      avatar: '',
+      created_on: new Date(),
+      dob:  new Date(),
+      driver_license: '',
+      email: '',
+      firstname: '',
+      gender: '',
+      lastname: '',
+      nationality: '',
+      numirn: '',
+      password: '',
+      pob: '',
+      telperso: '',
+      telpro: '',
+      user_id: ''
+
+    };
+  }
 }
