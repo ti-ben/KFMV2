@@ -2,8 +2,8 @@ package be.kauffman.KFM.appointment.controller;
 
 import be.kauffman.KFM.appointment.entity.payload.AppointmentUpdatePayload;
 import be.kauffman.KFM.appointment.repository.AppointmentRepository;
-import be.kauffman.kfm.appointment.entity.builder.AppointmentBuilder;
-import be.kauffman.kfm.appointment.entity.dto.Appointment;
+import be.kauffman.KFM.appointment.entity.builder.AppointmentBuilder;
+import be.kauffman.KFM.appointment.entity.dto.Appointment;
 import be.kauffman.kfm.common.entity.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

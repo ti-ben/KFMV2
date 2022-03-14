@@ -1,4 +1,4 @@
-package be.kauffman.kfm.appointment.entity.dto;
+package be.kauffman.KFM.appointment.entity.dto;
 
 import be.kauffman.KFM.period.entity.dto.Period;
 import be.kauffman.KFM.user.entity.dto.User;
