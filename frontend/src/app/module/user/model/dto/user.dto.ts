@@ -1,4 +1,6 @@
-export interface UserDto {
+import { DtoInterface } from '@shared/model';
+
+export interface UserDto extends DtoInterface{
   user_id: string,
   firstname: string,
   lastname: string,
