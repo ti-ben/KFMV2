@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AddressComponent } from './component/address/address.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AddressComponent
+  ],
   imports: [
     CommonModule
   ]

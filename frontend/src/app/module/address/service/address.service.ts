@@ -12,7 +12,7 @@ import { AddressDto } from '@address/model';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends ApiService {
+export class AddressService extends ApiService {
 
   constructor(public http: HttpService) {
     super(http);

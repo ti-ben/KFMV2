@@ -12,7 +12,7 @@ import { GradeDto } from '@grade/model';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends ApiService {
+export class GradeService extends ApiService {
 
   constructor(public http: HttpService) {
     super(http);
