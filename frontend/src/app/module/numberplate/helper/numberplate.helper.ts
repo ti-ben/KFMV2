@@ -11,9 +11,16 @@ export class NumberplateHelper {
   }
   public toDto(numberplate: Numberplate): NumberplateDto {
     return {
+      numberplate_id: numberplate.numberplate_id,
+      num_plate: numberplate.num_plate,
+      dop: new Date()
+    };
+  }
+  static getEmpty():Numberplate {
+    return {
       numberplate_id: '',
       num_plate: '',
-      dop: ''
+      dop: new Date()
     };
   }
 }

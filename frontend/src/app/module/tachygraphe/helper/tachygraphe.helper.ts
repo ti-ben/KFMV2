@@ -14,11 +14,22 @@ export class  TachygrapheHelper {
 
   public toDto(tachygraphe: Tachygraphe): TachygrapheDto  {
     return {
+      tachygraphe_id: tachygraphe.tachygraphe_id,
+      start_date: new Date(),
+      end_date: new Date(),
+      num_carte: tachygraphe.num_carte,
+      comment: tachygraphe.comment
+    };
+  }
+
+  static getEmpty():Tachygraphe {
+    return {
       tachygraphe_id: '',
-      start_date: '',
-      end_date: '',
+      start_date: new Date(),
+      end_date: new Date(),
       num_carte: '',
       comment: ''
     };
   }
+
 }

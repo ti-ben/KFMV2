@@ -22,24 +22,25 @@ export class UserHelper {
       active: dto.active
     }
   }
+
   public toDto(user: User): UserDto {
     return {
       user_id: user.user_id,
       firstname: user.firstname,
       lastname: user.lastname,
       gender: user.gender,
-      avatar: '',
+      avatar: user.avatar,
       dob: new Date(),
-      email: '',
-      password: '',
-      telpro: '',
-      telperso: '',
-      nationality: '',
-      numirn: '',
-      driver_license: '',
+      email: user.email,
+      password: user.password,
+      telpro: user.telpro,
+      telperso: user.telperso,
+      nationality: user.nationality,
+      numirn: user.numirn,
+      driver_license: user.driver_license,
       created_on: new Date(),
-      pob: '',
-      active: ''
+      pob: user.pob,
+      active: user.active
     };
   }
 
@@ -61,7 +62,6 @@ export class UserHelper {
       telperso: '',
       telpro: '',
       user_id: ''
-
     };
   }
 }

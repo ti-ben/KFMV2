@@ -11,9 +11,17 @@ export class PeriodHelper {
   }
   public toDto(period: Period): PeriodDto {
     return {
+      period_id: period.period_id,
+      start_date: new Date(),
+      end_date: new Date()
+    };
+  }
+
+  static getEmpty():Period {
+    return {
       period_id: '',
-      start_date: '',
-      end_date: ''
+      start_date: new Date(),
+      end_date: new Date()
     };
   }
 }

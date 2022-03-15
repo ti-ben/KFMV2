@@ -10,12 +10,23 @@ export class SiteHelper {
       created_on: dto.created_on
     }
   }
+
   public toDto(site: Site): SiteDto {
+    return {
+      site_id: site.site_id,
+      name: site.name,
+      description: site.description,
+      created_on: new Date()
+    };
+  }
+
+  static getEmpty():Site {
     return {
       site_id: '',
       name: '',
       description: '',
-      created_on: ''
+      created_on: new Date()
     };
   }
+
 }
