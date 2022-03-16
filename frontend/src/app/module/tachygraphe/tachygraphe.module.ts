@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TachygrapheComponent } from './component/tachygraphe/tachygraphe.component';
+// Don't forget to import the {entity path} to routing module!
+import { TachygrapheRoutingModule } from '@tachygraphe/tachygraphe-routing.module';
+import { TachygrapheListComponent, TachygrapheDetailComponent, TachygrapheFormComponent } from '@tachygraphe/component';
 
 @NgModule({
   declarations: [
-    TachygrapheComponent
+    TachygrapheListComponent,
+    TachygrapheDetailComponent,
+    TachygrapheFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    // Don't forget to add/import the {entity}RoutingModule
+    TachygrapheRoutingModule
   ]
 })
 export class TachygrapheModule { }

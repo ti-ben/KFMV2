@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GradeComponent } from './component/grade/grade.component';
-
-
+// Don't forget to import the {entity path} to routing module!
+import { GradeRoutingModule } from '@grade/grade-routing.module';
+import { GradeListComponent , GradeFormComponent, GradeDetailComponent } from '@grade/component';
 
 @NgModule({
   declarations: [
-    GradeComponent
+    GradeListComponent,
+    GradeFormComponent,
+    GradeDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    // Don't forget to add/import the {entity}RoutingModule
+    GradeRoutingModule
   ]
 })
-export class GradeModule { }
+export class GradeModule {
+}

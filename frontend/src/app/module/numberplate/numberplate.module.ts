@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NumberplateComponent } from './component/numberplate/numberplate.component';
+import { NumberplateRoutingModule } from '@numberplate/numberplate-routing.module';
+import { NumberplateListComponent, NumberplateFormComponent, NumberplateDetailComponent } from '@numberplate/component';
 
 
 
 @NgModule({
   declarations: [
-    NumberplateComponent
+    NumberplateListComponent,
+    NumberplateFormComponent,
+    NumberplateDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NumberplateRoutingModule
   ]
 })
 export class NumberplateModule { }

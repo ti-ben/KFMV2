@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PeriodComponent } from './component/period/period.component';
+import { PeriodRoutingModule } from '@period/period-routing.module';
+import { PeriodListComponent, PeriodDetailComponent, PeriodFormComponent } from '@period/component';
 
 
 
 @NgModule({
   declarations: [
-    PeriodComponent
+    PeriodListComponent,
+    PeriodDetailComponent,
+    PeriodFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PeriodRoutingModule
   ]
 })
 export class PeriodModule { }

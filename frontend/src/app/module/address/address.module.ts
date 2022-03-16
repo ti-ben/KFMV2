@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddressComponent } from './component/address/address.component';
+import { AddressRoutingModule } from "@address/address-routing.module";
+import { AddressListComponent, AddressDetailComponent, AddressFormComponent } from '@address/component';
 
 @NgModule({
   declarations: [
-    AddressComponent
+    AddressListComponent,
+    AddressDetailComponent,
+    AddressFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AddressRoutingModule
   ]
 })
-export class AddressModule { }
+export class AddressModule {
+}
