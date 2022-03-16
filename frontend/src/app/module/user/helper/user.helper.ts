@@ -44,12 +44,12 @@ export class UserHelper {
     };
   }
 
-  static getEmpty():User {
+  static getEmpty(): User {
     return {
       active: '',
       avatar: '',
       created_on: new Date(),
-      dob:  new Date(),
+      dob: new Date(),
       driver_license: '',
       email: '',
       firstname: '',
@@ -63,5 +63,9 @@ export class UserHelper {
       telpro: '',
       user_id: ''
     };
+  }
+
+  static fromDtoArray(data: UserDto[]): User[] {
+    return data.map((dto: UserDto) => UserHelper.fromDto(dto));
   }
 }
