@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
-import { StatusComponent } from './module/status/component/status/status.component';
+import { StatusComponent } from '@status/component/status/status.component';
 
 @NgModule({
   declarations: [
@@ -19,4 +19,5 @@ import { StatusComponent } from './module/status/component/status/status.compone
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
