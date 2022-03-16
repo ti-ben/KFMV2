@@ -1,7 +1,7 @@
-package be.kauffman.KFM.appointment.entity.dto;
+package be.kauffman.kfm.appointment.entity.dto;
 
-import be.kauffman.KFM.period.entity.dto.Period;
-import be.kauffman.KFM.user.entity.dto.User;
+import be.kauffman.kfm.period.entity.dto.Period;
+import be.kauffman.kfm.user.entity.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

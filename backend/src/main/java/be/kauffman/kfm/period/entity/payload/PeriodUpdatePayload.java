@@ -1,4 +1,4 @@
-package be.kauffman.KFM.period.entity.payload;
+package be.kauffman.kfm.period.entity.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

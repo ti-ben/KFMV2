@@ -1,6 +1,6 @@
-package be.kauffman.KFM.numberplate.entity.builder;
+package be.kauffman.kfm.numberplate.entity.builder;
 
-import be.kauffman.KFM.numberplate.entity.dto.Numberplate;
+import be.kauffman.kfm.numberplate.entity.dto.Numberplate;
 
 import java.util.Date;
 import java.util.UUID;

@@ -1,6 +1,6 @@
-package be.kauffman.KFM.grade.entity.builder;
+package be.kauffman.kfm.grade.entity.builder;
 
-import be.kauffman.KFM.grade.entity.dto.Grade;
+import be.kauffman.kfm.grade.entity.dto.Grade;
 import java.util.UUID;
 
 public class GradeBuilder{

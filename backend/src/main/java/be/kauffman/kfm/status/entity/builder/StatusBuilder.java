@@ -1,6 +1,6 @@
-package be.kauffman.KFM.status.entity.builder;
+package be.kauffman.kfm.status.entity.builder;
 
-import be.kauffman.KFM.status.entity.dto.Status;
+import be.kauffman.kfm.status.entity.dto.Status;
 
 import java.util.UUID;
 

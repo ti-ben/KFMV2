@@ -1,10 +1,10 @@
 package be.kauffman.kfm.site.controller;
 
-import be.kauffman.KFM.site.entity.builder.SiteBuilder;
+import be.kauffman.kfm.site.entity.builder.SiteBuilder;
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.KFM.site.entity.dto.Site;
-import be.kauffman.KFM.site.entity.payload.SiteCreatePayload;
-import be.kauffman.KFM.site.entity.payload.SiteUpdatePayload;
+import be.kauffman.kfm.site.entity.dto.Site;
+import be.kauffman.kfm.site.entity.payload.SiteCreatePayload;
+import be.kauffman.kfm.site.entity.payload.SiteUpdatePayload;
 import be.kauffman.kfm.site.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

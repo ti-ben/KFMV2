@@ -1,6 +1,6 @@
-package be.kauffman.KFM.grade.repository;
+package be.kauffman.kfm.grade.repository;
 
-import be.kauffman.KFM.grade.entity.dto.Grade;
+import be.kauffman.kfm.grade.entity.dto.Grade;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

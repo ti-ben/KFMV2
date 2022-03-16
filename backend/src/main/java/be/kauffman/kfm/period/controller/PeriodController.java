@@ -1,10 +1,10 @@
-package be.kauffman.KFM.period.controller;
+package be.kauffman.kfm.period.controller;
 
-import be.kauffman.KFM.period.entity.builder.PeriodBuilder;
-import be.kauffman.KFM.period.entity.dto.Period;
-import be.kauffman.KFM.period.entity.payload.PeriodCreatePayload;
-import be.kauffman.KFM.period.entity.payload.PeriodUpdatePayload;
-import be.kauffman.KFM.period.repository.PeriodRepository;
+import be.kauffman.kfm.period.entity.builder.PeriodBuilder;
+import be.kauffman.kfm.period.entity.dto.Period;
+import be.kauffman.kfm.period.entity.payload.PeriodCreatePayload;
+import be.kauffman.kfm.period.entity.payload.PeriodUpdatePayload;
+import be.kauffman.kfm.period.repository.PeriodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import be.kauffman.kfm.common.entity.ApiResponse;

@@ -1,4 +1,4 @@
-package be.kauffman.KFM.grade.entity.payload;
+package be.kauffman.kfm.grade.entity.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

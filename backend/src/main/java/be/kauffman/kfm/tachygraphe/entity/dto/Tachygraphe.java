@@ -1,6 +1,6 @@
-package be.kauffman.KFM.tachygraphe.entity.dto;
+package be.kauffman.kfm.tachygraphe.entity.dto;
 
-import be.kauffman.KFM.user.entity.dto.User;
+import be.kauffman.kfm.user.entity.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

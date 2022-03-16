@@ -1,7 +1,7 @@
-package be.kauffman.KFM.prestataire.entity.builder;
+package be.kauffman.kfm.prestataire.entity.builder;
 
-import be.kauffman.KFM.address.entity.dto.Address;
-import be.kauffman.KFM.prestataire.entity.dto.Prestataire;
+import be.kauffman.kfm.address.entity.dto.Address;
+import be.kauffman.kfm.prestataire.entity.dto.Prestataire;
 
 import java.util.UUID;
 

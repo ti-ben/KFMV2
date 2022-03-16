@@ -1,10 +1,10 @@
-package be.kauffman.KFM.user.entity.dto;
+package be.kauffman.kfm.user.entity.dto;
 
-import be.kauffman.KFM.address.entity.dto.Address;
-import be.kauffman.KFM.site.entity.dto.Site;
-import be.kauffman.KFM.grade.entity.dto.Grade;
+import be.kauffman.kfm.address.entity.dto.Address;
+import be.kauffman.kfm.site.entity.dto.Site;
+import be.kauffman.kfm.grade.entity.dto.Grade;
 
-import be.kauffman.KFM.status.entity.dto.Status;
+import be.kauffman.kfm.status.entity.dto.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

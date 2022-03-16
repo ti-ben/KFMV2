@@ -1,6 +1,6 @@
-package be.kauffman.KFM.period.entity.builder;
+package be.kauffman.kfm.period.entity.builder;
 
-import be.kauffman.KFM.period.entity.dto.Period;
+import be.kauffman.kfm.period.entity.dto.Period;
 import java.util.Date;
 import java.util.UUID;
 

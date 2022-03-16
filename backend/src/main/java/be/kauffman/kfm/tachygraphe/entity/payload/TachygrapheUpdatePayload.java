@@ -1,4 +1,4 @@
-package be.kauffman.KFM.tachygraphe.entity.payload;
+package be.kauffman.kfm.tachygraphe.entity.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

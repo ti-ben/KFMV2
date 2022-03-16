@@ -1,6 +1,6 @@
 package be.kauffman.kfm.utachygraphe.repository;
 
-import be.kauffman.KFM.tachygraphe.entity.dto.Tachygraphe;
+import be.kauffman.kfm.tachygraphe.entity.dto.Tachygraphe;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

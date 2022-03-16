@@ -1,10 +1,10 @@
-package be.kauffman.KFM.status.controller;
+package be.kauffman.kfm.status.controller;
 
-import be.kauffman.KFM.status.repository.StatusRepository;
-import be.kauffman.KFM.status.entity.builder.StatusBuilder;
-import be.kauffman.KFM.status.entity.dto.Status;
-import be.kauffman.KFM.status.entity.payload.StatusCreatePayload;
-import be.kauffman.KFM.status.entity.payload.StatusUpdatePayload;
+import be.kauffman.kfm.status.repository.StatusRepository;
+import be.kauffman.kfm.status.entity.builder.StatusBuilder;
+import be.kauffman.kfm.status.entity.dto.Status;
+import be.kauffman.kfm.status.entity.payload.StatusCreatePayload;
+import be.kauffman.kfm.status.entity.payload.StatusUpdatePayload;
 import be.kauffman.kfm.common.entity.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

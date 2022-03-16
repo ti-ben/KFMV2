@@ -1,6 +1,6 @@
-package be.kauffman.KFM.numberplate.repository;
+package be.kauffman.kfm.numberplate.repository;
 
-import be.kauffman.KFM.numberplate.entity.dto.Numberplate;
+import be.kauffman.kfm.numberplate.entity.dto.Numberplate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

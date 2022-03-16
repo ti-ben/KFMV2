@@ -1,13 +1,13 @@
-package be.kauffman.KFM.grade.controller;
+package be.kauffman.kfm.grade.controller;
 
-import be.kauffman.KFM.grade.entity.builder.GradeBuilder;
-import be.kauffman.KFM.grade.repository.GradeRepository;
+import be.kauffman.kfm.grade.entity.builder.GradeBuilder;
+import be.kauffman.kfm.grade.repository.GradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.KFM.grade.entity.dto.Grade;
-import be.kauffman.KFM.grade.entity.payload.GradeCreatePayload;
-import be.kauffman.KFM.grade.entity.payload.GradeUpdatePayload;
+import be.kauffman.kfm.grade.entity.dto.Grade;
+import be.kauffman.kfm.grade.entity.payload.GradeCreatePayload;
+import be.kauffman.kfm.grade.entity.payload.GradeUpdatePayload;
 
 import java.util.UUID;
 

@@ -1,6 +1,6 @@
-package be.kauffman.KFM.site.entity.dto;
+package be.kauffman.kfm.site.entity.dto;
 
-import be.kauffman.KFM.address.entity.dto.Address;
+import be.kauffman.kfm.address.entity.dto.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

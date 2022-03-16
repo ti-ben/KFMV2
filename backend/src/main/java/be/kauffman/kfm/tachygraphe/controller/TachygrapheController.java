@@ -1,9 +1,9 @@
-package be.kauffman.KFM.tachygraphe.controller;
+package be.kauffman.kfm.tachygraphe.controller;
 
-import be.kauffman.KFM.tachygraphe.entity.builder.TachygrapheBuilder;
-import be.kauffman.KFM.tachygraphe.entity.dto.Tachygraphe;
-import be.kauffman.KFM.tachygraphe.entity.payload.TachygrapheCreatePayload;
-import be.kauffman.KFM.tachygraphe.entity.payload.TachygrapheUpdatePayload;
+import be.kauffman.kfm.tachygraphe.entity.builder.TachygrapheBuilder;
+import be.kauffman.kfm.tachygraphe.entity.dto.Tachygraphe;
+import be.kauffman.kfm.tachygraphe.entity.payload.TachygrapheCreatePayload;
+import be.kauffman.kfm.tachygraphe.entity.payload.TachygrapheUpdatePayload;
 import be.kauffman.kfm.common.entity.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

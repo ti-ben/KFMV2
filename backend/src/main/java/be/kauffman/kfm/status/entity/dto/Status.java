@@ -1,4 +1,4 @@
-package be.kauffman.KFM.status.entity.dto;
+package be.kauffman.kfm.status.entity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

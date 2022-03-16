@@ -1,4 +1,4 @@
-package be.kauffman.KFM.numberplate.entity.dto;
+package be.kauffman.kfm.numberplate.entity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

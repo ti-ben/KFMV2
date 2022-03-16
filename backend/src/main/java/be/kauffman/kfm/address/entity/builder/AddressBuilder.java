@@ -1,5 +1,5 @@
-package be.kauffman.KFM.address.entity.builder;
-import be.kauffman.KFM.address.entity.dto.Address;
+package be.kauffman.kfm.address.entity.builder;
+import be.kauffman.kfm.address.entity.dto.Address;
 
 import java.util.UUID;
 

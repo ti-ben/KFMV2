@@ -1,7 +1,7 @@
-package be.kauffman.KFM.appointment.entity.builder;
-import be.kauffman.KFM.period.entity.dto.Period;
-import be.kauffman.KFM.user.entity.dto.User;
-import be.kauffman.KFM.appointment.entity.dto.Appointment;
+package be.kauffman.kfm.appointment.entity.builder;
+import be.kauffman.kfm.period.entity.dto.Period;
+import be.kauffman.kfm.user.entity.dto.User;
+import be.kauffman.kfm.appointment.entity.dto.Appointment;
 
 import java.util.Date;
 import java.util.UUID;

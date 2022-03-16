@@ -1,7 +1,7 @@
-package be.kauffman.KFM.tachygraphe.entity.builder;
+package be.kauffman.kfm.tachygraphe.entity.builder;
 
-import be.kauffman.KFM.tachygraphe.entity.dto.Tachygraphe;
-import be.kauffman.KFM.user.entity.dto.User;
+import be.kauffman.kfm.tachygraphe.entity.dto.Tachygraphe;
+import be.kauffman.kfm.user.entity.dto.User;
 
 import java.util.Date;
 import java.util.UUID;

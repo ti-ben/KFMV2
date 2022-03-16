@@ -1,13 +1,13 @@
-package be.kauffman.KFM.numberplate.controller;
+package be.kauffman.kfm.numberplate.controller;
 
-import be.kauffman.KFM.numberplate.entity.builder.NumberplateBuilder;
+import be.kauffman.kfm.numberplate.entity.builder.NumberplateBuilder;
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.KFM.numberplate.entity.dto.Numberplate;
-import be.kauffman.KFM.numberplate.entity.payload.NumberplateCreatePayload;
-import be.kauffman.KFM.numberplate.entity.payload.NumberplateUpdatePayload;
+import be.kauffman.kfm.numberplate.entity.dto.Numberplate;
+import be.kauffman.kfm.numberplate.entity.payload.NumberplateCreatePayload;
+import be.kauffman.kfm.numberplate.entity.payload.NumberplateUpdatePayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import be.kauffman.KFM.numberplate.repository.NumberplateRepository;
+import be.kauffman.kfm.numberplate.repository.NumberplateRepository;
 
 import java.util.UUID;
 

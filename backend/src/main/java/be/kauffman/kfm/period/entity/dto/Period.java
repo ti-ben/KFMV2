@@ -1,4 +1,4 @@
-package be.kauffman.KFM.period.entity.dto;
+package be.kauffman.kfm.period.entity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package be.kauffman.KFM;
+package be.kauffman.kfm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

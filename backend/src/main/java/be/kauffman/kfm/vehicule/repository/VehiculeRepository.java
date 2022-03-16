@@ -1,6 +1,6 @@
-package be.kauffman.KFM.vehicule.repository;
+package be.kauffman.kfm.vehicule.repository;
 
-import be.kauffman.KFM.vehicule.entity.Vehicule;
+import be.kauffman.kfm.vehicule.entity.Vehicule;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

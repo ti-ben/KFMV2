@@ -1,6 +1,6 @@
-package be.kauffman.KFM.vehicule.entity;
+package be.kauffman.kfm.vehicule.entity;
 
-import be.kauffman.KFM.numberplate.entity.dto.Numberplate;
+import be.kauffman.kfm.numberplate.entity.dto.Numberplate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
