@@ -1,1 +1,6 @@
-<p>user-list works!</p>
+<ng-container *ngIf="list$ | async as list">
+  <h1>Ma partie user</h1>
+  {{list |json}}
+  <!-- Ici ton tableau tel que tu voudrais l'avoir  -->
+
+  </ng-container>
