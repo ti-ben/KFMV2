@@ -1,4 +1,19 @@
-<header>header</header>
-<nav>menu</nav>
-<router-outlet></router-outlet>
-<footer>footer</footer>
+<div id="wrapper">
+  <header class="fixed-top">
+    <nav class="navbar navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <section id="content">
+    <router-outlet></router-outlet>
+  </section>
+
+  <footer class="py-2 bg-dark fixed-bottom">
+    <div class="container">
+      <p class="m-0 text-center text-white">Footer</p>
+    </div>
+  </footer>
+</div>
