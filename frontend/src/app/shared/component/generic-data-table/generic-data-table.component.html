@@ -1,0 +1,19 @@
+<table class="table table-hover table-dark">
+  <thead>
+  <tr>
+    <th *ngFor="let field of config.fields">
+      <span class="fa-solid {{field.icon}}"> {{field.translateKey + field.field | translate}}</span>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of config.data">
+    <td *ngFor="let field of config.fields">
+      <ng-container [ngSwitch]="field.type">
+        <ng-container *ngSwitchCase="fieldType.IMAGE"><img src="{{item[field.field] }}" alt=""></ng-container>
+        <ng-container *ngSwitchCase="fieldType.STRING">{{item[field.field] }}</ng-container>
+      </ng-container>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+{
+  "page": {
+    "dashboard": {
+      "menu": {
+        "home": "Home",
+        "employee": "Employés",
+        "dashboard": "Tableau de bord",
+        "car": "Véhicules"
+      }
+    }
+  }
+}

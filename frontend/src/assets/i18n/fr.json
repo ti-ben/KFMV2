@@ -1,0 +1,34 @@
+{
+  "benoit": {
+    "afaire": {
+      "header": "Ajouter un bread crumb ou en tout cas afficher la page en cours."
+    }
+  },
+  "table": {
+    "employee": {
+      "avatar": "Image",
+      "lastname": "Nom",
+      "firstname": "Prenom",
+      "gender": "Genre",
+      "dob": "Date de naissance",
+      "email": "Image",
+      "telpro": "Image",
+      "telperso": "Image",
+      "nationality": "Image",
+      "numirn": "Image",
+      "driver_license": "Image",
+      "created_on": "Image",
+      "pob": "Image"
+    }
+  },
+  "page": {
+    "dashboard": {
+      "menu": {
+        "home": "Accueil",
+        "employee": "Employés",
+        "dashboard": "Tableau de bord",
+        "car": "Véhicules"
+      }
+    }
+  }
+}
