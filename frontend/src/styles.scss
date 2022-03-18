@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #eee
+}
 
+.nav-link:hover {
+  background-color: #525252 !important
+}
+
+.nav-link .fa {
+  transition: all 1s
+}
+
+.nav-link:hover .fa {
+  transform: rotate(360deg)
+}
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
