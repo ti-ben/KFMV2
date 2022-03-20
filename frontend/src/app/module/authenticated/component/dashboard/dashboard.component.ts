@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AppRoute, MenuItem } from '@shared/model';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {AppRoute, MenuItem} from '@shared/model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,16 +15,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.menu = [
-      {label: 'page.dashboard.menu.home', link: AppRoute.DASHBOARD_HOME, icon: 'fa-home', active: true},
-      {label: 'page.dashboard.menu.dashboard', link: AppRoute.DASHBOARD_HOME, icon: 'fa-dashboard', active: false},
-      {label: 'page.dashboard.menu.employee', link: AppRoute.USER_LIST, icon: 'fa-people-group', active: false},
-      /*   { label:'page.dashboard.menu.car',link:'',icon:'fa-truck',active:false },
-         { label:'page.dashboard.menu.prestataire',link:'',icon:'fa-recycle',active:false },
-         { label:'page.dashboard.menu.role',link:'',icon:'fa-ranking-star',active:false },
-         { label:'page.dashboard.menu.statuts',link:'',icon:'fa-signal',active:false },
-         { label:'page.dashboard.menu.immatriculations',link:'',icon:'fa-cog',active:false }*/
+      { label: 'page.dashboard.menu.home', link: AppRoute.DASHBOARD_HOME, icon: 'fa-home', active: false},
+      { label: 'page.dashboard.menu.dashboard', link: AppRoute.DASHBOARD_HOME, icon: 'fa-dashboard', active: false},
+      { label: 'page.dashboard.menu.employee', link: AppRoute.USER_LIST, icon: 'fa-people-group', active: false},
+      { label: 'page.dashboard.menu.car',link: AppRoute.VEHICULE_LIST,icon:'fa-truck',active:false },
+      { label: 'page.dashboard.menu.provider',link: AppRoute.PRESTATAIRE_LIST,icon:'fa-recycle',active:false },
+      { label: 'page.dashboard.menu.role',link: AppRoute.GRADE_LIST,icon:'fa-ranking-star',active:false },
+      { label: 'page.dashboard.menu.status',link: AppRoute.STATUS_LIST,icon:'fa-signal',active:false },
+      { label: 'page.dashboard.menu.tachygraphe',link: AppRoute.TACHYGRAPHE_LIST,icon:'fa-cog',active:false },
+      { label: 'page.dashboard.menu.numberplate',link: AppRoute.NUMBERPLATE_LIST,icon:'fa-cog',active:false }
     ]
-
   }
 
   navigate(link: AppRoute): void {

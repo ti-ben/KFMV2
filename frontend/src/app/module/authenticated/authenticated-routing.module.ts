@@ -16,6 +16,7 @@ const routes: Routes = [
       {path: 'site', loadChildren: () => import('../site/site.module').then(m => m.SiteModule)},
       {path: 'status', loadChildren: () => import('../status/status.module').then(m => m.StatusModule)},
       {path: 'tachygraphe', loadChildren: () => import('../tachygraphe/tachygraphe.module').then(m => m.TachygrapheModule)},
+      {path: 'vehicule', loadChildren: () => import('../vehicule/vehicule.module').then(m => m.VehiculeModule)},
     ]
   },
 

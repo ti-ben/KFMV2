@@ -11,14 +11,14 @@
       "firstname": "Prenom",
       "gender": "Genre",
       "dob": "Date de naissance",
-      "email": "Image",
-      "telpro": "Image",
-      "telperso": "Image",
-      "nationality": "Image",
-      "numirn": "Image",
-      "driver_license": "Image",
-      "created_on": "Image",
-      "pob": "Image"
+      "email": "Adresse mail",
+      "telpro": "Tél. pro",
+      "telperso": "Tél. perso",
+      "nationality": "Nationalité",
+      "numirn": "Numéro de registre",
+      "driver_license": "Permis",
+      "created_on": "Créé le",
+      "pob": "Lieu de naissance"
     }
   },
   "page": {
@@ -27,7 +27,13 @@
         "home": "Accueil",
         "employee": "Employés",
         "dashboard": "Tableau de bord",
-        "car": "Véhicules"
+        "car": "Véhicules",
+        "site": "Tableau de bord",
+        "provider": "Prestataires",
+        "role": "Rôles",
+        "status": "Statuts",
+        "numberplate": "Immatriculations",
+        "tachygraphe": "Tachygraphe"
       }
     }
   }

@@ -14,6 +14,7 @@
       "@status/*": ["app/module/status/*"],
       "@tachygraphe/*": ["app/module/tachygraphe/*"],
       "@user/*": ["app/module/user/*"],
+      "@vehicule/*": ["app/module/vehicule/*"],
       "@shared/*": ["app/shared/*"]
     },
     "outDir": "./dist/out-tsc",

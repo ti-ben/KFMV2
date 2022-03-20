@@ -1,11 +1,38 @@
 {
+  "benoit": {
+    "afaire": {
+      "header": "Ajouter un bread crumb ou en tout cas afficher la page en cours."
+    }
+  },
+  "table": {
+    "employee": {
+      "avatar": "Avatar",
+      "lastname": "Lastname",
+      "firstname": "Firstname",
+      "gender": "Gender",
+      "dob": "Date of birth",
+      "email": "Email",
+      "telpro": "Phone 1",
+      "telperso": "Phone 2",
+      "nationality": "Nationality",
+      "numirn": "Registry number",
+      "driver_license": "Permis",
+      "created_on": "Créé le",
+      "pob": "Lieu de naissance"
+    }
+  },
   "page": {
     "dashboard": {
       "menu": {
-        "home": "Home",
+        "home": "Accueil",
         "employee": "Employés",
         "dashboard": "Tableau de bord",
-        "car": "Véhicules"
+        "car": "Véhicules",
+        "site": "Tableau de bord",
+        "provider": "Prestataires",
+        "role": "Rôles",
+        "status": "Statuts",
+        "numberplate": "Immatriculations"
       }
     }
   }
