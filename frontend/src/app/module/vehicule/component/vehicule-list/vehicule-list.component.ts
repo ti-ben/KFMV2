@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { VehiculeService } from "@vehicule/service/vehicule.service";
 import { BehaviorSubject } from 'rxjs';
+import { Vehicule } from "@vehicule/model";
 import { tap } from 'rxjs/operators';
 import { FieldDefinition, FieldType, GenericTableConfig } from '@shared/model';
 import { GenericTableHelper } from '@shared/helper';
-import {VehiculeService} from "@vehicule/service/vehicule.service";
-import {Vehicule} from "@vehicule/model";
 
 @Component({
   selector: 'app-vehicule-list',
@@ -23,7 +23,7 @@ export class VehiculeListComponent implements OnInit {
 
   private setConfig(list: Vehicule[]): void {
     let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genUserFieldDefinitions();
+    config.fields = GenericTableHelper.genVehiculeFieldDefinitions();
     config.data = list;
     this.config$.next(config);
   }

@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { SiteListComponent , SiteFormComponent, SiteDetailComponent } from '@site/component';
 
 const routes: Routes = [
-  {path: '', component: SiteListComponent},
-  {path: '', component: SiteFormComponent},
-  {path: '', component: SiteDetailComponent}
+  {path: 'list', component: SiteListComponent},
+  {path: 'form', component: SiteFormComponent},
+  {path: 'detail/:id', component: SiteDetailComponent}
 ];
 
 @NgModule({

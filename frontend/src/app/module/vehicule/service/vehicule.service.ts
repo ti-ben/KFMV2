@@ -18,11 +18,11 @@ export class VehiculeService extends ApiService {
   }
 
   create(payload: VehiculeCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.USER_CREATE, payload);
+    return this.post(ApiUriEnum.VEHICULE_CREATE, payload);
   }
 
   list(): Observable<Vehicule[]> {
-    return this.get(ApiUriEnum.USER_LIST)
+    return this.get(ApiUriEnum.VEHICULE_LIST)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? VehiculeHelper.fromDtoArray(response.data as VehiculeDto[]) : [];
@@ -31,7 +31,7 @@ export class VehiculeService extends ApiService {
   }
 
   detail(id: string): Observable<Vehicule> {
-    return this.get(`${ApiUriEnum.USER_DETAIL}${id}`)
+    return this.get(`${ApiUriEnum.VEHICULE_DETAIL}${id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? VehiculeHelper.fromDto(response.data as VehiculeDto) : VehiculeHelper.getEmpty();
@@ -40,7 +40,7 @@ export class VehiculeService extends ApiService {
   }
 
   update(payload: VehiculeUpdatePayload): Observable<Vehicule> {
-    return this.put(ApiUriEnum.USER_UPDATE, payload)
+    return this.put(ApiUriEnum.VEHICULE_UPDATE, payload)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? VehiculeHelper.fromDto(response.data as VehiculeDto) : VehiculeHelper.getEmpty();
@@ -49,6 +49,6 @@ export class VehiculeService extends ApiService {
   }
 
   delete(id: string): Observable<ApiResponse> {
-    return this.http.get(`${ApiUriEnum.USER_DELETE}${id}`);
+    return this.http.get(`${ApiUriEnum.VEHICULE_DELETE}${id}`);
   }
 }

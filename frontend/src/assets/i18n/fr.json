@@ -19,6 +19,29 @@
       "driver_license": "Permis",
       "created_on": "Créé le",
       "pob": "Lieu de naissance"
+    },
+    "vehicule": {
+      "dop": "Date d'achat",
+      "active": "Actif?",
+      "price": "Prix",
+      "num_chassis": "N° de chassis",
+      "brand": "MArque",
+      "cde_carrosserie": "Code carrisserie",
+      "genre": "Genre",
+      "mom": "MOM",
+      "mma": "MMA",
+      "mmat": "MMAT",
+      "mta": "MTA",
+      "classe_enviro": "Classe environemental",
+      "nbr_km": "Kilométrage",
+      "metrologie": "Métrologie",
+      "picture": "Photo",
+      "fuel": "type de carburant",
+      "type": "Type de véhicule"
+    },
+    "site": {
+      "name": "Nom du site",
+      "description": "Description"
     }
   },
   "page": {

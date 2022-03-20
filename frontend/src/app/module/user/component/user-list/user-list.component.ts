@@ -14,8 +14,7 @@ import { GenericTableHelper } from '@shared/helper';
 export class UserListComponent implements OnInit {
     config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
 
-    constructor(public userService: UserService) {
-    }
+    constructor(public userService: UserService) { }
 
     ngOnInit(): void {
         this.userService.list().pipe(

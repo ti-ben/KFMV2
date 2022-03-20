@@ -28,7 +28,7 @@ export class VehiculeHelper {
   public toDto(vehicule: Vehicule): VehiculeDto {
     return {
       vehicule_id: vehicule.vehicule_id,
-      dop: vehicule.dop,
+      dop: new Date(),
       active: vehicule.active,
       price: vehicule.price,
       num_chassis: vehicule.num_chassis,
@@ -51,7 +51,7 @@ export class VehiculeHelper {
   static getEmpty(): Vehicule {
     return {
       vehicule_id: '',
-      dop: '',
+      dop: new Date(),
       active: '',
       price: '',
       num_chassis: '',

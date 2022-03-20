@@ -1,6 +1,5 @@
 <ng-container *ngIf="config$ | async as config">
   <!--<pre>{{list |json}}</pre>-->
-  <!-- Ici ton tableau tel que tu voudrais l'avoir  -->
   <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
     <h1 class="text-center">Liste d'utilisateur</h1>
     <app-generic-data-table [config]="config"></app-generic-data-table>

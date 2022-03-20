@@ -32,4 +32,41 @@ export class GenericTableHelper {
     ]
 
   }
+
+  public static genVehiculeFieldDefinitions(): FieldDefinition[] {
+    return [
+      {
+        icon: 'fa-image',
+        translateKey: 'table.vehicule.',
+        field: 'picture',
+        type: FieldType.IMAGE
+      },
+      {
+        translateKey: 'table.vehicule.',
+        field: 'brand',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.vehicule.',
+        field: 'price',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.vehicule.',
+        field: 'type',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.vehicule.',
+        field: 'active',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.vehicule.',
+        field: 'dop',
+        type: FieldType.DATE
+      }
+    ]
+
+  }
 }

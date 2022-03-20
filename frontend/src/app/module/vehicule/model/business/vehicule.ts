@@ -1,6 +1,6 @@
 export interface Vehicule {
   vehicule_id: string,
-  dop: string,
+  dop: Date,
   active: string;
   price: string,
   num_chassis: string,

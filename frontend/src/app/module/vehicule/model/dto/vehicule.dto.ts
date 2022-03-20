@@ -2,7 +2,7 @@ import { DtoInterface } from '@shared/model';
 
 export interface VehiculeDto extends DtoInterface{
   vehicule_id: string;
-  dop: string;
+  dop: Date;
   active: string;
   price: string;
   num_chassis: string;
