@@ -1,7 +1,9 @@
 <ng-container *ngIf="config$ | async as config">
   <!--<pre>{{list |json}}</pre>-->
   <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
-    <h1 class="text-center">Liste d'utilisateur</h1>
+    <hr>
+    <h1 class="text-center">Liste des véhicules</h1>
+    <hr>
     <app-generic-data-table [config]="config"></app-generic-data-table>
   </div>
 </ng-container>

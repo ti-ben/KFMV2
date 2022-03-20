@@ -1,7 +1,9 @@
 <ng-container *ngIf="config$ | async as config">
   <!--<pre>{{list |json}}</pre>-->
   <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
+    <hr>
     <h1 class="text-center">Liste d'utilisateur</h1>
+    <hr>
     <form method="POST" class="row g-3">
       <div class=" d-grid btn-block">
         <div class="input-group input-group-sm">
@@ -15,6 +17,7 @@
         <a href="" class="btn btn-sm btn-success">Ajouter un nouveau véhicule</a>
       </div>
     </form>
+    <hr>
     <app-generic-data-table [config]="config"></app-generic-data-table>
   </div>
 </ng-container>
