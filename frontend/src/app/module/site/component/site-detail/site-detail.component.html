@@ -1,1 +1,28 @@
-<p>site-detail works!</p>
+<form method="POST" class="row g-3">
+  <div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+    <hr>
+    <h3>Détails du site {{null}}</h3>
+    <hr>
+
+    <div class="card-group justify-content-center">
+      <div class="col-md-6">
+        <input autofocus class="form-control form-control-sm" value="{{null}}" type="text" name="site_name" placeholder="Site name" disabled>
+      </div>
+      <div class="col-md-6">
+        <input autofocus class="form-control form-control-sm" value="{{null}}" type="text" name="site_created_on" placeholder="Site créé le" disabled>
+      </div>
+      <div class="col-md-12">
+        <textarea autofocus class="form-control form-control-sm" value="{{null}}" type="text-area" name="site_adresse" placeholder="Adresse du site" rows="4" disabled>{{null}}</textarea>
+      </div>
+      <div class="col-md-12">
+        <textarea autofocus class="form-control form-control-sm" value="{{null}}" type="text-area" id="site_description" name="site_description" placeholder="Description du site en quelques mots" rows="4" disabled>{{null}}</textarea>
+      </div>
+      <hr>
+      <div class="col-md-12 d-grid btn-block">
+        <a href="{{null}}" class="btn btn-sm btn-success btn-block">Modifier les informations du site</a>
+        <a href="{{null}}" class="btn btn-sm btn-danger btn-block">Retour à la liste</a>
+      </div>
+    </div>
+
+  </div>
+</form>
