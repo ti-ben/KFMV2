@@ -26,4 +26,8 @@ export class StatusHelper {
       description: ''
     };
   }
+
+  static fromDtoArray(data: StatusDto[]): Status[] {
+    return data.map((dto: StatusDto) => StatusHelper.fromDto(dto));
+  }
 }

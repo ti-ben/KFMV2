@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { NumberplateListComponent , NumberplateFormComponent, NumberplateDetailComponent } from '@numberplate/component';
 
 const routes: Routes = [
-  {path: '', component: NumberplateListComponent},
-  {path: '', component: NumberplateFormComponent},
-  {path: '', component: NumberplateDetailComponent}
+  {path: 'list', component: NumberplateListComponent},
+  {path: 'form', component: NumberplateFormComponent},
+  {path: 'detail', component: NumberplateDetailComponent}
 ];
 
 @NgModule({

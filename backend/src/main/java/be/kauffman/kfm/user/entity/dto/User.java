@@ -1,9 +1,8 @@
 package be.kauffman.kfm.user.entity.dto;
 
 import be.kauffman.kfm.address.entity.dto.Address;
-import be.kauffman.kfm.site.entity.dto.Site;
 import be.kauffman.kfm.grade.entity.dto.Grade;
-
+import be.kauffman.kfm.site.entity.dto.Site;
 import be.kauffman.kfm.status.entity.dto.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;

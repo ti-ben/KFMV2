@@ -1,11 +1,11 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { GradeListComponent , GradeFormComponent, GradeDetailComponent } from '@grade/component';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
+import {GradeDetailComponent, GradeFormComponent, GradeListComponent} from '@grade/component';
 
 const routes: Routes = [
-  {path: '', component: GradeListComponent},
-  {path: '', component: GradeFormComponent},
-  {path: '', component: GradeDetailComponent}
+  {path: 'list', component: GradeListComponent},
+  {path: 'form', component: GradeFormComponent},
+  {path: 'detail', component: GradeDetailComponent}
 ];
 
 @NgModule({

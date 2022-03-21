@@ -5,9 +5,8 @@ import { Observable } from 'rxjs';
 import { ApiResponse, ApiUriEnum } from '@shared/model';
 import { map } from 'rxjs/operators';
 import { isNil } from 'lodash';
-import { Status } from '@status/model/business';
 import { StatusHelper } from '@status/helper';
-import { StatusDto } from '@status/model';
+import {Status, StatusCreatePayload, StatusDto, StatusUpdatePayload} from '@status/model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,18 +17,21 @@ export class StatusService extends ApiService {
     super(http);
   }
 
-  create(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.STATUS_CREATE}`);
+  create(payload: StatusCreatePayload): Observable<ApiResponse> {
+    return this.post(ApiUriEnum.STATUS_CREATE, payload);
   }
 
-// Théoriquement ici tu sors une liste d'utilisateur.
-// Observable<User[]>
-  list(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.STATUS_LIST}`);
+  list(): Observable<Status[]> {
+    return this.get(ApiUriEnum.STATUS_LIST)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? StatusHelper.fromDtoArray(response.data as StatusDto[]) : [];
+        })
+      )
   }
 
   detail(id: string): Observable<Status> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.STATUS_DETAIL}${id}`)
+    return this.get(`${ApiUriEnum.STATUS_DETAIL}${id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? StatusHelper.fromDto(response.data as StatusDto) : StatusHelper.getEmpty();
@@ -37,8 +39,8 @@ export class StatusService extends ApiService {
       );
   }
 
-  update(id: string): Observable<Status> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.STATUS_UPDATE}${id}`)
+  update(payload: StatusUpdatePayload): Observable<Status> {
+    return this.put(ApiUriEnum.STATUS_UPDATE, payload)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? StatusHelper.fromDto(response.data as StatusDto) : StatusHelper.getEmpty();

@@ -25,4 +25,7 @@ export class GradeHelper {
     };
   }
 
+  static fromDtoArray(data: GradeDto[]): Grade[] {
+    return data.map((dto: GradeDto) => GradeHelper.fromDto(dto));
+  }
 }

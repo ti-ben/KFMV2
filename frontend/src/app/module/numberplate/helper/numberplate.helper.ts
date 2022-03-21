@@ -23,4 +23,8 @@ export class NumberplateHelper {
       dop: new Date()
     };
   }
+
+  static fromDtoArray(data: NumberplateDto[]): Numberplate[] {
+    return data.map((dto: NumberplateDto) => NumberplateHelper.fromDto(dto));
+  }
 }

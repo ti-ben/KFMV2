@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { StatusListComponent , StatusFormComponent, StatusDetailComponent } from '@status/component';
 
 const routes: Routes = [
-  {path: '', component: StatusListComponent},
-  {path: '', component: StatusFormComponent},
-  {path: '', component: StatusDetailComponent}
+  {path: 'list', component: StatusListComponent},
+  {path: 'form', component: StatusFormComponent},
+  {path: 'detail', component: StatusDetailComponent}
 ];
 
 @NgModule({

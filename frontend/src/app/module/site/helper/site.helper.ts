@@ -1,6 +1,5 @@
-import { Site } from '@site/model/business';
-import { SiteDto } from '@site/model';
-import {Vehicule, VehiculeDto} from "@vehicule/model";
+import {Site} from '@site/model/business';
+import {SiteDto} from '@site/model';
 
 export class SiteHelper {
   public static fromDto(dto: SiteDto): Site {
@@ -29,6 +28,7 @@ export class SiteHelper {
       created_on: new Date()
     };
   }
+
   static fromDtoArray(data: SiteDto[]): Site[] {
     return data.map((dto: SiteDto) => SiteHelper.fromDto(dto));
   }

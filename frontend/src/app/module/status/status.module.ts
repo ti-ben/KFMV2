@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 // Don't forget to import the {entity path} to routing module!
-import { StatusRoutingModule } from '@status/status-routing.module';
-import { StatusListComponent , StatusFormComponent, StatusDetailComponent } from '@status/component';
+import {StatusRoutingModule} from '@status/status-routing.module';
+import {StatusDetailComponent, StatusFormComponent, StatusListComponent} from '@status/component';
+import {SharedModule} from "@shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -12,8 +13,9 @@ import { StatusListComponent , StatusFormComponent, StatusDetailComponent } from
   ],
   imports: [
     CommonModule,
-    // Don't forget to add/import the {entity}RoutingModule
-    StatusRoutingModule
+    // Don't forget to add/import the {entity}RoutingModule & SharedModule
+    StatusRoutingModule,
+    SharedModule
   ]
 })
 export class StatusModule {

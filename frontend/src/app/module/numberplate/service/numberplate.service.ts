@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from '@shared/service/api.service';
-import { HttpService } from '@shared/service/http.service';
-import { Observable } from 'rxjs';
-import { ApiResponse, ApiUriEnum } from '@shared/model';
-import { map } from 'rxjs/operators';
-import { isNil } from 'lodash';
-import { Numberplate } from '@numberplate/model/business';
-import { NumberplateHelper } from '@numberplate/helper';
-import { NumberplateDto } from '@numberplate/model';
+import {Injectable} from '@angular/core';
+import {ApiService} from '@shared/service/api.service';
+import {HttpService} from '@shared/service/http.service';
+import {Observable} from 'rxjs';
+import {ApiResponse, ApiUriEnum} from '@shared/model';
+import {map} from 'rxjs/operators';
+import {isNil} from 'lodash';
+import {NumberplateHelper} from '@numberplate/helper';
+import {Numberplate, NumberplateCreatePayload, NumberplateDto, NumberplateUpdatePayload} from '@numberplate/model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,18 +17,21 @@ export class NumberplateService extends ApiService {
     super(http);
   }
 
-  create(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.NUMBERPLATE_CREATE}`);
+  create(payload: NumberplateCreatePayload): Observable<ApiResponse> {
+    return this.post(ApiUriEnum.NUMBERPLATE_CREATE, payload);
   }
 
-// Théoriquement ici tu sors une liste d'utilisateur.
-// Observable<User[]>
-  list(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.NUMBERPLATE_LIST}`);
+  list(): Observable<Numberplate[]> {
+    return this.get(ApiUriEnum.NUMBERPLATE_LIST)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? NumberplateHelper.fromDtoArray(response.data as NumberplateDto[]) : [];
+        })
+      )
   }
 
   detail(id: string): Observable<Numberplate> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.NUMBERPLATE_DETAIL}${id}`)
+    return this.get(`${ApiUriEnum.NUMBERPLATE_DETAIL}${id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? NumberplateHelper.fromDto(response.data as NumberplateDto) : NumberplateHelper.getEmpty();
@@ -37,8 +39,8 @@ export class NumberplateService extends ApiService {
       );
   }
 
-  update(id: string): Observable<Numberplate> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.NUMBERPLATE_UPDATE}${id}`)
+  update(payload: NumberplateUpdatePayload): Observable<Numberplate> {
+    return this.put(ApiUriEnum.NUMBERPLATE_UPDATE, payload)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? NumberplateHelper.fromDto(response.data as NumberplateDto) : NumberplateHelper.getEmpty();

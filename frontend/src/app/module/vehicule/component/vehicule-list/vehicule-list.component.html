@@ -4,6 +4,20 @@
     <hr>
     <h1 class="text-center">Liste des véhicules</h1>
     <hr>
+    <form method="POST" class="row g-3">
+      <div class=" d-grid btn-block">
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend input-group-sm">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+          </div>
+          <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+        </div>
+      </div>
+      <div class=" d-grid btn-block">
+        <a href="" class="btn btn-sm btn-success btn-block">Ajouter un nouveau véhicule</a>
+      </div>
+    </form>
+    <hr>
     <app-generic-data-table [config]="config"></app-generic-data-table>
   </div>
 </ng-container>

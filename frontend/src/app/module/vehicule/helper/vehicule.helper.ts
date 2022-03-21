@@ -1,5 +1,5 @@
-import { Vehicule } from '@vehicule/model/business';
-import { VehiculeDto } from '@vehicule/model';
+import {Vehicule} from '@vehicule/model/business';
+import {VehiculeDto} from '@vehicule/model';
 
 export class VehiculeHelper {
   public static fromDto(dto: VehiculeDto): Vehicule {

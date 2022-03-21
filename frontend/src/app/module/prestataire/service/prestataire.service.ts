@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { Prestataire } from '@prestataire/model/business';
 import { PrestataireHelper } from '@prestataire/helper';
-import { PrestataireDto } from '@prestataire/model';
+import {PrestataireCreatePayload, PrestataireDto, PrestataireUpdatePayload} from '@prestataire/model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +18,17 @@ export class PrestataireService extends ApiService {
     super(http);
   }
 
-  create(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.PRESTATAIRE_CREATE}`);
+  create(payload: PrestataireCreatePayload): Observable<ApiResponse> {
+    return this.post(ApiUriEnum.PRESTATAIRE_CREATE, payload);
   }
 
-// Théoriquement ici tu sors une liste d'utilisateur.
-// Observable<Prestataire[]>
-  list(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.PRESTATAIRE_LIST}`);
+  list(): Observable<Prestataire[]> {
+    return this.get(ApiUriEnum.PRESTATAIRE_LIST)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? PrestataireHelper.fromDtoArray(response.data as PrestataireDto[]) : [];
+        })
+      )
   }
 
   detail(id: string): Observable<Prestataire> {
@@ -37,8 +40,8 @@ export class PrestataireService extends ApiService {
       );
   }
 
-  update(id: string): Observable<Prestataire> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.PRESTATAIRE_UPDATE}${id}`)
+  update(payload: PrestataireUpdatePayload): Observable<Prestataire> {
+    return this.put(ApiUriEnum.PRESTATAIRE_UPDATE, payload)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? PrestataireHelper.fromDto(response.data as PrestataireDto) : PrestataireHelper.getEmpty();

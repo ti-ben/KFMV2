@@ -1,4 +1,4 @@
-import { FieldDefinition, FieldType } from '@shared/model';
+import {FieldDefinition, FieldType} from '@shared/model';
 
 export class GenericTableHelper {
   public static genUserFieldDefinitions(): FieldDefinition[] {
@@ -81,6 +81,84 @@ export class GenericTableHelper {
       {
         translateKey: 'table.site.',
         field: 'description',
+        type: FieldType.STRING
+      }
+    ]
+
+  }
+
+  public static genGradeFieldDefinitions(): FieldDefinition[] {
+    return [
+      {
+        icon: 'fa-image',
+        translateKey: 'table.grade.',
+        field: 'name',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.grade.',
+        field: 'comment',
+        type: FieldType.STRING
+      }
+    ]
+
+  }
+
+  public static genStatusFieldDefinitions(): FieldDefinition[] {
+    return [
+      {
+        icon: 'fa-image',
+        translateKey: 'table.status.',
+        field: 'name',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.status.',
+        field: 'description',
+        type: FieldType.STRING
+      }
+    ]
+
+  }
+
+  public static genNumberplateFieldDefinitions(): FieldDefinition[] {
+    return [
+      {
+        icon: 'fa-image',
+        translateKey: 'table.numberplate.',
+        field: 'num_plate',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.numberplate.',
+        field: 'dop',
+        type: FieldType.DATE
+      }
+    ]
+
+  }
+
+  public static genPrestataireFieldDefinitions(): FieldDefinition[] {
+    return [
+      {
+        icon: 'fa-image',
+        translateKey: 'table.prestataire.',
+        field: 'name',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.prestataire.',
+        field: 'tel',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.prestataire.',
+        field: 'email',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.prestataire.',
+        field: 'service',
         type: FieldType.STRING
       }
     ]

@@ -42,6 +42,24 @@
     "site": {
       "name": "Site name",
       "description": "Description"
+    },
+    "grade": {
+      "name": "Role name",
+      "comment": "Description"
+    },
+    "status": {
+      "name": "Status name",
+      "description": "Description"
+    },
+    "numberplate": {
+      "num_plate": "Plate number",
+      "dop": "Date of purchase"
+    },
+    "prestataire": {
+      "name": "Name",
+      "tel": "Phone",
+      "email": "Email address",
+      "service": "Type of service"
     }
   },
   "page": {
@@ -53,7 +71,7 @@
         "car": "Véhicules",
         "site": "Site",
         "provider": "Prestataires",
-        "role": "Rôles",
+        "grade": "Rôles",
         "status": "Statuts",
         "numberplate": "Immatriculations"
       }

@@ -1,14 +1,13 @@
 package be.kauffman.kfm.user.controller;
 
+import be.kauffman.kfm.common.entity.ApiResponse;
 import be.kauffman.kfm.user.entity.builder.UserBuilder;
 import be.kauffman.kfm.user.entity.dto.User;
 import be.kauffman.kfm.user.entity.payload.UserCreatePayload;
 import be.kauffman.kfm.user.entity.payload.UserUpdatePayload;
-import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import be.kauffman.kfm.user.repository.UserRepository;
-
 
 import java.util.UUID;
 
@@ -21,7 +20,7 @@ public class UserController {
 
     // Create record
     @PostMapping("/create")
-    public ApiResponse create(@RequestBody UserCreatePayload payload){
+    public ApiResponse create(@RequestBody UserCreatePayload payload) {
         User user = new UserBuilder()
                 .setFirstname(payload.getFirstname())
                 .setLastname(payload.getLastname())
@@ -44,25 +43,25 @@ public class UserController {
 
     // Read all records
     @GetMapping("/list")
-    public ApiResponse get(){
+    public ApiResponse get() {
         return new ApiResponse(true, userRepository.findAll(), null);
     }
 
     // Read record detail
     @GetMapping("/detail/{id}")
-    public ApiResponse detail(@PathVariable("id") UUID id){
+    public ApiResponse detail(@PathVariable("id") UUID id) {
         User fromDb = userRepository.findById(id).orElse(null);
-        if(fromDb == null){
+        if (fromDb == null) {
             return new ApiResponse(false, null, "api.user.detail.not-found");
         }
-        return new ApiResponse(true,fromDb, null);
+        return new ApiResponse(true, fromDb, null);
     }
 
     // Update record
     @PostMapping("/update")
     public ApiResponse update(@RequestBody UserUpdatePayload payload) {
         User fromDb = userRepository.findById(payload.getUser_id()).orElse(null);
-        if(fromDb == null){
+        if (fromDb == null) {
             return new ApiResponse(false, null, "api.user.update.not-found");
         }
         fromDb.setFirstname(payload.getFirstname());

@@ -25,7 +25,7 @@
       "active": "Actif?",
       "price": "Prix",
       "num_chassis": "N° de chassis",
-      "brand": "MArque",
+      "brand": "Marque",
       "cde_carrosserie": "Code carrosserie",
       "genre": "Genre",
       "mom": "MOM",
@@ -42,6 +42,24 @@
     "site": {
       "name": "Nom du site",
       "description": "Description"
+    },
+    "grade": {
+      "name": "Nom du rôle",
+      "comment": "Description"
+    },
+    "status": {
+      "name": "Nom du status",
+      "description": "Description"
+    },
+    "numberplate": {
+      "num_plate": "Numéro de plaque",
+      "dop": "Date d'achat"
+    },
+    "prestataire": {
+      "name": "Nom",
+      "tel": "Tél.:",
+      "email": "adresse email",
+      "service": "Type de service"
     }
   },
   "page": {
@@ -53,7 +71,7 @@
         "car": "Véhicules",
         "site": "Site",
         "provider": "Prestataires",
-        "role": "Rôles",
+        "grade": "Rôles",
         "status": "Statuts",
         "numberplate": "Immatriculations",
         "tachygraphe": "Tachygraphe"

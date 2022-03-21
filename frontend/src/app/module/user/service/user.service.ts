@@ -21,7 +21,6 @@ export class UserService extends ApiService {
     return this.post(ApiUriEnum.USER_CREATE, payload);
   }
 
-
   list(): Observable<User[]> {
     return this.get(ApiUriEnum.USER_LIST)
       .pipe(

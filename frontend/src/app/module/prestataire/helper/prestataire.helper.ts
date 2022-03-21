@@ -1,5 +1,5 @@
-import { Prestataire } from '@prestataire/model/business';
-import { PrestataireDto } from '@prestataire/model';
+import {Prestataire} from '@prestataire/model/business';
+import {PrestataireDto} from '@prestataire/model';
 
 export class PrestataireHelper {
   public static fromDto(dto: PrestataireDto): Prestataire {
@@ -22,7 +22,7 @@ export class PrestataireHelper {
     };
   }
 
-  static getEmpty():Prestataire {
+  static getEmpty(): Prestataire {
     return {
       prestataire_id: '',
       name: '',
@@ -30,5 +30,9 @@ export class PrestataireHelper {
       email: '',
       service: ''
     };
+  }
+
+  static fromDtoArray(data: PrestataireDto[]): Prestataire[] {
+    return data.map((dto: PrestataireDto) => PrestataireHelper.fromDto(dto));
   }
 }

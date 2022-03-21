@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { PrestataireListComponent , PrestataireFormComponent, PrestataireDetailComponent } from '@prestataire/component';
 
 const routes: Routes = [
-  {path: '', component: PrestataireListComponent},
-  {path: '', component: PrestataireFormComponent},
-  {path: '', component: PrestataireDetailComponent}
+  {path: 'list', component: PrestataireListComponent},
+  {path: 'form', component: PrestataireFormComponent},
+  {path: 'detail', component: PrestataireDetailComponent}
 ];
 
 @NgModule({
