@@ -29,4 +29,5 @@ export class SiteListComponent implements OnInit {
     config.data = list;
     this.config$.next(config);
   }
+
 }

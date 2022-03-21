@@ -164,4 +164,30 @@ export class GenericTableHelper {
     ]
 
   }
+
+  public static genTachygrapheFieldDefinitions(): FieldDefinition[] {
+    return [
+      {
+        translateKey: 'table.tachygraphe.',
+        field: 'start_date',
+        type: FieldType.DATE
+      },
+      {
+        translateKey: 'table.tachygraphe.',
+        field: 'end_date',
+        type: FieldType.DATE
+      },
+      {
+        translateKey: 'table.tachygraphe.',
+        field: 'num_carte',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.tachygraphe.',
+        field: 'comment',
+        type: FieldType.STRING
+      }
+    ]
+
+  }
 }
