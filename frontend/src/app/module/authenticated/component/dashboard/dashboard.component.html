@@ -2,7 +2,9 @@
   <header id="header">
     {{'benoit.afaire.header' | translate}}
   </header>
+
   <nav class="side-menu hide menu-show">
+    <h3 style="color: white">KFM Framework</h3>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item" *ngFor="let item of menu" (click)="navigate(item.link)">
          <span class="nav-link text-white" [class.active]="item.active">

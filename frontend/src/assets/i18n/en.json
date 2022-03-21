@@ -16,9 +16,32 @@
       "telperso": "Phone 2",
       "nationality": "Nationality",
       "numirn": "Registry number",
-      "driver_license": "Permis",
-      "created_on": "Créé le",
-      "pob": "Lieu de naissance"
+      "driver_license": "Drive License",
+      "created_on": "Created on",
+      "pob": "Place of birth"
+    },
+    "vehicule": {
+      "dop": "Date of purchase",
+      "active": "Active ?",
+      "price": "Price",
+      "num_chassis": "Chassis number",
+      "brand": "Brand",
+      "cde_carrosserie": "Body code",
+      "genre": "Genre",
+      "mom": "MOM",
+      "mma": "MMA",
+      "mmat": "MMAT",
+      "mta": "MTA",
+      "classe_enviro": "Environmental class",
+      "nbr_km": "Km",
+      "metrologie": "Metrology",
+      "picture": "Picture",
+      "fuel": "Fuel type",
+      "type": "Truck type"
+    },
+    "site": {
+      "name": "Site name",
+      "description": "Description"
     }
   },
   "page": {
@@ -28,7 +51,7 @@
         "employee": "Employés",
         "dashboard": "Tableau de bord",
         "car": "Véhicules",
-        "site": "Tableau de bord",
+        "site": "Site",
         "provider": "Prestataires",
         "role": "Rôles",
         "status": "Statuts",

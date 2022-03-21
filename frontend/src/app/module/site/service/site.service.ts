@@ -5,9 +5,8 @@ import { Observable } from 'rxjs';
 import { ApiResponse, ApiUriEnum } from '@shared/model';
 import { map } from 'rxjs/operators';
 import { isNil } from 'lodash';
-import { Site } from '@site/model/business';
 import { SiteHelper } from '@site/helper';
-import { SiteDto } from '@site/model';
+import { Site, SiteDto, SiteCreatePayload, SiteUpdatePayload } from '@site/model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +17,17 @@ export class SiteService extends ApiService {
     super(http);
   }
 
-  create(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.SITE_CREATE}`);
+  create(payload: SiteCreatePayload): Observable<ApiResponse> {
+    return this.post(ApiUriEnum.SITE_CREATE, payload);
   }
 
-// Théoriquement ici tu sors une liste d'utilisateur.
-// Observable<User[]>
-  list(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.SITE_LIST}`);
+  list(): Observable<Site[]> {
+    return this.get(ApiUriEnum.SITE_LIST)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? SiteHelper.fromDtoArray(response.data as SiteDto[]) : [];
+        })
+      )
   }
 
   detail(id: string): Observable<Site> {
@@ -37,8 +39,8 @@ export class SiteService extends ApiService {
       );
   }
 
-  update(id: string): Observable<Site> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.SITE_UPDATE}${id}`)
+  update(payload: SiteUpdatePayload): Observable<Site> {
+    return this.put(ApiUriEnum.SITE_UPDATE, payload)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? SiteHelper.fromDto(response.data as SiteDto) : SiteHelper.getEmpty();
@@ -46,7 +48,7 @@ export class SiteService extends ApiService {
       );
   }
 
-  delete(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.SITE_DELETE}`);
+  delete(id: string): Observable<ApiResponse> {
+    return this.http.get(`${ApiUriEnum.SITE_DELETE}${id}`);
   }
 }

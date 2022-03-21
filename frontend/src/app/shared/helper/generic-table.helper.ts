@@ -69,4 +69,21 @@ export class GenericTableHelper {
     ]
 
   }
+
+  public static genSiteFieldDefinitions(): FieldDefinition[] {
+    return [
+      {
+        icon: 'fa-image',
+        translateKey: 'table.site.',
+        field: 'name',
+        type: FieldType.STRING
+      },
+      {
+        translateKey: 'table.site.',
+        field: 'description',
+        type: FieldType.STRING
+      }
+    ]
+
+  }
 }
