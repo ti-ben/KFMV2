@@ -1,6 +1,7 @@
 export enum AppRoute {
   DASHBOARD_HOME    = 'dashboard',
   USER_LIST         = 'dashboard/user/list',
+  USER_DETAIL       = 'dashboard/user/detail/',
   VEHICULE_LIST     = 'dashboard/vehicule/list',
   PRESTATAIRE_LIST  = 'dashboard/prestataire/list',
   GRADE_LIST        = 'dashboard/grade/list',

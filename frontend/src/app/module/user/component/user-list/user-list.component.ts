@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from '@user/service/user.service';
-import {BehaviorSubject} from 'rxjs';
-import {User} from '@user/model';
-import {tap} from 'rxjs/operators';
-import {GenericTableConfig} from '@shared/model';
-import {GenericTableHelper} from '@shared/helper';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '@user/service/user.service';
+import { BehaviorSubject } from 'rxjs';
+import { User } from '@user/model';
+import { tap } from 'rxjs/operators';
+import { AppRoute, GenericTableConfig } from '@shared/model';
+import { GenericTableHelper } from '@shared/helper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -14,13 +15,17 @@ import {GenericTableHelper} from '@shared/helper';
 export class UserListComponent implements OnInit {
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, public router: Router) {
   }
 
   ngOnInit(): void {
     this.userService.list().pipe(
       tap((list: User[]) => this.setConfig(list)))
       .subscribe();
+  }
+
+  showDetail(user: User): void {
+    this.router.navigate([`${AppRoute.USER_DETAIL}${user.user_id}`]).then();
   }
 
   private setConfig(list: User[]): void {
