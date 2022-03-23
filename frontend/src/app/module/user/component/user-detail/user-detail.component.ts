@@ -7,22 +7,20 @@ import { GenericTableHelper } from "@shared/helper";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { isNil } from 'lodash';
-import { UserHelper } from '@user/helper';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
+
 export class UserDetailComponent implements OnInit {
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
 
-  constructor(public router: Router, public activatedRouter: ActivatedRoute, public userService: UserService) {
-  }
+  constructor(public router: Router, public activatedRouter: ActivatedRoute, public userService: UserService) { }
 
   ngOnInit(): void {
-
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {

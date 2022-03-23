@@ -15,8 +15,7 @@ import { Router } from '@angular/router';
 export class UserListComponent implements OnInit {
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
 
-  constructor(public userService: UserService, public router: Router) {
-  }
+  constructor(public userService: UserService, public router: Router) { }
 
   ngOnInit(): void {
     this.userService.list().pipe(

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FieldType, GenericTableConfig, MenuItem } from '@shared/model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FieldType, GenericTableConfig, MenuItem} from '@shared/model';
 
 @Component({
   selector: 'app-generic-data-table',

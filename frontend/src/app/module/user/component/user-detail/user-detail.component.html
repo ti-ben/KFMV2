@@ -18,19 +18,19 @@
             </tr>
             <tr>
               <th>Prénom :</th>
-              <td>{{null}}</td>
+              <td>{{detail.firstname}}</td>
             </tr>
             <tr>
               <th>Adresse email :</th>
-              <td>{{null}}</td>
+              <td>{{detail.email}}</td>
             </tr>
             <tr>
               <th>Tel. (Pro) :</th>
-              <td>{{null}}</td>
+              <td>{{detail.telpro}}</td>
             </tr>
             <tr>
               <th>Tel. (Perso) :</th>
-              <td>{{null}}</td>
+              <td>{{detail.telperso}}</td>
             </tr>
             <tr>
               <th>Travail à :</th>
@@ -38,7 +38,7 @@
             </tr>
             <tr>
               <th>Ajouté(e) le :</th>
-              <td>{{null}}</td>
+              <td>{{detail.created_on}}</td>
             </tr>
           </table>
         </div>
@@ -72,50 +72,50 @@
       <div class="row g-3">
         <div class="col-md-3">
           <label>Nom</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.lastname}}" disabled>
         </div>
 
         <div class="col-md-3">
           <label>Prénom</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.firstname}}" disabled>
         </div>
 
         <div class="col-md-6">
           <label>Adresse email</label>
           <div class="input-group input-group-sm has-validation">
             <span class="input-group-text">@</span>
-            <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+            <input type="text" class="form-control form-control-sm" value="{{detail.email}}" disabled>
           </div>
         </div>
 
         <div class="col-md-3">
           <label>Tel. (Perso)</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.telperso}}" disabled>
         </div>
 
         <div class="col-md-3">
           <label>Tel. (Pro)</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.telpro}}" disabled>
         </div>
 
         <div class="col-md-6">
           <label>Nationalité</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.nationality}}" disabled>
         </div>
 
         <div class="col-md-3">
           <label>Genre</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.gender}}" disabled>
         </div>
 
         <div class="col-md-3">
           <label>Date de naissance</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.dob}}" disabled>
         </div>
 
         <div class="col-md-6">
           <label>Lieu de naissance</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.pob}}" disabled>
         </div>
 
         <div class="col-md-6">
@@ -135,12 +135,12 @@
 
         <div class="col-md-4">
           <label>N° registre national</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.numirn}}" disabled>
         </div>
 
         <div class="col-md-2">
           <label>Permis</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+          <input type="text" class="form-control form-control-sm" value="{{detail.driver_license}}" disabled>
         </div>
 
         <div class="col-md-2">

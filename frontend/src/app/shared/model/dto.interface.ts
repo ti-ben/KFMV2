@@ -1,1 +1,3 @@
-export interface DtoInterface {}
+export interface DtoInterface {
+
+}

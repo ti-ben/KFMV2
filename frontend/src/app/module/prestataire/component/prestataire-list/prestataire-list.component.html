@@ -18,6 +18,6 @@
       </div>
     </form>
     <hr>
-    <app-generic-data-table [config]="config"></app-generic-data-table>
+    <app-generic-data-table [config]="config" (onClick)="handleClick($event)"></app-generic-data-table>
   </div>
 </ng-container>

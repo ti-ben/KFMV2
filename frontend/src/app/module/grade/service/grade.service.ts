@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '@shared/service/api.service';
 import { HttpService } from '@shared/service/http.service';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import { ApiResponse, ApiUriEnum } from '@shared/model';
-import { map } from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { GradeHelper } from '@grade/helper';
 import { Grade, GradeDto,GradeCreatePayload, GradeUpdatePayload } from '@grade/model';
@@ -11,7 +11,9 @@ import { Grade, GradeDto,GradeCreatePayload, GradeUpdatePayload } from '@grade/m
 @Injectable({
   providedIn: 'root'
 })
+
 export class GradeService extends ApiService {
+  currentDetail$ = new BehaviorSubject<Grade>(GradeHelper.getEmpty());
 
   constructor(public http: HttpService) {
     super(http);
@@ -30,13 +32,16 @@ export class GradeService extends ApiService {
       )
   }
 
-  detail(id: string): Observable<Grade> {
-    return this.get(`${ApiUriEnum.GRADE_DETAIL}${id}`)
-      .pipe(
-        map((response: ApiResponse) => {
-          return (response.result && !isNil(response.data)) ? GradeHelper.fromDto(response.data as GradeDto) : GradeHelper.getEmpty();
-        })
-      );
+  detail(id: string): void {
+    const detail = this.currentDetail$.getValue();
+    if (detail.grade_id === id) {
+      this.currentDetail$.next(detail);
+    } else {
+      this.get(`${ApiUriEnum.GRADE_DETAIL}${id}`)
+        .pipe(tap((response: ApiResponse) => {
+          this.currentDetail$.next((response.result && !isNil(response.data)) ? GradeHelper.fromDto(response.data as GradeDto) : GradeHelper.getEmpty());
+        })).subscribe();
+    }
   }
 
   update(payload: GradeUpdatePayload): Observable<Grade> {

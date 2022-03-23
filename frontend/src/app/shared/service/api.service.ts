@@ -10,9 +10,7 @@ import { map } from 'rxjs/operators';
 export class ApiService {
   baseUrl = 'http://localhost:2021/api/';
 
-  constructor(public http: HttpService) {
-
-  }
+  constructor(public http: HttpService) { }
 
   get(partUrl: string): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}${partUrl}`)
@@ -41,6 +39,4 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
-
-
 }

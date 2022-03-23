@@ -1,6 +1,6 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { PrestataireListComponent , PrestataireFormComponent, PrestataireDetailComponent } from '@prestataire/component';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
+import {PrestataireDetailComponent, PrestataireFormComponent, PrestataireListComponent} from '@prestataire/component';
 
 const routes: Routes = [
   {path: 'list', component: PrestataireListComponent},

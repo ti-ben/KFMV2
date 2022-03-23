@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from '@shared/service/api.service';
-import { HttpService } from '@shared/service/http.service';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { ApiResponse, ApiUriEnum } from '@shared/model';
-import { map, tap } from 'rxjs/operators';
-import { isNil } from 'lodash';
-import { UserHelper } from '@user/helper';
-import { User, UserCreatePayload, UserDto, UserUpdatePayload } from '@user/model';
+import {Injectable} from '@angular/core';
+import {ApiService} from '@shared/service/api.service';
+import {HttpService} from '@shared/service/http.service';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {ApiResponse, ApiUriEnum} from '@shared/model';
+import {map, tap} from 'rxjs/operators';
+import {isNil} from 'lodash';
+import {UserHelper} from '@user/helper';
+import {User, UserCreatePayload, UserDto, UserUpdatePayload} from '@user/model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService extends ApiService {
   currentDetail$ = new BehaviorSubject<User>(UserHelper.getEmpty());
 
@@ -37,9 +38,9 @@ export class UserService extends ApiService {
       this.currentDetail$.next(detail);
     } else {
       this.get(`${ApiUriEnum.USER_DETAIL}${id}`)
-        .pipe( tap((response: ApiResponse) => {
-            this.currentDetail$.next((response.result && !isNil(response.data)) ? UserHelper.fromDto(response.data as UserDto) : UserHelper.getEmpty());
-          })).subscribe();
+        .pipe(tap((response: ApiResponse) => {
+          this.currentDetail$.next((response.result && !isNil(response.data)) ? UserHelper.fromDto(response.data as UserDto) : UserHelper.getEmpty());
+        })).subscribe();
     }
   }
 

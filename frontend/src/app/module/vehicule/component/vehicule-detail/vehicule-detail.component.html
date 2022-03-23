@@ -1,5 +1,6 @@
+<ng-container *ngIf="vehiculeService.currentDetail$ | async as detail">
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1350px;">
-
+  <pre>{{detail |json}}</pre>
   <div class="row">
     <div class="col-sm-4 col-md-3">
       <a href="#"><img src="http://192.168.0.18/kfmframework../img/truck.jpg" class="card-img-top"></a>
@@ -10,11 +11,11 @@
       <table class="table">
         <tr>
           <th>Marque :</th>
-          <td>{{null}}</td>
+          <td>{{detail.brand}}</td>
         </tr>
         <tr>
           <th>Type de véhicule:</th>
-          <td>{{null}}</td>
+          <td>{{detail.type}}</td>
         </tr>
         <tr>
           <th>N° plaque :</th>
@@ -38,7 +39,7 @@
         </tr>
         <tr>
           <th>Prix d'achat :</th>
-          <td>{{null}}</td>
+          <td>{{detail.dop}}</td>
         </tr>
       </table>
     </div>
@@ -46,19 +47,19 @@
   <div class="container-fluid">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="">Carte d'identité</a>
+        <a class="nav-link" href="{{null}}">Carte d'identité</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Contrôle Technique</a>
+        <a class="nav-link" href="{{null}}">Contrôle Technique</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Intervention(s) technique</a>
+        <a class="nav-link" href="{{null}}">Intervention(s) technique</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Métrologie</a>
+        <a class="nav-link" href="{{null}}">Métrologie</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">ADR</a>
+        <a class="nav-link" href="{{null}}">ADR</a>
       </li>
     </ul>
   </div>
@@ -68,12 +69,12 @@
 
     <div class="col-md-3">
       <label>Date d'achat</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.dop}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>Prix d'achat</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.price}}" disabled>
     </div>
 
     <div class="col-md-3">
@@ -83,52 +84,52 @@
 
     <div class="col-md-3">
       <label>Numéro de châssis</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.num_chassis}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>Marque</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.brand}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>Code carrosserie</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.cde_carrosserie}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>Genre</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.genre}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>Tare (MOM)</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.mom}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>MMA</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.mma}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>MTA</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.mta}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>MMA Train</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.mmat}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>Classe environnementale</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.classe_enviro}}" disabled>
     </div>
 
     <div class="col-md-3">
       <label>Type de carburant</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.fuel}}" disabled>
     </div>
 
     <div class="col-md-3">
@@ -142,7 +143,7 @@
     </div>
     <div class="col-md-3">
       <label>Type de véhicule</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
+      <input type="text" class="form-control form-control-sm" value="{{detail.type}}" disabled>
     </div>
   </div>
   <hr>
@@ -151,3 +152,4 @@
     <a href="{{null}}" class="btn btn-sm btn-success btn-block">Retour à la liste des véhicules</a>
   </div>
 </div>
+</ng-container>
