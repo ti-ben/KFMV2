@@ -3,7 +3,7 @@ import { UserService } from '@user/service/user.service';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '@user/model';
 import { tap } from 'rxjs/operators';
-import { AppRoute, GenericTableConfig } from '@shared/model';
+import { AppRoute, GenericTableConfig, MenuItem, MenuItemType } from '@shared/model';
 import { GenericTableHelper } from '@shared/helper';
 import { Router } from '@angular/router';
 
@@ -24,14 +24,25 @@ export class UserListComponent implements OnInit {
       .subscribe();
   }
 
-  showDetail(user: User): void {
-    this.router.navigate([`${AppRoute.USER_DETAIL}${user.user_id}`]).then();
+  handleClick(menuItem: MenuItem): void {
+    switch (menuItem.type) {
+      case MenuItemType.USER_DETAIL:
+        this.router.navigate([`${menuItem.link}${menuItem.data.user_id}`]).then();
+        break;
+    }
   }
 
   private setConfig(list: User[]): void {
     let config = this.config$.getValue();
     config.fields = GenericTableHelper.genUserFieldDefinitions();
     config.data = list;
+    config.actions = [{
+      icon: 'fa-eye',
+      label: '',
+      link: AppRoute.USER_DETAIL,
+      active: false,
+      type: MenuItemType.USER_DETAIL
+    }]
     this.config$.next(config);
   }
 }

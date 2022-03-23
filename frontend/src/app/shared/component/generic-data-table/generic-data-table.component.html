@@ -4,6 +4,7 @@
     <th *ngFor="let field of config.fields">
       <span class="fa-solid {{field.icon}}"> {{field.translateKey + field.field | translate}}</span>
     </th>
+    <th *ngIf="config.actions"></th>
   </tr>
   </thead>
   <tbody>
@@ -12,6 +13,11 @@
       <ng-container [ngSwitch]="field.type">
         <ng-container *ngSwitchCase="fieldType.IMAGE"><img src="{{item[field.field] }}" alt=""></ng-container>
         <ng-container *ngSwitchCase="fieldType.STRING">{{item[field.field] }}</ng-container>
+      </ng-container>
+    </td>
+    <td *ngIf="config.actions">
+      <ng-container *ngFor="let action of config.actions">
+        <span class="icon fa {{action.icon}} " (click)="onClickHandler(action,item)"></span>
       </ng-container>
     </td>
   </tr>

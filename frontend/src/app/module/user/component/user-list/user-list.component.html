@@ -16,7 +16,7 @@
         <a href="" class="btn btn-sm btn-success btn-block">Ajouter un nouvel utilisateur</a>
       </div>
     </form>
-    <app-generic-data-table [config]="config"></app-generic-data-table>
+    <app-generic-data-table [config]="config" (onClick)="handleClick($event)"></app-generic-data-table>
   </div>
 
 </ng-container>
