@@ -11,6 +11,7 @@ import {Prestataire, PrestataireCreatePayload, PrestataireDto, PrestataireUpdate
 @Injectable({
   providedIn: 'root'
 })
+
 export class PrestataireService extends ApiService {
   currentDetail$ = new BehaviorSubject<Prestataire>(PrestataireHelper.getEmpty());
 
@@ -52,7 +53,7 @@ export class PrestataireService extends ApiService {
       );
   }
 
-  delete(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.PRESTATAIRE_DELETE}`);
+  delete(id: string): Observable<ApiResponse> {
+    return this.http.get(`${ApiUriEnum.PRESTATAIRE_DELETE}${id}`);
   }
 }

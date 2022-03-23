@@ -1,7 +1,12 @@
 <p>grade-detail works!</p>
 <ng-container *ngIf="gradeService.currentDetail$ | async as detail">
-  {{detail |json}}
-  <ng-container *ngIf="detail.grade_id.length ===0;else data">c'est vide</ng-container>
+  <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
+    <pre>{{ detail | json}}</pre>
+  <ng-container *ngIf="detail.grade_id.length ===0;else data">
+    <div class="alert alert-danger text-center" role="alert">
+      Aucuns résultats trouvés.
+    </div>
+  </ng-container>
   <ng-template #data>
     <div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
       <h1 class="text-center">Mettre à jour le rôle</h1>
@@ -25,4 +30,5 @@
       </div>
     </div>
   </ng-template>
+  </div>
 </ng-container>

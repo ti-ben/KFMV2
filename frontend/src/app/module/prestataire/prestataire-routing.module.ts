@@ -5,7 +5,7 @@ import {PrestataireDetailComponent, PrestataireFormComponent, PrestataireListCom
 const routes: Routes = [
   {path: 'list', component: PrestataireListComponent},
   {path: 'form', component: PrestataireFormComponent},
-  {path: 'detail', component: PrestataireDetailComponent}
+  {path: 'detail/:id', component: PrestataireDetailComponent}
 ];
 
 @NgModule({

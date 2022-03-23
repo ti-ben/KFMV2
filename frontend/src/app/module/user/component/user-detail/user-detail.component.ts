@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from "@user/service/user.service";
-import { BehaviorSubject } from "rxjs";
-import { GenericTableConfig } from "@shared/model";
-import { User } from "@user/model";
-import { GenericTableHelper } from "@shared/helper";
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
-import { isNil } from 'lodash';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "@user/service/user.service";
+import {BehaviorSubject} from "rxjs";
+import {GenericTableConfig} from "@shared/model";
+import {User} from "@user/model";
+import {GenericTableHelper} from "@shared/helper";
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {tap} from 'rxjs/operators';
+import {isNil} from 'lodash';
 
 @Component({
   selector: 'app-user-detail',
@@ -18,7 +18,8 @@ export class UserDetailComponent implements OnInit {
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
 
-  constructor(public router: Router, public activatedRouter: ActivatedRoute, public userService: UserService) { }
+  constructor(public router: Router, public activatedRouter: ActivatedRoute, public userService: UserService) {
+  }
 
   ngOnInit(): void {
     this.activatedRouter.params

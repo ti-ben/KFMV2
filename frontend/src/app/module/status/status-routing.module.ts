@@ -5,7 +5,7 @@ import { StatusListComponent , StatusFormComponent, StatusDetailComponent } from
 const routes: Routes = [
   {path: 'list', component: StatusListComponent},
   {path: 'form', component: StatusFormComponent},
-  {path: 'detail', component: StatusDetailComponent}
+  {path: 'detail/:id', component: StatusDetailComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {AppRoute, GenericTableConfig, MenuItem, MenuItemType} from "@shared/model";
+import {GenericTableConfig} from "@shared/model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PrestataireService} from "@prestataire/service/prestataire.service";
 import {tap} from "rxjs/operators";
@@ -21,7 +21,6 @@ export class PrestataireDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {

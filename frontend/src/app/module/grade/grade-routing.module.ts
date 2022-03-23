@@ -5,7 +5,7 @@ import {GradeDetailComponent, GradeFormComponent, GradeListComponent} from '@gra
 const routes: Routes = [
   {path: 'list', component: GradeListComponent},
   {path: 'form', component: GradeFormComponent},
-  {path: 'detail', component: GradeDetailComponent}
+  {path: 'detail/:id', component: GradeDetailComponent}
 ];
 
 @NgModule({
