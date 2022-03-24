@@ -3,7 +3,7 @@ import {VehiculeService} from "@vehicule/service/vehicule.service";
 import {BehaviorSubject} from 'rxjs';
 import {Vehicule} from "@vehicule/model";
 import {tap} from 'rxjs/operators';
-import { AppRoute, GenericTableConfig, MenuItem, MenuItemType } from '@shared/model';
+import {AppRoute, GenericTableConfig, MenuItem, MenuItemType} from '@shared/model';
 import {GenericTableHelper} from '@shared/helper';
 import {Router} from "@angular/router";
 

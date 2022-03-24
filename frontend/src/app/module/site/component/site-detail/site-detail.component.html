@@ -1,5 +1,7 @@
-<form method="POST" class="row g-3">
+<ng-container *ngIf="siteService.currentDetail$ | async as detail">
   <div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+    <pre>{{detail |json}}</pre>
+    <form method="POST" class="row g-3">
     <hr>
     <h3>Détails du site {{null}}</h3>
     <hr>
@@ -23,6 +25,6 @@
         <button class="btn btn-sm btn-danger btn-block">Retour à la liste</button>
       </div>
     </div>
-
+    </form>
   </div>
-</form>
+</ng-container>

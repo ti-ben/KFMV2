@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '@shared/service/api.service';
 import { HttpService } from '@shared/service/http.service';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import { ApiResponse, ApiUriEnum } from '@shared/model';
-import { map } from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { SiteHelper } from '@site/helper';
 import { Site, SiteDto, SiteCreatePayload, SiteUpdatePayload } from '@site/model';
@@ -11,7 +11,9 @@ import { Site, SiteDto, SiteCreatePayload, SiteUpdatePayload } from '@site/model
 @Injectable({
   providedIn: 'root'
 })
+
 export class SiteService extends ApiService {
+  currentDetail$ = new BehaviorSubject<Site>(SiteHelper.getEmpty());
 
   constructor(public http: HttpService) {
     super(http);
@@ -30,13 +32,16 @@ export class SiteService extends ApiService {
       )
   }
 
-  detail(id: string): Observable<Site> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.SITE_DETAIL}${id}`)
-      .pipe(
-        map((response: ApiResponse) => {
-          return (response.result && !isNil(response.data)) ? SiteHelper.fromDto(response.data as SiteDto) : SiteHelper.getEmpty();
-        })
-      );
+  detail(id: string): void {
+    const detail = this.currentDetail$.getValue();
+    if (detail.site_id === id) {
+      this.currentDetail$.next(detail);
+    } else {
+      this.get(`${ApiUriEnum.SITE_DETAIL}${id}`)
+        .pipe( tap((response: ApiResponse) => {
+          this.currentDetail$.next((response.result && !isNil(response.data)) ? SiteHelper.fromDto(response.data as SiteDto) : SiteHelper.getEmpty());
+        })).subscribe();
+    }
   }
 
   update(payload: SiteUpdatePayload): Observable<Site> {

@@ -19,7 +19,6 @@ const routes: Routes = [
       {path: 'vehicule', loadChildren: () => import('../vehicule/vehicule.module').then(m => m.VehiculeModule)},
     ]
   },
-
 ];
 
 @NgModule({
