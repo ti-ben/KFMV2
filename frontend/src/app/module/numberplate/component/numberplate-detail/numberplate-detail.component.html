@@ -1,1 +1,13 @@
-<p>numberplate-detail works!</p>
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+  <ng-container *ngIf="numberplateService.currentDetail$ | async as detail">
+    {{detail |json}}
+    <ng-container *ngIf="detail.numberplate_id.length ===0;else data">
+      <div class="alert alert-danger text-center" role="alert">
+        Aucuns résultats trouvés.
+      </div>
+    </ng-container>
+    <ng-template #data>
+
+    </ng-template>
+</ng-container>
+</div>

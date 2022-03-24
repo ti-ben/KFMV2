@@ -1,36 +1,47 @@
-<p>prestataire-detail works!</p>
-
-<ng-container *ngIf="prestataireService.currentDetail$ | async as detail">
-  <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
-    <pre>{{ detail | json }}</pre>
-  <ng-container *ngIf="detail.prestataire_id.length ===0;else data">
-    <div class="alert alert-danger text-center" role="alert">
-      Aucuns résultats trouvés.
-    </div>
-  </ng-container>
-  <ng-template #data>
-    <div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
-      <h1 class="text-center">Mettre à jour le rôle</h1>
-      <hr>
-      <div class="card-group justify-content-center">
-        <form method="POST" class="row g-3">
-          <div class="col-md-12">
-            <input autofocus class="form-control form-control-sm" value="{{null}}" type="hidden" name="role_id">
-            <input autofocus class="form-control form-control-sm" value="{{null}}" type="text" name="role_name" placeholder="Role name">
-          </div>
-          <div class="col-md-12">
-            <textarea autofocus class="form-control form-control-sm" value="{{null}}" type="text-area" name="role_description" rows="4" placeholder="Description du rôle">{{null}}</textarea>
-          </div>
-          <div class="d-grid btn-block">
-            <input class="btn btn-sm btn-success" type="submit" value="Enregistrer">
-          </div>
-          <div class="d-grid btn-block">
-            <a href="{{null}}" class="btn btn-sm btn-danger">Retour à la liste</a>
-          </div>
-        </form>
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+  <ng-container *ngIf="prestataireService.currentDetail$ | async as detail">
+    <ng-container *ngIf="detail.prestataire_id.length ===0;else data">
+      <div class="alert alert-danger text-center" role="alert">
+        Aucuns résultats trouvés.
       </div>
-    </div>
-  </ng-template>
-  </div>
-</ng-container>
+    </ng-container>
+    <ng-template #data>
+      <hr>
+      <p class="text-center">Detail de la fiche du prestataire <b>{{detail.name}}</b></p>
+      <hr>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control" value="{{detail.prestataire_id}}" type="text" id="prestataire_id"
+               name="prestataire_id" placeholder="ID du prestataire" disabled>
+      </div>
+
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control" value="{{detail.name}}" type="text" id="prestataire_name"
+               name="prestataire_name" placeholder="Nom du prestataire" disabled>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control" value="{{detail.service}}" type="text" id="prestataire_role"
+               name="prestataire_role" placeholder="Role du prestataire" disabled>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control" value="{{detail.tel}}" type="text" id="prestataire_tel"
+               name="prestataire_tel" placeholder="Numéro de tel." disabled>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control" value="{{detail.email}}}" type="text" id="prestataire_email"
+               name="prestataire_email" placeholder="Adresse email" disabled>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <textarea autofocus class="form-control " value="{{null}}" type="text-area" id="prestataire_adresse"
+                  name="prestataire_adresse" placeholder="Adresse du prestataire" style="height: 100px"
+                  disabled>{{null}}</textarea>
+      </div>
+
+      <div class="d-grid btn-block">
+        <button class="btn btn-sm btn-warning btn-block">Modifier les infos</button>
+        <button class="btn btn-sm btn-success btn-block">Retour à la liste</button>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>
+
 

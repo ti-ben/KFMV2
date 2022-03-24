@@ -14,6 +14,7 @@ import {SharedModule} from "@shared/shared.module";
   ],
   imports: [
     CommonModule,
+    // Don't forget to add/import the {entity}RoutingModule & SharedModule
     NumberplateRoutingModule,
     SharedModule
   ]

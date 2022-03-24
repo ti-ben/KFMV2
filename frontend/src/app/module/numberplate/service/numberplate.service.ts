@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '@shared/service/api.service';
 import {HttpService} from '@shared/service/http.service';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {ApiResponse, ApiUriEnum} from '@shared/model';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {NumberplateHelper} from '@numberplate/helper';
 import {Numberplate, NumberplateCreatePayload, NumberplateDto, NumberplateUpdatePayload} from '@numberplate/model';
@@ -11,7 +11,9 @@ import {Numberplate, NumberplateCreatePayload, NumberplateDto, NumberplateUpdate
 @Injectable({
   providedIn: 'root'
 })
+
 export class NumberplateService extends ApiService {
+  currentDetail$ = new BehaviorSubject<Numberplate>(NumberplateHelper.getEmpty());
 
   constructor(public http: HttpService) {
     super(http);
@@ -30,13 +32,16 @@ export class NumberplateService extends ApiService {
       )
   }
 
-  detail(id: string): Observable<Numberplate> {
-    return this.get(`${ApiUriEnum.NUMBERPLATE_DETAIL}${id}`)
-      .pipe(
-        map((response: ApiResponse) => {
-          return (response.result && !isNil(response.data)) ? NumberplateHelper.fromDto(response.data as NumberplateDto) : NumberplateHelper.getEmpty();
-        })
-      );
+  detail(id: string): void {
+    const detail = this.currentDetail$.getValue();
+    if (detail.numberplate_id === id) {
+      this.currentDetail$.next(detail);
+    } else {
+      this.get(`${ApiUriEnum.NUMBERPLATE_DETAIL}${id}`)
+        .pipe(tap((response: ApiResponse) => {
+          this.currentDetail$.next((response.result && !isNil(response.data)) ? NumberplateHelper.fromDto(response.data as NumberplateDto) : NumberplateHelper.getEmpty());
+        })).subscribe();
+    }
   }
 
   update(payload: NumberplateUpdatePayload): Observable<Numberplate> {
@@ -48,7 +53,7 @@ export class NumberplateService extends ApiService {
       );
   }
 
-  delete(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.NUMBERPLATE_DELETE}`);
+  delete(id: string): Observable<ApiResponse> {
+    return this.http.get(`${ApiUriEnum.NUMBERPLATE_DELETE}${id}`);
   }
 }

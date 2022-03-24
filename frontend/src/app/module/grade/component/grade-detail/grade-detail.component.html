@@ -1,34 +1,31 @@
-<p>grade-detail works!</p>
-<ng-container *ngIf="gradeService.currentDetail$ | async as detail">
-  <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
-    <pre>{{ detail | json}}</pre>
-  <ng-container *ngIf="detail.grade_id.length ===0;else data">
-    <div class="alert alert-danger text-center" role="alert">
-      Aucuns résultats trouvés.
-    </div>
-  </ng-container>
-  <ng-template #data>
-    <div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
-      <h1 class="text-center">Mettre à jour le rôle</h1>
-      <hr>
-      <div class="card-group justify-content-center">
-        <form method="POST" class="row g-3">
-          <div class="col-md-12">
-            <input autofocus class="form-control form-control-sm" value="{{null}}" type="hidden" name="role_id">
-            <input autofocus class="form-control form-control-sm" value="{{null}}" type="text" name="role_name" placeholder="Role name">
-          </div>
-          <div class="col-md-12">
-            <textarea autofocus class="form-control form-control-sm" value="{{null}}" type="text-area" name="role_description" rows="4" placeholder="Description du rôle">{{null}}</textarea>
-          </div>
-          <div class="d-grid btn-block">
-            <input class="btn btn-sm btn-success" type="submit" value="Enregistrer">
-          </div>
-          <div class="d-grid btn-block">
-            <a href="{{null}}" class="btn btn-sm btn-danger">Retour à la liste</a>
-          </div>
-        </form>
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+  <ng-container *ngIf="gradeService.currentDetail$ | async as detail">
+    <ng-container *ngIf="detail.grade_id.length ===0;else data">
+      <div class="alert alert-danger text-center" role="alert">
+        Aucuns résultats trouvés.
       </div>
-    </div>
-  </ng-template>
-  </div>
-</ng-container>
+    </ng-container>
+    <ng-template #data>
+      <hr>
+      <p class="text-center">Détails du rôle <b>{{detail.name}}</b></p>
+      <hr>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control form-control-sm" value="{{detail.grade_id}}" type="text" name="grade_id"
+               placeholder="ID du Rôle" disabled>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control form-control-sm" value="{{detail.name}}" type="text" name="role_name"
+               placeholder="Rôle name" disabled>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <textarea autofocus class="form-control form-control-sm" value="{{detail.comment}}" type="text-area"
+                  name="role_description" rows="4" placeholder="Description du rôle"
+                  disabled>{{detail.comment}}</textarea>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <button class="btn btn-sm btn-success btn-block" type="submit">Enregistrer les modifs</button>
+        <button class="btn btn-sm btn-danger btn-block" type="submit">Retour à la liste</button>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

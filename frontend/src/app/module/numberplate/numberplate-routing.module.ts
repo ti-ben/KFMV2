@@ -5,7 +5,7 @@ import { NumberplateListComponent , NumberplateFormComponent, NumberplateDetailC
 const routes: Routes = [
   {path: 'list', component: NumberplateListComponent},
   {path: 'form', component: NumberplateFormComponent},
-  {path: 'detail', component: NumberplateDetailComponent}
+  {path: 'detail/:id', component: NumberplateDetailComponent}
 ];
 
 @NgModule({

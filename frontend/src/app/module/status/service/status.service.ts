@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '@shared/service/api.service';
 import { HttpService } from '@shared/service/http.service';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import { ApiResponse, ApiUriEnum } from '@shared/model';
-import { map } from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { StatusHelper } from '@status/helper';
 import {Status, StatusCreatePayload, StatusDto, StatusUpdatePayload} from '@status/model';
@@ -11,7 +11,9 @@ import {Status, StatusCreatePayload, StatusDto, StatusUpdatePayload} from '@stat
 @Injectable({
   providedIn: 'root'
 })
+
 export class StatusService extends ApiService {
+  currentDetail$ = new BehaviorSubject<Status>(StatusHelper.getEmpty());
 
   constructor(public http: HttpService) {
     super(http);
@@ -30,13 +32,16 @@ export class StatusService extends ApiService {
       )
   }
 
-  detail(id: string): Observable<Status> {
-    return this.get(`${ApiUriEnum.STATUS_DETAIL}${id}`)
-      .pipe(
-        map((response: ApiResponse) => {
-          return (response.result && !isNil(response.data)) ? StatusHelper.fromDto(response.data as StatusDto) : StatusHelper.getEmpty();
-        })
-      );
+  detail(id: string): void {
+    const detail = this.currentDetail$.getValue();
+    if (detail.status_id === id) {
+      this.currentDetail$.next(detail);
+    } else {
+      this.get(`${ApiUriEnum.STATUS_DETAIL}${id}`)
+        .pipe(tap((response: ApiResponse) => {
+          this.currentDetail$.next((response.result && !isNil(response.data)) ? StatusHelper.fromDto(response.data as StatusDto) : StatusHelper.getEmpty());
+        })).subscribe();
+    }
   }
 
   update(payload: StatusUpdatePayload): Observable<Status> {
@@ -48,7 +53,7 @@ export class StatusService extends ApiService {
       );
   }
 
-  delete(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.STATUS_DELETE}`);
+  delete(id: string): Observable<ApiResponse> {
+    return this.http.get(`${ApiUriEnum.STATUS_DELETE}${id}`);
   }
 }
