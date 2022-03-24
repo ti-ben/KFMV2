@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../../security/service';
+import { ApiResponse } from '@shared/model';
 
 @Component({
   selector: 'app-signin',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
+  formGroup!: FormGroup;
 
-  constructor() { }
+  constructor(public authService: AuthService) {
+  }
 
   ngOnInit(): void {
+    // nous on veut un objet de type SigninPayload
+    this.formGroup = new FormGroup({
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+    })
+  }
+
+  signin(): void {
+    if (this.formGroup.valid) {
+      this.authService.signin(this.formGroup.value)
+        .subscribe((data: ApiResponse) => console.log('api response', data));
+    } else {
+      alert('error');
+    }
   }
 
 }

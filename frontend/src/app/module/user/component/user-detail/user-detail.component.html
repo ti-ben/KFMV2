@@ -7,6 +7,7 @@
       </div>
     </ng-container>
     <ng-template #data>
+      <!-- Créer un composant qui reprend tout ceci -->
       <hr>
       <div class="row">
         <div class="col-sm-4 col-md-3">
@@ -47,126 +48,15 @@
           </table>
         </div>
       </div>
-
-      <div class="container-fluid">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{null}}">Carte d'identité</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{null}}">Sélection Médicale</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{null}}">CAP
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{null}}">ADR
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{null}}">Tachygraphe
-            </a>
-          </li>
-        </ul>
-
-      </div>
-
-
-      <div class="row g-3">
-        <div class="col-md-3">
-          <label>Nom</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.lastname}}" disabled>
-        </div>
-
-        <div class="col-md-3">
-          <label>Prénom</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.firstname}}" disabled>
-        </div>
-
-        <div class="col-md-6">
-          <label>Adresse email</label>
-          <div class="input-group input-group-sm has-validation">
-            <span class="input-group-text">@</span>
-            <input type="text" class="form-control form-control-sm" value="{{detail.email}}" disabled>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <label>Tel. (Perso)</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.telperso}}" disabled>
-        </div>
-
-        <div class="col-md-3">
-          <label>Tel. (Pro)</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.telpro}}" disabled>
-        </div>
-
-        <div class="col-md-6">
-          <label>Nationalité</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.nationality}}" disabled>
-        </div>
-
-        <div class="col-md-3">
-          <label>Genre</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.gender}}" disabled>
-        </div>
-
-        <div class="col-md-3">
-          <label>Date de naissance</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.dob}}" disabled>
-        </div>
-
-        <div class="col-md-6">
-          <label>Lieu de naissance</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.pob}}" disabled>
-        </div>
-
-        <div class="col-md-6">
-          <label>Adresse du domicile actuel</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label>Code Postal</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-        </div>
-
-        <div class="col-md-4">
-          <label>Ville</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-        </div>
-
-        <div class="col-md-4">
-          <label>N° registre national</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.numirn}}" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label>Permis</label>
-          <input type="text" class="form-control form-control-sm" value="{{detail.driver_license}}" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label>Statut</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label>Site</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label>Rang</label>
-          <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-        </div>
-      </div>
-      <hr>
-      <div class="d-grid btn-block">
-        <button class="btn btn-sm btn-warning btn-block">Modifier les informations de l'utilisateur</button>
-        <button class="btn btn-sm btn-success btn-block">Retour à la liste des utilisateurs</button>
-      </div>
+      <!-- Jusqu'ici -->
+      <!-- Idem ici -->
+      <app-tab [list]="tabs" (clickHandler)="currentTab = $event.type"></app-tab>
+      <!-- fin ici a peu pres -->
+      <ng-container [ngSwitch]="currentTab">
+        <app-user-detail-identity *ngSwitchCase="UserDetailTab.USER_IDENTITY" [detail]="detail"></app-user-detail-identity>
+        <app-user-detail-medical-adr *ngSwitchCase="UserDetailTab.USER_ADR"></app-user-detail-medical-adr>
+        <app-user-detail-medical-cap *ngSwitchCase="UserDetailTab.USER_CAP"></app-user-detail-medical-cap>
+      </ng-container>
     </ng-template>
   </div>
 </ng-container>

@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let item of list" (click)="clickHandler.emit(item)">
+    <span class="clickable">{{item.label}}</span>
+  </li>
+</ul>

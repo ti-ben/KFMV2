@@ -7,6 +7,12 @@
 .nav-link:hover .fa {
   transform: rotate(360deg)
 }
+.clickable{
+  cursor:pointer;
+  &:hover{
+
+  }
+}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

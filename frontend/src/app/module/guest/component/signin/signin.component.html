@@ -1,1 +1,5 @@
-<p>signin works!</p>
+<form action="" [formGroup]="formGroup">
+  <input type="text" formControlName="username" />
+  <input type="password" formControlName="password" />
+</form>
+<button (click)="signin()">Se connecter</button>
