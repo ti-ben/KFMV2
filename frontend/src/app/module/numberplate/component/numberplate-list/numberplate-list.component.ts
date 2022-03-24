@@ -45,4 +45,3 @@ export class NumberplateListComponent implements OnInit {
     this.config$.next(config);
   }
 }
-
