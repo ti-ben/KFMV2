@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { TachygrapheListComponent , TachygrapheFormComponent, TachygrapheDetailComponent } from '@tachygraphe/component';
 
 const routes: Routes = [
-  {path: '', component: TachygrapheListComponent},
-  {path: '', component: TachygrapheFormComponent},
-  {path: '', component: TachygrapheDetailComponent}
+  {path: 'list', component: TachygrapheListComponent},
+  {path: 'form', component: TachygrapheFormComponent},
+  {path: 'detail/:id', component: TachygrapheDetailComponent}
 ];
 
 @NgModule({

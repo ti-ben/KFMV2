@@ -1,5 +1,23 @@
-<form action="" [formGroup]="formGroup">
-  <input type="text" formControlName="username" />
-  <input type="password" formControlName="password" />
-</form>
-<button (click)="signin()">Se connecter</button>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <main class="form-signin p-4 shadow mx-auto" style="width: 400px;">
+    <form action="" [formGroup]="formGroup">
+      <h1 class="h3 mb-3 fw-normal text-center">KFM sign in</h1>
+      <div class="form-floating">
+        <label for="floatingInput">Email address</label>
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="username" />
+      </div>
+      <div class="form-floating">
+        <label for="floatingPassword">Password</label>
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password" />
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" (click)="signin()">Sign in</button>
+      <p class="mt-5 mb-3 text-muted text-center">© 2022–2022</p>
+    </form>
+  </main>
+</div>
+

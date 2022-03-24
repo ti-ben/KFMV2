@@ -1,0 +1,76 @@
+<div class="col-md-12">
+  <hr>
+  <div class="input-group date" id="datepicker1">
+    <input type="text" class="form-control" id="cap_periode_dte_deb" name="cap_periode_dte_deb" placeholder="Date début">
+    <span class="input-group-append">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+      </span>
+  </div>
+    <div class="input-group date" id="datepicker2">
+      <input type="text" class="form-control" value="" id="cap_periode_dte_fin" name="cap_periode_dte_fin" placeholder="Date fin">
+      <span class="input-group-append">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+      </span>
+    </div>
+<hr>
+  <button class="btn btn-sm btn-success btn-block">Ajouter</button>
+  <button class="btn btn-sm btn-danger btn-block">Annuler</button>
+  <hr>
+  <b>Certificat d'aptitude professionnel du 03/03/2022 au 03/03/2022</b>
+  <div class="input-group date" id="datepicker3">
+    <input type="text" class="form-control form-select-sm" id="selectcap_dte_rdv_deb" name="selectcap_dte_rdv_deb"
+           placeholder="Date du rdv deb">
+    <span class="input-group-append input-group-sm">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+      </span>
+  </div>
+  <div class="input-group date" id="datepicker4">
+    <input type="text" class="form-control form-select-sm" id="selectcap_dte_rdv_fin" name="selectcap_dte_rdv_fin"
+           placeholder="Date du rdv fin">
+    <span class="input-group-append input-group-sm">
+                    <span class="input-group-text bg-white d-block">
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </span>
+  </div>
+  <div>
+    <input type="text" class="form-control form-control-sm" name="selectcap_theme" value=""
+           placeholder="Intitulé du Theme">
+  </div>
+  <div>
+    <input type="text" class="form-control form-control-sm" name="selectcap_prix" value="" placeholder="Prix">
+  </div>
+  <div class="form-group">
+    <textarea class="form-control form-control-sm" name="selectcap_commentaire" value="" rows="3"
+              placeholder="Commentaire"></textarea>
+  </div>
+
+    <button class="btn btn-sm btn-success btn-block">Ajouter</button>
+    <button class="btn btn-sm btn-danger btn-block">Annuler</button>
+
+  <hr>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Date début</th>
+      <th scope="col">Date fin</th>
+      <th scope="col">Thème</th>
+      <th scope="col">Commentaire</th>
+      <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-success">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <button class="btn float-left btn-sm btn-warning"><i class="fa fa-edit"></i></button>&nbsp;
+        <button class="btn float-end btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

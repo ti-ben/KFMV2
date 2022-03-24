@@ -49,13 +49,15 @@
         </div>
       </div>
       <!-- Jusqu'ici -->
-      <!-- Idem ici -->
+
       <app-tab [list]="tabs" (clickHandler)="currentTab = $event.type"></app-tab>
-      <!-- fin ici a peu pres -->
+
       <ng-container [ngSwitch]="currentTab">
         <app-user-detail-identity *ngSwitchCase="UserDetailTab.USER_IDENTITY" [detail]="detail"></app-user-detail-identity>
-        <app-user-detail-medical-adr *ngSwitchCase="UserDetailTab.USER_ADR"></app-user-detail-medical-adr>
-        <app-user-detail-medical-cap *ngSwitchCase="UserDetailTab.USER_CAP"></app-user-detail-medical-cap>
+        <app-user-detail-adr *ngSwitchCase="UserDetailTab.USER_ADR"></app-user-detail-adr>
+        <app-user-detail-cap *ngSwitchCase="UserDetailTab.USER_CAP"></app-user-detail-cap>
+        <app-user-detail-medical-selection *ngSwitchCase="UserDetailTab.USER_SELECTMED"></app-user-detail-medical-selection>
+        <app-user-detail-tachograph *ngSwitchCase="UserDetailTab.USER_TACHOGRAPH"></app-user-detail-tachograph>
       </ng-container>
     </ng-template>
   </div>

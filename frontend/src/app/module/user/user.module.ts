@@ -6,9 +6,9 @@ import {UserDetailComponent, UserFormComponent, UserListComponent} from '@user/c
 import {SharedModule} from '@shared/shared.module';
 import { UserDetailIdentityComponent } from './component/user-detail-identity/user-detail-identity.component';
 import { UserDetailMedicalSelectionComponent } from './component/user-detail-medical-selection/user-detail-medical-selection.component';
-import { UserDetailMedicalCapComponent } from './component/user-detail-medical-cap/user-detail-medical-cap.component';
-import { UserDetailMedicalAdrComponent } from './component/user-detail-medical-adr/user-detail-medical-adr.component';
-import { UserDetailMedicalTachographComponent } from './component/user-detail-medical-tachograph/user-detail-medical-tachograph.component';
+import { UserDetailCapComponent } from './component/user-detail-cap/user-detail-cap.component';
+import { UserDetailAdrComponent } from './component/user-detail-adr/user-detail-adr.component';
+import { UserDetailTachographComponent } from './component/user-detail-tachograph/user-detail-tachograph.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -18,9 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserDetailComponent,
     UserDetailIdentityComponent,
     UserDetailMedicalSelectionComponent,
-    UserDetailMedicalCapComponent,
-    UserDetailMedicalAdrComponent,
-    UserDetailMedicalTachographComponent
+    UserDetailCapComponent,
+    UserDetailAdrComponent,
+    UserDetailTachographComponent
   ],
     imports: [
         CommonModule,

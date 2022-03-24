@@ -19,19 +19,19 @@ export class UserDetailIdentityComponent implements OnInit {
     this.formGroup = new FormGroup({
       firstname: new FormControl(this.detail.firstname),
       lastname: new FormControl(this.detail.lastname),
-      gender: new FormControl(''),
-      avatar: new FormControl(''),
-      dob: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
-      telpro: new FormControl(''),
-      telperso: new FormControl(''),
-      nationality: new FormControl(''),
-      numirn: new FormControl(''),
-      driver_license: new FormControl(''),
-      created_on: new FormControl(''),
-      pob: new FormControl(''),
-      active: new FormControl('')
+      gender: new FormControl(this.detail.gender),
+      avatar: new FormControl(this.detail.avatar),
+      dob: new FormControl(this.detail.dob),
+      email: new FormControl(this.detail.email),
+      password: new FormControl(this.detail.password),
+      telpro: new FormControl(this.detail.telpro),
+      telperso: new FormControl(this.detail.telperso),
+      nationality: new FormControl(this.detail.nationality),
+      numirn: new FormControl(this.detail.numirn),
+      driver_license: new FormControl(this.detail.driver_license),
+      created_on: new FormControl(this.detail.created_on),
+      pob: new FormControl(this.detail.pob),
+      active: new FormControl(this.detail.active)
     })
   }
 
