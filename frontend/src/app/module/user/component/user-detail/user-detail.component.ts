@@ -21,8 +21,8 @@ export class UserDetailComponent implements OnInit {
   tabs: TabItem[] = [];
   UserDetailTab = TabItemAction;
   currentTab: TabItemAction = TabItemAction.USER_IDENTITY;
-
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public userService: UserService) {
+
   }
 
   ngOnInit(): void {

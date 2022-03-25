@@ -4,7 +4,7 @@ export interface MenuItem {
   icon?: string;
   label: string;
   link: AppRoute;
-  active: boolean;
+  active?: boolean;
   type?: MenuItemType;
   data?: any;
 }

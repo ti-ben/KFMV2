@@ -17,7 +17,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
     // nous on veut un objet de type SigninPayload
     this.formGroup = new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
@@ -25,7 +25,11 @@ export class SigninComponent implements OnInit {
   signin(): void {
     if (this.formGroup.valid) {
       this.authService.signin(this.formGroup.value)
-        .subscribe((data: ApiResponse) => console.log('api response', data));
+        .subscribe((response: ApiResponse) => {
+          if (!response.result) {
+            alert(response.code);
+          }
+        });
     } else {
       alert('error');
     }
