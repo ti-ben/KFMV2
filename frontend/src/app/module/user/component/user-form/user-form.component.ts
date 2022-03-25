@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { UserHelper } from '@user/helper';
+import { User } from '@user/model';
 
 @Component({
   selector: 'app-user-form',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
+  @Input() form: User = UserHelper.getEmpty();
 
   constructor() { }
 

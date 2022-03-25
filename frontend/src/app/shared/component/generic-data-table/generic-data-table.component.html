@@ -11,8 +11,9 @@
   <tr *ngFor="let item of config.data">
     <td *ngFor="let field of config.fields">
       <ng-container [ngSwitch]="field.type">
-        <ng-container *ngSwitchCase="fieldType.IMAGE"><img src="{{item[field.field] }}" alt=""></ng-container>
+        <ng-container *ngSwitchCase="fieldType.IMAGE"><img src="{{item[field.field] }}" width="50" height="50"></ng-container>
         <ng-container *ngSwitchCase="fieldType.STRING">{{item[field.field] }}</ng-container>
+        <ng-container *ngSwitchCase="fieldType.DATE">{{item[field.field] }}</ng-container>
       </ng-container>
     </td>
     <td *ngIf="config.actions">
