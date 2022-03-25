@@ -54,5 +54,6 @@ export enum ApiUriEnum {
   USER_UPDATE = 'user/update',
   USER_DETAIL = 'user/detail/',
   USER_DELETE = 'user/delete/',
-  SIGNIN = 'user/signin'
+  SIGNIN = 'account/signin',
+  ME = 'account/me'
 }

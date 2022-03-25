@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '@user/model';
 import { UserHelper } from '@user/helper';
 import { SigninPayload } from '../model/payload';
-import { ApiResponse, ApiUriEnum } from '@shared/model';
+import { ApiResponse, ApiUriEnum, PayloadInterface } from '@shared/model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +15,11 @@ export class AuthService extends ApiService {
 
   signin(payload: SigninPayload): Observable<ApiResponse> {
     return this.http.post(`${ApiUriEnum.SIGNIN}`, payload);
+  }
+
+  me(payload:PayloadInterface):void{
+    this.post(`${ApiUriEnum.ME}`, payload).subscribe((response:ApiResponse)=>{
+      //il est ou non loggé ou loggable
+    })
   }
 }

@@ -10,6 +10,7 @@ import { UserDetailCapComponent } from './component/user-detail-cap/user-detail-
 import { UserDetailAdrComponent } from './component/user-detail-adr/user-detail-adr.component';
 import { UserDetailTachographComponent } from './component/user-detail-tachograph/user-detail-tachograph.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserDetailSummaryComponent } from './component/user-detail-summary/user-detail-summary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserDetailMedicalSelectionComponent,
     UserDetailCapComponent,
     UserDetailAdrComponent,
-    UserDetailTachographComponent
+    UserDetailTachographComponent,
+    UserDetailSummaryComponent
   ],
     imports: [
         CommonModule,
