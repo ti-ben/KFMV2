@@ -1,1 +1,80 @@
-<p>vehicule-detail-technical-intervention works!</p>
+<div class="row g-3">
+  <div class="col-md-4">
+    <input type="text" class="form-control form-control-sm" value="" placeholder="Date début">
+  </div>
+  <div class="col-md-4">
+    <input type="text" class="form-control form-control-sm" value="" placeholder="Date fin">
+  </div>
+  <div class="col-md-4">
+    <select class="form-select form-select-sm">
+      <option selected disabled value="">Prestataire</option>
+      <option>MVM</option>
+      <option>Kauffman</option>
+    </select>
+  </div>
+</div>
+<div class="col-md-10">
+  <input type="text" class="form-control form-control-sm" value="">
+</div>
+<div class="col-md-1">
+  <input type="text" class="form-control form-control-sm" value="">
+</div>
+<div class="col-md-1 d-grid btn-block">
+  <a href="#" class="btn btn-sm btn-success add_item_btn">Ajouter</a>
+</div>
+<div class="row g-2">
+  <button class="btn btn-sm btn-success btn-block">Enregistrer les interventions techniques</button>
+  <button class="btn btn-sm btn-danger btn-block">Annuler</button>
+</div>
+
+<hr>
+<div class="text-center">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Date début</th>
+      <th scope="col">Date fin</th>
+      <th scope="col">Prestataire</th>
+      <th scope="col">Remarques sur l'intervention</th>
+      <th scope="col">Prix TTC</th>
+      <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-success">
+      <td>07/12/2021</td>
+      <td>09/12/2021</td>
+      <td>MVM</td>
+      <td>Changement filtre à huile moteur + 4h de main d'oeuvre</td>
+      <td>195 €</td>
+      <td>
+        <div class="clear-fix">
+          <a href="">
+            <button class="btn btn-sm btn-warning float-left"><i class="fa fa-edit"></i></button>
+          </a>
+          <a href="">
+            <button class="btn btn-sm btn-danger float-end"><i class="fa fa-trash"></i></button>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <tr class="table-success">
+      <td>07/12/2021</td>
+      <td>09/12/2021</td>
+      <td>MVM</td>
+      <td>Changement des 4 pneus + 1h30 de main d'oeuvre</td>
+      <td>255 €</td>
+      <td>
+        <div class="clear-fix">
+          <a href="">
+            <button class="btn btn-sm btn-warning float-left"><i class="fa fa-edit"></i></button>
+          </a>
+          <a href="">
+            <button class="btn btn-sm btn-danger float-end"><i class="fa fa-trash"></i></button>
+          </a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

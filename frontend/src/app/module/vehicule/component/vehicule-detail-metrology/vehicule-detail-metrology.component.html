@@ -1,1 +1,74 @@
-<p>vehicule-detail-metrology works!</p>
+<div class="row g-3">
+  <div class="col-md-3">
+    <label>Date de début</label>
+    <input type="text" class="form-control" value="" placeholder="Date début">
+  </div>
+
+  <div class="col-md-3">
+    <label>Date de fin</label>
+    <input type="text" class="form-control" value="" placeholder="Date fin">
+  </div>
+
+  <div class="col-md-3">
+    <select class="form-select">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <label>Prestataire</label>
+    <select class="form-select">
+      <option selected disabled value="">Prestataire</option>
+      <option>MVM</option>
+    </select>
+  </div>
+
+  <div class="col-md-12">
+    <input type="text" class="form-control" value="" placeholder="Prix TTC">
+  </div>
+
+  <div class="col-md-12">
+    <label>Commentaire</label>
+    <textarea class="form-control" rows="3" placeholder="Commentaire"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <button class="btn btn-success btn-block">Ajouter</button>
+    <button class="btn btn-danger btn-block">Annuler</button>
+  </div>
+
+</div>
+<hr>
+<div class="text-center">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Date début</th>
+      <th scope="col">Date fin</th>
+      <th scope="col">Prestataire</th>
+      <th scope="col">Prix TTC</th>
+      <th scope="col">Remarques</th>
+      <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-danger">
+      <td>27/08/2021</td>
+      <td>27/08/2022</td>
+      <td>MVM</td>
+      <td>150 €</td>
+      <td>Conteneur: Ancien Mercedes 1-VFL-171</td>
+      <td>
+        <div class="clear-fix">
+          <a href="">
+            <button class="btn btn-sm btn-warning float-left"><i class="fa fa-edit"></i></button>
+          </a>
+          <a href="">
+            <button class="btn btn-sm btn-danger float-end"><i class="fa fa-trash"></i></button>
+          </a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

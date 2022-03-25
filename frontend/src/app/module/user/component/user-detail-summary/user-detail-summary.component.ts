@@ -10,8 +10,7 @@ import { User } from '@user/model';
 export class UserDetailSummaryComponent implements OnInit {
   @Input() detail: User = UserHelper.getEmpty();
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }

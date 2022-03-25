@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {VehiculeHelper} from "@vehicule/helper";
+import {Vehicule} from "@vehicule/model";
 
 @Component({
   selector: 'app-vehicule-detail-summary',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicule-detail-summary.component.scss']
 })
 export class VehiculeDetailSummaryComponent implements OnInit {
+  @Input() detail: Vehicule = VehiculeHelper.getEmpty();
 
   constructor() { }
 

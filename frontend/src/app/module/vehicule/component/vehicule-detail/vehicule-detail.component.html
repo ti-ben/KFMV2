@@ -1,155 +1,23 @@
-<ng-container *ngIf="vehiculeService.currentDetail$ | async as detail">
-<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1350px;">
-  <pre>{{detail |json}}</pre>
-  <div class="row">
-    <div class="col-sm-4 col-md-3">
-      <a href="#"><img src="http://192.168.0.18/kfmframework../img/truck.jpg" class="card-img-top"></a>
-      <hr>
-      <h3 class="text-center">{{null}}</h3>
+<div *ngIf="vehiculeService.currentDetail$ | async as detail" class="container-fluid p-4 shadow mx-auto"
+     style="max-width: 1350px;">
+  <ng-container *ngIf="detail.vehicule_id.length === 0; else data">
+    <div class="alert alert-danger text-center" role="alert">
+      Aucuns résultats trouvés.
     </div>
-    <div class="col-sm-8 col-md-9 bg-light p-2">
-      <table class="table">
-        <tr>
-          <th>Marque :</th>
-          <td>{{detail.brand}}</td>
-        </tr>
-        <tr>
-          <th>Type de véhicule:</th>
-          <td>{{detail.type}}</td>
-        </tr>
-        <tr>
-          <th>N° plaque :</th>
-          <td>{{null}}</td>
-        </tr>
-        <tr>
-          <th>N° chassis :</th>
-          <td>{{null}}</td>
-        </tr>
-        <tr>
-          <th>Immatriculé par :</th>
-          <td>{{null}}</td>
-        </tr>
-        <tr>
-          <th>Roule à :</th>
-          <td>{{null}}</td>
-        </tr>
-        <tr>
-          <th>Date d'achat :</th>
-          <td>{{null}}</td>
-        </tr>
-        <tr>
-          <th>Prix d'achat :</th>
-          <td>{{detail.dop}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link" href="{{null}}">Carte d'identité</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{null}}">Contrôle Technique</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{null}}">Intervention(s) technique</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{null}}">Métrologie</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{null}}">ADR</a>
-      </li>
-    </ul>
-  </div>
-
-  <br>
-  <div class="row g-3">
-
-    <div class="col-md-3">
-      <label>Date d'achat</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.dop}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Prix d'achat</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.price}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>N° de plaque</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Numéro de châssis</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.num_chassis}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Marque</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.brand}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Code carrosserie</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.cde_carrosserie}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Genre</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.genre}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Tare (MOM)</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.mom}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>MMA</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.mma}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>MTA</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.mta}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>MMA Train</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.mmat}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Classe environnementale</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.classe_enviro}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Type de carburant</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.fuel}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Immatriculé à</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-    </div>
-
-    <div class="col-md-3">
-      <label>Roule à</label>
-      <input type="text" class="form-control form-control-sm" value="{{null}}" disabled>
-    </div>
-    <div class="col-md-3">
-      <label>Type de véhicule</label>
-      <input type="text" class="form-control form-control-sm" value="{{detail.type}}" disabled>
-    </div>
-  </div>
-  <hr>
-  <div class="d-grid btn-block">
-    <a href="{{null}}" class="btn btn-sm btn-warning btn-block">Modifier les informations du véhicule</a>
-    <a href="{{null}}" class="btn btn-sm btn-success btn-block">Retour à la liste des véhicules</a>
-  </div>
+  </ng-container>
+  <ng-template #data>
+    <app-vehicule-detail-summary [detail]="detail"></app-vehicule-detail-summary>
+    <app-tab [list]="tabs" (clickHandler)="currentTab = $event.type"></app-tab>
+    <ng-container [ngSwitch]="currentTab">
+      <app-vehicule-detail-identity *ngSwitchCase="VehiculeDetailTab.VEHICULE_IDENTITY"
+                                    [detail]="detail"></app-vehicule-detail-identity>
+      <app-vehicule-detail-adr *ngSwitchCase="VehiculeDetailTab.VEHICULE_ADR"></app-vehicule-detail-adr>
+      <app-vehicule-detail-metrology
+        *ngSwitchCase="VehiculeDetailTab.VEHICULE_METROLOGY"></app-vehicule-detail-metrology>
+      <app-vehicule-detail-technical-control
+        *ngSwitchCase="VehiculeDetailTab.VEHICULE_TECHNICAL_CONTROL"></app-vehicule-detail-technical-control>
+      <app-vehicule-detail-technical-intervention
+        *ngSwitchCase="VehiculeDetailTab.VEHICULE_TECHNICAL_INTERVENTION"></app-vehicule-detail-technical-intervention>
+    </ng-container>
+  </ng-template>
 </div>
-</ng-container>

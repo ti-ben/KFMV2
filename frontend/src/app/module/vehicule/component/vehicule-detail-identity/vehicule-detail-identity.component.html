@@ -1,1 +1,89 @@
-<p>vehicule-detail-identity works!</p>
+<form [formGroup]="formGroup">
+  <div class="row g-3">
+
+    <div class="col-md-3">
+      <label>Date d'achat</label>
+      <input type="text" class="form-control form-control-sm" formControlName="dop">
+    </div>
+
+    <div class="col-md-3">
+      <label>Prix d'achat</label>
+      <input type="text" class="form-control form-control-sm" formControlName="price">
+    </div>
+    <!--
+        <div class="col-md-3">
+          <label>N° de plaque</label>
+          <input type="text" class="form-control form-control-sm" formControlName="">
+        </div>
+    -->
+    <div class="col-md-3">
+      <label>Numéro de châssis</label>
+      <input type="text" class="form-control form-control-sm" formControlName="num_chassis">
+    </div>
+
+    <div class="col-md-3">
+      <label>Marque</label>
+      <input type="text" class="form-control form-control-sm" formControlName="brand">
+    </div>
+
+    <div class="col-md-3">
+      <label>Code carrosserie</label>
+      <input type="text" class="form-control form-control-sm" formControlName="cde_carrosserie">
+    </div>
+
+    <div class="col-md-3">
+      <label>Genre</label>
+      <input type="text" class="form-control form-control-sm" formControlName="genre">
+    </div>
+
+    <div class="col-md-3">
+      <label>Tare (MOM)</label>
+      <input type="text" class="form-control form-control-sm" formControlName="mom">
+    </div>
+
+    <div class="col-md-3">
+      <label>MMA</label>
+      <input type="text" class="form-control form-control-sm" formControlName="mma">
+    </div>
+
+    <div class="col-md-3">
+      <label>MTA</label>
+      <input type="text" class="form-control form-control-sm" formControlName="mta">
+    </div>
+
+    <div class="col-md-3">
+      <label>MMA Train</label>
+      <input type="text" class="form-control form-control-sm" formControlName="mmat">
+    </div>
+
+    <div class="col-md-3">
+      <label>Classe environnementale</label>
+      <input type="text" class="form-control form-control-sm" formControlName="classe_enviro">
+    </div>
+
+    <div class="col-md-3">
+      <label>Type de carburant</label>
+      <input type="text" class="form-control form-control-sm" formControlName="fuel">
+    </div>
+    <!--
+    <div class="col-md-3">
+      <label>Immatriculé à</label>
+      <input type="text" class="form-control form-control-sm" formControlName="">
+    </div>
+
+    <div class="col-md-3">
+      <label>Roule à</label>
+      <input type="text" class="form-control form-control-sm" formControlName="">
+    </div>
+    -->
+    <div class="col-md-3">
+      <label>Type de véhicule</label>
+      <input type="text" class="form-control form-control-sm" formControlName="type">
+    </div>
+  </div>
+  <hr>
+  <div class="d-grid btn-block">
+    <a href="{{null}}" class="btn btn-sm btn-warning btn-block">Modifier les informations du véhicule</a>
+    <a href="{{null}}" class="btn btn-sm btn-success btn-block">Retour à la liste des véhicules</a>
+  </div>
+</form>

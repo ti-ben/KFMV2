@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { UserHelper } from '@user/helper';
-import { User } from '@user/model';
+import {UserHelper} from '@user/helper';
+import {User} from '@user/model';
 
 @Component({
   selector: 'app-user-form',
@@ -10,7 +10,8 @@ import { User } from '@user/model';
 export class UserFormComponent implements OnInit {
   @Input() form: User = UserHelper.getEmpty();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -8,7 +8,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { isNil } from 'lodash';
 
-
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',

@@ -8,6 +8,7 @@ import { UserHelper } from '@user/helper';
   templateUrl: './user-detail-identity.component.html',
   styleUrls: ['./user-detail-identity.component.scss']
 })
+
 export class UserDetailIdentityComponent implements OnInit {
   @Input() detail: User = UserHelper.getEmpty();
   formGroup!: FormGroup;

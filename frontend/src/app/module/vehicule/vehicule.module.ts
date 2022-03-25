@@ -10,6 +10,7 @@ import { VehiculeDetailIdentityComponent } from './component/vehicule-detail-ide
 import { VehiculeDetailSummaryComponent } from './component/vehicule-detail-summary/vehicule-detail-summary.component';
 import { VehiculeDetailTechnicalInterventionComponent } from './component/vehicule-detail-technical-intervention/vehicule-detail-technical-intervention.component';
 import { VehiculeDetailTechnicalControlComponent } from './component/vehicule-detail-technical-control/vehicule-detail-technical-control.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { VehiculeDetailTechnicalControlComponent } from './component/vehicule-de
     CommonModule,
     // Don't forget to add/import the {entity}RoutingModule
     VehiculeRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class VehiculeModule {

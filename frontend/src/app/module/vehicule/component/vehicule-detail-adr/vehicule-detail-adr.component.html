@@ -1,1 +1,49 @@
-<p>vehicule-detail-adr works!</p>
+<div class="row g-3">
+  <div class="col-md-4">
+    <label>Date de  début</label>
+    <input type="text" class="form-control" value="" placeholder="Date début">
+  </div>
+  <div class="col-md-4">
+    <label>Date de fin</label>
+    <input type="text" class="form-control" value="" placeholder="Date fin">
+  </div>
+  <div class="col-md-4">
+    <label>Type</label>
+    <input type="text" class="form-control" value="" placeholder="Colis ou citerne, Sera conditionné par la fiche du véhicule">
+  </div>
+  <div class="col-md-12">
+    <label>Commentaire</label>
+    <textarea class="form-control" rows="3" placeholder="Commentaire"></textarea>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-success btn-block">Ajouter</button>
+    <button class="btn btn-danger btn-block">Annuler</button>
+  </div>
+</div>
+<div class="text-center">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Date début</th>
+      <th scope="col">Date fin</th>
+      <th scope="col">Prestataire</th>
+      <th scope="col">Remarques</th>
+      <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-danger">
+      <td>01/12/2021</td>
+      <td>03/12/2021</td>
+      <td><a href="#">MVM</a></td>
+      <td>Commentaire</td>
+      <td>
+        <div>
+            <button class="btn btn-sm btn-warning float-left"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-sm btn-danger float-end"><i class="fa fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

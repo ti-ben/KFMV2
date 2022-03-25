@@ -1,1 +1,64 @@
-<p>vehicule-detail-technical-control works!</p>
+<form method="post" class="row">
+  <div class="row g-1">
+    <div class="col-md-3">
+      <input type="text" class="form-control form-control-sm" value="" placeholder="Date début">
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control form-control-sm" value="" placeholder="Date fin">
+    </div>
+    <div class="col-md-3">
+      <select class="form-select form-select-sm">
+        <option selected disabled value="">Prestataire</option>
+        <option>MVM</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control form-control-sm" value="" placeholder="Prix du contrôle">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control form-control-sm" value="" rows="3" placeholder="Commentaire"></textarea>
+    </div>
+    <div class="row g-2">
+      <div class="d-grid btn-block">
+        <input class="btn btn-sm btn-success" type="submit" value="Enregistrer">
+      </div>
+      <div class="d-grid btn-block">
+        <a href="#" class="btn btn-sm btn-danger">Annuler</a>
+      </div>
+    </div>
+  </div>
+</form>
+<hr>
+<div class="text-center">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Date début</th>
+      <th scope="col">Date fin</th>
+      <th scope="col">Prestataire</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Remarques</th>
+      <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-success">
+      <td>27/08/2021</td>
+      <td>27/08/2022</td>
+      <td>Verviers</td>
+      <td>95 €</td>
+      <td>Conteneur: Ancien Mercedes 1-VFL-171</td>
+      <td>
+        <div class="clear-fix">
+          <a href="<?= URLROOT; ?>/sites/edit/">
+            <button class="btn btn-sm btn-warning float-left"><i class="fa fa-edit"></i></button>
+          </a>
+          <a href="<?= URLROOT; ?>/sites/delete/">
+            <button class="btn btn-sm btn-danger float-end"><i class="fa fa-trash"></i></button>
+          </a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
