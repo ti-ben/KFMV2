@@ -5,7 +5,6 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {VehiculeService} from "@vehicule/service/vehicule.service";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
-import {User} from "@user/model";
 import {GenericTableHelper} from "@shared/helper";
 import {Vehicule} from "@vehicule/model";
 
