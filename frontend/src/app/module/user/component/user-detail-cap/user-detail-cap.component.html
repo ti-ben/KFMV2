@@ -1,30 +1,42 @@
-<div class="col-md-12">
-  <hr>
-  <div class="input-group date" id="datepicker1">
-    <input type="text" class="form-control" id="cap_periode_dte_deb" name="cap_periode_dte_deb" placeholder="Date début">
+<div class="row g-1 d-grid gap-3">
+
+  <div class="col-md-6 input-group input-group-sm date p-2" id="datepicker1">
+    <input type="text" class="form-control" id="cap_periode_dte_deb" name="cap_periode_dte_deb"
+           placeholder="Date début">
     <span class="input-group-append">
         <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
       </span>
   </div>
-    <div class="input-group date" id="datepicker2">
-      <input type="text" class="form-control" value="" id="cap_periode_dte_fin" name="cap_periode_dte_fin" placeholder="Date fin">
-      <span class="input-group-append">
+
+  <div class="col-md-6 input-group input-group-sm date p-2">
+    <input type="text" class="form-control" value="" name="cap_periode_dte_fin" placeholder="Date fin">
+    <span class="input-group-append">
         <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
       </span>
-    </div>
-<hr>
-  <button class="btn btn-sm btn-success btn-block">Ajouter</button>
-  <button class="btn btn-sm btn-danger btn-block">Annuler</button>
-  <hr>
-  <b>Certificat d'aptitude professionnel du 03/03/2022 au 03/03/2022</b>
-  <div class="input-group date" id="datepicker3">
+  </div>
+
+  <div class="col-md-12 p-2">
+    <button class="btn btn-sm btn-success btn-block">Ajouter</button>
+    <!-- <button class="btn btn-danger btn-block">Annuler</button> -->
+  </div>
+
+</div>
+
+<div class="row g-1 d-grid gap-3">
+
+  <div class="col-md-12 text-center p-2">
+    <span><b>Certificat d'aptitude professionnel du 03/03/2022 au 03/03/2022</b></span>
+  </div>
+
+  <div class="input-group input-group-sm date col-md-3 p-2" id="datepicker3">
     <input type="text" class="form-control form-select-sm" id="selectcap_dte_rdv_deb" name="selectcap_dte_rdv_deb"
            placeholder="Date du rdv deb">
     <span class="input-group-append input-group-sm">
         <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
       </span>
   </div>
-  <div class="input-group date" id="datepicker4">
+
+  <div class="input-group input-group-sm date col-md-3 p-2" id="datepicker4">
     <input type="text" class="form-control form-select-sm" id="selectcap_dte_rdv_fin" name="selectcap_dte_rdv_fin"
            placeholder="Date du rdv fin">
     <span class="input-group-append input-group-sm">
@@ -33,22 +45,27 @@
                     </span>
                   </span>
   </div>
-  <div>
+
+  <div class="col-md-3 p-2">
     <input type="text" class="form-control form-control-sm" name="selectcap_theme" value=""
            placeholder="Intitulé du Theme">
   </div>
-  <div>
+
+  <div class="col-md-3 p-2">
     <input type="text" class="form-control form-control-sm" name="selectcap_prix" value="" placeholder="Prix">
   </div>
-  <div class="form-group">
+
+  <div class="form-group col-md-12 p-2">
     <textarea class="form-control form-control-sm" name="selectcap_commentaire" value="" rows="3"
               placeholder="Commentaire"></textarea>
   </div>
-
+  <div class="col-md-12 p-2">
     <button class="btn btn-sm btn-success btn-block">Ajouter</button>
-    <button class="btn btn-sm btn-danger btn-block">Annuler</button>
-
-  <hr>
+    <!--<button class="btn btn-sm btn-danger btn-block">Annuler</button>-->
+  </div>
+</div>
+<!-- Appointment table for CAP -->
+<div class="row g-1 d-grid gap-3">
   <table class="table">
     <thead>
     <tr>

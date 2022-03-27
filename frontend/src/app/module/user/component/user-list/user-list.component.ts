@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit {
     config.fields = GenericTableHelper.genUserFieldDefinitions();
     config.data = list;
     config.actions = [{
-      icon: 'fa-eye',
+      icon: 'fa-edit',
       label: '',
       link: AppRoute.USER_DETAIL,
       active: false,

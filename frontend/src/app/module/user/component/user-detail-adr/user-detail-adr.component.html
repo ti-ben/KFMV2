@@ -1,1 +1,75 @@
-<p>user-detail-adr works!</p>
+<div class="row g-1 d-grid gap-3">
+
+  <div class="col-md-4 input-group date p-2">
+    <input type="text" class="form-control" value="" placeholder="Date début">
+    <span class="input-group-append">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+    </span>
+  </div>
+
+  <div class="col-md-4 input-group date p-2">
+    <input type="text" class="form-control" value="" placeholder="Date fin">
+    <span class="input-group-append">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+    </span>
+  </div>
+
+  <div class="col-md-4 p-2">
+    <select class="custom-select">
+      <option selected disabled value="">Types</option>
+      <option>Citerne</option>
+      <option>Colis</option>
+      <option>Citerne & Colis</option>
+    </select>
+  </div>
+
+  <div class="col-md-12 form-group p-2">
+    <textarea class="form-control" id="" value="" rows="3" placeholder="Commentaire"></textarea>
+  </div>
+
+  <div class="col-md-12 p-2">
+    <button class="btn btn-success btn-block">Ajouter</button>
+    <!-- <button class="btn btn-danger btn-block">Annuler</button> -->
+  </div>
+
+</div>
+
+<div class="text-center">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Date de l'évaluation</th>
+      <th scope="col">Types</th>
+      <th scope="col">Commentaire</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-success">
+      <td>05/03/2022</td>
+      <td>Colis</td>
+      <td>Un commentaire</td>
+      <td>
+        <a href="<?=ROOT?>/sites/edit/<?=$row->id?>">
+          <button class="btn float-end btn-sm btn-warning"><i class="fa fa-edit"></i></button>
+        </a>
+        <a href="<?=ROOT?>/sites/delete/<?=$row->id?>">
+          <button class="btn float-end btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+        </a>
+      </td>
+    </tr>
+    <tr class="table-success">
+      <td>09/03/2016</td>
+      <td>Colis</td>
+      <td>Un commentaire</td>
+      <td>
+        <a href="<?=ROOT?>/sites/edit/<?=$row->id?>">
+          <button class="btn float-end btn-sm btn-warning"><i class="fa fa-edit"></i></button>
+        </a>
+        <a href="<?=ROOT?>/sites/delete/<?=$row->id?>">
+          <button class="btn float-end btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

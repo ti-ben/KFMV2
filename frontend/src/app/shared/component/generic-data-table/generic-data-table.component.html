@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-sm table-striped">
   <thead>
   <tr>
     <th *ngFor="let field of config.fields">
@@ -18,7 +18,8 @@
     </td>
     <td *ngIf="config.actions">
       <ng-container *ngFor="let action of config.actions">
-        <span class="clickable icon fa {{action.icon}} " (click)="onClickHandler(action,item)"></span>
+        <button class="btn float-left btn-sm btn-warning icon fa {{action.icon}}" (click)="onClickHandler(action,item)"></button>
+        <!--<span class="clickable icon fa {{action.icon}} " (click)="onClickHandler(action,item)"></span>-->
       </ng-container>
     </td>
   </tr>
