@@ -18,7 +18,7 @@
     </td>
     <td *ngIf="config.actions">
       <ng-container *ngFor="let action of config.actions">
-        <span class="icon fa {{action.icon}} " (click)="onClickHandler(action,item)"></span>
+        <span class="clickable icon fa {{action.icon}} " (click)="onClickHandler(action,item)"></span>
       </ng-container>
     </td>
   </tr>

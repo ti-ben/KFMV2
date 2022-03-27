@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ErrorLandingPageComponent } from '@shared/component/error-landing-page/error-landing-page.component';
-import { PrivateGuardService, PublicGuardService } from './security';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ErrorLandingPageComponent} from '@shared/component/error-landing-page/error-landing-page.component';
+import {PrivateGuardService, PublicGuardService} from './security';
 
 const routes: Routes = [
   {
@@ -19,7 +19,9 @@ const routes: Routes = [
     canActivate: [PrivateGuardService],
     loadChildren: () => import('./module/authenticated/authenticated.module').then(m => m.AuthenticatedModule)
   },
-  {path: '**', component: ErrorLandingPageComponent}
+  {
+    path: '**',
+    component: ErrorLandingPageComponent}
 ];
 
 @NgModule({

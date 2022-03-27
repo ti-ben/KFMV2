@@ -37,7 +37,7 @@ export class SiteListComponent implements OnInit {
     config.fields = GenericTableHelper.genSiteFieldDefinitions();
     config.data = list;
     config.actions = [{
-      icon: 'fa-eye',
+      icon: 'fa-pen-to-square',
       label: '',
       link: AppRoute.SITE_DETAIL,
       active: false,

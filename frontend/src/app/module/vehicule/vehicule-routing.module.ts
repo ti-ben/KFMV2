@@ -3,9 +3,18 @@ import { NgModule } from '@angular/core';
 import { VehiculeListComponent , VehiculeFormComponent, VehiculeDetailComponent } from '@vehicule/component';
 
 const routes: Routes = [
-  {path: 'list', component: VehiculeListComponent},
-  {path: 'form', component: VehiculeFormComponent},
-  {path: 'detail/:id', component: VehiculeDetailComponent}
+  {
+    path: 'list',
+    component: VehiculeListComponent
+  },
+  {
+    path: 'form',
+    component: VehiculeFormComponent
+  },
+  {
+    path: 'detail/:id',
+    component: VehiculeDetailComponent
+  }
 ];
 
 @NgModule({

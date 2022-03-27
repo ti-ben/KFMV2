@@ -37,7 +37,7 @@ export class VehiculeListComponent implements OnInit {
     config.fields = GenericTableHelper.genVehiculeFieldDefinitions();
     config.data = list;
     config.actions = [{
-      icon: 'fa-eye',
+      icon: 'fa-pen-to-square',
       label: '',
       link: AppRoute.VEHICULE_DETAIL,
       active: false,

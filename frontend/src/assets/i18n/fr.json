@@ -1,9 +1,9 @@
 {
-  "benoit": {
-    "afaire": {
-      "header": "Ajouter un bread crumb ou en tout cas afficher la page en cours."
-    }
-  },
+
+    "header":{
+      "breadcrumb" : "affichage de la page en cours"
+    },
+
   "table": {
     "employee": {
       "avatar": "Image",
