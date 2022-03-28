@@ -1,6 +1,7 @@
 import { DtoInterface } from '@shared/model';
+import { SiteDto } from '@site/model';
 
-export interface UserDto extends DtoInterface{
+export interface UserDto extends DtoInterface {
   user_id: string,
   firstname: string,
   lastname: string,
@@ -16,5 +17,6 @@ export interface UserDto extends DtoInterface{
   driver_license: string,
   created_on: Date,
   pob: string,
-  active: string
+  active: string,
+  site: SiteDto
 }

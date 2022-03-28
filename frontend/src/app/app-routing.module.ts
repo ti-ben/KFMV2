@@ -6,7 +6,7 @@ import {PrivateGuardService, PublicGuardService} from './security';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'guest',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {

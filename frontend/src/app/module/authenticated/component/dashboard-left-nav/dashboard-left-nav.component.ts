@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import {AppRoute, MenuItem} from "@shared/model";
-import {Router} from "@angular/router";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AppRoute, MenuItem } from "@shared/model";
+import { NavigationService } from '@shared/service/navigation.service';
 
 @Component({
   selector: 'app-dashboard-left-nav',
   templateUrl: './dashboard-left-nav.component.html',
-  styleUrls: ['./dashboard-left-nav.component.scss']
+  styleUrls: ['../dashboard/dashboard.component.scss', './dashboard-left-nav.component.scss']
 })
 export class DashboardLeftNavComponent implements OnInit {
+  @Input() showLongMenu = false;
+  @Output() onChangeShowLongMenu = new EventEmitter<boolean>();
   menu: MenuItem[] = [];
-  constructor(public router: Router) { }
+
+  constructor(public navigation: NavigationService) {
+  }
 
   ngOnInit(): void {
     this.menu = [
@@ -24,7 +28,7 @@ export class DashboardLeftNavComponent implements OnInit {
     ]
   }
 
-  navigate(link: AppRoute): void {
-    this.router.navigate([link]).then();
+  navigate(item: MenuItem): void {
+    this.navigation.navigate(item)
   }
 }

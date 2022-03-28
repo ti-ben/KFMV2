@@ -5,7 +5,9 @@ import { User } from '@user/model';
 import { tap } from 'rxjs/operators';
 import { AppRoute, GenericTableConfig, MenuItem, MenuItemType } from '@shared/model';
 import { GenericTableHelper } from '@shared/helper';
-import { Router } from '@angular/router';
+import { MenuHelper } from '@shared/helper/menu.helper';
+import { cloneDeep } from 'lodash';
+import { NavigationService } from '@shared/service/navigation.service';
 
 @Component({
   selector: 'app-user-list',
@@ -15,7 +17,8 @@ import { Router } from '@angular/router';
 export class UserListComponent implements OnInit {
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
 
-  constructor(public userService: UserService, public router: Router) { }
+  constructor(public userService: UserService, public navigation: NavigationService) {
+  }
 
   ngOnInit(): void {
     this.userService.list().pipe(
@@ -26,7 +29,9 @@ export class UserListComponent implements OnInit {
   handleClick(menuItem: MenuItem): void {
     switch (menuItem.type) {
       case MenuItemType.USER_DETAIL:
-        this.router.navigate([`${menuItem.link}${menuItem.data.user_id}`]).then();
+        const item = cloneDeep(MenuHelper.employeeDetailMenuItem());
+        item.link += menuItem.data.user_id;
+        this.navigation.navigate(item);
         break;
     }
   }

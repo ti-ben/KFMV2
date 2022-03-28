@@ -24,17 +24,15 @@ export class AuthService extends ApiService {
   }
 
   signin(payload: SigninPayload): Observable<ApiResponse> {
-    console.log('paylad', payload);
+
     return this.post(`${ApiUriEnum.SIGNIN}`, payload)
       .pipe(
         tap((response: ApiResponse) => {
-          console.log('response', response);
           this.isAuthenticated = response.result;
           if (this.isAuthenticated) {
             this.currentUser$.next(UserHelper.fromDto(response.data.user.user));
             this.tokenService.saveToken(response.data.token.access_token);
             this.tokenService.saveRefreshToken(response.data.token.refresh_token);
-            console.log('mon data', response.data);
             this.navigation.navigateToSecure();
           }
         })
@@ -46,9 +44,10 @@ export class AuthService extends ApiService {
       this.isAuthenticated = response.result;
       if (this.isAuthenticated) {
         this.currentUser$.next(UserHelper.fromDto(response.data.user));
-        this.navigation.navigateToSecure();
+
+        //@Todo navigate vers le bon obj
+        // this.navigation.navigateToSecure(window.location.pathname);
       }
-      console.log('response', response);
     })
   }
 

@@ -1,5 +1,6 @@
 import { User } from '@user/model/business';
 import { UserDto } from '@user/model';
+import { SiteHelper } from '@site/helper';
 
 export class UserHelper {
   public static fromDto(dto: UserDto): User {
@@ -19,7 +20,8 @@ export class UserHelper {
       driver_license: dto.driver_license,
       created_on: dto.created_on,
       pob: dto.pob,
-      active: dto.active
+      active: dto.active,
+      site: SiteHelper.fromDto(dto.site)
     }
   }
 
@@ -40,7 +42,8 @@ export class UserHelper {
       driver_license: user.driver_license,
       created_on: new Date(),
       pob: user.pob,
-      active: user.active
+      active: user.active,
+      site: SiteHelper.toDto(user.site)
     };
   }
 
@@ -61,7 +64,8 @@ export class UserHelper {
       pob: '',
       telperso: '',
       telpro: '',
-      user_id: ''
+      user_id: '',
+      site: SiteHelper.getEmpty()
     };
   }
 

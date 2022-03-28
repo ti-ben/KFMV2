@@ -1,19 +1,13 @@
 <!-- Navbar-->
+<!--
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <!-- Left elements -->
     <div>
 
     </div>
-    <!-- Left elements -->
-
-    <!-- Center elements breadcrumb -->
     <div>
 
     </div>
-    <!-- Center elements breadcrumb -->
-
-    <!-- Right elements -->
     <ul class="navbar-nav flex-row">
       <li class="nav-item dropdown me-3 me-lg-1">
         <a
@@ -65,7 +59,24 @@
         </ul>
       </li>
     </ul>
-    <!-- Right elements -->
   </div>
 </nav>
-<!-- Navbar -->
+-->
+
+<header id="header" [class.header-menu-hide]="!showLongMenu" [class.header-menu-show]="showLongMenu">
+
+  <div id="bread-crumb" *ngIf="navigation.currentMenuItem$ | async as currentMenuItem">{{currentMenuItem |json}}</div>
+  <div id="menu-language" (clickOutside)="onClickOutSideMenuLanguage()">
+    <div id="change-language" (click)="showLanguageMenu=!showLanguageMenu">
+      <span>
+        <i class="fas fa-bell fa-lg"></i>
+      <span class="badge rounded-pill badge-notification bg-danger">0</span>
+      </span>
+    </div>
+    <div class="menu-language" [class.menu-language-hide]="!showLanguageMenu"
+         [class.menu-language-show]="showLanguageMenu" (click)="showLanguageMenu = !showLanguageMenu">
+      <div class="menu-language-action" (click)="onClick('fr')">{{'change-language.french' | translate}}</div>
+      <div class="menu-language-action" (click)="onClick('en')">{{'change-language.english' | translate}}</div>
+    </div>
+  </div>
+</header>

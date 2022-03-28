@@ -1,3 +1,5 @@
+import { Site } from '@site/model';
+
 export interface User {
   user_id: string,
   firstname: string,
@@ -14,5 +16,6 @@ export interface User {
   driver_license: string,
   created_on: Date,
   pob: string,
-  active: string
+  active: string,
+  site: Site
 }

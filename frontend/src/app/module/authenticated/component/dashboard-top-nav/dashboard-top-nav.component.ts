@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NavigationService } from '@shared/service/navigation.service';
 
 @Component({
   selector: 'app-dashboard-top-nav',
   templateUrl: './dashboard-top-nav.component.html',
-  styleUrls: ['./dashboard-top-nav.component.scss']
+  styleUrls: ['../dashboard/dashboard.component.scss', './dashboard-top-nav.component.scss']
 })
 export class DashboardTopNavComponent implements OnInit {
+  @Input() showLongMenu = false;
 
-  constructor() { }
+  showLanguageMenu = false;
+
+  constructor(public navigation: NavigationService) {
+  }
 
   ngOnInit(): void {
   }
 
+  onClick(data: string) {
+  }
+
+  onClickOutSideMenuLanguage() {
+    if (this.showLanguageMenu) {
+      this.showLanguageMenu = false;
+    }
+  }
 }

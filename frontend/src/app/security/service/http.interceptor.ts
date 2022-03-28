@@ -26,7 +26,6 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
 
   private addToken(req: HttpRequest<any>): HttpRequest<any> {
-    console.log('token', this.auth.tokenService.getToken());
     if (!req.url.includes(ApiUriEnum.SIGNIN) && !req.url.includes(ApiUriEnum.SIGNUP) && !req.url.includes(ApiUriEnum.REFRESH_TOKEN)) {
       req = req.clone({
         setHeaders: {

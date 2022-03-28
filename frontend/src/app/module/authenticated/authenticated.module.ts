@@ -5,6 +5,7 @@ import { DashboardComponent } from './component';
 import { TranslateModule } from '@ngx-translate/core';
 import { DashboardLeftNavComponent } from './component/dashboard-left-nav/dashboard-left-nav.component';
 import { DashboardTopNavComponent } from './component/dashboard-top-nav/dashboard-top-nav.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 
 @NgModule({
@@ -13,11 +14,12 @@ import { DashboardTopNavComponent } from './component/dashboard-top-nav/dashboar
     DashboardLeftNavComponent,
     DashboardTopNavComponent
   ],
-    imports: [
-        CommonModule,
-        AuthenticatedRoutingModule,
-        TranslateModule
-    ]
+  imports: [
+    CommonModule,
+    AuthenticatedRoutingModule,
+    TranslateModule,
+    ClickOutsideModule
+  ]
 })
 export class AuthenticatedModule {
 }

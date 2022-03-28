@@ -1,17 +1,21 @@
-import {Site} from '@site/model/business';
-import {SiteDto} from '@site/model';
+import { Site } from '@site/model/business';
+import { SiteDto } from '@site/model';
+import { isNil } from 'lodash';
 
 export class SiteHelper {
   public static fromDto(dto: SiteDto): Site {
-    return {
-      site_id: dto.site_id,
-      name: dto.name,
-      description: dto.description,
-      created_on: dto.created_on
-    }
+    if (isNil(dto))
+      return SiteHelper.getEmpty();
+    else
+      return {
+        site_id: dto.site_id,
+        name: dto.name,
+        description: dto.description,
+        created_on: dto.created_on
+      }
   }
 
-  public toDto(site: Site): SiteDto {
+  public static toDto(site: Site): SiteDto {
     return {
       site_id: site.site_id,
       name: site.name,
