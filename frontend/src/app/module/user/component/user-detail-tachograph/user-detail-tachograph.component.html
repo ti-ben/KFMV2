@@ -1,22 +1,35 @@
-<hr>
-<div class="input-group date" id="datepicker1">
-  <input type="text" class="form-control" name="u_tachygraphe_dte_start" placeholder="Date début">
-  <span class="input-group-append">
-    <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
-  </span>
+<div class="row g-1 d-grid gap-3">
+
+  <div class="col-md-4 input-group input-group-sm date p-2">
+    <input type="text" class="form-control" value="" placeholder="Date début">
+    <span class="input-group-append input-group-sm">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+    </span>
+  </div>
+
+  <div class="col-md-4 input-group input-group-sm date p-2">
+    <input type="text" class="form-control" value="" placeholder="Date fin">
+    <span class="input-group-append input-group-sm">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+    </span>
+  </div>
+
+  <div class="col-md-4 form-group p-2">
+    <input type="text" class="form-control form-control-sm" name="u_tachygraphe_numcarte" value="" placeholder="N° carte">
+  </div>
+
+  <div class="col-md-12 form-group p-2">
+    <textarea class="form-control form-control-sm" name="u_tachygraphe_comment" value="" rows="3" placeholder="Commentaire"></textarea>
+  </div>
+
+  <div class="col-md-12 p-2">
+    <button class="btn btn-success btn-sm btn-block">Ajouter</button>
+    <!-- <button class="btn btn-danger btn-sm btn-block">Annuler</button> -->
+  </div>
+
 </div>
-<div class="input-group date" id="datepicker2">
-  <input type="text" class="form-control" name="u_tachygraphe_dte_end" placeholder="Date fin">
-  <span class="input-group-append">
-    <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
-  </span>
-</div>
-<input type="text" class="form-control" name="u_tachygraphe_numcarte" value="" placeholder="N° carte">
-<div class="form-group">
-    <textarea class="form-control" name="u_tachygraphe_comment" value="" rows="3" placeholder="Commentaire"></textarea>
-</div>
-<button class="btn btn-sm btn-success btn-block">Ajouter</button>
-<button class="btn btn-sm btn-danger btn-block">Annuler</button>
+
+<!-- Table to display elements from tachograph -->
 <div class="text-center">
   <table class="table">
     <thead>
@@ -30,13 +43,13 @@
     </thead>
     <tbody>
     <tr class="table-success">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{null}}</td>
+      <td>{{null}}</td>
+      <td>{{null}}</td>
+      <td>{{null}}</td>
       <td>
-        <button class="btn float-left btn-warning"><i class="fa fa-edit"></i></button>
-        <button class="btn float-end btn-danger"><i class="fa fa-trash"></i></button>
+        <button class="btn float-end btn-sm btn-warning"><i class="fa fa-edit"></i></button>
+        <button class="btn float-end btn-sm btn-danger"><i class="fa fa-trash"></i></button>
       </td>
     </tr>
     </tbody>

@@ -1,51 +1,63 @@
-<hr>
-<!-- DEBUT AJOUT PERIODE -->
-<div class="input-group date" id="datepicker1">
-  <input type="text" class="form-control" id="healthcare_periode_dte_deb" name="healthcare_periode_dte_deb"
-         placeholder="Date début">
-  <span class="input-group-append">
-        <span class="input-group-text bg-white d-block">
-          <i class="fa fa-calendar"></i>
-        </span>
+<div class="row g-1 d-grid gap-3">
+
+  <div class="col-md-6 input-group input-group-sm date p-2">
+    <input type="text" class="form-control" name="healthcare_periode_dte_deb" placeholder="Date début">
+    <span class="input-group-append input-group-sm">
+      <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+    </span>
+  </div>
+
+  <div class="col-md-6 input-group input-group-sm date p-2">
+    <input type="text" class="form-control" name="healthcare_periode_dte_fin" placeholder="Date fin">
+    <span class="input-group-append input-group-sm">
+      <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
+    </span>
+  </div>
+
+  <div class="col-md-12 p-2">
+    <button class="btn btn-success btn-sm btn-block">Ajouter</button>
+    <!-- <button class="btn btn-sm btn-danger btn-block">Annuler</button> -->
+  </div>
+
+</div>
+
+<div class="row g-1 d-grid gap-3">
+
+  <div class="col-md-12 text-center p-2">
+    <span><b>Sélection médicale du 03/03/2022 au 03/03/2022</b></span>
+  </div>
+
+  <div class="input-group input-group-sm date col-md-4 p-2">
+    <input type="text" class="form-control form-select-sm" name="selectmed_dte_rdv" placeholder="Date du rdv">
+      <span class="input-group-append input-group-sm">
+        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
       </span>
+  </div>
+
+  <div class="col-md-4 p-2">
+    <select class="custom-select custom-select-sm" name="selectmed_prestataire">
+      <option selected disabled value="">Prestataire</option>
+      <option>Medex</option>
+      <option>Attentia</option>
+    </select>
+  </div>
+
+  <div class="col-md-4 p-2">
+    <input type="text" class="form-control form-control-sm" name="selectmed_prix" value="" placeholder="Prix">
+  </div>
+
+  <div class="form-group col-md-12 p-2">
+    <textarea class="form-control form-control-sm" name="selectmed_commentaire" value="" rows="3"
+              placeholder="Commentaire"></textarea>
+  </div>
+
+  <div class="form-group col-md-12 p-2">
+    <button class="btn btn-sm btn-success btn-block">Ajouter</button>
+    <!-- <button class="btn btn-sm btn-danger btn-block">Annuler</button> -->
+  </div>
 </div>
-<div class="input-group date" id="datepicker2">
-  <input type="text" class="form-control" id="healthcare_periode_dte_fin" name="healthcare_periode_dte_fin"
-         placeholder="Date fin">
-  <span class="input-group-append">
-        <span class="input-group-text bg-white d-block">
-          <i class="fa fa-calendar"></i>
-        </span>
-      </span>
-</div>
-<hr>
-<button class="btn btn-sm btn-success btn-block">Ajouter</button>
-<button class="btn btn-sm btn-danger btn-block">Annuler</button>
-<!-- FIN AJOUT PERIODE -->
-<hr>
-<b>Sélection médicale du 03/03/2022 au 03/03/2022</b>
-<div class="input-group date" id="datepicker3">
-  <input type="text" class="form-control form-select-sm" id="selectmed_dte_rdv" name="selectmed_dte_rdv"
-         placeholder="Date du rdv">
-  <span class="input-group-append input-group-sm">
-                    <span class="input-group-text bg-white d-block">
-                      <i class="fa fa-calendar"></i>
-                    </span>
-                  </span>
-</div>
-<select class="form-select" name="selectmed_prestataire">
-  <option selected disabled value="">Prestataire</option>
-  <option>Medex</option>
-  <option>Attentia</option>
-</select>
-<input type="text" class="form-control form-control-sm" name="selectmed_prix" value="" placeholder="Prix">
-<div class="form-group">
-  <textarea class="form-control form-control-sm" name="selectmed_commentaire" value="" rows="3"
-            placeholder="Commentaire"></textarea>
-</div>
-<button class="btn btn-sm btn-success btn-block">Ajouter</button>
-<button class="btn btn-sm btn-danger btn-block">Annuler</button>
-<hr>
+
+<div class="text-center">
 <table class="table">
   <thead>
   <tr>
@@ -57,13 +69,15 @@
   </thead>
   <tbody>
   <tr class="table-success">
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{null}}</td>
+    <td>{{null}}</td>
+    <td>{{null}}</td>
     <td>
+      <button class="btn float-end btn-sm btn-warning"><i class="fa fa-edit"></i></button>
       <button class="btn float-end btn-sm btn-danger"><i class="fa fa-trash"></i></button>
     </td>
   </tr>
 
   </tbody>
 </table>
+</div>
