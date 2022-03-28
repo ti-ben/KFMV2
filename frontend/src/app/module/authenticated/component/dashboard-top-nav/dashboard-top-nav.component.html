@@ -64,8 +64,9 @@
 -->
 
 <header id="header" [class.header-menu-hide]="!showLongMenu" [class.header-menu-show]="showLongMenu">
-
-  <div id="bread-crumb" *ngIf="navigation.currentMenuItem$ | async as currentMenuItem">{{currentMenuItem |json}}</div>
+  <div id="bread-crumb">
+    <app-dashboard-bread-crumb></app-dashboard-bread-crumb>
+  </div>
   <div id="menu-language" (clickOutside)="onClickOutSideMenuLanguage()">
     <div id="change-language" (click)="showLanguageMenu=!showLanguageMenu">
       <span>

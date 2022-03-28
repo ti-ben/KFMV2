@@ -4,11 +4,12 @@ import { ErrorLandingPageComponent } from './component/error-landing-page/error-
 import { GenericDataTableComponent } from './component/generic-data-table/generic-data-table.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TabComponent } from './component/tab/tab.component';
+import { DestroyBaseComponent } from './component/destroy-base/destroy-base.component';
 
 
 
 @NgModule({
-    declarations: [ErrorLandingPageComponent, GenericDataTableComponent, TabComponent],
+    declarations: [ErrorLandingPageComponent, GenericDataTableComponent, TabComponent, DestroyBaseComponent],
     exports: [
         GenericDataTableComponent,
         TabComponent

@@ -1,9 +1,7 @@
 {
-
-    "header":{
-      "breadcrumb" : "affichage de la page en cours"
-    },
-
+  "header": {
+    "breadcrumb": "affichage de la page en cours"
+  },
   "table": {
     "employee": {
       "avatar": "Image",
@@ -74,7 +72,8 @@
         "grade": "Rôles",
         "status": "Statuts",
         "numberplate": "Immatriculations",
-        "tachygraphe": "Tachygraphe"
+        "tachygraphe": "Tachygraphe",
+        "detail": "Détail"
       }
     }
   }

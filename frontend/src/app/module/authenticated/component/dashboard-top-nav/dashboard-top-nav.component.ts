@@ -11,7 +11,7 @@ export class DashboardTopNavComponent implements OnInit {
 
   showLanguageMenu = false;
 
-  constructor(public navigation: NavigationService) {
+  constructor() {
   }
 
   ngOnInit(): void {

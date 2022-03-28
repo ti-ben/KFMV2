@@ -6,13 +6,15 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DashboardLeftNavComponent } from './component/dashboard-left-nav/dashboard-left-nav.component';
 import { DashboardTopNavComponent } from './component/dashboard-top-nav/dashboard-top-nav.component';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { DashboardBreadCrumbComponent } from './component/dashboard-bread-crumb/dashboard-bread-crumb.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardLeftNavComponent,
-    DashboardTopNavComponent
+    DashboardTopNavComponent,
+    DashboardBreadCrumbComponent
   ],
   imports: [
     CommonModule,

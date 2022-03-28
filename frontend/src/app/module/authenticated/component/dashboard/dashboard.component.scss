@@ -114,7 +114,8 @@ $header-height: 68px;
   display: flex;
   flex-direction: row;
   color: $white;
-
+  align-items: center;
+  z-index:2;
   #bread-crumb {
     flex: 3;
   }
