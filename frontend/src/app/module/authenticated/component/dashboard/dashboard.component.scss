@@ -115,7 +115,8 @@ $header-height: 68px;
   flex-direction: row;
   color: $white;
   align-items: center;
-  z-index:2;
+  z-index: 2;
+
   #bread-crumb {
     flex: 3;
   }
@@ -151,6 +152,10 @@ $header-height: 68px;
 }
 
 #main-content {
-  padding: $header-height .5rem .5rem;
+  padding: $header-height 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   transition: .5s;
+  border: 1px solid red;
 }

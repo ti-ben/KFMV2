@@ -15,14 +15,16 @@ import { NavigationService } from '@shared/service/navigation.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  list$ = new BehaviorSubject<User[]>([]);
+
+  //  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
 
   constructor(public userService: UserService, public navigation: NavigationService) {
   }
 
   ngOnInit(): void {
     this.userService.list().pipe(
-      tap((list: User[]) => this.setConfig(list)))
+      tap((list: User[]) => this.list$.next(list)))
       .subscribe();
   }
 
@@ -36,7 +38,7 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  private setConfig(list: User[]): void {
+  /*private setConfig(list: User[]): void {
     let config = this.config$.getValue();
     config.fields = GenericTableHelper.genUserFieldDefinitions();
     config.data = list;
@@ -48,5 +50,5 @@ export class UserListComponent implements OnInit {
       type: MenuItemType.USER_DETAIL
     }]
     this.config$.next(config);
-  }
+  }*/
 }
