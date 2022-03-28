@@ -24,7 +24,7 @@
 -->
 <h1 class="text-center">Liste des sites</h1>
 <form method="POST">
-<div class="container"  style="max-width: 1200px;">
+<div class="container" style="max-width: 1250px;">
     <hr>
     <div class=" d-grid btn-block">
       <div class="input-group input-group-sm">
@@ -37,9 +37,10 @@
     <div class=" d-grid btn-block btn-block">
       <a href="{{null}}" class="btn btn-sm btn-success btn-block">Ajouter un nouveau site</a>
     </div>
-<hr>
+
   <div class="row">
-    <div *ngIf="config$ | async as config" class="col-md-6">
+    <div *ngIf="config$ | async as config" class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+
       <app-generic-data-table [config]="config" (onClick)="handleClick($event)"></app-generic-data-table>
     </div>
     <app-site-detail *ngIf="siteService.currentDetail$ | async as detail" class="col-md-6"></app-site-detail>

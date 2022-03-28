@@ -1,9 +1,36 @@
-<p>status-detail works!</p>
-<ng-container *ngIf="statusService.currentDetail$ | async as detail">
-  <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
-    {{detail |json}}
-    <ng-container *ngIf="detail.status_id.length ===0;else data">c'est vide</ng-container>
-    <ng-template #data>
-    </ng-template>
-  </div>
-</ng-container>
+<div *ngIf="statusService.currentDetail$ | async as status" class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+
+  <ng-container *ngIf="status.status_id.length === 0; else data">
+    <div class="alert alert-danger text-center" role="alert">
+      Sélectionnez le site à modifier / mettre à jour
+    </div>
+  </ng-container>
+
+  <ng-template #data>
+
+      <span>Unique ID</span>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control form-control-sm" value="{{status.status_id}}" type="text-area" name="site_id"
+               placeholder="ID du site" rows="4" disabled>
+      </div>
+
+      <span>Nom du site</span>
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control form-control-sm" value="{{status.name}}" type="text" name="site_name"
+               placeholder="Site name" disabled>
+      </div>
+
+      <span>Description de site</span>
+      <div class="input-group input-group-sm">
+        <textarea autofocus class="form-control form-control-sm mb-3" value="{{status.description}}" type="text-area"
+                  id="site_description" name="site_description" placeholder="Description du site en quelques mots"
+                  rows="4" disabled>{{status.description}}</textarea>
+      </div>
+
+      <div class="input-group input-group-sm mb-3">
+        <button class="btn btn-sm btn-success btn-block">Enregistrer les modifications</button>
+        <!-- <button class="btn btn-sm btn-danger btn-block">Retour à la liste</button> -->
+      </div>
+
+  </ng-template>
+</div>

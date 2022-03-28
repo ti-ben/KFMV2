@@ -1,22 +1,22 @@
 <table class="table table-sm table-striped">
   <thead>
-  <tr>
+  <tr style="text-align:center">
     <th *ngFor="let field of config.fields">
-      <span class="fa-solid {{field.icon}}"> {{field.translateKey + field.field | translate}}</span>
+      <span><i class="fa-solid {{field.icon}}"></i> {{field.translateKey + field.field | translate}}</span>
     </th>
     <th *ngIf="config.actions"></th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let item of config.data">
-    <td *ngFor="let field of config.fields">
+    <td style="text-align:center; vertical-align: middle;" *ngFor="let field of config.fields">
       <ng-container [ngSwitch]="field.type">
-        <ng-container *ngSwitchCase="fieldType.IMAGE"><img src="{{item[field.field] }}" width="50" height="50"></ng-container>
+        <ng-container *ngSwitchCase="fieldType.IMAGE"><img src="{{item[field.field] }}" width="50" height="50" alt="..."></ng-container>
         <ng-container *ngSwitchCase="fieldType.STRING">{{item[field.field] }}</ng-container>
         <ng-container *ngSwitchCase="fieldType.DATE">{{item[field.field] }}</ng-container>
       </ng-container>
     </td>
-    <td *ngIf="config.actions">
+    <td style="text-align:center; vertical-align: middle;" *ngIf="config.actions">
       <ng-container *ngFor="let action of config.actions">
         <button class="btn float-left btn-sm btn-warning icon fa {{action.icon}}" (click)="onClickHandler(action,item)"></button>
         <!--<span class="clickable icon fa {{action.icon}} " (click)="onClickHandler(action,item)"></span>-->

@@ -1,5 +1,5 @@
-<ng-container *ngIf="config$ | async as config">
-  <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
+
+  <div *ngIf="config$ | async as config" class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
     <!--<pre>{{config |json}}</pre>-->
     <hr>
     <h1 class="text-center">Liste des prestataires de services</h1>
@@ -20,4 +20,4 @@
     <hr>
     <app-generic-data-table [config]="config" (onClick)="handleClick($event)"></app-generic-data-table>
   </div>
-</ng-container>
+

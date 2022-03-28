@@ -1,39 +1,32 @@
-<ng-container *ngIf="siteService.currentDetail$ | async as detail">
-  <ng-container *ngIf="detail.site_id.length ===0;else data">
+<div *ngIf="siteService.currentDetail$ | async as site" class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+
+  <ng-container *ngIf="site.site_id.length === 0; else data">
       <div class="alert alert-danger text-center" role="alert">
         Sélectionnez le site à modifier / mettre à jour
       </div>
   </ng-container>
+
   <ng-template #data>
-    <!--
-    <hr>
-    <h3>Détails du site de {{detail.name}}</h3>
-    <hr>
-    -->
-    <div class="row">
-      <span>Unique ID</span>
-      <div class="input-group input-group-sm">
-        <input autofocus class="form-control form-control-sm" value="{{detail.site_id}}" type="text-area" name="site_id"
-               placeholder="ID du site" rows="4">
+
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control form-control-sm" value="{{site.site_id}}" type="text-area" name="site_id"
+               placeholder="ID du site" rows="4" disabled>
       </div>
 
-      <span>Nom du site</span>
-      <div class="input-group input-group-sm">
-        <input autofocus class="form-control form-control-sm" value="{{detail.name}}" type="text" name="site_name"
-               placeholder="Site name">
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control form-control-sm" value="{{site.name}}" type="text" name="site_name"
+               placeholder="Site name" disabled>
       </div>
 
-      <span>Site crée le</span>
-      <div class="input-group input-group-sm">
-        <input autofocus class="form-control form-control-sm" value="{{detail.created_on}}" type="text"
-               name="site_created_on" placeholder="Site créé le">
+      <div class="input-group input-group-sm mb-3">
+        <input autofocus class="form-control form-control-sm" value="{{site.created_on}}" type="text"
+               name="site_created_on" placeholder="Site créé le" disabled>
       </div>
 
-      <span>Description de site</span>
-      <div class="input-group input-group-sm">
-        <textarea autofocus class="form-control form-control-sm" value="{{detail.description}}" type="text-area"
+      <div class="input-group input-group-sm mb-3">
+        <textarea autofocus class="form-control form-control-sm" value="{{site.description}}" type="text-area"
                   id="site_description" name="site_description" placeholder="Description du site en quelques mots"
-                  rows="4">{{detail.description}}</textarea>
+                  rows="4" disabled>{{site.description}}</textarea>
       </div>
 
       <div class="input-group input-group-sm mb-3">
@@ -41,8 +34,5 @@
         <!-- <button class="btn btn-sm btn-danger btn-block">Retour à la liste</button> -->
       </div>
 
-    </div>
-
   </ng-template>
-</ng-container>
-
+</div>

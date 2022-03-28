@@ -10,8 +10,7 @@ import {Router} from '@angular/router';
 export class DashboardComponent implements OnInit {
   menu: MenuItem[] = [];
 
-  constructor(public router: Router) {
-  }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     this.menu = [
