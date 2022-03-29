@@ -1,0 +1,19 @@
+i {  vertical-align: middle; }
+.table-users tbody tr:hover {
+  cursor: pointer;
+  background: #fff;
+}
+
+.nav-user-photo {
+  vertical-align: middle;
+  border-radius: 10%;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: #fff;
+  padding: 5px;
+}

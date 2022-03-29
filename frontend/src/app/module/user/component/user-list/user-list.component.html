@@ -22,14 +22,28 @@
 </ng-container>
 -->
 
-<main class="full-table-with-detail">
-  <nav *ngIf="list$|async as list">
-    zone de recherche + add button
-    <ul>
-      <li *ngFor="let user of list;let last">
-        {{user.lastname | uppercase}} {{user.firstname}}
-      </li>
-    </ul>
-  </nav>
+<main class="table-users table flex-container" *ngIf="list$|async as list">
 
+    <div class="col-md-2 d-grid gap-3">
+      <div class="p-1">
+        <input type="search" class="form-control form-control-sm">
+      </div>
+  <div class="p-1">
+    <button class="btn btn-sm btn-success btn-block">Ajouter un utilisateur</button>
+  </div>
+      <div class="p-1">
+        <tbody>
+        <tr *ngFor="let user of list;let last">
+          <td> <img class="pull-left img-circle nav-user-photo" width="50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhcCYW4QDWMOjOuUTxOd50KcJvK-rop9qE9zRltSbVS_bO-cfWA" /> </td>
+          <td> {{user.lastname | uppercase}} {{user.firstname}} </td>
+          <td> Builder Admin </td>
+          <td> Last Login:  6/14/2017<br><small class="text-muted">2 days ago</small> </td>
+        </tr>
+        </tbody>
+      </div>
+
+      </div>
+    <div class="col-md-6">
+      <app-user-detail></app-user-detail>
+    </div>
 </main>
