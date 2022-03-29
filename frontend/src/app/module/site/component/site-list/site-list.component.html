@@ -1,49 +1,21 @@
-<!--
-<div *ngIf="config$ | async as config" class="container p-4 shadow mx-auto" style="max-width: 1250px;">
-    <hr>
-    <h1 class="text-center">Liste des sites</h1>
-    <hr>
-    <form method="POST" class="row g-3">
-      <div class=" d-grid btn-block">
-        <div class="input-group input-group-sm">
-          <div class="input-group-prepend input-group-sm">
-            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-          </div>
-          <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-        </div>
-      </div>
-      <div class=" d-grid btn-block btn-block">
-        <a href="{{null}}" class="btn btn-sm btn-success btn-block">Ajouter un nouveau site</a>
-      </div>
-    </form>
-    <hr>
-    <app-generic-data-table [config]="config" (onClick)="handleClick($event)"></app-generic-data-table>
+<main id="page">
+  <div id="left-nav">
+    <app-search-input [placeholder]="'search-input.user-search'"
+                      (onValueChange)="search$.next($event)"></app-search-input>
+    <ul *ngIf="list$ | async  as list">
+      <li *ngFor="let site of list">
+        {{site.name|uppercase}}
+      </li>
+    </ul>
   </div>
-
-<app-site-detail *ngIf="siteService.currentDetail$ | async as detail"></app-site-detail>
--->
-<h1 class="text-center">Liste des sites</h1>
-<form method="POST">
-<div class="container" style="max-width: 1250px;">
-    <hr>
-    <div class=" d-grid btn-block">
-      <div class="input-group input-group-sm">
-        <div class="input-group-prepend input-group-sm">
-          <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-        </div>
-        <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-      </div>
-    </div>
-    <div class=" d-grid btn-block btn-block">
-      <a href="{{null}}" class="btn btn-sm btn-success btn-block">Ajouter un nouveau site</a>
-    </div>
-
-  <div class="row">
-    <div *ngIf="config$ | async as config" class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
-
-      <app-generic-data-table [config]="config" (onClick)="handleClick($event)"></app-generic-data-table>
-    </div>
-    <app-site-detail *ngIf="siteService.currentDetail$ | async as detail" class="col-md-6"></app-site-detail>
-  </div>
-</div>
-</form>
+  <section id="main-content">
+    <ng-container *ngIf="site$ | async as site; else noSelected">
+      {{site |json}}
+    </ng-container>
+    <ng-template #noSelected>
+      <app-card [config]="cardConfig">
+        {{'site-list.no-data' | translate}}
+      </app-card>
+    </ng-template>
+  </section>
+</main>

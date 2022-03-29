@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {StatusRoutingModule} from '@status/status-routing.module';
 import {StatusDetailComponent, StatusFormComponent, StatusListComponent} from '@status/component';
 import {SharedModule} from "@shared/shared.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -11,12 +12,13 @@ import {SharedModule} from "@shared/shared.module";
     StatusFormComponent,
     StatusDetailComponent
   ],
-  imports: [
-    CommonModule,
-    // Don't forget to add/import the {entity}RoutingModule & SharedModule
-    StatusRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        // Don't forget to add/import the {entity}RoutingModule & SharedModule
+        StatusRoutingModule,
+        SharedModule,
+        TranslateModule
+    ]
 })
 export class StatusModule {
 }

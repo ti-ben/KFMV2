@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {PrestataireRoutingModule} from '@prestataire/prestataire-routing.module';
 import {PrestataireDetailComponent, PrestataireFormComponent, PrestataireListComponent} from '@prestataire/component';
 import {SharedModule} from "@shared/shared.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -12,12 +13,13 @@ import {SharedModule} from "@shared/shared.module";
     PrestataireFormComponent,
     PrestataireDetailComponent
   ],
-  imports: [
-    CommonModule,
-    // Don't forget to add/import the {entity}RoutingModule & SharedModule
-    PrestataireRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        // Don't forget to add/import the {entity}RoutingModule & SharedModule
+        PrestataireRoutingModule,
+        SharedModule,
+        TranslateModule
+    ]
 })
 export class PrestataireModule {
 }

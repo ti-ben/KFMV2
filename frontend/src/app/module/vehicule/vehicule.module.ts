@@ -11,6 +11,7 @@ import { VehiculeDetailSummaryComponent } from './component/vehicule-detail-summ
 import { VehiculeDetailTechnicalInterventionComponent } from './component/vehicule-detail-technical-intervention/vehicule-detail-technical-intervention.component';
 import { VehiculeDetailTechnicalControlComponent } from './component/vehicule-detail-technical-control/vehicule-detail-technical-control.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import {ReactiveFormsModule} from "@angular/forms";
     VehiculeDetailTechnicalInterventionComponent,
     VehiculeDetailTechnicalControlComponent
   ],
-  imports: [
-    CommonModule,
-    // Don't forget to add/import the {entity}RoutingModule
-    VehiculeRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        // Don't forget to add/import the {entity}RoutingModule
+        VehiculeRoutingModule,
+        SharedModule,
+        ReactiveFormsModule,
+        TranslateModule
+    ]
 })
 export class VehiculeModule {
 }

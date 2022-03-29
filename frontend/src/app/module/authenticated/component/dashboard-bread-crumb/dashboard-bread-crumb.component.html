@@ -1,6 +1,6 @@
 <div class="breadcrumbs" *ngIf="breadCrumb$ | async as breadCrumb">
 
-  <div class="item-wrapper" *ngFor="let item of breadCrumb;let first=first;let last=last">
+  <div class="item-wrapper" *ngFor="let item of breadCrumb; let first = first; let last = last">
     <div class="item" [class.hover]="currentItem.type !== item.type" (click)="onClick(item)">
     <span *ngIf="first" class="icon fa {{item.icon}}"></span>
     <span class="label">{{item.label | translate}}</span>

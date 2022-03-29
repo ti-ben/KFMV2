@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {AppRoute, GenericTableConfig, MenuItem, MenuItemType} from '@shared/model';
-import {GenericTableHelper} from '@shared/helper';
+import {CardConfig, MenuItem, MenuItemType} from '@shared/model';
 import {Numberplate} from "@numberplate/model";
 import {NumberplateService} from "@numberplate/service/numberplate.service";
-import {Router} from "@angular/router";
+import {User} from "@user/model";
+import {NavigationService} from "@shared/service/navigation.service";
+import {cloneDeep} from "lodash";
+import {MenuHelper} from "@shared/helper/menu.helper";
 
 @Component({
   selector: 'app-numberplate-list',
@@ -13,35 +15,31 @@ import {Router} from "@angular/router";
   styleUrls: ['./numberplate-list.component.scss']
 })
 export class NumberplateListComponent implements OnInit {
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  list$ = new BehaviorSubject<Numberplate[]>([]);
+  search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  numberplate$ = new BehaviorSubject<Numberplate | undefined>(undefined);
+  cardConfig!: CardConfig;
 
-  constructor(public numberplateService: NumberplateService, public router: Router) { }
+  constructor(public numberplateService: NumberplateService, public navigation: NavigationService) {
+  }
 
   ngOnInit(): void {
+    this.cardConfig = {
+      css: 'max-width-1024 p-large margin-auto margin-large'
+    };
     this.numberplateService.list().pipe(
-      tap((list: Numberplate[]) => this.setConfig(list)))
+      tap((list: Numberplate[]) => this.list$.next(list)))
       .subscribe();
   }
 
   handleClick(menuItem: MenuItem): void {
     switch (menuItem.type) {
       case MenuItemType.NUMBERPLATE_DETAIL:
-        this.router.navigate([`${menuItem.link}${menuItem.data.numberplate_id}`]).then();
+        const item = cloneDeep(MenuHelper.numberplateDetailMenuItem());
+        item.link += menuItem.data.numberplate_id;
+        this.navigation.navigate(item);
         break;
     }
   }
-
-  private setConfig(list: Numberplate[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genNumberplateFieldDefinitions();
-    config.data = list;
-    config.actions = [{
-      icon: 'fa-eye',
-      label: '',
-      link: AppRoute.NUMBERPLATE_DETAIL,
-      active: false,
-      type: MenuItemType.NUMBERPLATE_DETAIL
-    }]
-    this.config$.next(config);
-  }
 }
+

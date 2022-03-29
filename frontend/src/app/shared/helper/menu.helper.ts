@@ -43,7 +43,6 @@ export class MenuHelper {
   Car part
  */
 
-
   public static carMenuItem(): MenuItem {
     return {
       label: 'page.dashboard.menu.car',
@@ -71,7 +70,25 @@ export class MenuHelper {
     };
   }
 
+  public static providerDetailMenuItem(): MenuItem {
+    return {
+      label: 'page.dashboard.menu.provider',
+      link: AppRoute.PRESTATAIRE_DETAIL,
+      type: MenuItemType.PRESTATAIRE_DETAIL,
+      icon: 'fa-recycle', active: false
+    };
+  }
+
   public static gradeMenuItem(): MenuItem {
+    return {
+      label: 'page.dashboard.menu.grade',
+      link: AppRoute.GRADE_LIST,
+      type: MenuItemType.GRADE_LIST,
+      icon: 'fa-people-roof', active: false
+    };
+  }
+
+  public static gradeDetailMenuItem(): MenuItem {
     return {
       label: 'page.dashboard.menu.grade',
       link: AppRoute.GRADE_LIST,
@@ -89,6 +106,15 @@ export class MenuHelper {
     };
   }
 
+  public static siteDetailMenuItem(): MenuItem {
+    return {
+      label: 'page.dashboard.menu.detail',
+      link: AppRoute.SITE_DETAIL,
+      type: MenuItemType.SITE_DETAIL,
+      icon: 'fa-sitemap', active: false
+    };
+  }
+
   public static statusMenuItem(): MenuItem {
     return {
       label: 'page.dashboard.menu.status',
@@ -98,7 +124,25 @@ export class MenuHelper {
     };
   }
 
+  public static statusDetailMenuItem(): MenuItem {
+    return {
+      label: 'page.dashboard.menu.status',
+      link: AppRoute.STATUS_DETAIL,
+      type: MenuItemType.STATUS_DETAIL,
+      icon: 'fa-signal', active: false
+    };
+  }
+
   public static numberplateMenuItem(): MenuItem {
+    return {
+      label: 'page.dashboard.menu.numberplate',
+      link: AppRoute.NUMBERPLATE_LIST,
+      type: MenuItemType.NUMBERPLATE_LIST,
+      icon: 'fa-cog', active: false
+    };
+  }
+
+  public static numberplateDetailMenuItem(): MenuItem {
     return {
       label: 'page.dashboard.menu.numberplate',
       link: AppRoute.NUMBERPLATE_LIST,
@@ -130,10 +174,15 @@ export class MenuHelper {
       MenuHelper.carMenuItem(),
       MenuHelper.carDetailMenuItem(),
       MenuHelper.providerMenuItem(),
+      MenuHelper.providerDetailMenuItem(),
       MenuHelper.gradeMenuItem(),
+      MenuHelper.gradeDetailMenuItem(),
       MenuHelper.siteMenuItem(),
+      MenuHelper.siteDetailMenuItem(),
       MenuHelper.statusMenuItem(),
-      MenuHelper.numberplateMenuItem()
+      MenuHelper.statusDetailMenuItem(),
+      MenuHelper.numberplateMenuItem(),
+      MenuHelper.numberplateDetailMenuItem()
     ]
   }
 

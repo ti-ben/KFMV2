@@ -1,23 +1,21 @@
-
-  <div *ngIf="config$ | async as config" class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
-    <!--<pre>{{config |json}}</pre>-->
-    <hr>
-    <h1 class="text-center">Liste des prestataires de services</h1>
-    <hr>
-    <form method="POST" class="row g-3">
-      <div class=" d-grid btn-block">
-        <div class="input-group input-group-sm">
-          <div class="input-group-prepend input-group-sm">
-            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-          </div>
-          <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-        </div>
-      </div>
-      <div class=" d-grid btn-block">
-        <a href="" class="btn btn-sm btn-success btn-block">Ajouter un nouveau prestataire</a>
-      </div>
-    </form>
-    <hr>
-    <app-generic-data-table [config]="config" (onClick)="handleClick($event)"></app-generic-data-table>
+<main id="page">
+  <div id="left-nav">
+    <app-search-input [placeholder]="'search-input.prestataire-search'"
+                      (onValueChange)="search$.next($event)"></app-search-input>
+    <ul *ngIf="list$ | async  as list">
+      <li *ngFor="let prestataire of list">
+        {{prestataire.name|uppercase}}
+      </li>
+    </ul>
   </div>
-
+  <section id="main-content">
+    <ng-container *ngIf="prestataire$ | async as prestataire; else noSelected">
+      {{prestataire |json}}
+    </ng-container>
+    <ng-template #noSelected>
+      <app-card [config]="cardConfig">
+        {{'prestataire-list.no-data' | translate}}
+      </app-card>
+    </ng-template>
+  </section>
+</main>

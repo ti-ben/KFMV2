@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SiteRoutingModule } from '@site/site-routing.module';
 import { SiteListComponent, SiteDetailComponent, SiteFormComponent } from '@site/component';
 import {SharedModule} from "@shared/shared.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -11,11 +12,12 @@ import {SharedModule} from "@shared/shared.module";
     SiteDetailComponent,
     SiteFormComponent
   ],
-  imports: [
-    CommonModule,
-    // Don't forget to add/import the {entity}RoutingModule
-    SiteRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        // Don't forget to add/import the {entity}RoutingModule
+        SiteRoutingModule,
+        SharedModule,
+        TranslateModule
+    ]
 })
 export class SiteModule { }
