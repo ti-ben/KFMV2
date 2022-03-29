@@ -1,4 +1,7 @@
-import { Site } from '@site/model';
+import {Site} from '@site/model';
+import {Grade} from "@grade/model";
+import {Status} from "@status/model";
+import {Address} from "@address/model";
 
 export interface User {
   user_id: string,
@@ -17,5 +20,8 @@ export interface User {
   created_on: Date,
   pob: string,
   active: string,
-  site: Site
+  site: Site,
+  grade: Grade,
+  status: Status,
+  addresslist: Address
 }

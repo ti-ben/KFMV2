@@ -11,7 +11,7 @@ export class StatusHelper {
     }
   }
 
-  public toDto(status: Status): StatusDto {
+  public static toDto(status: Status): StatusDto {
     return {
       status_id: status.status_id,
       name: status.name,

@@ -9,7 +9,7 @@ export class GradeHelper {
       comment: dto.comment
     }
   }
-  public toDto(grade: Grade): GradeDto {
+  public static toDto(grade: Grade): GradeDto {
     return {
       grade_id: grade.grade_id,
       name: grade.name,

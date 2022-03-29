@@ -1,6 +1,9 @@
 import { User } from '@user/model/business';
 import { UserDto } from '@user/model';
 import { SiteHelper } from '@site/helper';
+import {GradeHelper} from "@grade/helper";
+import {StatusHelper} from "@status/helper";
+import {AddressHelper} from "@address/helper";
 
 export class UserHelper {
   public static fromDto(dto: UserDto): User {
@@ -21,7 +24,10 @@ export class UserHelper {
       created_on: dto.created_on,
       pob: dto.pob,
       active: dto.active,
-      site: SiteHelper.fromDto(dto.site)
+      site: SiteHelper.fromDto(dto.site),
+      grade: GradeHelper.fromDto(dto.grade),
+      status: StatusHelper.fromDto(dto.status),
+      addresslist: AddressHelper.fromDto(dto.addresslist)
     }
   }
 
@@ -43,7 +49,10 @@ export class UserHelper {
       created_on: new Date(),
       pob: user.pob,
       active: user.active,
-      site: SiteHelper.toDto(user.site)
+      site: SiteHelper.toDto(user.site),
+      grade: GradeHelper.toDto(user.grade),
+      status: StatusHelper.toDto(user.status),
+      addresslist: AddressHelper.toDto(user.addresslist)
     };
   }
 
@@ -65,7 +74,10 @@ export class UserHelper {
       telperso: '',
       telpro: '',
       user_id: '',
-      site: SiteHelper.getEmpty()
+      site: SiteHelper.getEmpty(),
+      grade: GradeHelper.getEmpty(),
+      status: StatusHelper.getEmpty(),
+      addresslist: AddressHelper.getEmpty()
     };
   }
 

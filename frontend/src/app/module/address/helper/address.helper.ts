@@ -12,7 +12,7 @@ export class AddressHelper {
       num: dto.num
     }
   }
-  public toDto(address: Address): AddressDto {
+  public static toDto(address: Address): AddressDto {
     return {
       address_id: address.address_id,
       road: address.road,
