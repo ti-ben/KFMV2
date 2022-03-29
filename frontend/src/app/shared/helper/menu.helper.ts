@@ -1,4 +1,4 @@
-import { AppRoute, MenuItem, MenuItemType } from '@shared/model';
+import {AppRoute, MenuItem, MenuItemType} from '@shared/model';
 
 export class MenuHelper {
   public static guestMenuItem(): MenuItem {
@@ -39,45 +39,71 @@ export class MenuHelper {
     };
   }
 
+  /*
+  Car part
+ */
+
+
   public static carMenuItem(): MenuItem {
     return {
-      label: 'page.dashboard.menu.car', link: AppRoute.VEHICULE_LIST,
-      type: MenuItemType.VEHICULE_LIST, icon: 'fa-truck', active: false
+      label: 'page.dashboard.menu.car',
+      link: AppRoute.VEHICULE_LIST,
+      type: MenuItemType.VEHICULE_LIST,
+      icon: 'fa-truck', active: false
+    };
+  }
+
+  public static carDetailMenuItem(): MenuItem {
+    return {
+      label: 'page.dashboard.menu.Detail',
+      link: AppRoute.VEHICULE_DETAIL,
+      type: MenuItemType.VEHICULE_DETAIL,
+      icon: 'fa-truck', active: false
     };
   }
 
   public static providerMenuItem(): MenuItem {
     return {
-      label: 'page.dashboard.menu.provider', link: AppRoute.PRESTATAIRE_LIST,
-      type: MenuItemType.PRESTATAIRE_LIST, icon: 'fa-recycle', active: false
+      label: 'page.dashboard.menu.provider',
+      link: AppRoute.PRESTATAIRE_LIST,
+      type: MenuItemType.PRESTATAIRE_LIST,
+      icon: 'fa-recycle', active: false
     };
   }
 
   public static gradeMenuItem(): MenuItem {
     return {
-      label: 'page.dashboard.menu.grade', link: AppRoute.GRADE_LIST,
-      type: MenuItemType.GRADE_LIST, icon: 'fa-people-roof', active: false
+      label: 'page.dashboard.menu.grade',
+      link: AppRoute.GRADE_LIST,
+      type: MenuItemType.GRADE_LIST,
+      icon: 'fa-people-roof', active: false
     };
   }
 
   public static siteMenuItem(): MenuItem {
     return {
-      label: 'page.dashboard.menu.site', link: AppRoute.SITE_LIST,
-      type: MenuItemType.SITE_LIST, icon: 'fa-sitemap', active: false
+      label: 'page.dashboard.menu.site',
+      link: AppRoute.SITE_LIST,
+      type: MenuItemType.SITE_LIST,
+      icon: 'fa-sitemap', active: false
     };
   }
 
   public static statusMenuItem(): MenuItem {
     return {
-      label: 'page.dashboard.menu.status', link: AppRoute.STATUS_LIST,
-      type: MenuItemType.STATUS_LIST, icon: 'fa-signal', active: false
+      label: 'page.dashboard.menu.status',
+      link: AppRoute.STATUS_LIST,
+      type: MenuItemType.STATUS_LIST,
+      icon: 'fa-signal', active: false
     };
   }
 
   public static numberplateMenuItem(): MenuItem {
     return {
-      label: 'page.dashboard.menu.numberplate', link: AppRoute.NUMBERPLATE_LIST,
-      type: MenuItemType.NUMBERPLATE_LIST, icon: 'fa-cog', active: false
+      label: 'page.dashboard.menu.numberplate',
+      link: AppRoute.NUMBERPLATE_LIST,
+      type: MenuItemType.NUMBERPLATE_LIST,
+      icon: 'fa-cog', active: false
     };
   }
 
@@ -102,6 +128,7 @@ export class MenuHelper {
       MenuHelper.employeeMenuItem(),
       MenuHelper.employeeDetailMenuItem(),
       MenuHelper.carMenuItem(),
+      MenuHelper.carDetailMenuItem(),
       MenuHelper.providerMenuItem(),
       MenuHelper.gradeMenuItem(),
       MenuHelper.siteMenuItem(),
