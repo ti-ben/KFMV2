@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="big-title">
+    {{config.title.label | translate:config.title.params}}
+  </div>
+  <div class="actions" *ngIf="config.actions">
+    <span *ngFor="let action of config.actions" class="icon {{action.icon!}}"
+          (click)="onActionClick.emit(action)"></span>
+  </div>
+</div>

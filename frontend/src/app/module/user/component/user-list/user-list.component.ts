@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '@user/service/user.service';
-import { BehaviorSubject } from 'rxjs';
-import { User } from '@user/model';
-import { tap } from 'rxjs/operators';
-import { AppRoute, GenericTableConfig, MenuItem, MenuItemType } from '@shared/model';
-import { GenericTableHelper } from '@shared/helper';
-import { MenuHelper } from '@shared/helper/menu.helper';
-import { cloneDeep } from 'lodash';
-import { NavigationService } from '@shared/service/navigation.service';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '@user/service/user.service';
+import {BehaviorSubject} from 'rxjs';
+import {User} from '@user/model';
+import {tap} from 'rxjs/operators';
+import {CardConfig, MenuItem, MenuItemType} from '@shared/model';
+import {MenuHelper} from '@shared/helper/menu.helper';
+import {cloneDeep} from 'lodash';
+import {NavigationService} from '@shared/service/navigation.service';
+import {UserHelper} from '@user/helper';
 
 @Component({
   selector: 'app-user-list',
@@ -16,13 +16,16 @@ import { NavigationService } from '@shared/service/navigation.service';
 })
 export class UserListComponent implements OnInit {
   list$ = new BehaviorSubject<User[]>([]);
-
-  //  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
-
+  search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  user$ = new BehaviorSubject<User | undefined>(undefined)
+  cardConfig!: CardConfig;
   constructor(public userService: UserService, public navigation: NavigationService) {
   }
 
   ngOnInit(): void {
+    this.cardConfig = {
+      css: 'max-width-1024 p-large margin-auto margin-large'
+    };
     this.userService.list().pipe(
       tap((list: User[]) => this.list$.next(list)))
       .subscribe();
@@ -37,18 +40,4 @@ export class UserListComponent implements OnInit {
         break;
     }
   }
-
-  /*private setConfig(list: User[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genUserFieldDefinitions();
-    config.data = list;
-    config.actions = [{
-      icon: 'fa-edit',
-      label: '',
-      link: AppRoute.USER_DETAIL,
-      active: false,
-      type: MenuItemType.USER_DETAIL
-    }]
-    this.config$.next(config);
-  }*/
 }

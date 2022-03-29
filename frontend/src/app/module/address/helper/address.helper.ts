@@ -1,8 +1,12 @@
 import { Address } from '@address/model/business';
 import { AddressDto } from '@address/model';
+import {isNil} from 'lodash';
 
 export class AddressHelper {
   public static fromDto(dto: AddressDto): Address {
+    if (isNil(dto)) {
+      return AddressHelper.getEmpty();
+    }
     return {
       address_id: dto.address_id,
       road: dto.road,

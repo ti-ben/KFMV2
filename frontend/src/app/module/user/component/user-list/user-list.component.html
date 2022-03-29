@@ -21,7 +21,7 @@
   </div>
 </ng-container>
 -->
-
+<!--
 <main class="table-users table flex-container" *ngIf="list$|async as list">
 
     <div class="col-md-2 d-grid gap-3">
@@ -46,4 +46,27 @@
     <div class="col-md-6">
       <app-user-detail></app-user-detail>
     </div>
+</main>
+-->
+
+<main id="page">
+  <div id="left-nav">
+    <app-search-input [placeholder]="'search-input.user-search'"
+                      (onValueChange)="search$.next($event)"></app-search-input>
+    <ul *ngIf="list$ | async  as list">
+      <li *ngFor="let user of list">
+        {{user.lastname|uppercase}}  {{user.firstname}}
+      </li>
+    </ul>
+  </div>
+  <section id="main-content">
+    <ng-container *ngIf="user$ | async as user; else noSelected">
+      {{user |json}}
+    </ng-container>
+    <ng-template #noSelected>
+      <app-card [config]="cardConfig">
+        {{'user-list.no-data' | translate}}
+      </app-card>
+    </ng-template>
+  </section>
 </main>

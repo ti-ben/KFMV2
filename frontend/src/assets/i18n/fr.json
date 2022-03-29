@@ -1,4 +1,8 @@
 {
+  "search-input": {
+    "default-search": "Rechercher",
+    "user-search": "Rechercher un utilisateur"
+  },
   "header": {
     "breadcrumb": "affichage de la page en cours"
   },

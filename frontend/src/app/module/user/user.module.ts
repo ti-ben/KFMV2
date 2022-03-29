@@ -11,6 +11,7 @@ import { UserDetailAdrComponent } from './component/user-detail-adr/user-detail-
 import { UserDetailTachographComponent } from './component/user-detail-tachograph/user-detail-tachograph.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserDetailSummaryComponent } from './component/user-detail-summary/user-detail-summary.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserDetailSummaryComponent } from './component/user-detail-summary/user
         // Don't forget to add/import the {entity}RoutingModule & SharedModule
         UserRoutingModule,
         SharedModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslateModule
     ]
 })
 export class UserModule {

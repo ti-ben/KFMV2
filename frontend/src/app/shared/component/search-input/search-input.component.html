@@ -1,0 +1,4 @@
+<div class="search-input">
+  <input type="text" [placeholder]="placeholder|translate" [(ngModel)]="search" (ngModelChange)="onValueChange.emit(search)"/>
+  <i class="fa fa-search"></i>
+</div>

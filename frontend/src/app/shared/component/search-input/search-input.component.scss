@@ -1,0 +1,20 @@
+@import '~assets/css/variable';
+.search-input{
+  border-bottom:1px solid #e8e8e8;
+  padding:5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;align-items: center;
+  input{
+    border:1px solid $white;
+    padding:5px;
+    flex:2;
+    &::placeholder{
+      color:$background-section-color;
+    }
+  }
+  i{
+    padding:5px;
+    color:$background-section-color;
+  }
+}

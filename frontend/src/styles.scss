@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .nav-link .fa {
   transition: all 1s
@@ -7,15 +12,29 @@
 .nav-link:hover .fa {
   transform: rotate(360deg)
 }
-.clickable{
-  cursor:pointer;
-  &:hover{
+
+.clickable {
+  cursor: pointer;
+
+  &:hover {
 
   }
+}
+
+li {
+  list-style: none
 }
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 @import 'assets/css/table';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import 'assets/css/common';
+html, body {
+  height: 100%;
+  background:#eeeeee;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

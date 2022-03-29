@@ -1,14 +1,19 @@
-import { Grade } from '@grade/model/business';
-import { GradeDto } from '@grade/model';
+import {Grade} from '@grade/model/business';
+import {GradeDto} from '@grade/model';
+import {isNil} from 'lodash';
 
 export class GradeHelper {
   public static fromDto(dto: GradeDto): Grade {
+    if (isNil(dto)) {
+      return GradeHelper.getEmpty();
+    }
     return {
       grade_id: dto.grade_id,
       name: dto.name,
       comment: dto.comment
     }
   }
+
   public static toDto(grade: Grade): GradeDto {
     return {
       grade_id: grade.grade_id,
@@ -17,7 +22,7 @@ export class GradeHelper {
     };
   }
 
-  static getEmpty():Grade {
+  static getEmpty(): Grade {
     return {
       grade_id: '',
       name: '',

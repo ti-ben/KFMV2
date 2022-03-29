@@ -1,9 +1,13 @@
 import { Status } from '@status/model/business';
 import { StatusDto } from '@status/model';
+import {isNil} from 'lodash';
 
 
 export class StatusHelper {
   public static fromDto(dto: StatusDto): Status {
+    if (isNil(dto)) {
+      return StatusHelper.getEmpty();
+    }
     return {
       status_id: dto.status_id,
       name: dto.name,

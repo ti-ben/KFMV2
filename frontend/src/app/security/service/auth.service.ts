@@ -30,7 +30,7 @@ export class AuthService extends ApiService {
         tap((response: ApiResponse) => {
           this.isAuthenticated = response.result;
           if (this.isAuthenticated) {
-            this.currentUser$.next(UserHelper.fromDto(response.data.user.user));
+            this.currentUser$.next(UserHelper.fromDto(response.data.user));
             this.tokenService.saveToken(response.data.token.access_token);
             this.tokenService.saveRefreshToken(response.data.token.refresh_token);
             this.navigation.navigateToSecure();
