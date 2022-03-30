@@ -39,6 +39,16 @@ export class MenuHelper {
     };
   }
 
+  public static employeeCreateMenuItem(): MenuItem {
+    return {
+      label: 'page.dashboard.menu.create',
+      link: AppRoute.USER_CREATE,
+      type: MenuItemType.USER_CREATE,
+      icon: 'fa-people-group',
+      active: false
+    };
+  }
+
   /*
   Car part
  */

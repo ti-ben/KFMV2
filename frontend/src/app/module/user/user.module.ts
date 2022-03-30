@@ -12,6 +12,7 @@ import { UserDetailTachographComponent } from './component/user-detail-tachograp
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserDetailSummaryComponent } from './component/user-detail-summary/user-detail-summary.component';
 import {TranslateModule} from '@ngx-translate/core';
+import { UserHomeComponent } from './component/user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {TranslateModule} from '@ngx-translate/core';
     UserDetailCapComponent,
     UserDetailAdrComponent,
     UserDetailTachographComponent,
-    UserDetailSummaryComponent
+    UserDetailSummaryComponent,
+    UserHomeComponent
   ],
     imports: [
         CommonModule,

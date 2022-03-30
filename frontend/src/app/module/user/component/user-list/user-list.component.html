@@ -2,20 +2,14 @@
   <div id="left-nav">
     <app-search-input [placeholder]="'search-input.user-search'"
                       (onValueChange)="search$.next($event)"></app-search-input>
+    <app-button-icon (onClick)="create()" [labelWithParam]="labelWithParam" [icon]="'fa fa-plus'"></app-button-icon>
     <ul *ngIf="list$ | async  as list">
-      <li *ngFor="let user of list">
+      <li *ngFor="let user of list" (click)="detail(user)">
         {{user.lastname| uppercase}}  {{user.firstname}}
       </li>
     </ul>
   </div>
   <section id="main-content">
-    <ng-container *ngIf="user$ | async as user; else noSelected">
-      {{user |json}}
-    </ng-container>
-    <ng-template #noSelected>
-      <app-card [config]="cardConfig">
-        {{'user-list.no-data' | translate}}
-      </app-card>
-    </ng-template>
+    <router-outlet></router-outlet>
   </section>
 </main>

@@ -1,5 +1,4 @@
-<div *ngIf="userService.currentDetail$ | async as detail" class="container-fluid p-4 shadow mx-auto"
-     style="max-width: 1250px;">
+<app-card *ngIf="userService.currentDetail$ | async as detail" [config]="cardConfig">
   <ng-container *ngIf="detail.user_id.length === 0; else data">
     <div class="alert alert-danger text-center" role="alert">
       Aucuns résultats trouvés.
@@ -16,4 +15,4 @@
       <app-user-detail-tachograph *ngSwitchCase="UserDetailTab.USER_TACHOGRAPH"></app-user-detail-tachograph>
     </ng-container>
   </ng-template>
-</div>
+</app-card>

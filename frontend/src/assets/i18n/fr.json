@@ -6,6 +6,9 @@
   "header": {
     "breadcrumb": "affichage de la page en cours"
   },
+  "button": {
+    "user-add": "Nouveau utilisateur"
+  },
   "table": {
     "employee": {
       "avatar": "Image",
@@ -67,6 +70,7 @@
   "page": {
     "dashboard": {
       "menu": {
+        "create": "Nouveau",
         "home": "Accueil",
         "employee": "Employés",
         "dashboard": "Tableau de bord",

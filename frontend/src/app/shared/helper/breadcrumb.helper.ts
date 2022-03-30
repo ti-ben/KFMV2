@@ -7,6 +7,7 @@ export class BreadcrumbHelper {
     switch (currentItem.type) {
       case MenuItemType.USER_LIST: breadCrumb = BreadcrumbHelper.userHomeBreadCrumb(currentItem); break;
       case MenuItemType.USER_DETAIL: breadCrumb = BreadcrumbHelper.userDetailBreadCrumb(currentItem); break;
+      case MenuItemType.USER_CREATE: breadCrumb = BreadcrumbHelper.userCreateBreadCrumb(currentItem); break;
       case MenuItemType.VEHICULE_LIST: breadCrumb = BreadcrumbHelper.carHomeBreadCrumb(currentItem); break;
       case MenuItemType.VEHICULE_DETAIL: breadCrumb = BreadcrumbHelper.carDetailBreadCrumb(currentItem); break;
       case MenuItemType.GRADE_LIST: breadCrumb = BreadcrumbHelper.gradeHomeBreadCrumb(currentItem); break;
@@ -29,6 +30,9 @@ export class BreadcrumbHelper {
   }
 
   public static userDetailBreadCrumb(currentItem: MenuItem): MenuItem[] {
+    return [MenuHelper.employeeMenuItem(), currentItem];
+  }
+  public static userCreateBreadCrumb(currentItem: MenuItem): MenuItem[] {
     return [MenuHelper.employeeMenuItem(), currentItem];
   }
 

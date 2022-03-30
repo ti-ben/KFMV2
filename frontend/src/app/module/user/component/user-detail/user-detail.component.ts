@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "@user/service/user.service";
 import { BehaviorSubject } from "rxjs";
-import { GenericTableConfig, TabItem, TabItemAction } from "@shared/model";
+import { CardConfig, GenericTableConfig, TabItem, TabItemAction } from "@shared/model";
 import { User } from "@user/model";
 import { GenericTableHelper } from "@shared/helper";
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -20,11 +20,15 @@ export class UserDetailComponent implements OnInit {
   tabs: TabItem[] = [];
   UserDetailTab = TabItemAction;
   currentTab: TabItemAction = TabItemAction.USER_IDENTITY;
+  cardConfig!: CardConfig;
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public userService: UserService) {
 
   }
 
   ngOnInit(): void {
+    this.cardConfig = {
+      css: 'max-width-1400 p-large margin-auto margin-large'
+    };
     this.setTab();
     this.activatedRouter.params
       .pipe(

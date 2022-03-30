@@ -9,6 +9,7 @@ import {SearchInputComponent} from './component/search-input/search-input.compon
 import {FormsModule} from '@angular/forms';
 import {CardComponent} from './component/card/card.component';
 import {CardHeaderComponent} from './component/card-header/card-header.component';
+import { ButtonIconComponent } from './component/button-icon/button-icon.component';
 
 
 @NgModule({
@@ -19,16 +20,18 @@ import {CardHeaderComponent} from './component/card-header/card-header.component
     DestroyBaseComponent,
     SearchInputComponent,
     CardComponent,
-    CardHeaderComponent],
-  exports: [
-    ErrorLandingPageComponent,
-    GenericDataTableComponent,
-    TabComponent,
-    DestroyBaseComponent,
-    SearchInputComponent,
-    CardComponent,
-    CardHeaderComponent
-  ],
+    CardHeaderComponent,
+    ButtonIconComponent],
+    exports: [
+        ErrorLandingPageComponent,
+        GenericDataTableComponent,
+        TabComponent,
+        DestroyBaseComponent,
+        SearchInputComponent,
+        CardComponent,
+        CardHeaderComponent,
+        ButtonIconComponent
+    ],
   imports: [CommonModule, TranslateModule, FormsModule]
 })
 export class SharedModule {
