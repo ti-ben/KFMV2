@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import { AuthService } from './security';
+import {AuthService} from './security';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { AuthService } from './security';
 })
 
 export class AppComponent {
-  constructor(private translate: TranslateService, public authService:AuthService) {
+  constructor(private translate: TranslateService, public authService: AuthService) {
     translate.setDefaultLang('fr');
     this.authService.me();
   }

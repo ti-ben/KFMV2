@@ -8,10 +8,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpInterceptorService } from './security/service/http.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonIconComponent } from './shared/component/button-icon/button-icon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ButtonIconComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { LabelWithParam } from '@shared/model';
   templateUrl: './button-icon.component.html',
   styleUrls: ['./button-icon.component.scss']
 })
+
 export class ButtonIconComponent implements OnInit {
   @Input() icon: string = 'fa fa-plus';
   @Input() labelWithParam: LabelWithParam = {label: 'button.default-add'};
