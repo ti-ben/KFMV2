@@ -1,6 +1,7 @@
 import { Address } from '@address/model/business';
 import { AddressDto } from '@address/model';
 import {isNil} from 'lodash';
+import {Vehicule, VehiculeDto} from "@vehicule/model";
 
 export class AddressHelper {
   public static fromDto(dto: AddressDto): Address {
@@ -36,5 +37,9 @@ export class AddressHelper {
       country: '',
       num: ''
     };
+  }
+
+  static fromDtoArray(data: AddressDto[]): Address[] {
+    return data.map((dto: AddressDto) => AddressHelper.fromDto(dto));
   }
 }

@@ -1,5 +1,6 @@
 import {Vehicule} from '@vehicule/model/business';
 import {VehiculeDto} from '@vehicule/model';
+import {NumberplateHelper} from '@numberplate/helper'
 
 export class VehiculeHelper {
   public static fromDto(dto: VehiculeDto): Vehicule {
@@ -21,7 +22,8 @@ export class VehiculeHelper {
       metrologie: dto.metrologie,
       picture: dto.picture,
       fuel: dto.fuel,
-      type: dto.type
+      type: dto.type,
+      numberplate: NumberplateHelper.fromDto(dto.numberplate)
     }
   }
 
@@ -44,7 +46,8 @@ export class VehiculeHelper {
       metrologie: vehicule.metrologie,
       picture: vehicule.picture,
       fuel: vehicule.fuel,
-      type: vehicule.type
+      type: vehicule.type,
+      numberplate: NumberplateHelper.toDto(vehicule.numberplate)
     };
   }
 
@@ -67,7 +70,8 @@ export class VehiculeHelper {
       metrologie: '',
       picture: '',
       fuel: '',
-      type: ''
+      type: '',
+      numberplate: NumberplateHelper.getEmpty()
     };
   }
 

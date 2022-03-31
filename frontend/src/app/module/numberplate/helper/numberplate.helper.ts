@@ -9,7 +9,7 @@ export class NumberplateHelper {
       dop: dto.dop
     }
   }
-  public toDto(numberplate: Numberplate): NumberplateDto {
+  public static toDto(numberplate: Numberplate): NumberplateDto {
     return {
       numberplate_id: numberplate.numberplate_id,
       num_plate: numberplate.num_plate,

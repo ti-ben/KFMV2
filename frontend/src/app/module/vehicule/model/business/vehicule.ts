@@ -1,3 +1,5 @@
+import {Numberplate} from "@numberplate/model";
+
 export interface Vehicule {
   vehicule_id: string,
   dop: Date,
@@ -16,5 +18,6 @@ export interface Vehicule {
   metrologie: string,
   picture: string,
   fuel: string,
-  type: string
+  type: string,
+  numberplate: Numberplate
 }
