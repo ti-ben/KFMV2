@@ -19,17 +19,17 @@ export class AppointmentService extends ApiService {
   }
 
   create(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.USER_CREATE}`);
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_CREATE}`);
   }
 
 // Théoriquement ici tu sors une liste d'utilisateur.
 // Observable<User[]>
   list(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.USER_LIST}`);
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}`);
   }
 
   detail(id: string): Observable<Appointment> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.USER_DETAIL}${id}`)
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_DETAIL}${id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? AppointmentHelper.fromDto(response.data as AppointmentDto) : AppointmentHelper.getEmpty();
@@ -38,7 +38,7 @@ export class AppointmentService extends ApiService {
   }
 
   update(id: string): Observable<Appointment> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.USER_UPDATE}${id}`)
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_UPDATE}${id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? AppointmentHelper.fromDto(response.data as AppointmentDto) : AppointmentHelper.getEmpty();
@@ -47,6 +47,6 @@ export class AppointmentService extends ApiService {
   }
 
   delete(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.USER_DELETE}`);
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_DELETE}`);
   }
 }

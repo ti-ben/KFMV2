@@ -6,14 +6,12 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let vehicule of list" (click)="detail(vehicule)">
-            <span class="large">
-              {{vehicule.brand}} {{'imat'}}
-            </span>
+              {{vehicule.brand | uppercase}} {{'imat'}}
           </li>
         </ul>
       </ng-container>
       <ng-template #noData>
-        <span class="p-medium">{{'page.car-list.no-data' | translate}}</span>
+        <span class="p-medium">{{'page.vehicule-list.no-data' | translate}}</span>
       </ng-template>
     </ng-container>
   </div>

@@ -120,8 +120,8 @@ export class MenuHelper {
   public static gradeDetailMenuItem(): MenuItem {
     return {
       label: 'page.dashboard.menu.detail',
-      link: AppRoute.GRADE_LIST,
-      type: MenuItemType.GRADE_LIST,
+      link: AppRoute.GRADE_DETAIL,
+      type: MenuItemType.GRADE_DETAIL,
       icon: 'fa-people-roof', active: false
     };
   }
@@ -207,8 +207,8 @@ export class MenuHelper {
   public static numberplateDetailMenuItem(): MenuItem {
     return {
       label: 'page.dashboard.menu.detail',
-      link: AppRoute.NUMBERPLATE_LIST,
-      type: MenuItemType.NUMBERPLATE_LIST,
+      link: AppRoute.NUMBERPLATE_DETAIL,
+      type: MenuItemType.NUMBERPLATE_DETAIL,
       icon: 'fa-cog', active: false
     };
   }

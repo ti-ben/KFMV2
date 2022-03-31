@@ -1,5 +1,4 @@
-<div *ngIf="vehiculeService.currentDetail$ | async as detail" class="container-fluid p-4 shadow mx-auto"
-     style="max-width: 1350px;">
+<div *ngIf="vehiculeService.currentDetail$ | async as detail" class="container-fluid p-4 shadow mx-auto" style="max-width: 1350px;">
   <ng-container *ngIf="detail.vehicule_id.length === 0; else data">
     <div class="alert alert-danger text-center" role="alert">
       Aucuns résultats trouvés.
@@ -9,15 +8,11 @@
     <app-vehicule-detail-summary [detail]="detail"></app-vehicule-detail-summary>
     <app-tab [list]="tabs" (clickHandler)="currentTab = $event.type"></app-tab>
     <ng-container [ngSwitch]="currentTab">
-      <app-vehicule-detail-identity *ngSwitchCase="VehiculeDetailTab.VEHICULE_IDENTITY"
-                                    [detail]="detail"></app-vehicule-detail-identity>
+      <app-vehicule-detail-identity *ngSwitchCase="VehiculeDetailTab.VEHICULE_IDENTITY" [detail]="detail"></app-vehicule-detail-identity>
       <app-vehicule-detail-adr *ngSwitchCase="VehiculeDetailTab.VEHICULE_ADR"></app-vehicule-detail-adr>
-      <app-vehicule-detail-metrology
-        *ngSwitchCase="VehiculeDetailTab.VEHICULE_METROLOGY"></app-vehicule-detail-metrology>
-      <app-vehicule-detail-technical-control
-        *ngSwitchCase="VehiculeDetailTab.VEHICULE_TECHNICAL_CONTROL"></app-vehicule-detail-technical-control>
-      <app-vehicule-detail-technical-intervention
-        *ngSwitchCase="VehiculeDetailTab.VEHICULE_TECHNICAL_INTERVENTION"></app-vehicule-detail-technical-intervention>
+      <app-vehicule-detail-metrology *ngSwitchCase="VehiculeDetailTab.VEHICULE_METROLOGY"></app-vehicule-detail-metrology>
+      <app-vehicule-detail-technical-control *ngSwitchCase="VehiculeDetailTab.VEHICULE_TECHNICAL_CONTROL"></app-vehicule-detail-technical-control>
+      <app-vehicule-detail-technical-intervention *ngSwitchCase="VehiculeDetailTab.VEHICULE_TECHNICAL_INTERVENTION"></app-vehicule-detail-technical-intervention>
     </ng-container>
   </ng-template>
 </div>

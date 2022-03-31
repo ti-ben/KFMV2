@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {GenericTableConfig, TabItem, TabItemAction} from "@shared/model";
+import {CardConfig, GenericTableConfig, TabItem, TabItemAction} from "@shared/model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {VehiculeService} from "@vehicule/service/vehicule.service";
 import {tap} from "rxjs/operators";
@@ -20,9 +20,13 @@ export class VehiculeDetailComponent implements OnInit {
   tabs: TabItem[] = [];
   VehiculeDetailTab = TabItemAction;
   currentTab: TabItemAction = TabItemAction.VEHICULE_IDENTITY;
+  cardConfig!: CardConfig;
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public vehiculeService: VehiculeService) { }
 
   ngOnInit(): void {
+    this.cardConfig = {
+      css: 'max-width-1400 p-large margin-auto margin-large'
+    };
     this.setTab();
     this.activatedRouter.params
       .pipe(

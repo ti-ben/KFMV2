@@ -1,20 +1,21 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { VehiculeListComponent , VehiculeFormComponent, VehiculeDetailComponent } from '@vehicule/component';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
+import {
+  VehiculeDetailComponent,
+  VehiculeFormComponent,
+  VehiculeHomeComponent,
+  VehiculeListComponent
+} from '@vehicule/component';
 
 const routes: Routes = [
   {
-    path: 'list',
-    component: VehiculeListComponent
+    path: '', component: VehiculeListComponent,
+    children: [
+      {path: '', component: VehiculeHomeComponent},
+      {path: 'create', component: VehiculeFormComponent},
+      {path: 'detail/:id', component: VehiculeDetailComponent}
+    ]
   },
-  {
-    path: 'form',
-    component: VehiculeFormComponent
-  },
-  {
-    path: 'detail/:id',
-    component: VehiculeDetailComponent
-  }
 ];
 
 @NgModule({

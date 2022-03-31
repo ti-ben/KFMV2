@@ -19,20 +19,21 @@ export class UserService extends ApiService {
     super(http);
   }
 
-  create(payload: UserCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.USER_CREATE, payload);
-  }
-
-  list(): Observable<User[]> {
-    return this.get(ApiUriEnum.USER_LIST)
+  search(search:UserSearch): Observable<User[]> {
+    return this.post(ApiUriEnum.USER_SEARCH, search)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? UserHelper.fromDtoArray(response.data as UserDto[]) : [];
         })
       )
   }
-  search(search:UserSearch): Observable<User[]> {
-    return this.post(ApiUriEnum.USER_SEARCH, search)
+
+  create(payload: UserCreatePayload): Observable<ApiResponse> {
+    return this.post(ApiUriEnum.USER_CREATE, payload);
+  }
+
+  list(): Observable<User[]> {
+    return this.get(ApiUriEnum.USER_LIST)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? UserHelper.fromDtoArray(response.data as UserDto[]) : [];
