@@ -3,14 +3,13 @@ import {GradeService} from '@grade/service/grade.service';
 import {BehaviorSubject} from 'rxjs';
 import {Grade} from '@grade/model';
 import {switchMap, takeUntil, tap} from 'rxjs/operators';
-import {CardConfig, LabelWithParam, MenuItem, MenuItemType} from '@shared/model';
+import {LabelWithParam} from '@shared/model';
 import {NavigationService} from "@shared/service/navigation.service";
 import {cloneDeep} from "lodash";
 import {MenuHelper} from "@shared/helper/menu.helper";
 import {
   WithMenuAndDestroyableBaseComponent
 } from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
-import {Vehicule} from "@vehicule/model";
 
 @Component({
   selector: 'app-grade-list',

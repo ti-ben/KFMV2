@@ -6,9 +6,7 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let vehicule of list" (click)="detail(vehicule)">
-            <span class="large">
-              {{vehicule.name}}
-            </span>
+            <span class="large"> {{vehicule.name | uppercase}} </span>
           </li>
         </ul>
       </ng-container>

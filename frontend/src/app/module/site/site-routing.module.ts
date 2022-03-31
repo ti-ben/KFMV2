@@ -1,11 +1,16 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { SiteListComponent , SiteFormComponent, SiteDetailComponent } from '@site/component';
+import {SiteListComponent, SiteFormComponent, SiteDetailComponent, SiteHomeComponent} from '@site/component';
 
 const routes: Routes = [
-  {path: 'list', component: SiteListComponent},
-  {path: 'form', component: SiteFormComponent},
-  {path: 'detail/:id', component: SiteDetailComponent}
+  {
+    path: 'list', component: SiteListComponent,
+    children: [
+      {path: '', component: SiteHomeComponent},
+      {path: 'create', component: SiteFormComponent},
+      {path: 'detail/:id', component: SiteDetailComponent}
+    ]
+  },
 ];
 
 @NgModule({

@@ -5,12 +5,14 @@ import {GradeRoutingModule} from '@grade/grade-routing.module';
 import {GradeDetailComponent, GradeFormComponent, GradeListComponent} from '@grade/component';
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { GradeHomeComponent } from './component/grade-home/grade-home.component';
 
 @NgModule({
   declarations: [
     GradeListComponent,
     GradeFormComponent,
-    GradeDetailComponent
+    GradeDetailComponent,
+    GradeHomeComponent
   ],
     imports: [
         CommonModule,

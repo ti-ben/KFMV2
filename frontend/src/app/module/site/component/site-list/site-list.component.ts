@@ -7,9 +7,7 @@ import {Site} from "@site/model";
 import {NavigationService} from "@shared/service/navigation.service";
 import {cloneDeep} from "lodash";
 import {MenuHelper} from "@shared/helper/menu.helper";
-import {
-  WithMenuAndDestroyableBaseComponent
-} from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
+import {WithMenuAndDestroyableBaseComponent} from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
 
 @Component({
   selector: 'app-site-list',

@@ -41,6 +41,5 @@ export class UserListComponent extends WithMenuAndDestroyableBaseComponent imple
     const item = cloneDeep(MenuHelper.employeeDetailMenuItem());
     item.link += user.user_id;
     this.navigation.navigate(item);
-
   }
 }
