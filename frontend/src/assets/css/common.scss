@@ -6,12 +6,14 @@
   min-height: calc(100vh - 68px);
 
   .left-nav {
+    @extend .transition-common;
     position: fixed;
     top: $header-height;
     bottom: 0;
     width: 250px;
     background: $white;
     border-right: 1px solid #e8e8e8;
+    transition: all ease .5s;
 
     li {
       cursor: pointer;
@@ -35,6 +37,7 @@
   }
 
   #page-main-content {
+    @extend .transition-common;
     flex: 2;
   }
 
@@ -116,4 +119,7 @@
 
 .m-b-small {
   margin-bottom: 12px;
+}
+.transition-common{
+  transition: all ease .5s;
 }

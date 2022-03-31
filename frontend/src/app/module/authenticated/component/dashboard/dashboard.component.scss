@@ -1,5 +1,5 @@
 @import '~assets/css/variable';
-
+@import '~assets/css/common';
 #dashboard {
   min-height: 100vh; //set the min height of screen
   background: $eee;
@@ -47,13 +47,14 @@
 
 // Menu ----------------------------------------------------------------------------------------------------------------
 .side-menu {
+  @extend .transition-common;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   background-color: $primary-contrast-color;
-  transition: .5s;
   overflow: hidden;
+  z-index:10;
 
 
   .menu-line {
