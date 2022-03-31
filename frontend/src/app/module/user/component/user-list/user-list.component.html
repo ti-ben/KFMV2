@@ -1,15 +1,22 @@
 <main id="page">
-  <div id="left-nav">
+  <div class="left-nav" [class.left-nav-show-menu]="showLongMenu" [class.left-nav-hide-menu]="!showLongMenu" >
     <app-search-input [placeholder]="'search-input.user-search'"
                       (onValueChange)="search$.next($event)"></app-search-input>
     <app-button-icon (onClick)="create()" [labelWithParam]="labelWithParam" [icon]="'fa fa-plus'"></app-button-icon>
-    <ul *ngIf="list$ | async  as list">
-      <li *ngFor="let user of list" (click)="detail(user)">
-        {{user.lastname| uppercase}}  {{user.firstname}}
-      </li>
-    </ul>
+    <ng-container *ngIf="list$ | async  as list">
+      <ng-container *ngIf="list.length > 0;else noData">
+        <ul>
+          <li *ngFor="let user of list" (click)="detail(user)">
+            {{user.lastname| uppercase}}  {{user.firstname}}
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noData>
+        <span class="p-medium">{{'page.user-list.no-data' | translate}}</span>
+      </ng-template>
+    </ng-container>
   </div>
-  <section id="main-content">
+  <section id="page-main-content" [class.main-content-show-menu]="showLongMenu" [class.main-content-hide-menu]="!showLongMenu" >
     <router-outlet></router-outlet>
   </section>
 </main>

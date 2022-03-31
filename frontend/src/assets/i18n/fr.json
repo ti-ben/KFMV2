@@ -83,6 +83,9 @@
         "tachygraphe": "Tachygraphe",
         "detail": "Détail"
       }
+    },
+    "user-list": {
+      "no-data": "Aucun utilisateur"
     }
   }
 }

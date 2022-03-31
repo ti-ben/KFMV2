@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationService } from '@shared/service/navigation.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +10,10 @@ export class DashboardComponent implements OnInit {
 
   showLongMenu = false;
 
-  constructor() {
+  constructor(public navigationService: NavigationService) {
   }
 
   ngOnInit(): void {
+    this.navigationService.showLongMenu$.subscribe((show: boolean) => this.showLongMenu = show);
   }
 }
