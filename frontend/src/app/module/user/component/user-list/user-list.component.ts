@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '@user/service/user.service';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '@user/model';
-import { takeUntil, tap } from 'rxjs/operators';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { LabelWithParam } from '@shared/model';
 import { MenuHelper } from '@shared/helper/menu.helper';
 import { cloneDeep } from 'lodash';
 import { NavigationService } from '@shared/service/navigation.service';
-import { DestroyBaseComponent } from '@shared/component/destroy-base/destroy-base.component';
+import { WithMenuAndDestroyableBaseComponent } from '@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component';
 
 @Component({
   selector: 'app-user-list',
@@ -15,22 +15,19 @@ import { DestroyBaseComponent } from '@shared/component/destroy-base/destroy-bas
   styleUrls: ['./user-list.component.scss']
 })
 
-export class UserListComponent extends DestroyBaseComponent implements OnInit {
+export class UserListComponent extends WithMenuAndDestroyableBaseComponent implements OnInit {
   list$ = new BehaviorSubject<User[]>([]);
   search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   labelWithParam: LabelWithParam = {label: 'button.user-add'};
-  showLongMenu = false;
 
   constructor(public userService: UserService, public navigation: NavigationService) {
-    super();
+    super(navigation);
   }
 
   ngOnInit(): void {
-    this.navigation.showLongMenu$
-      .pipe(takeUntil(this.destroyers$),
-        tap((show: boolean) => this.showLongMenu = show))
-      .subscribe();
-    this.userService.list().pipe(
+    this.search$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.userService.search({search: search})),
       tap((list: User[]) => this.list$.next(list)))
       .subscribe();
   }

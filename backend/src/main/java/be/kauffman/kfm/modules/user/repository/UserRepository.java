@@ -11,7 +11,6 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     User findByEmail(String email);
 
     @Query("SELECT u FROM User u WHERE u.firstname LIKE %?1%"
-            + " OR u.lastname LIKE %?1%"
-            + " OR u.email LIKE %?1%")
+            + " OR u.lastname LIKE %?1%")
     public List<User> search(String keyword);
 }

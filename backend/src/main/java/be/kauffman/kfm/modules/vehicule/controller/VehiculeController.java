@@ -3,11 +3,13 @@ package be.kauffman.kfm.modules.vehicule.controller;
 import be.kauffman.kfm.common.entity.ApiResponse;
 import be.kauffman.kfm.modules.vehicule.entity.Vehicule;
 import be.kauffman.kfm.modules.vehicule.entity.VehiculeCreatePayload;
+import be.kauffman.kfm.modules.vehicule.entity.VehiculeSearchPayload;
 import be.kauffman.kfm.modules.vehicule.entity.VehiculeUpdatePayload;
 import be.kauffman.kfm.modules.vehicule.repository.VehiculeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -18,9 +20,20 @@ public class VehiculeController {
     @Autowired
     VehiculeRepository vehiculeRepository;
 
+    // search
+    @PostMapping("/search")
+    public ApiResponse search(@RequestBody VehiculeSearchPayload search) {
+        try {
+            List<Vehicule> vehicules = (!search.getSearch().equals("")) ? vehiculeRepository.search(search.getSearch()) : vehiculeRepository.findAll();
+            return new ApiResponse(true, vehicules, null);
+        } catch (Exception e) {
+            return new ApiResponse(true, null, null);
+        }
+    }
+
     // Create record
     @PostMapping("/create")
-    public ApiResponse create(@RequestBody VehiculeCreatePayload payload){
+    public ApiResponse create(@RequestBody VehiculeCreatePayload payload) {
         Vehicule newVehicule = new Vehicule.VehiculeBuilder()
                 .setDop(payload.getDop())
                 .setActive(payload.getActive())
@@ -40,30 +53,30 @@ public class VehiculeController {
                 .setFuel(payload.getFuel())
                 .setType(payload.getType())
                 .build();
-        return new ApiResponse(true,vehiculeRepository.save(newVehicule), null);
+        return new ApiResponse(true, vehiculeRepository.save(newVehicule), null);
     }
 
     // Read all record
     @GetMapping("/list")
-    public ApiResponse get(){
-        return new ApiResponse(true,vehiculeRepository.findAll(), null);
+    public ApiResponse get() {
+        return new ApiResponse(true, vehiculeRepository.findAll(), null);
     }
 
     // Read record details
     @GetMapping("/detail/{id}")
-    public ApiResponse detail(@PathVariable("id") UUID id){
+    public ApiResponse detail(@PathVariable("id") UUID id) {
         Vehicule fromDb = vehiculeRepository.findById(id).orElse(null);
-        if(fromDb == null){
+        if (fromDb == null) {
             return new ApiResponse(false, null, "api.vehicule.detail.not-found");
         }
-        return new ApiResponse(true,fromDb, null);
+        return new ApiResponse(true, fromDb, null);
     }
 
     // Update record
     @PostMapping("/update")
     public ApiResponse update(@RequestBody VehiculeUpdatePayload payload) {
         Vehicule fromDb = vehiculeRepository.findById(payload.getVehicule_id()).orElse(null);
-        if(fromDb == null){
+        if (fromDb == null) {
             return new ApiResponse(false, null, "api.vehicule.update.not-found");
         }
         fromDb.setDop(payload.getDop());

@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {VehiculeService} from "@vehicule/service/vehicule.service";
-import {BehaviorSubject} from 'rxjs';
-import {Vehicule} from "@vehicule/model";
-import {tap} from 'rxjs/operators';
-import {CardConfig, MenuItem, MenuItemType} from '@shared/model';
-import {cloneDeep} from "lodash";
-import {MenuHelper} from "@shared/helper/menu.helper";
-import {NavigationService} from "@shared/service/navigation.service";
+import { Component, OnInit } from '@angular/core';
+import { VehiculeService } from "@vehicule/service/vehicule.service";
+import { BehaviorSubject } from 'rxjs';
+import { Vehicule } from "@vehicule/model";
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
+import { LabelWithParam } from '@shared/model';
+import { cloneDeep } from "lodash";
+import { MenuHelper } from "@shared/helper/menu.helper";
+import { NavigationService } from "@shared/service/navigation.service";
+import { WithMenuAndDestroyableBaseComponent } from '@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component';
+import { User } from '@user/model';
 
 @Component({
   selector: 'app-vehicule-list',
@@ -14,31 +16,32 @@ import {NavigationService} from "@shared/service/navigation.service";
   styleUrls: ['./vehicule-list.component.scss']
 })
 
-export class VehiculeListComponent implements OnInit {
+export class VehiculeListComponent extends WithMenuAndDestroyableBaseComponent implements OnInit {
   list$ = new BehaviorSubject<Vehicule[]>([]);
   search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  vehicule$ = new BehaviorSubject<Vehicule | undefined>(undefined);
-  cardConfig!: CardConfig;
+  labelWithParam: LabelWithParam = {label: 'button.car-add'};
 
   constructor(public vehiculeService: VehiculeService, public navigation: NavigationService) {
+    super(navigation);
   }
 
   ngOnInit(): void {
-    this.cardConfig = {
-      css: 'max-width-1024 p-large margin-auto margin-large'
-    };
-    this.vehiculeService.list().pipe(
+    this.search$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.vehiculeService.search({search: search})),
       tap((list: Vehicule[]) => this.list$.next(list)))
       .subscribe();
   }
 
-  handleClick(menuItem: MenuItem): void {
-    switch (menuItem.type) {
-      case MenuItemType.VEHICULE_DETAIL:
-        const item = cloneDeep(MenuHelper.carDetailMenuItem());
-        item.link += menuItem.data.vehicule_id;
-        this.navigation.navigate(item);
-        break;
-    }
+  create(): void {
+    const item = cloneDeep(MenuHelper.employeeCreateMenuItem());
+    this.navigation.navigate(item);
+  }
+
+  detail(vehicule: Vehicule): void {
+    const item = cloneDeep(MenuHelper.carDetailMenuItem());
+    item.link += vehicule.vehicule_id;
+    this.navigation.navigate(item);
+
   }
 }

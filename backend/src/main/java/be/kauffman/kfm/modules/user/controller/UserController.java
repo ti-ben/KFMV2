@@ -25,8 +25,6 @@ public class UserController {
     @PostMapping("/search")
     public ApiResponse search(@RequestBody UserSearchPayload search){
         try{
-            System.out.println("is good? " + (!search.getSearch().equals("")));
-            System.out.println("is good? " + (!search.getSearch().equals("")));
             List<User> users = (!search.getSearch().equals(""))? userRepository.search(search.getSearch()) : userRepository.findAll();
             return new ApiResponse(true, users, null);
         }catch(Exception e){

@@ -1,13 +1,15 @@
 {
   "search-input": {
     "default-search": "Rechercher",
-    "user-search": "Rechercher un utilisateur"
+    "user-search": "Rechercher un utilisateur",
+    "car-search": "Rechercher un véhicule"
   },
   "header": {
     "breadcrumb": "affichage de la page en cours"
   },
   "button": {
-    "user-add": "Nouveau utilisateur"
+    "user-add": "Nouveau utilisateur",
+    "car-add": "Nouveau véhicule"
   },
   "table": {
     "employee": {
@@ -86,6 +88,9 @@
     },
     "user-list": {
       "no-data": "Aucun utilisateur"
+    },
+    "car-list": {
+      "no-data": "Aucun véhicule"
     }
   }
 }

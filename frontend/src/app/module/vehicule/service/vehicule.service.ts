@@ -6,7 +6,9 @@ import { ApiResponse, ApiUriEnum } from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { VehiculeHelper } from '@vehicule/helper';
-import { Vehicule, VehiculeCreatePayload, VehiculeDto, VehiculeUpdatePayload } from '@vehicule/model';
+import { Vehicule, VehiculeCreatePayload, VehiculeDto, VehiculeSearch, VehiculeUpdatePayload } from '@vehicule/model';
+import { User, UserDto, UserSearch } from '@user/model';
+import { UserHelper } from '@user/helper';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,14 @@ export class VehiculeService extends ApiService {
     super(http);
   }
 
+  search(search:VehiculeSearch): Observable<Vehicule[]> {
+    return this.post(ApiUriEnum.VEHICULE_SEARCH, search)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? VehiculeHelper.fromDtoArray(response.data as VehiculeDto[]) : [];
+        })
+      )
+  }
   create(payload: VehiculeCreatePayload): Observable<ApiResponse> {
     return this.post(ApiUriEnum.VEHICULE_CREATE, payload);
   }
