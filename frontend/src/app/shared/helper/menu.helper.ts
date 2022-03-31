@@ -222,7 +222,6 @@ export class MenuHelper {
     };
   }
 
-  /* */
 
   public static getPrincipalMenu(): MenuItem[] {
     return [

@@ -10,16 +10,22 @@ export class BreadcrumbHelper {
       case MenuItemType.USER_CREATE: breadCrumb = BreadcrumbHelper.userCreateBreadCrumb(currentItem); break;
       case MenuItemType.VEHICULE_LIST: breadCrumb = BreadcrumbHelper.carHomeBreadCrumb(currentItem); break;
       case MenuItemType.VEHICULE_DETAIL: breadCrumb = BreadcrumbHelper.carDetailBreadCrumb(currentItem); break;
+      case MenuItemType.VEHICULE_CREATE: breadCrumb = BreadcrumbHelper.carCreateBreadCrumb(currentItem); break;
       case MenuItemType.GRADE_LIST: breadCrumb = BreadcrumbHelper.gradeHomeBreadCrumb(currentItem); break;
       case MenuItemType.GRADE_DETAIL: breadCrumb = BreadcrumbHelper.gradeDetailBreadCrumb(currentItem); break;
+      case MenuItemType.GRADE_CREATE: breadCrumb = BreadcrumbHelper.gradeCreateBreadCrumb(currentItem); break;
       case MenuItemType.PRESTATAIRE_LIST: breadCrumb = BreadcrumbHelper.providerHomeBreadCrumb(currentItem); break;
       case MenuItemType.PRESTATAIRE_DETAIL: breadCrumb = BreadcrumbHelper.providerDetailBreadCrumb(currentItem); break;
+      case MenuItemType.PRESTATAIRE_CREATE: breadCrumb = BreadcrumbHelper.providerCreateBreadCrumb(currentItem); break;
       case MenuItemType.SITE_LIST: breadCrumb = BreadcrumbHelper.siteHomeBreadCrumb(currentItem); break;
       case MenuItemType.SITE_DETAIL: breadCrumb = BreadcrumbHelper.siteDetailBreadCrumb(currentItem); break;
+      case MenuItemType.SITE_CREATE: breadCrumb = BreadcrumbHelper.siteCreateBreadCrumb(currentItem); break;
       case MenuItemType.STATUS_LIST: breadCrumb = BreadcrumbHelper.statusHomeBreadCrumb(currentItem); break;
       case MenuItemType.STATUS_DETAIL: breadCrumb = BreadcrumbHelper.statusDetailBreadCrumb(currentItem); break;
+      case MenuItemType.STATUS_CREATE: breadCrumb = BreadcrumbHelper.statusCreateBreadCrumb(currentItem); break;
       case MenuItemType.NUMBERPLATE_LIST: breadCrumb = BreadcrumbHelper.numberplateHomeBreadCrumb(currentItem); break;
       case MenuItemType.NUMBERPLATE_DETAIL: breadCrumb = BreadcrumbHelper.numberplateDetailBreadCrumb(currentItem); break;
+      case MenuItemType.NUMBERPLATE_CREATE: breadCrumb = BreadcrumbHelper.numberplateCreateBreadCrumb(currentItem); break;
     }
     return breadCrumb;
   }
@@ -44,11 +50,19 @@ export class BreadcrumbHelper {
     return [MenuHelper.carMenuItem(), currentItem];
   }
 
+  public static carCreateBreadCrumb(currentItem: MenuItem): MenuItem[] {
+    return [MenuHelper.carMenuItem(), currentItem];
+  }
+
   public static gradeHomeBreadCrumb(currentItem: MenuItem): MenuItem[] {
     return [MenuHelper.gradeMenuItem()];
   }
 
   public static gradeDetailBreadCrumb(currentItem: MenuItem): MenuItem[] {
+    return [MenuHelper.gradeMenuItem(), currentItem];
+  }
+
+  public static gradeCreateBreadCrumb(currentItem: MenuItem): MenuItem[] {
     return [MenuHelper.gradeMenuItem(), currentItem];
   }
 
@@ -60,11 +74,19 @@ export class BreadcrumbHelper {
     return [MenuHelper.providerMenuItem(), currentItem];
   }
 
+  public static providerCreateBreadCrumb(currentItem: MenuItem): MenuItem[] {
+    return [MenuHelper.providerMenuItem(), currentItem];
+  }
+
   public static siteHomeBreadCrumb(currentItem: MenuItem): MenuItem[] {
     return [MenuHelper.siteMenuItem()];
   }
 
   public static siteDetailBreadCrumb(currentItem: MenuItem): MenuItem[] {
+    return [MenuHelper.siteMenuItem(), currentItem];
+  }
+
+  public static siteCreateBreadCrumb(currentItem: MenuItem): MenuItem[] {
     return [MenuHelper.siteMenuItem(), currentItem];
   }
 
@@ -76,11 +98,19 @@ export class BreadcrumbHelper {
     return [MenuHelper.statusMenuItem(), currentItem];
   }
 
+  public static statusCreateBreadCrumb(currentItem: MenuItem): MenuItem[] {
+    return [MenuHelper.statusMenuItem(), currentItem];
+  }
+
   public static numberplateHomeBreadCrumb(currentItem: MenuItem): MenuItem[] {
     return [MenuHelper.numberplateMenuItem()];
   }
 
   public static numberplateDetailBreadCrumb(currentItem: MenuItem): MenuItem[] {
+    return [MenuHelper.numberplateMenuItem(), currentItem];
+  }
+
+  public static numberplateCreateBreadCrumb(currentItem: MenuItem): MenuItem[] {
     return [MenuHelper.numberplateMenuItem(), currentItem];
   }
 }

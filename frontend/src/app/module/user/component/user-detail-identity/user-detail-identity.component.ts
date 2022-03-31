@@ -32,7 +32,10 @@ export class UserDetailIdentityComponent implements OnInit {
       driver_license: new FormControl(this.detail.driver_license),
       created_on: new FormControl(this.detail.created_on),
       pob: new FormControl(this.detail.pob),
-      active: new FormControl(this.detail.active)
+      active: new FormControl(this.detail.active),
+      status: new FormControl(this.detail.status.name),
+      grade: new FormControl(this.detail.grade.name),
+      site: new FormControl(this.detail.site.name)
     })
   }
 
