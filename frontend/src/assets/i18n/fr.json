@@ -2,14 +2,24 @@
   "search-input": {
     "default-search": "Rechercher",
     "user-search": "Rechercher un utilisateur",
-    "car-search": "Rechercher un véhicule"
+    "car-search": "Rechercher un véhicule",
+    "provider-search": "Rechercher un fournisseur",
+    "numberplate-search": "Rechercher une immat",
+    "grade-search": "Rechercher un rôle",
+    "site-search": "Rechercher un site",
+    "status-search": "Rechercher un status"
   },
   "header": {
     "breadcrumb": "affichage de la page en cours"
   },
   "button": {
     "user-add": "Nouveau utilisateur",
-    "car-add": "Nouveau véhicule"
+    "car-add": "Nouveau véhicule",
+    "provider-add": "Nouveau fournisseur",
+    "numberplate-add": "Nouvelle immat",
+    "grade-add": "Nouveau rôle",
+    "site-add": "Nouveau site",
+    "status-add": "Nouveau site"
   },
   "table": {
     "employee": {
@@ -91,6 +101,9 @@
     },
     "car-list": {
       "no-data": "Aucun véhicule"
+    },
+    "site-list": {
+      "no-data": "Aucun site"
     }
   }
 }

@@ -1,45 +1,47 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {tap} from 'rxjs/operators';
-import {CardConfig, MenuItem, MenuItemType} from '@shared/model';
+import {switchMap, takeUntil, tap} from 'rxjs/operators';
+import {LabelWithParam} from '@shared/model';
 import {Numberplate} from "@numberplate/model";
 import {NumberplateService} from "@numberplate/service/numberplate.service";
-import {User} from "@user/model";
 import {NavigationService} from "@shared/service/navigation.service";
 import {cloneDeep} from "lodash";
 import {MenuHelper} from "@shared/helper/menu.helper";
+import {WithMenuAndDestroyableBaseComponent} from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
 
 @Component({
   selector: 'app-numberplate-list',
   templateUrl: './numberplate-list.component.html',
   styleUrls: ['./numberplate-list.component.scss']
 })
-export class NumberplateListComponent implements OnInit {
+
+export class NumberplateListComponent extends WithMenuAndDestroyableBaseComponent implements OnInit {
   list$ = new BehaviorSubject<Numberplate[]>([]);
   search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  numberplate$ = new BehaviorSubject<Numberplate | undefined>(undefined);
-  cardConfig!: CardConfig;
+  labelWithParam: LabelWithParam = {label: 'button.numberplate-add'};
 
   constructor(public numberplateService: NumberplateService, public navigation: NavigationService) {
+    super(navigation);
   }
 
   ngOnInit(): void {
-    this.cardConfig = {
-      css: 'max-width-1024 p-large margin-auto margin-large'
-    };
-    this.numberplateService.list().pipe(
+    this.search$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.numberplateService.search({search: search})),
       tap((list: Numberplate[]) => this.list$.next(list)))
       .subscribe();
   }
 
-  handleClick(menuItem: MenuItem): void {
-    switch (menuItem.type) {
-      case MenuItemType.NUMBERPLATE_DETAIL:
-        const item = cloneDeep(MenuHelper.numberplateDetailMenuItem());
-        item.link += menuItem.data.numberplate_id;
-        this.navigation.navigate(item);
-        break;
-    }
+  create(): void {
+    const item = cloneDeep(MenuHelper.numberplateCreateMenuItem());
+    this.navigation.navigate(item);
+  }
+
+  detail(numberplate: Numberplate): void {
+    const item = cloneDeep(MenuHelper.numberplateDetailMenuItem());
+    item.link += numberplate.numberplate_id;
+    this.navigation.navigate(item);
+
   }
 }
 

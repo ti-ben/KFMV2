@@ -1,5 +1,6 @@
 package be.kauffman.kfm.modules.status.controller;
 
+import be.kauffman.kfm.modules.status.entity.payload.StatusSearchPayload;
 import be.kauffman.kfm.modules.status.repository.StatusRepository;
 import be.kauffman.kfm.modules.status.entity.builder.StatusBuilder;
 import be.kauffman.kfm.modules.status.entity.dto.Status;
@@ -9,6 +10,7 @@ import be.kauffman.kfm.common.entity.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -18,6 +20,17 @@ import java.util.UUID;
 public class StatusController {
     @Autowired
     StatusRepository statusRepository;
+
+    // search
+    @PostMapping("/search")
+    public ApiResponse search(@RequestBody StatusSearchPayload search){
+        try{
+            List<Status> status = (!search.getSearch().equals("")) ? statusRepository.search(search.getSearch()) : statusRepository.findAll();
+            return new ApiResponse(true, status, null);
+        }catch(Exception e){
+            return new ApiResponse(true, null, null);
+        }
+    }
 
     // Create record
     @PostMapping("/create")

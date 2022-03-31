@@ -7,6 +7,7 @@ import {map, tap} from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { GradeHelper } from '@grade/helper';
 import { Grade, GradeDto,GradeCreatePayload, GradeUpdatePayload } from '@grade/model';
+import {Vehicule, VehiculeDto, VehiculeSearch} from "@vehicule/model";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,15 @@ export class GradeService extends ApiService {
 
   constructor(public http: HttpService) {
     super(http);
+  }
+
+  search(search:VehiculeSearch): Observable<Grade[]> {
+    return this.post(ApiUriEnum.GRADE_SEARCH, search)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? GradeHelper.fromDtoArray(response.data as GradeDto[]) : [];
+        })
+      )
   }
 
   create(payload: GradeCreatePayload): Observable<ApiResponse> {

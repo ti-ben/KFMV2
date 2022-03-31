@@ -7,6 +7,7 @@ import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {PrestataireHelper} from '@prestataire/helper';
 import {Prestataire, PrestataireCreatePayload, PrestataireDto, PrestataireUpdatePayload} from '@prestataire/model';
+import {PrestataireSearch} from "@prestataire/model/payload/prestataire-search.payload";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,15 @@ export class PrestataireService extends ApiService {
 
   constructor(public http: HttpService) {
     super(http);
+  }
+
+  search(search:PrestataireSearch): Observable<Prestataire[]> {
+    return this.post(ApiUriEnum.PRESTATAIRE_SEARCH, search)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? PrestataireHelper.fromDtoArray(response.data as PrestataireDto[]) : [];
+        })
+      )
   }
 
   create(payload: PrestataireCreatePayload): Observable<ApiResponse> {

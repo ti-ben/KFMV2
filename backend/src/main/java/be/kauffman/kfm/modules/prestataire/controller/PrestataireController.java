@@ -6,9 +6,11 @@ import be.kauffman.kfm.common.entity.ApiResponse;
 import be.kauffman.kfm.modules.prestataire.entity.dto.Prestataire;
 import be.kauffman.kfm.modules.prestataire.entity.payload.PrestataireCreatePayload;
 import be.kauffman.kfm.modules.prestataire.entity.payload.PrestataireUpdatePayload;
+import be.kauffman.kfm.modules.vehicule.entity.payload.VehiculeSearchPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -19,6 +21,17 @@ public class PrestataireController {
 
     @Autowired
     PrestataireRepository prestataireRepository;
+
+    // search
+    @PostMapping("/search")
+    public ApiResponse search(@RequestBody VehiculeSearchPayload search) {
+        try {
+            List<Prestataire> prestataires = (!search.getSearch().equals("")) ? prestataireRepository.search(search.getSearch()) : prestataireRepository.findAll();
+            return new ApiResponse(true, prestataires, null);
+        } catch (Exception e) {
+            return new ApiResponse(true, null, null);
+        }
+    }
 
     // Create record
     @PostMapping("/create")

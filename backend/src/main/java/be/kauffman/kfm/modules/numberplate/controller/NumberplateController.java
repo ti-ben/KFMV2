@@ -6,9 +6,12 @@ import be.kauffman.kfm.modules.numberplate.entity.dto.Numberplate;
 import be.kauffman.kfm.modules.numberplate.entity.payload.NumberplateCreatePayload;
 import be.kauffman.kfm.modules.numberplate.entity.payload.NumberplateUpdatePayload;
 import be.kauffman.kfm.modules.numberplate.repository.NumberplateRepository;
+import be.kauffman.kfm.modules.vehicule.entity.dto.Vehicule;
+import be.kauffman.kfm.modules.vehicule.entity.payload.VehiculeSearchPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -18,6 +21,17 @@ import java.util.UUID;
 public class NumberplateController {
     @Autowired
     NumberplateRepository numberplateRepository;
+
+    // search
+    @PostMapping("/search")
+    public ApiResponse search(@RequestBody VehiculeSearchPayload search) {
+        try {
+            List<Numberplate> numberplates = (!search.getSearch().equals("")) ? numberplateRepository.search(search.getSearch()) : numberplateRepository.findAll();
+            return new ApiResponse(true, numberplates, null);
+        } catch (Exception e) {
+            return new ApiResponse(true, null, null);
+        }
+    }
 
     // Create new record
     @PostMapping("/create")

@@ -10,7 +10,6 @@ import be.kauffman.kfm.modules.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,6 +30,7 @@ public class UserController {
             return new ApiResponse(true, null, null);
         }
     }
+
     // Create record
     @PostMapping("/create")
     public ApiResponse create(@RequestBody UserCreatePayload payload) {

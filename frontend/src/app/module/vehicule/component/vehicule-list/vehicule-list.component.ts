@@ -8,7 +8,6 @@ import { cloneDeep } from "lodash";
 import { MenuHelper } from "@shared/helper/menu.helper";
 import { NavigationService } from "@shared/service/navigation.service";
 import { WithMenuAndDestroyableBaseComponent } from '@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component';
-import { User } from '@user/model';
 
 @Component({
   selector: 'app-vehicule-list',
@@ -34,7 +33,7 @@ export class VehiculeListComponent extends WithMenuAndDestroyableBaseComponent i
   }
 
   create(): void {
-    const item = cloneDeep(MenuHelper.employeeCreateMenuItem());
+    const item = cloneDeep(MenuHelper.carCreateMenuItem());
     this.navigation.navigate(item);
   }
 
@@ -42,6 +41,5 @@ export class VehiculeListComponent extends WithMenuAndDestroyableBaseComponent i
     const item = cloneDeep(MenuHelper.carDetailMenuItem());
     item.link += vehicule.vehicule_id;
     this.navigation.navigate(item);
-
   }
 }

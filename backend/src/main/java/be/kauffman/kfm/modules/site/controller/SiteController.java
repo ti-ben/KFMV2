@@ -4,10 +4,13 @@ import be.kauffman.kfm.modules.site.entity.builder.SiteBuilder;
 import be.kauffman.kfm.common.entity.ApiResponse;
 import be.kauffman.kfm.modules.site.entity.dto.Site;
 import be.kauffman.kfm.modules.site.entity.payload.SiteCreatePayload;
+import be.kauffman.kfm.modules.site.entity.payload.SiteSearchPayload;
 import be.kauffman.kfm.modules.site.entity.payload.SiteUpdatePayload;
 import be.kauffman.kfm.modules.site.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -17,6 +20,17 @@ import java.util.UUID;
 public class SiteController {
     @Autowired
     SiteRepository siteRepository;
+
+    // search
+    @PostMapping("/search")
+    public ApiResponse search(@RequestBody SiteSearchPayload search) {
+        try {
+            List<Site> sites = (!search.getSearch().equals("")) ? siteRepository.search(search.getSearch()) : siteRepository.findAll();
+            return new ApiResponse(true, sites, null);
+        } catch (Exception e) {
+            return new ApiResponse(true, null, null);
+        }
+    }
 
     // Create new record
     @PostMapping("/create")

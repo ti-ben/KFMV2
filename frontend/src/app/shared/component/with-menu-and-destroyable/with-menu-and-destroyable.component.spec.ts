@@ -1,6 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { WithMenuAndDestroyableComponent } from './with-menu-and-destroyable.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {WithMenuAndDestroyableComponent} from './with-menu-and-destroyable.component';
 
 describe('WithMenuAndDestroyableComponent', () => {
   let component: WithMenuAndDestroyableComponent;
@@ -8,9 +7,9 @@ describe('WithMenuAndDestroyableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WithMenuAndDestroyableComponent ]
+      declarations: [WithMenuAndDestroyableComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

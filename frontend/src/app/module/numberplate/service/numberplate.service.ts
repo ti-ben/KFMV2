@@ -7,6 +7,7 @@ import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {NumberplateHelper} from '@numberplate/helper';
 import {Numberplate, NumberplateCreatePayload, NumberplateDto, NumberplateUpdatePayload} from '@numberplate/model';
+import {NumberplateSearch} from "@numberplate/model/payload/numberplate-search.payload";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,15 @@ export class NumberplateService extends ApiService {
 
   constructor(public http: HttpService) {
     super(http);
+  }
+
+  search(search:NumberplateSearch): Observable<Numberplate[]> {
+    return this.post(ApiUriEnum.NUMBERPLATE_SEARCH, search)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? NumberplateHelper.fromDtoArray(response.data as NumberplateDto[]) : [];
+        })
+      )
   }
 
   create(payload: NumberplateCreatePayload): Observable<ApiResponse> {

@@ -1,14 +1,12 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from '@shared/service/api.service';
-import { HttpService } from '@shared/service/http.service';
+import {Injectable} from '@angular/core';
+import {ApiService} from '@shared/service/api.service';
+import {HttpService} from '@shared/service/http.service';
 import {BehaviorSubject, Observable} from 'rxjs';
-import { ApiResponse, ApiUriEnum } from '@shared/model';
+import {ApiResponse, ApiUriEnum} from '@shared/model';
 import {map, tap} from 'rxjs/operators';
-import { isNil } from 'lodash';
-import { VehiculeHelper } from '@vehicule/helper';
-import { Vehicule, VehiculeCreatePayload, VehiculeDto, VehiculeSearch, VehiculeUpdatePayload } from '@vehicule/model';
-import { User, UserDto, UserSearch } from '@user/model';
-import { UserHelper } from '@user/helper';
+import {isNil} from 'lodash';
+import {VehiculeHelper} from '@vehicule/helper';
+import {Vehicule, VehiculeCreatePayload, VehiculeDto, VehiculeSearch, VehiculeUpdatePayload} from '@vehicule/model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +19,7 @@ export class VehiculeService extends ApiService {
     super(http);
   }
 
-  search(search:VehiculeSearch): Observable<Vehicule[]> {
+  search(search: VehiculeSearch): Observable<Vehicule[]> {
     return this.post(ApiUriEnum.VEHICULE_SEARCH, search)
       .pipe(
         map((response: ApiResponse) => {
@@ -29,6 +27,7 @@ export class VehiculeService extends ApiService {
         })
       )
   }
+
   create(payload: VehiculeCreatePayload): Observable<ApiResponse> {
     return this.post(ApiUriEnum.VEHICULE_CREATE, payload);
   }
@@ -48,7 +47,7 @@ export class VehiculeService extends ApiService {
       this.currentDetail$.next(detail);
     } else {
       this.get(`${ApiUriEnum.VEHICULE_DETAIL}${id}`)
-        .pipe( tap((response: ApiResponse) => {
+        .pipe(tap((response: ApiResponse) => {
           this.currentDetail$.next((response.result && !isNil(response.data)) ? VehiculeHelper.fromDto(response.data as VehiculeDto) : VehiculeHelper.getEmpty());
         })).subscribe();
     }

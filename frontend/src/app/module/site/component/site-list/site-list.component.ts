@@ -1,12 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {tap} from 'rxjs/operators';
-import {CardConfig, MenuItem, MenuItemType} from '@shared/model';
+import {switchMap, takeUntil, tap} from 'rxjs/operators';
+import {LabelWithParam} from '@shared/model';
 import {SiteService} from "@site/service/site.service";
 import {Site} from "@site/model";
 import {NavigationService} from "@shared/service/navigation.service";
 import {cloneDeep} from "lodash";
 import {MenuHelper} from "@shared/helper/menu.helper";
+import {
+  WithMenuAndDestroyableBaseComponent
+} from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
 
 @Component({
   selector: 'app-site-list',
@@ -14,31 +17,31 @@ import {MenuHelper} from "@shared/helper/menu.helper";
   styleUrls: ['./site-list.component.scss']
 })
 
-export class SiteListComponent implements OnInit {
+export class SiteListComponent extends WithMenuAndDestroyableBaseComponent implements OnInit {
   list$ = new BehaviorSubject<Site[]>([]);
   search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  site$ = new BehaviorSubject<Site | undefined>(undefined);
-  cardConfig!: CardConfig;
+  labelWithParam: LabelWithParam = {label: 'button.site-add'};
 
   constructor(public siteService: SiteService, public navigation: NavigationService) {
+    super(navigation);
   }
 
   ngOnInit(): void {
-    this.cardConfig = {
-      css: 'max-width-1024 p-large margin-auto margin-large'
-    };
-    this.siteService.list().pipe(
+    this.search$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.siteService.search({search: search})),
       tap((list: Site[]) => this.list$.next(list)))
       .subscribe();
   }
 
-  handleClick(menuItem: MenuItem): void {
-    switch (menuItem.type) {
-      case MenuItemType.SITE_DETAIL:
-        const item = cloneDeep(MenuHelper.siteDetailMenuItem());
-        item.link += menuItem.data.site_id;
-        this.navigation.navigate(item);
-        break;
-    }
+  create(): void {
+    const item = cloneDeep(MenuHelper.siteCreateMenuItem());
+    this.navigation.navigate(item);
+  }
+
+  detail(site: Site): void {
+    const item = cloneDeep(MenuHelper.siteDetailMenuItem());
+    item.link += site.site_id;
+    this.navigation.navigate(item);
   }
 }

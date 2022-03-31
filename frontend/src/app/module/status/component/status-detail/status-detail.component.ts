@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {GenericTableConfig} from "@shared/model";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {tap} from "rxjs/operators";
-import {isNil} from "lodash";
-import {GenericTableHelper} from "@shared/helper";
+import {LabelWithParam} from "@shared/model";
+import {switchMap, takeUntil, tap} from "rxjs/operators";
+import {cloneDeep, isNil} from "lodash";
 import {StatusService} from "@status/service/status.service";
 import {Status} from "@status/model";
+import {NavigationService} from "@shared/service/navigation.service";
+import {MenuHelper} from "@shared/helper/menu.helper";
+import { WithMenuAndDestroyableBaseComponent } from '@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component';
 
 @Component({
   selector: 'app-status-detail',
@@ -14,29 +15,31 @@ import {Status} from "@status/model";
   styleUrls: ['./status-detail.component.scss']
 })
 
-export class StatusDetailComponent implements OnInit {
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
-  id: string = '';
+export class StatusDetailComponent extends WithMenuAndDestroyableBaseComponent implements OnInit {
+  list$ = new BehaviorSubject<Status[]>([]);
+  search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  labelWithParam: LabelWithParam = {label: 'button.status-add'};
 
-  constructor(public router: Router, public activatedRouter: ActivatedRoute, public statusService: StatusService) {
+  constructor(public statusService: StatusService, public navigation: NavigationService) {
+    super(navigation);
   }
 
   ngOnInit(): void {
-    this.activatedRouter.params
-      .pipe(
-        tap((params: Params) => {
-          if (!isNil(params['id'])) {
-            this.id = params['id'];
-            this.statusService.detail(this.id);
-          }
-        })
-      ).subscribe();
+    this.search$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.statusService.search({search: search})),
+      tap((list: Status[]) => this.list$.next(list)))
+      .subscribe();
   }
 
-  private setConfig(list: Status[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genStatusFieldDefinitions();
-    config.data = list;
-    this.config$.next(config);
+  create(): void {
+    const item = cloneDeep(MenuHelper.statusCreateMenuItem());
+    this.navigation.navigate(item);
+  }
+
+  detail(status: Status): void {
+    const item = cloneDeep(MenuHelper.statusDetailMenuItem());
+    item.link += status.status_id;
+    this.navigation.navigate(item);
   }
 }

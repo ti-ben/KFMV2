@@ -1,4 +1,4 @@
-package be.kauffman.kfm.modules.user.entity.payload;
+package be.kauffman.kfm.modules.numberplate.entity.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class UserSearchPayload {
+public class NumberplateSearchPayload {
     String search;
 }

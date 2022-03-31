@@ -1,21 +1,23 @@
 <main id="page">
-  <div id="left-nav">
-    <app-search-input [placeholder]="'search-input.status-search'"
-                      (onValueChange)="search$.next($event)"></app-search-input>
-    <ul *ngIf="list$ | async  as list">
-      <li *ngFor="let status of list">
-        {{status.name |uppercase}}
-      </li>
-    </ul>
-  </div>
-  <section id="main-content">
-    <ng-container *ngIf="status$ | async as status; else noSelected">
-      {{status |json}}
+  <div class="left-nav" [class.left-nav-show-menu]="showLongMenu" [class.left-nav-hide-menu]="!showLongMenu" >
+    <app-search-input [placeholder]="'search-input.car-search'" (onValueChange)="search$.next($event)"></app-search-input>
+    <app-button-icon (onClick)="create()" [labelWithParam]="labelWithParam" [icon]="'fa fa-plus'"></app-button-icon>
+    <ng-container *ngIf="list$ | async  as list">
+      <ng-container *ngIf="list.length > 0;else noData">
+        <ul>
+          <li *ngFor="let status of list" (click)="detail(status)">
+            <span class="large">
+              {{status.brand}} {{'imat'}}
+            </span>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noData>
+        <span class="p-medium">{{'page.car-list.no-data' | translate}}</span>
+      </ng-template>
     </ng-container>
-    <ng-template #noSelected>
-      <app-card [config]="cardConfig">
-        {{'status-list.no-data' | translate}}
-      </app-card>
-    </ng-template>
+  </div>
+  <section id="page-main-content" [class.main-content-show-menu]="showLongMenu" [class.main-content-hide-menu]="!showLongMenu" >
+    <router-outlet></router-outlet>
   </section>
 </main>

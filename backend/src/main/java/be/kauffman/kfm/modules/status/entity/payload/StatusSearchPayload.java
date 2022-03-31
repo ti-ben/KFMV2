@@ -1,4 +1,4 @@
-package be.kauffman.kfm.modules.user.entity.payload;
+package be.kauffman.kfm.modules.status.entity.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UserSearchPayload {
+public class StatusSearchPayload {
     String search;
 }

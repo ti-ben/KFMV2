@@ -1,21 +1,21 @@
 <main id="page">
-  <div id="left-nav">
-    <app-search-input [placeholder]="'search-input.prestataire-search'"
-                      (onValueChange)="search$.next($event)"></app-search-input>
-    <ul *ngIf="list$ | async  as list">
-      <li *ngFor="let prestataire of list">
-        {{prestataire.name|uppercase}}
-      </li>
-    </ul>
-  </div>
-  <section id="main-content">
-    <ng-container *ngIf="prestataire$ | async as prestataire; else noSelected">
-      {{prestataire |json}}
+  <div class="left-nav" [class.left-nav-show-menu]="showLongMenu" [class.left-nav-hide-menu]="!showLongMenu" >
+    <app-search-input [placeholder]="'search-input.user-search'" (onValueChange)="search$.next($event)"></app-search-input>
+    <app-button-icon (onClick)="create()" [labelWithParam]="labelWithParam" [icon]="'fa fa-plus'"></app-button-icon>
+    <ng-container *ngIf="list$ | async  as list">
+      <ng-container *ngIf="list.length > 0;else noData">
+        <ul>
+          <li *ngFor="let prestataire of list" (click)="detail(prestataire)">
+            {{prestataire.name| uppercase}}
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noData>
+        <span class="p-medium">{{'page.user-list.no-data' | translate}}</span>
+      </ng-template>
     </ng-container>
-    <ng-template #noSelected>
-      <app-card [config]="cardConfig">
-        {{'prestataire-list.no-data' | translate}}
-      </app-card>
-    </ng-template>
+  </div>
+  <section id="page-main-content" [class.main-content-show-menu]="showLongMenu" [class.main-content-hide-menu]="!showLongMenu" >
+    <router-outlet></router-outlet>
   </section>
 </main>

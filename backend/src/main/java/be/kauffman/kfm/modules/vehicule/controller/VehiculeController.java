@@ -1,10 +1,11 @@
 package be.kauffman.kfm.modules.vehicule.controller;
 
 import be.kauffman.kfm.common.entity.ApiResponse;
-import be.kauffman.kfm.modules.vehicule.entity.Vehicule;
-import be.kauffman.kfm.modules.vehicule.entity.VehiculeCreatePayload;
-import be.kauffman.kfm.modules.vehicule.entity.VehiculeSearchPayload;
-import be.kauffman.kfm.modules.vehicule.entity.VehiculeUpdatePayload;
+import be.kauffman.kfm.modules.vehicule.entity.builder.VehiculeBuilder;
+import be.kauffman.kfm.modules.vehicule.entity.dto.Vehicule;
+import be.kauffman.kfm.modules.vehicule.entity.payload.VehiculeCreatePayload;
+import be.kauffman.kfm.modules.vehicule.entity.payload.VehiculeSearchPayload;
+import be.kauffman.kfm.modules.vehicule.entity.payload.VehiculeUpdatePayload;
 import be.kauffman.kfm.modules.vehicule.repository.VehiculeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,7 @@ public class VehiculeController {
     // Create record
     @PostMapping("/create")
     public ApiResponse create(@RequestBody VehiculeCreatePayload payload) {
-        Vehicule newVehicule = new Vehicule.VehiculeBuilder()
+        Vehicule vehicule = new VehiculeBuilder()
                 .setDop(payload.getDop())
                 .setActive(payload.getActive())
                 .setPrice(payload.getPrice())
@@ -53,7 +54,7 @@ public class VehiculeController {
                 .setFuel(payload.getFuel())
                 .setType(payload.getType())
                 .build();
-        return new ApiResponse(true, vehiculeRepository.save(newVehicule), null);
+        return new ApiResponse(true, vehiculeRepository.save(vehicule), null);
     }
 
     // Read all record

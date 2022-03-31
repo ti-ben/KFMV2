@@ -6,7 +6,7 @@ import { ApiResponse, ApiUriEnum } from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { StatusHelper } from '@status/helper';
-import {Status, StatusCreatePayload, StatusDto, StatusUpdatePayload} from '@status/model';
+import {Status, StatusSearch, StatusCreatePayload, StatusDto, StatusUpdatePayload} from '@status/model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,15 @@ export class StatusService extends ApiService {
 
   constructor(public http: HttpService) {
     super(http);
+  }
+
+  search(search: StatusSearch): Observable<Status[]> {
+    return this.post(ApiUriEnum.STATUS_SEARCH, search)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? StatusHelper.fromDtoArray(response.data as StatusDto[]) : [];
+        })
+      )
   }
 
   create(payload: StatusCreatePayload): Observable<ApiResponse> {
