@@ -9,8 +9,7 @@ import {CardConfig} from '@shared/model';
 export class UserHomeComponent implements OnInit {
   cardConfig!: CardConfig;
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.cardConfig = {

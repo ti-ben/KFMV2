@@ -1,11 +1,16 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { NumberplateListComponent , NumberplateFormComponent, NumberplateDetailComponent } from '@numberplate/component';
+import { NumberplateListComponent, NumberplateHomeComponent, NumberplateFormComponent, NumberplateDetailComponent } from '@numberplate/component';
 
 const routes: Routes = [
-  {path: 'list', component: NumberplateListComponent},
-  {path: 'form', component: NumberplateFormComponent},
-  {path: 'detail/:id', component: NumberplateDetailComponent}
+  {
+    path: '', component: NumberplateListComponent,
+    children: [
+      {path: '', component: NumberplateHomeComponent},
+      {path: 'create', component: NumberplateFormComponent},
+      {path: 'detail/:id', component: NumberplateDetailComponent}
+    ]
+  },
 ];
 
 @NgModule({

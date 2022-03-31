@@ -1,23 +1,33 @@
-<main id="page">
-  <div class="left-nav" [class.left-nav-show-menu]="showLongMenu" [class.left-nav-hide-menu]="!showLongMenu" >
-    <app-search-input [placeholder]="'search-input.status-search'" (onValueChange)="search$.next($event)"></app-search-input>
-    <app-button-icon (onClick)="create()" [labelWithParam]="labelWithParam" [icon]="'fa fa-plus'"></app-button-icon>
-    <ng-container *ngIf="list$ | async  as list">
-      <ng-container *ngIf="list.length > 0;else noData">
-        <ul>
-          <li *ngFor="let status of list" (click)="detail(status)">
-            <span class="large">
-              {{status.name}}
-            </span>
-          </li>
-        </ul>
-      </ng-container>
-      <ng-template #noData>
-        <span class="p-medium">{{'page.status-list.no-data' | translate}}</span>
-      </ng-template>
-    </ng-container>
-  </div>
-  <section id="page-main-content" [class.main-content-show-menu]="showLongMenu" [class.main-content-hide-menu]="!showLongMenu" >
-    <router-outlet></router-outlet>
-  </section>
-</main>
+<div *ngIf="statusService.currentDetail$ | async as status" class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
+
+  <ng-container *ngIf="status.status_id.length === 0; else data">
+    <div class="alert alert-danger text-center" role="alert">
+      Sélectionnez le status à modifier / mettre à jour
+    </div>
+  </ng-container>
+
+  <ng-template #data>
+
+    <div class="input-group input-group-sm mb-3">
+      <input autofocus class="form-control form-control-sm" value="{{status.status_id}}" type="text-area" name="site_id"
+             placeholder="ID du site" rows="4" disabled>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <input autofocus class="form-control form-control-sm" value="{{status.name}}" type="text" name="site_name"
+             placeholder="Site name" disabled>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <textarea autofocus class="form-control form-control-sm" value="{{status.description}}" type="text-area"
+                  id="site_description" name="site_description" placeholder="Description du site en quelques mots"
+                  rows="4" disabled>{{status.description}}</textarea>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <button class="btn btn-sm btn-success btn-block">Enregistrer les modifications</button>
+      <!-- <button class="btn btn-sm btn-danger btn-block">Retour à la liste</button> -->
+    </div>
+
+  </ng-template>
+</div>

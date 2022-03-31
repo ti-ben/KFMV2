@@ -5,12 +5,14 @@ import {StatusRoutingModule} from '@status/status-routing.module';
 import {StatusDetailComponent, StatusFormComponent, StatusListComponent} from '@status/component';
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { StatusHomeComponent } from './component/status-home/status-home.component';
 
 @NgModule({
   declarations: [
     StatusListComponent,
     StatusFormComponent,
-    StatusDetailComponent
+    StatusDetailComponent,
+    StatusHomeComponent
   ],
     imports: [
         CommonModule,

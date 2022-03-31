@@ -13,6 +13,7 @@ import {isNil} from "lodash";
   templateUrl: './prestataire-detail.component.html',
   styleUrls: ['./prestataire-detail.component.scss']
 })
+
 export class PrestataireDetailComponent implements OnInit {
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';

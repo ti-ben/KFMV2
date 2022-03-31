@@ -2,3 +2,4 @@
 export * from './status-list/status-list.component';
 export * from './status-detail/status-detail.component';
 export * from './status-form/status-form.component';
+export * from './status-home/status-home.component';

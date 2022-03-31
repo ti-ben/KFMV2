@@ -4,6 +4,7 @@ import { NumberplateRoutingModule } from '@numberplate/numberplate-routing.modul
 import { NumberplateListComponent, NumberplateFormComponent, NumberplateDetailComponent } from '@numberplate/component';
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { NumberplateHomeComponent } from './component/numberplate-home/numberplate-home.component';
 
 
 
@@ -11,7 +12,8 @@ import {TranslateModule} from "@ngx-translate/core";
   declarations: [
     NumberplateListComponent,
     NumberplateFormComponent,
-    NumberplateDetailComponent
+    NumberplateDetailComponent,
+    NumberplateHomeComponent
   ],
     imports: [
         CommonModule,

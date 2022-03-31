@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {LabelWithParam} from "@shared/model";
 import {switchMap, takeUntil, tap} from "rxjs/operators";
-import {cloneDeep, isNil} from "lodash";
+import {cloneDeep} from "lodash";
 import {StatusService} from "@status/service/status.service";
 import {Status} from "@status/model";
 import {NavigationService} from "@shared/service/navigation.service";

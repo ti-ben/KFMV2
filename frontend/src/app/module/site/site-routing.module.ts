@@ -4,7 +4,7 @@ import {SiteListComponent, SiteFormComponent, SiteDetailComponent, SiteHomeCompo
 
 const routes: Routes = [
   {
-    path: 'list', component: SiteListComponent,
+    path: '', component: SiteListComponent,
     children: [
       {path: '', component: SiteHomeComponent},
       {path: 'create', component: SiteFormComponent},
