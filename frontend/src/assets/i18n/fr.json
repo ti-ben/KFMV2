@@ -3,7 +3,7 @@
     "default-search": "Rechercher",
     "user-search": "Rechercher un utilisateur",
     "car-search": "Rechercher un véhicule",
-    "provider-search": "Rechercher un fournisseur",
+    "provider-search": "Rechercher un prestataire",
     "numberplate-search": "Rechercher une immat",
     "grade-search": "Rechercher un rôle",
     "site-search": "Rechercher un site",
@@ -15,11 +15,11 @@
   "button": {
     "user-add": "Nouveau utilisateur",
     "car-add": "Nouveau véhicule",
-    "provider-add": "Nouveau fournisseur",
+    "provider-add": "Nouveau prestataire",
     "numberplate-add": "Nouvelle immat",
     "grade-add": "Nouveau rôle",
     "site-add": "Nouveau site",
-    "status-add": "Nouveau site"
+    "status-add": "Nouveau status"
   },
   "table": {
     "employee": {

@@ -8,6 +8,7 @@ import {Subject} from 'rxjs';
   templateUrl: './with-menu-and-destroyable.component.html',
   styleUrls: ['./with-menu-and-destroyable.component.scss']
 })
+
 export class WithMenuAndDestroyableBaseComponent implements OnInit {
 
   destroyers$ = new Subject<void>();

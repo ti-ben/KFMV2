@@ -1,19 +1,19 @@
 <main id="page">
   <div class="left-nav" [class.left-nav-show-menu]="showLongMenu" [class.left-nav-hide-menu]="!showLongMenu" >
-    <app-search-input [placeholder]="'search-input.car-search'" (onValueChange)="search$.next($event)"></app-search-input>
+    <app-search-input [placeholder]="'search-input.status-search'" (onValueChange)="search$.next($event)"></app-search-input>
     <app-button-icon (onClick)="create()" [labelWithParam]="labelWithParam" [icon]="'fa fa-plus'"></app-button-icon>
     <ng-container *ngIf="list$ | async  as list">
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let status of list" (click)="detail(status)">
             <span class="large">
-              {{status.brand}} {{'imat'}}
+              {{status.name}}
             </span>
           </li>
         </ul>
       </ng-container>
       <ng-template #noData>
-        <span class="p-medium">{{'page.car-list.no-data' | translate}}</span>
+        <span class="p-medium">{{'page.status-list.no-data' | translate}}</span>
       </ng-template>
     </ng-container>
   </div>
