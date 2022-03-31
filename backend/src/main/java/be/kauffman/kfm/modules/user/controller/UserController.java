@@ -4,11 +4,14 @@ import be.kauffman.kfm.common.entity.ApiResponse;
 import be.kauffman.kfm.modules.user.entity.builder.UserBuilder;
 import be.kauffman.kfm.modules.user.entity.dto.User;
 import be.kauffman.kfm.modules.user.entity.payload.UserCreatePayload;
+import be.kauffman.kfm.modules.user.entity.payload.UserSearchPayload;
 import be.kauffman.kfm.modules.user.entity.payload.UserUpdatePayload;
 import be.kauffman.kfm.modules.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -18,6 +21,18 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    // search
+    @PostMapping("/search")
+    public ApiResponse search(@RequestBody UserSearchPayload search){
+        try{
+            System.out.println("is good? " + (!search.getSearch().equals("")));
+            System.out.println("is good? " + (!search.getSearch().equals("")));
+            List<User> users = (!search.getSearch().equals(""))? userRepository.search(search.getSearch()) : userRepository.findAll();
+            return new ApiResponse(true, users, null);
+        }catch(Exception e){
+            return new ApiResponse(true, null, null);
+        }
+    }
     // Create record
     @PostMapping("/create")
     public ApiResponse create(@RequestBody UserCreatePayload payload) {

@@ -6,7 +6,7 @@ import {ApiResponse, ApiUriEnum} from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {UserHelper} from '@user/helper';
-import {User, UserCreatePayload, UserDto, UserUpdatePayload} from '@user/model';
+import { User, UserCreatePayload, UserDto, UserSearch, UserUpdatePayload } from '@user/model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,14 @@ export class UserService extends ApiService {
 
   list(): Observable<User[]> {
     return this.get(ApiUriEnum.USER_LIST)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? UserHelper.fromDtoArray(response.data as UserDto[]) : [];
+        })
+      )
+  }
+  search(search:UserSearch): Observable<User[]> {
+    return this.post(ApiUriEnum.USER_SEARCH, search)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? UserHelper.fromDtoArray(response.data as UserDto[]) : [];

@@ -1,7 +1,7 @@
 <main id="dashboard">
   <app-dashboard-top-nav [showLongMenu]="showLongMenu"></app-dashboard-top-nav>
   <app-dashboard-left-nav [showLongMenu]="showLongMenu"
-                          (onChangeShowLongMenu)="showLongMenu=$event"></app-dashboard-left-nav>
+                          (onChangeShowLongMenu)="navigationService.showLongMenu$.next($event)"></app-dashboard-left-nav>
   <section id="main-content" [class.content-menu-hide]="!showLongMenu" [class.content-menu-show]="showLongMenu">
     <router-outlet></router-outlet>
   </section>

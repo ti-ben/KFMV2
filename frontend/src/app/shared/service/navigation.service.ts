@@ -10,7 +10,7 @@ import { isNil } from 'lodash';
 })
 export class NavigationService {
   currentMenuItem$: BehaviorSubject<MenuItem> = new BehaviorSubject<MenuItem>( MenuHelper.dashboardMenuItem());
-
+  showLongMenu$ = new BehaviorSubject<boolean>(false);
   constructor(public router: Router) {
     this.setCurrentMenUitem();
   }

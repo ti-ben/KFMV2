@@ -51,6 +51,7 @@ export enum ApiUriEnum {
   VEHICULE_DELETE = 'vehicule/delete/',
   USER_CREATE = 'user/create',
   USER_LIST = 'user/list',
+  USER_SEARCH = 'user/search',
   USER_UPDATE = 'user/update',
   USER_DETAIL = 'user/detail/',
   USER_DELETE = 'user/delete/',
