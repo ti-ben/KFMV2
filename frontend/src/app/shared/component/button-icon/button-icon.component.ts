@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { LabelWithParam } from '@shared/model';
 
 @Component({
   selector: 'app-button-icon',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-icon.component.scss']
 })
 export class ButtonIconComponent implements OnInit {
+  @Input() icon: string = 'fa fa-plus';
+  @Input() labelWithParam: LabelWithParam = {label: 'button.default-add'};
+  @Output() onClick = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
