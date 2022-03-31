@@ -28,13 +28,14 @@ import {UserHomeComponent} from './component/user-home/user-home.component';
     UserHomeComponent
   ],
     imports: [
-        CommonModule,
-        // Don't forget to add/import the {entity}RoutingModule & SharedModule
-        UserRoutingModule,
-        SharedModule,
-        ReactiveFormsModule,
-        TranslateModule
+      CommonModule,
+      // Don't forget to add/import the {entity}RoutingModule & SharedModule
+      UserRoutingModule,
+      SharedModule,
+      ReactiveFormsModule,
+      TranslateModule
     ]
+
 })
 export class UserModule {
 }

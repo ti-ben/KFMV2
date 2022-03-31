@@ -11,12 +11,12 @@ const routes: Routes = [
       {path: 'detail/:id', component: GradeDetailComponent}
     ]
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 export class GradeRoutingModule {
 }
