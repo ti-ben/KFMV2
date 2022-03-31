@@ -5,12 +5,14 @@ import { SiteRoutingModule } from '@site/site-routing.module';
 import { SiteListComponent, SiteDetailComponent, SiteFormComponent } from '@site/component';
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { SiteHomeComponent } from './component/site-home/site-home.component';
 
 @NgModule({
   declarations: [
     SiteListComponent,
     SiteDetailComponent,
-    SiteFormComponent
+    SiteFormComponent,
+    SiteHomeComponent
   ],
     imports: [
         CommonModule,

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CardConfig } from '@shared/model';
+import {Component, OnInit} from '@angular/core';
+import {CardConfig} from '@shared/model';
 
 @Component({
   selector: 'app-user-home',
@@ -8,7 +8,9 @@ import { CardConfig } from '@shared/model';
 })
 export class UserHomeComponent implements OnInit {
   cardConfig!: CardConfig;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.cardConfig = {
