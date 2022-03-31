@@ -6,7 +6,7 @@ import {ApiResponse, ApiUriEnum} from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {UserHelper} from '@user/helper';
-import { User, UserCreatePayload, UserDto, UserSearch, UserUpdatePayload } from '@user/model';
+import {User, UserCreatePayload, UserDto, UserSearch, UserUpdatePayload} from '@user/model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,3 +1,3 @@
 export * from './vehicule-create.payload';
 export * from './vehicule-update.payload';
-export * from './vehicule-search.payload';
+export * from './vehicule-search';
