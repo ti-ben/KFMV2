@@ -1,10 +1,139 @@
-<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
   <ng-container>
-    <div class="alert alert-warning text-center" role="alert">
-      Formulaire à créer!
+    <form [formGroup]="formGroup">
+      <hr>
+      <h2 class="text-center">Ajouter un utilisateur</h2>
+      <hr>
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <span>Nom</span>
+          <input type="text" class="form-control form-control-sm" formControlName="lastname" >
+        </div>
+
+        <div class="col-md-6">
+          <span>Prénom</span>
+          <input type="text" class="form-control form-control-sm" formControlName="firstname" >
+        </div>
+
+        <div class="col-md-12">
+          <span>Adresse email</span>
+            <input type="text" class="form-control form-control-sm" formControlName="email">
+        </div>
+
+        <div class="col-md-6">
+          <span>Tel. (Perso)</span>
+          <input type="text" class="form-control form-control-sm" formControlName="telperso">
+        </div>
+
+        <div class="col-md-6">
+          <span>Tel. (Pro)</span>
+          <input type="text" class="form-control form-control-sm" formControlName="telpro">
+        </div>
+
+        <div class="col-md-6">
+          <span>Nationalité</span>
+          <input type="text" class="form-control form-control-sm" formControlName="nationality">
+        </div>
+
+        <div class="col-md-6">
+          <span>Genre</span>
+          <input type="text" class="form-control form-control-sm" formControlName="gender">
+
+        <select class="form-control form-control-sm">
+          <option value="">Sélectionnez un genre
+          <option value="dogs">Homme
+          <option value="tuts">Femme
+          <option value="cars">XYZ
+        </select>
+        </div>
+        <div class="col-md-6">
+          <span>Date de naissance</span>
+          <input type="text" class="form-control form-control-sm" formControlName="dob">
+        </div>
+
+        <div class="col-md-6">
+          <span>Lieu de naissance</span>
+          <input type="text" class="form-control form-control-sm" formControlName="pob">
+        </div>
+
+        <div class="col-md-6">
+          <span>Adresse du domicile actuel</span>
+          <input type="text" class="form-control form-control-sm" value="">
+        </div>
+
+        <div class="col-md-6">
+          <span>Code Postal</span>
+          <input type="text" class="form-control form-control-sm" formControlName="cp">
+        </div>
+
+        <div class="col-md-6">
+          <span>Ville</span>
+          <input type="text" class="form-control form-control-sm" value="">
+        </div>
+
+        <div class="col-md-6">
+          <span>N° registre national</span>
+          <input type="text" class="form-control form-control-sm" formControlName="numirn">
+        </div>
+
+        <div class="col-md-6">
+          <span>Permis</span>
+          <input type="text" class="form-control form-control-sm" formControlName="driver_license">
+          <select class="form-control form-control-sm">
+            <option value="">Sélectionnez un permis
+            <option value="dogs">B
+            <option value="tuts">C
+            <option value="cars">CE
+            <option value="cars">C/CE
+            <option value="cars">DE
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <span>Statut</span>
+          <input type="text" class="form-control form-control-sm" formControlName="status_name">
+          <select class="form-control form-control-sm">
+            <option value="">Sélectionnez un status
+            <option value="1">1
+            <option value="2">2
+            <option value="3">3
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <span>Date d'ajout</span>
+          <input type="text" class="form-control form-control-sm" formControlName="created_on">
+        </div>
+
+        <div class="col-md-6">
+          <span>Site</span>
+          <input type="text" class="form-control form-control-sm" formControlName="site_name">
+          <select class="form-control form-control-sm">
+            <option value="">Sélectionnez un site
+            <option value="1">1
+            <option value="2">2
+            <option value="3">3
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <span>Rôle</span>
+          <input type="text" class="form-control form-control-sm" formControlName="grade_name">
+          <select class="form-control form-control-sm">
+            <option value="">Sélectionnez un rôle
+            <option value="1">1
+            <option value="2">2
+            <option value="3">3
+          </select>
+        </div>
+
+      </div>
+    </form>
+    <hr>
+    <div class="d-grid btn-block">
+      <button class="btn btn-sm btn-warning btn-block" (click)="onClick()">Ajouter</button>
+      <button class="btn btn-sm btn-success btn-block">Retour à la liste</button>
     </div>
   </ng-container>
-  <ng-template>
-
-  </ng-template>
 </div>

@@ -1,4 +1,5 @@
 <div class="row">
+  <pre>{{detail | json}}</pre>
   <div class="col-sm-4 col-md-3">
     <a href="#"><img src="http://192.168.0.18/kfmframework../img/user_female.jpg" class="card-img-top"></a>
     <hr>
@@ -28,11 +29,11 @@
       </tr>
       <tr>
         <th>Travail à :</th>
-        <td>{{null}}</td>
+        <td>{{detail.site.name}}</td>
       </tr>
       <tr>
         <th>Ajouté(e) le :</th>
-        <td>{{detail.created_on}}</td>
+        <td>{{detail.created_on | date :  "dd.MM.y"}}</td>
       </tr>
     </table>
   </div>

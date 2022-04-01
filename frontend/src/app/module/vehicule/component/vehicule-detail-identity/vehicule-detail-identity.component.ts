@@ -33,7 +33,8 @@ export class VehiculeDetailIdentityComponent implements OnInit {
       metrologie: new FormControl(this.detail.metrologie),
       picture: new FormControl(this.detail.picture),
       fuel: new FormControl(this.detail.fuel),
-      type: new FormControl(this.detail.type)
+      type: new FormControl(this.detail.type),
+      immat: new FormControl(this.detail.numberplate.num_plate)
     })
   }
 
