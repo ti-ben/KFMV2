@@ -47,7 +47,8 @@ export class UserDetailComponent implements OnInit {
       {label: 'CAP', type: TabItemAction.USER_CAP},
       {label: 'ADR', type: TabItemAction.USER_ADR},
       {label: 'Sélection médicale', type: TabItemAction.USER_SELECTMED},
-      {label: 'Tachygraphe', type: TabItemAction.USER_TACHOGRAPH}
+      {label: 'Tachygraphe', type: TabItemAction.USER_TACHOGRAPH},
+      {label: 'Credential', type: TabItemAction.USER_CREDENTIAL}
     ]
   }
 

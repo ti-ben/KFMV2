@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {UserDetailSummaryComponent} from './component/user-detail-summary/user-detail-summary.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {UserHomeComponent} from './component/user-home/user-home.component';
+import { UserDetailCredentialComponent } from './component/user-detail-credential/user-detail-credential.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {UserHomeComponent} from './component/user-home/user-home.component';
     UserDetailAdrComponent,
     UserDetailTachographComponent,
     UserDetailSummaryComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserDetailCredentialComponent
   ],
     imports: [
       CommonModule,
