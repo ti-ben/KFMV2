@@ -33,7 +33,7 @@
   }
 
   .main-content-hide-menu {
-    margin-left:250px;
+    margin-left: 250px;
   }
 
   #page-main-content {
@@ -48,6 +48,10 @@
   .left-nav-hide-menu {
     left: $nav-min-width
   }
+}
+
+.max-width-1000 {
+  max-width: 1000px;
 }
 
 .max-width-1024 {
@@ -120,6 +124,7 @@
 .m-b-small {
   margin-bottom: 12px;
 }
-.transition-common{
+
+.transition-common {
   transition: all ease .5s;
 }

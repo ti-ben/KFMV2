@@ -104,6 +104,26 @@
     },
     "site-list": {
       "no-data": "Aucun site"
+    },
+    "site": {
+      "create": {
+        "title": "Nouveau site"
+      }
+    }
+  },
+
+  "form": {
+    "site": {
+      "label": {
+        "name": "Nom",
+        "decription": "Description",
+        "date": "Date de création"
+      },
+      "placeholder": {
+        "name": "Entrer un nom",
+        "decription": "Entrer une description",
+        "date": "Choisir une date"
+      }
     }
   }
 }

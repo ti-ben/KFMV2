@@ -7,6 +7,9 @@
 
   .big-title {
     flex: 2;
+    padding: 1rem;
+    color: $primary-contrast-color;
+    text-transform: uppercase;
   }
 
   .actions {

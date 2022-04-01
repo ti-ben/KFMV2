@@ -38,6 +38,7 @@ public class SiteController {
         Site site = new SiteBuilder()
                 .setName(payload.getName())
                 .setDescription(payload.getDescription())
+                .setCreated_on(payload.getCreated_on())
                 .build();
         return new ApiResponse(true,siteRepository.save(site), null);
     }
