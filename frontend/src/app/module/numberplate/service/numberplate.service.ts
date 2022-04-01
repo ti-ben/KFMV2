@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '@shared/service/api.service';
 import {HttpService} from '@shared/service/http.service';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {ApiResponse, ApiUriEnum} from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
@@ -15,6 +15,7 @@ import {NumberplateSearch} from "@numberplate/model/payload/numberplate-search.p
 
 export class NumberplateService extends ApiService {
   currentDetail$ = new BehaviorSubject<Numberplate>(NumberplateHelper.getEmpty());
+  refresh$ = new Subject<any>();
 
   constructor(public http: HttpService) {
     super(http);
@@ -30,7 +31,11 @@ export class NumberplateService extends ApiService {
   }
 
   create(payload: NumberplateCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.NUMBERPLATE_CREATE, payload);
+    return this.post(ApiUriEnum.NUMBERPLATE_CREATE, payload).pipe(tap((response: ApiResponse) => {
+      if (response.result) {
+        this.refresh$.next();
+      }
+    }));
   }
 
   list(): Observable<Numberplate[]> {

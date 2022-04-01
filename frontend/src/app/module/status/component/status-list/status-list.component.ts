@@ -27,6 +27,12 @@ export class StatusListComponent extends WithMenuAndDestroyableBaseComponent imp
   }
 
   ngOnInit(): void {
+    this.statusService.refresh$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.statusService.list()),
+      tap((list: Status[]) => {this.list$.next(list)}))
+      .subscribe();
+
     this.search$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.statusService.search({search: search})),

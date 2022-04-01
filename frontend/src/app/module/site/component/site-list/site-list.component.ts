@@ -28,10 +28,7 @@ export class SiteListComponent extends WithMenuAndDestroyableBaseComponent imple
     this.siteService.refresh$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.siteService.list()),
-      tap((list: Site[]) => {
-        console.log('ma liste', list);
-        this.list$.next(list);
-      }))
+      tap((list: Site[]) => {this.list$.next(list)}))
       .subscribe();
 
     this.search$.pipe(

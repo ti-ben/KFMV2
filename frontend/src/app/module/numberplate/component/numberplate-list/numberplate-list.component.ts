@@ -25,6 +25,12 @@ export class NumberplateListComponent extends WithMenuAndDestroyableBaseComponen
   }
 
   ngOnInit(): void {
+    this.numberplateService.refresh$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.numberplateService.list()),
+      tap((list: Numberplate[]) => {this.list$.next(list)}))
+      .subscribe();
+
     this.search$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.numberplateService.search({search: search})),
@@ -41,7 +47,6 @@ export class NumberplateListComponent extends WithMenuAndDestroyableBaseComponen
     const item = cloneDeep(MenuHelper.numberplateDetailMenuItem());
     item.link += numberplate.numberplate_id;
     this.navigation.navigate(item);
-
   }
 }
 

@@ -1,10 +1,10 @@
-<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1250px;">
-  <ng-container>
-    <div class="alert alert-warning text-center" role="alert">
-      Formulaire à créer!
-    </div>
-  </ng-container>
-  <ng-template>
+<app-card [config]="cardConfig">
+  <form action="">
+    <app-input-text [label]="{label:'form.status.label.name'}" [placeholder]="'form.status.placehodler.name'" [ctrl]="getControl('name')"></app-input-text>
+    <app-textarea [label]="{label:'form.status.label.description'}" [placeholder]="'form.status.placehodler.description'" [ctrl]="getControl('description')"></app-textarea>
+  </form>
 
-  </ng-template>
-</div>
+  <div class="btn-area">
+    <button class="btn btn-success btn-block" (click)="save()">Enregistrer</button>
+  </div>
+</app-card>

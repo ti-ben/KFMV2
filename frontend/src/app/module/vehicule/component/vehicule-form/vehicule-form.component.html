@@ -1,2 +1,24 @@
 <app-card [config]="cardConfig">
+  <form action="">
+    <app-input-date [label]="{label:'form.vehicule.label.dop'}" [placeholder]="'form.vehicule.placehodler.dop'" [ctrl]="getControl('dop')"></app-input-date>
+    <app-input-text [label]="{label:'form.vehicule.label.price'}" [placeholder]="'form.vehicule.placehodler.price'" [ctrl]="getControl('price')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.num_chassis'}" [placeholder]="'form.vehicule.placehodler.num_chassis'" [ctrl]="getControl('num_chassis')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.brand'}" [placeholder]="'form.vehicule.placehodler.brand'" [ctrl]="getControl('brand')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.cde_carrosserie'}" [placeholder]="'form.vehicule.placehodler.cde_carrosserie'" [ctrl]="getControl('cde_carrosserie')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.genre'}" [placeholder]="'form.vehicule.placehodler.genre'" [ctrl]="getControl('genre')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.mom'}" [placeholder]="'form.vehicule.placehodler.mom'" [ctrl]="getControl('mom')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.mma'}" [placeholder]="'form.vehicule.placehodler.mma'" [ctrl]="getControl('mma')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.mmat'}" [placeholder]="'form.vehicule.placehodler.mmat'" [ctrl]="getControl('mmat')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.mta'}" [placeholder]="'form.vehicule.placehodler.mta'" [ctrl]="getControl('mta')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.classe_enviro'}" [placeholder]="'form.vehicule.placehodler.classe_enviro'" [ctrl]="getControl('classe_enviro')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.nbr_km'}" [placeholder]="'form.vehicule.placehodler.nbr_km'" [ctrl]="getControl('nbr_km')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.metrologie'}" [placeholder]="'form.vehicule.placehodler.metrologie'" [ctrl]="getControl('metrologie')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.picture'}" [placeholder]="'form.vehicule.placehodler.picture'" [ctrl]="getControl('picture')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.fuel'}" [placeholder]="'form.vehicule.placehodler.fuel'" [ctrl]="getControl('fuel')"></app-input-text>
+    <app-input-text [label]="{label:'form.vehicule.label.type'}" [placeholder]="'form.vehicule.placehodler.type'" [ctrl]="getControl('type')"></app-input-text>
+  </form>
+
+  <div class="btn-area">
+    <button class="btn btn-success btn-block" (click)="save()">Enregistrer</button>
+  </div>
 </app-card>

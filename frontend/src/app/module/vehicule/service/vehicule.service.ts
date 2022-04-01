@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '@shared/service/api.service';
 import {HttpService} from '@shared/service/http.service';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {ApiResponse, ApiUriEnum} from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
@@ -14,6 +14,7 @@ import {Vehicule, VehiculeCreatePayload, VehiculeDto, VehiculeSearch, VehiculeUp
 
 export class VehiculeService extends ApiService {
   currentDetail$ = new BehaviorSubject<Vehicule>(VehiculeHelper.getEmpty());
+  refresh$ = new Subject<any>();
 
   constructor(public http: HttpService) {
     super(http);
@@ -29,7 +30,11 @@ export class VehiculeService extends ApiService {
   }
 
   create(payload: VehiculeCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.VEHICULE_CREATE, payload);
+    return this.post(ApiUriEnum.VEHICULE_CREATE, payload).pipe(tap((response: ApiResponse) => {
+      if (response.result) {
+        this.refresh$.next();
+      }
+    }));
   }
 
   list(): Observable<Vehicule[]> {

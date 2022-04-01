@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '@shared/service/api.service';
 import {HttpService} from '@shared/service/http.service';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {ApiResponse, ApiUriEnum} from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {PrestataireHelper} from '@prestataire/helper';
 import {Prestataire, PrestataireCreatePayload, PrestataireDto, PrestataireUpdatePayload} from '@prestataire/model';
 import {PrestataireSearch} from "@prestataire/model/payload/prestataire-search.payload";
+import {SiteCreatePayload} from "@site/model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ import {PrestataireSearch} from "@prestataire/model/payload/prestataire-search.p
 
 export class PrestataireService extends ApiService {
   currentDetail$ = new BehaviorSubject<Prestataire>(PrestataireHelper.getEmpty());
+  refresh$ = new Subject<any>();
 
   constructor(public http: HttpService) {
     super(http);
@@ -30,7 +32,11 @@ export class PrestataireService extends ApiService {
   }
 
   create(payload: PrestataireCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.PRESTATAIRE_CREATE, payload);
+    return this.post(ApiUriEnum.PRESTATAIRE_CREATE, payload).pipe(tap((response: ApiResponse) => {
+      if (response.result) {
+        this.refresh$.next();
+      }
+    }));
   }
 
   list(): Observable<Prestataire[]> {

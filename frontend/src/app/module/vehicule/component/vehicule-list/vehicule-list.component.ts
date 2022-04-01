@@ -25,6 +25,12 @@ export class VehiculeListComponent extends WithMenuAndDestroyableBaseComponent i
   }
 
   ngOnInit(): void {
+    this.vehiculeService.refresh$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.vehiculeService.list()),
+      tap((list: Vehicule[]) => {this.list$.next(list)}))
+      .subscribe();
+
     this.search$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.vehiculeService.search({search: search})),

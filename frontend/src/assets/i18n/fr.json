@@ -109,6 +109,31 @@
       "create": {
         "title": "Nouveau site"
       }
+    },
+    "status": {
+      "create": {
+        "title": "Nouveau status"
+      }
+    },
+    "grade": {
+      "create": {
+        "title": "Nouveau rôle"
+      }
+    },
+    "numberplate": {
+      "create": {
+        "title": "Nouvelle plaque d'immatriculation"
+      }
+    },
+    "prestataire": {
+      "create": {
+        "title": "Nouveau prestataire"
+      }
+    },
+    "vehicule": {
+      "create": {
+        "title": "Nouveau véhicule"
+      }
     }
   },
 
@@ -123,6 +148,64 @@
         "name": "Entrer un nom",
         "decription": "Entrer une description",
         "date": "Choisir une date"
+      }
+    },
+    "status": {
+      "label": {
+        "name": "Nom",
+        "description": "Description"
+      },
+      "placeholder": {
+        "name": "Entrer un nom",
+        "description": "Entrer une description"
+      }
+    },
+    "grade": {
+      "label": {
+        "name": "Nom du rôle",
+        "comment": "Description"
+      },
+      "placeholder": {
+        "name": "Entrer le nom du rôle",
+        "comment": "Entrer une description"
+      }
+    },
+    "numberplate": {
+      "label": {
+        "name": "Numéro",
+        "date": "Date d'achat"
+      },
+      "placeholder": {
+        "name": "Entrer un numéro de plaque",
+        "date": "Choisir une date d'acaht"
+      }
+    },
+    "prestataire": {
+      "label": {
+        "name": "Numéro",
+        "tel": "Description",
+        "email": "Email",
+        "service": "Service"
+      },
+      "placeholder": {
+        "name": "Entrer un nom",
+        "tel": "Entrer une description",
+        "email": "Entrer une adresse email",
+        "service": "Entre le type de service"
+      }
+    },
+    "vehicule": {
+      "label": {
+        "brand": "Marque",
+        "dop": "Date d'achat",
+        "email": "Email",
+        "service": "Service"
+      },
+      "placeholder": {
+        "brand": "Entrer une marque",
+        "dop": "Entrer une date d'achat",
+        "email": "Entrer une adresse email",
+        "service": "Entre le type de service"
       }
     }
   }

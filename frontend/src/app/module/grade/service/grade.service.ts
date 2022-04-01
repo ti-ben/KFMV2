@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '@shared/service/api.service';
 import { HttpService } from '@shared/service/http.service';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import { ApiResponse, ApiUriEnum } from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import { isNil } from 'lodash';
 import { GradeHelper } from '@grade/helper';
-import { Grade, GradeDto,GradeCreatePayload, GradeUpdatePayload } from '@grade/model';
-import {Vehicule, VehiculeDto, VehiculeSearch} from "@vehicule/model";
+import {Grade, GradeDto, GradeCreatePayload, GradeUpdatePayload, GradeSearch} from '@grade/model';
+import {SiteCreatePayload} from "@site/model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +15,13 @@ import {Vehicule, VehiculeDto, VehiculeSearch} from "@vehicule/model";
 
 export class GradeService extends ApiService {
   currentDetail$ = new BehaviorSubject<Grade>(GradeHelper.getEmpty());
+  refresh$ = new Subject<any>();
 
   constructor(public http: HttpService) {
     super(http);
   }
 
-  search(search:VehiculeSearch): Observable<Grade[]> {
+  search(search:GradeSearch): Observable<Grade[]> {
     return this.post(ApiUriEnum.GRADE_SEARCH, search)
       .pipe(
         map((response: ApiResponse) => {
@@ -30,7 +31,11 @@ export class GradeService extends ApiService {
   }
 
   create(payload: GradeCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.GRADE_CREATE, payload);
+    return this.post(ApiUriEnum.GRADE_CREATE, payload).pipe(tap((response: ApiResponse) => {
+      if (response.result) {
+        this.refresh$.next();
+      }
+    }));
   }
 
   list(): Observable<Grade[]> {

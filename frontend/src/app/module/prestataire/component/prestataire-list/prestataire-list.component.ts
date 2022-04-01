@@ -25,6 +25,12 @@ export class PrestataireListComponent extends WithMenuAndDestroyableBaseComponen
   }
 
   ngOnInit(): void {
+    this.prestataireService.refresh$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap((search: string) => this.prestataireService.list()),
+      tap((list: Prestataire[]) => {this.list$.next(list)}))
+      .subscribe();
+
     this.search$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.prestataireService.search({search: search})),
@@ -41,6 +47,5 @@ export class PrestataireListComponent extends WithMenuAndDestroyableBaseComponen
     const item = cloneDeep(MenuHelper.providerDetailMenuItem());
     item.link += prestataire.prestataire_id;
     this.navigation.navigate(item);
-
   }
 }
