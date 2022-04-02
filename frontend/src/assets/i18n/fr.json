@@ -199,7 +199,10 @@
         "brand": "Marque",
         "dop": "Date d'achat",
         "email": "Email",
-        "service": "Service"
+        "service": "Service",
+        "actif": "Actif",
+        "type": "Type de véhicule",
+        "fuel": "Type de carburant"
       },
       "placeholder": {
         "brand": "Entrer une marque",

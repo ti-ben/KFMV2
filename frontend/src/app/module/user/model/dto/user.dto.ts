@@ -24,5 +24,5 @@ export interface UserDto extends DtoInterface {
   site: SiteDto,
   grade: GradeDto,
   status: StatusDto,
-  addresslist: AddressDto
+  address: AddressDto
 }

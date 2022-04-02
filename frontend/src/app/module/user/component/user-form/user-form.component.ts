@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserHelper} from '@user/helper';
-import {User} from '@user/model';
+import {Component, OnInit} from '@angular/core';
+import {UserCreatePayload} from '@user/model';
 import {FormControl, FormGroup} from "@angular/forms";
+import {ApiResponse, CardConfig} from "@shared/model";
+import {CardHelper} from "@shared/helper/card.helper";
+import {UserService} from "@user/service/user.service";
 
 @Component({
   selector: 'app-user-form',
@@ -9,14 +11,31 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
-  @Input() form: User = UserHelper.getEmpty();
+  cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
   formGroup!: FormGroup;
-  //currentDate = new Date().toLocaleDateString();
 
-  constructor() {
-  }
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
+
+  save(): void {
+    if (this.formGroup.valid) {
+      const payload: UserCreatePayload = this.formGroup.value;
+      this.userService.create(payload).subscribe((response: ApiResponse) => {
+        if (response.result) {
+          this.formGroup.reset();
+        }
+      })
+    }
+  }
+
+  private initForm(): void {
     this.formGroup = new FormGroup({
       firstname: new FormControl(),
       lastname: new FormControl(),
@@ -38,9 +57,5 @@ export class UserFormComponent implements OnInit {
       site_name: new FormControl(),
       cp: new FormControl()
     })
-  }
-
-  onClick() {
-    alert('Création de l\'utilisateur [SENDFORM]');
   }
 }

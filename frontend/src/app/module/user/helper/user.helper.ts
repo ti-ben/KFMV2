@@ -27,7 +27,7 @@ export class UserHelper {
       site: SiteHelper.fromDto(dto.site),
       grade: GradeHelper.fromDto(dto.grade),
       status: StatusHelper.fromDto(dto.status),
-      addresslist: AddressHelper.fromDto(dto.addresslist)
+      address: AddressHelper.fromDto(dto.address)
     }
   }
 
@@ -52,7 +52,7 @@ export class UserHelper {
       site: SiteHelper.toDto(user.site),
       grade: GradeHelper.toDto(user.grade),
       status: StatusHelper.toDto(user.status),
-      addresslist: AddressHelper.toDto(user.addresslist)
+      address: AddressHelper.toDto(user.address)
     };
   }
 
@@ -77,7 +77,7 @@ export class UserHelper {
       site: SiteHelper.getEmpty(),
       grade: GradeHelper.getEmpty(),
       status: StatusHelper.getEmpty(),
-      addresslist: AddressHelper.getEmpty()
+      address: AddressHelper.getEmpty()
     };
   }
 

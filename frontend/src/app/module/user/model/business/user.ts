@@ -23,5 +23,5 @@ export interface User {
   site: Site,
   grade: Grade,
   status: Status,
-  addresslist: Address
+  address: Address
 }

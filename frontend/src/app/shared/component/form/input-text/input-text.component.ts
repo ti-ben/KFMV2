@@ -12,6 +12,7 @@ export class InputTextComponent implements OnInit {
   @Input() label!: LabelWithParam;
   @Input() placeholder!: string;
   @Input() ctrl!: FormControl;
+
   constructor() { }
 
   ngOnInit(): void {

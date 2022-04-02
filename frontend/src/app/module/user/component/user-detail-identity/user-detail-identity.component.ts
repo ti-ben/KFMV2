@@ -36,7 +36,7 @@ export class UserDetailIdentityComponent implements OnInit {
       status: new FormControl(this.detail.status.name),
       grade: new FormControl(this.detail.grade.name),
       site_name: new FormControl(this.detail.site.name),
-      cp: new FormControl(this.detail.addresslist.cp)
+      cp: new FormControl(this.detail.address.cp)
     })
   }
 

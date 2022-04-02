@@ -3,11 +3,10 @@
     <app-search-input [placeholder]="'search-input.car-search'" (onValueChange)="search$.next($event)"></app-search-input>
     <app-button-icon (onClick)="create()" [labelWithParam]="labelWithParam" [icon]="'fa fa-plus'"></app-button-icon>
     <ng-container *ngIf="list$ | async  as list">
-      <!-- {{list | json}} -->
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let vehicule of list" (click)="detail(vehicule)">
-             {{vehicule.brand}} [{{vehicule.numberplate.num_plate | uppercase}}]
+             [{{vehicule.numberplate.num_plate | uppercase}}] {{vehicule.brand}}
           </li>
         </ul>
       </ng-container>
