@@ -40,7 +40,7 @@ export class VehiculeFormComponent implements OnInit {
   private initForm(): void {
     // Object VehiculeCreatePayload
     this.formGroup = new FormGroup({
-      brand: new FormControl('', [Validators.required]),
+      brand: new FormControl(''),
       genre: new FormControl(''),
       dop: new FormControl(new Date()),
       cde_carrosserie: new FormControl(''),

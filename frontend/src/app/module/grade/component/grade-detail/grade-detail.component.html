@@ -1,9 +1,26 @@
+<app-card [config]="cardConfig">
+  <form action="" *ngIf="gradeService.currentDetail$ | async as detail">
+    <ng-container *ngIf="detail.grade_id.length ===0;else data">
+      Aucuns résultats trouvés.
+    </ng-container>
+    <ng-template #data>
+      <input autofocus class="form-control form-control-sm" value="{{detail.grade_id}}" type="text" name="grade_id" placeholder="ID du Rôle" disabled>
+      <input autofocus class="form-control form-control-sm" value="{{detail.name}}" type="text" name="role_name" placeholder="Rôle name">
+      <textarea autofocus class="form-control form-control-sm" value="{{detail.comment}}" type="text-area" name="role_description" rows="4" placeholder="Description du rôle">{{detail.comment}}</textarea>
+    </ng-template>
+  </form>
+
+  <div class="btn-area">
+    <input type="update" (click)="update()" value="Mettre à jour" />
+    <input type="archive" (click)="archive()" value="Archiver" />
+  </div>
+</app-card>
+
+<!--
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
   <ng-container *ngIf="gradeService.currentDetail$ | async as detail">
     <ng-container *ngIf="detail.grade_id.length ===0;else data">
-      <div class="alert alert-danger text-center" role="alert">
         Aucuns résultats trouvés.
-      </div>
     </ng-container>
     <ng-template #data>
       <hr>
@@ -22,10 +39,11 @@
                   name="role_description" rows="4" placeholder="Description du rôle"
                   disabled>{{detail.comment}}</textarea>
       </div>
-      <div class="input-group input-group-sm mb-3">
-        <button class="btn btn-sm btn-success btn-block" type="submit">Enregistrer les modifs</button>
-        <button class="btn btn-sm btn-danger btn-block" type="submit">Retour à la liste</button>
+      <div>
+        <input type="update" (click)="update()" value="Mettre à jour" />
+        <input type="archive" (click)="archive()" value="Archiver" />
       </div>
     </ng-template>
   </ng-container>
 </div>
+-->

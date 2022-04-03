@@ -1,46 +1,20 @@
-<div *ngIf="prestataireService.currentDetail$ | async as detail" class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
-    <ng-container *ngIf="detail.prestataire_id.length === 0; else data">
-      <div class="alert alert-danger text-center" role="alert">
+<app-card [config]="cardConfig">
+  <form action="" *ngIf="prestataireService.currentDetail$ | async as detail">
+    <div class="alert alert-danger text-center" *ngIf="detail.prestataire_id.length === 0; else data">
         Aucuns résultats trouvés.
-      </div>
-    </ng-container>
+    </div>
     <ng-template #data>
-      <hr>
-      <p class="text-center">Detail de la fiche du prestataire <b>{{detail.name}}</b></p>
-      <hr>
-      <div class="input-group input-group-sm mb-3">
-        <input autofocus class="form-control" value="{{detail.prestataire_id}}" type="text" id="prestataire_id"
-               name="prestataire_id" placeholder="ID du prestataire" disabled>
-      </div>
-
-      <div class="input-group input-group-sm mb-3">
-        <input autofocus class="form-control" value="{{detail.name}}" type="text" id="prestataire_name"
-               name="prestataire_name" placeholder="Nom du prestataire" disabled>
-      </div>
-      <div class="input-group input-group-sm mb-3">
-        <input autofocus class="form-control" value="{{detail.service}}" type="text" id="prestataire_role"
-               name="prestataire_role" placeholder="Role du prestataire" disabled>
-      </div>
-      <div class="input-group input-group-sm mb-3">
-        <input autofocus class="form-control" value="{{detail.tel}}" type="text" id="prestataire_tel"
-               name="prestataire_tel" placeholder="Numéro de tel." disabled>
-      </div>
-      <div class="input-group input-group-sm mb-3">
-        <input autofocus class="form-control" value="{{detail.email}}}" type="text" id="prestataire_email"
-               name="prestataire_email" placeholder="Adresse email" disabled>
-      </div>
-      <div class="input-group input-group-sm mb-3">
-        <textarea autofocus class="form-control " value="{{null}}" type="text-area" id="prestataire_adresse"
-                  name="prestataire_adresse" placeholder="Adresse du prestataire" style="height: 100px"
-                  disabled>{{null}}</textarea>
-      </div>
-
-      <div class="d-grid btn-block">
-        <button class="btn btn-sm btn-warning btn-block">Modifier les infos</button>
-        <button class="btn btn-sm btn-success btn-block">Retour à la liste</button>
-      </div>
+      <input autofocus value="{{detail.prestataire_id}}" type="text" name="prestataire_id" placeholder="ID du prestataire" disabled>
+      <input autofocus value="{{detail.name}}" type="text" name="prestataire_name" placeholder="Nom du prestataire">
+      <input autofocus value="{{detail.service}}" type="text" name="prestataire_role" placeholder="Role du prestataire">
+      <input autofocus value="{{detail.tel}}" type="text" name="prestataire_tel" placeholder="Numéro de tel.">
+      <input autofocus value="{{detail.email}}" type="text" name="prestataire_email" placeholder="Adresse email">
     </ng-template>
+  </form>
 
-</div>
-
+  <div>
+    <input type="update" (click)="update()" value="Mettre à jour" />
+    <input type="archive" (click)="archive()" value="Archiver" />
+  </div>
+</app-card>
 

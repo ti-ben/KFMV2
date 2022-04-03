@@ -3,7 +3,6 @@ import {ApiResponse, CardConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {GradeService} from "@grade/service/grade.service";
-import {SiteCreatePayload} from "@site/model";
 import {GradeCreatePayload} from "@grade/model";
 
 @Component({
@@ -12,7 +11,7 @@ import {GradeCreatePayload} from "@grade/model";
   styleUrls: ['./grade-form.component.scss']
 })
 export class GradeFormComponent implements OnInit {
-  cardConfig: CardConfig = CardHelper.siteConfig('page.grade.create.title');
+  cardConfig: CardConfig = CardHelper.gradeConfig('page.grade.create.title');
   formGroup!: FormGroup;
 
   constructor(public gradeService: GradeService) { }

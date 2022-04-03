@@ -1,18 +1,17 @@
-<div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
-  <ng-container *ngIf="numberplateService.currentDetail$ | async as detail">
-    <pre>{{detail |json}}</pre>
-    <ng-container *ngIf="detail.numberplate_id.length ===0;else data">
-      <div class="alert alert-danger text-center" role="alert">
-        Aucuns résultats trouvés.
-      </div>
+<app-card [config]="cardConfig">
+  <form action="" *ngIf="numberplateService.currentDetail$ | async as detail">
+    <ng-container class="alert alert-danger text-center" *ngIf="detail.numberplate_id.length ===0;else data">
+      Aucuns résultats trouvés.
     </ng-container>
     <ng-template #data>
-      <br>
-    ID Plaque: {{detail.numberplate_id}}<br>
-    Num plaque: {{detail.num_plate}}<br>
-    Acheté le: {{detail.dop}}<br>
-    Acheté par : <br>
-    Lié au camion : <br>
+      <input autofocus value="{{detail.numberplate_id}}" type="text" placeholder="ID du prestataire" disabled>
+      <input autofocus value="{{detail.num_plate}}" type="text" placeholder="Nom du prestataire">
+      <input autofocus value="{{detail.dop}}" type="text" placeholder="Nom du prestataire">
     </ng-template>
-</ng-container>
-</div>
+  </form>
+
+  <div>
+    <input type="update" (click)="update()" value="Mettre à jour" />
+    <input type="archive" (click)="archive()" value="Archiver" />
+  </div>
+</app-card>

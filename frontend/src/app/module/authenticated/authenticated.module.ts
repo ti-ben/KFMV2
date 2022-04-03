@@ -7,6 +7,7 @@ import { DashboardLeftNavComponent } from './component/dashboard-left-nav/dashbo
 import { DashboardTopNavComponent } from './component/dashboard-top-nav/dashboard-top-nav.component';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { DashboardBreadCrumbComponent } from './component/dashboard-bread-crumb/dashboard-bread-crumb.component';
+import {NgbDropdownModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -16,12 +17,13 @@ import { DashboardBreadCrumbComponent } from './component/dashboard-bread-crumb/
     DashboardTopNavComponent,
     DashboardBreadCrumbComponent
   ],
-  imports: [
-    CommonModule,
-    AuthenticatedRoutingModule,
-    TranslateModule,
-    ClickOutsideModule
-  ]
+    imports: [
+        CommonModule,
+        AuthenticatedRoutingModule,
+        TranslateModule,
+        ClickOutsideModule,
+        NgbDropdownModule
+    ]
 })
 export class AuthenticatedModule {
 }

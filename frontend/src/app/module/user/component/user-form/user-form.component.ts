@@ -36,26 +36,27 @@ export class UserFormComponent implements OnInit {
   }
 
   private initForm(): void {
+    // Object UserCreatePayload
     this.formGroup = new FormGroup({
-      firstname: new FormControl(),
-      lastname: new FormControl(),
-      gender: new FormControl(),
-      avatar: new FormControl(),
-      dob: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      telpro: new FormControl(),
-      telperso: new FormControl(),
-      nationality: new FormControl(),
-      numirn: new FormControl(),
-      driver_license: new FormControl(),
-      created_on: new FormControl(new Date().toLocaleDateString()),
-      pob: new FormControl(),
-      active: new FormControl(),
-      status_name: new FormControl(),
-      grade_name: new FormControl(),
-      site_name: new FormControl(),
-      cp: new FormControl()
+      firstname: new FormControl(''),
+      lastname: new FormControl(''),
+      gender: new FormControl(''),
+      avatar: new FormControl(''),
+      dob: new FormControl(''),
+      email: new FormControl(''),
+      password: new FormControl(''),
+      telpro: new FormControl(''),
+      telperso: new FormControl(''),
+      nationality: new FormControl(''),
+      numirn: new FormControl(''),
+      driver_license: new FormControl(''),
+      created_on: new FormControl(new Date().toLocaleDateString('')),
+      pob: new FormControl(''),
+      active: new FormControl(''),
+      status_name: new FormControl(''),
+      grade_name: new FormControl(''),
+      site_name: new FormControl(''),
+      cp: new FormControl('')
     })
   }
 }

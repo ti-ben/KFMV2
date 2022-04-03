@@ -2,16 +2,24 @@
   <div id="bread-crumb">
     <app-dashboard-bread-crumb></app-dashboard-bread-crumb>
   </div>
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <img id="dropdownBasic1" src="http://192.168.0.18/kfmframework/img/user_male.jpg" alt="mdo" width="50" height="50" class="rounded" ngbDropdownToggle>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem>Profile</button>
+        <button ngbDropdownItem>Paramètres</button>
+        <button ngbDropdownItem>Déconnexion</button>
+      </div>
+    </div>
+  </div>
   <div id="menu-language" (clickOutside)="onClickOutSideMenuLanguage()">
     <div id="change-language" (click)="showLanguageMenu=!showLanguageMenu">
-      <span>
-        <i class="fas fa-bell fa-lg"></i>
-      <span class="badge rounded-pill badge-notification bg-danger">0</span>
-      </span>
+      <span><i class="fa-solid fa-flag"></i></span>
     </div>
     <div class="menu-language" [class.menu-language-hide]="!showLanguageMenu"
          [class.menu-language-show]="showLanguageMenu" (click)="showLanguageMenu = !showLanguageMenu">
       <div class="menu-language-action" (click)="onClick('fr')">{{'change-language.french' | translate}}</div>
+      <div class="menu-language-action" (click)="onClick('nl')">{{'change-language.neerlandais' | translate}}</div>
       <div class="menu-language-action" (click)="onClick('en')">{{'change-language.english' | translate}}</div>
     </div>
   </div>

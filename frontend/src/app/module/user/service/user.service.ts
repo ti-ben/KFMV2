@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '@shared/service/api.service';
 import {HttpService} from '@shared/service/http.service';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {ApiResponse, ApiUriEnum} from '@shared/model';
 import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {UserHelper} from '@user/helper';
 import {User, UserCreatePayload, UserDto, UserSearch, UserUpdatePayload} from '@user/model';
+import {VehiculeCreatePayload} from "@vehicule/model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ import {User, UserCreatePayload, UserDto, UserSearch, UserUpdatePayload} from '@
 
 export class UserService extends ApiService {
   currentDetail$ = new BehaviorSubject<User>(UserHelper.getEmpty());
+  refresh$ = new Subject<any>();
 
   constructor(public http: HttpService) {
     super(http);
@@ -29,7 +31,11 @@ export class UserService extends ApiService {
   }
 
   create(payload: UserCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.USER_CREATE, payload);
+    return this.post(ApiUriEnum.USER_CREATE, payload).pipe(tap((response: ApiResponse) => {
+      if (response.result) {
+        this.refresh$.next();
+      }
+    }));
   }
 
   list(): Observable<User[]> {

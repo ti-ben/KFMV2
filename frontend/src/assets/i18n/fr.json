@@ -108,35 +108,60 @@
     "site": {
       "create": {
         "title": "Nouveau site"
+      },
+      "create": {
+        "detail": "Détail du site"
       }
     },
     "status": {
       "create": {
         "title": "Nouveau status"
+      },
+      "detail": {
+        "title": "Détail du status"
       }
     },
     "grade": {
       "create": {
         "title": "Nouveau rôle"
+      },
+      "detail": {
+        "title": "Détail du rôle"
       }
     },
     "numberplate": {
       "create": {
         "title": "Nouvelle plaque d'immatriculation"
+      },
+      "detail": {
+        "title" : "Détail de la plaque d'immatriculation"
       }
     },
     "prestataire": {
       "create": {
         "title": "Nouveau prestataire"
+      },
+      "detail": {
+        "title": "Détail du prestataire"
       }
     },
     "vehicule": {
       "create": {
         "title": "Nouveau véhicule"
+      },
+      "create": {
+        "detail": "Détail du véhicule"
+      }
+    },
+    "user": {
+      "create": {
+        "title": "Nouvel employé"
+      },
+      "detail": {
+        "title": "Détail de l'employé"
       }
     }
   },
-
   "form": {
     "site": {
       "label": {
@@ -182,16 +207,16 @@
     },
     "prestataire": {
       "label": {
-        "name": "Numéro",
-        "tel": "Description",
-        "email": "Email",
-        "service": "Service"
+        "name": "Nom du prestataire",
+        "tel": "Numéro de téléphone",
+        "email": "Adresse email",
+        "service": "Type de service"
       },
       "placeholder": {
         "name": "Entrer un nom",
-        "tel": "Entrer une description",
+        "tel": "Entrer un numéro",
         "email": "Entrer une adresse email",
-        "service": "Entre le type de service"
+        "service": "Entrer le type de service"
       }
     },
     "vehicule": {
@@ -209,6 +234,32 @@
         "dop": "Entrer une date d'achat",
         "email": "Entrer une adresse email",
         "service": "Entre le type de service"
+      }
+    },
+    "user": {
+      "label": {
+        "lastname": "Nom",
+        "firstname": "Prénom",
+        "email": "Adresse email",
+        "telperso": "Tél. perso",
+        "telpro": "Tél. pro",
+        "nationality": "Nationalité",
+        "gender": "Genre",
+        "dob": "Date de naissance",
+        "pob": "Lieu de naissance",
+        "active": "Actif",
+        "numirn": "Numério de registre nationnal",
+        "driver_license": "Type de permis",
+        "status_name": "Status",
+        "created_on": "Ajouté le",
+        "site_name": "Travail à",
+        "grade_name": "Rôle"
+
+      },
+      "placeholder": {
+        "lasname" : "Entrer un nom",
+        "lasname" : "Entrer un prénom",
+        "email": "Ajouter une adresse email"
       }
     }
   }

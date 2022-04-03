@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {GenericTableConfig} from "@shared/model";
+import {CardConfig, GenericTableConfig} from "@shared/model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
 import {GenericTableHelper} from "@shared/helper";
 import {NumberplateService} from "@numberplate/service/numberplate.service";
 import {Numberplate} from "@numberplate/model";
+import {CardHelper} from "@shared/helper/card.helper";
 
 @Component({
   selector: 'app-numberplate-detail',
@@ -15,6 +16,7 @@ import {Numberplate} from "@numberplate/model";
 })
 
 export class NumberplateDetailComponent implements OnInit {
+  cardConfig: CardConfig = CardHelper.gradeConfig('page.numberplate.detail.title');
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
 
@@ -31,6 +33,14 @@ export class NumberplateDetailComponent implements OnInit {
           }
         })
       ).subscribe();
+  }
+
+  update(): void{
+    alert('Mise à jour de la plaque');
+  }
+
+  archive(): void{
+    alert('Archivage de la plaque');
   }
 
   private setConfig(list: Numberplate[]): void {

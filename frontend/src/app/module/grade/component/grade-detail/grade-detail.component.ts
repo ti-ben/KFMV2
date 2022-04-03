@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {GenericTableConfig} from "@shared/model";
+import {CardConfig, GenericTableConfig} from "@shared/model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {GradeService} from "@grade/service/grade.service";
 import {GenericTableHelper} from "@shared/helper";
 import {Grade} from "@grade/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
+import {CardHelper} from "@shared/helper/card.helper";
 
 @Component({
   selector: 'app-grade-detail',
@@ -15,6 +16,7 @@ import {isNil} from "lodash";
 })
 
 export class GradeDetailComponent implements OnInit {
+  cardConfig: CardConfig = CardHelper.gradeConfig('page.grade.detail.title');
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
 
@@ -30,6 +32,14 @@ export class GradeDetailComponent implements OnInit {
           }
         })
       ).subscribe();
+  }
+
+  update(): void{
+    alert('Mise à jour du prestataire');
+  }
+
+  archive(): void{
+    alert('Archivage du prestataire');
   }
 
   private setConfig(list: Grade[]): void {
