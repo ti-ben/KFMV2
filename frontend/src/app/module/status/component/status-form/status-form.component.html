@@ -3,8 +3,5 @@
     <app-input-text [label]="{label:'form.status.label.name'}" [placeholder]="'form.status.placehodler.name'" [ctrl]="getControl('name')"></app-input-text>
     <app-textarea [label]="{label:'form.status.label.description'}" [placeholder]="'form.status.placehodler.description'" [ctrl]="getControl('description')"></app-textarea>
   </form>
-
-  <div class="btn-area">
-    <input type="button" class="btn btn-success btn-block" (click)="save()" value="Enregistrer le nouveau status" />
-  </div>
+    <input type="update" (click)="save()" value="Enregistrer"/>
 </app-card>
