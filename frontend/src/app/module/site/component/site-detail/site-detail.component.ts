@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {LabelWithParam} from "@shared/model";
-import {switchMap, takeUntil, tap} from "rxjs/operators";
-import {cloneDeep} from "lodash";
+import {CardConfig, GenericTableConfig} from "@shared/model";
+import {tap} from "rxjs/operators";
+import {isNil} from "lodash";
 import {SiteService} from "@site/service/site.service";
 import {Site} from "@site/model";
-import {NavigationService} from "@shared/service/navigation.service";
-import {MenuHelper} from "@shared/helper/menu.helper";
-import {
-  WithMenuAndDestroyableBaseComponent
-} from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
+import {CardHelper} from "@shared/helper/card.helper";
+import {FormControl, FormGroup} from "@angular/forms";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {GenericTableHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-site-detail',
@@ -17,31 +16,44 @@ import {
   styleUrls: ['./site-detail.component.scss']
 })
 
-export class SiteDetailComponent extends WithMenuAndDestroyableBaseComponent implements OnInit {
-  list$ = new BehaviorSubject<Site[]>([]);
-  search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  labelWithParam: LabelWithParam = {label: 'button.site-add'};
+export class SiteDetailComponent implements OnInit {
+  cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
+  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  id: string = '';
+  formGroup!: FormGroup;
 
-  constructor(public siteService: SiteService, public navigation: NavigationService) {
-    super(navigation);
+  constructor(public router: Router, public activatedRouter: ActivatedRoute, public siteService: SiteService) {
+  }
+
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
   }
 
   ngOnInit(): void {
-    this.search$.pipe(
-      takeUntil(this.destroyers$),
-      switchMap((search: string) => this.siteService.search({search: search})),
-      tap((list: Site[]) => this.list$.next(list)))
-      .subscribe();
+    this.activatedRouter.params
+      .pipe(
+        tap((params: Params) => {
+          if (!isNil(params['id'])) {
+            this.id = params['id'];
+            this.siteService.detail(this.id);
+          }
+        })
+      ).subscribe();
   }
 
-  create(): void {
-    const item = cloneDeep(MenuHelper.siteCreateMenuItem());
-    this.navigation.navigate(item);
+  update(): void{
+    alert('Mise à jour du site');
   }
 
-  detail(site: Site): void {
-    const item = cloneDeep(MenuHelper.siteDetailMenuItem());
-    item.link += site.site_id;
-    this.navigation.navigate(item);
+  archive(): void{
+    alert('Archivage du site');
   }
+
+  private setConfig(list: Site[]): void {
+    let config = this.config$.getValue();
+    config.fields = GenericTableHelper.genSiteFieldDefinitions();
+    config.data = list;
+    this.config$.next(config);
+  }
+
 }

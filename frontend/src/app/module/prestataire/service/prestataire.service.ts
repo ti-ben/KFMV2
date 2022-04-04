@@ -8,7 +8,6 @@ import {isNil} from 'lodash';
 import {PrestataireHelper} from '@prestataire/helper';
 import {Prestataire, PrestataireCreatePayload, PrestataireDto, PrestataireUpdatePayload} from '@prestataire/model';
 import {PrestataireSearch} from "@prestataire/model/payload/prestataire-search.payload";
-import {SiteCreatePayload} from "@site/model";
 
 @Injectable({
   providedIn: 'root'

@@ -4,9 +4,9 @@ import { isNil } from 'lodash';
 
 export class SiteHelper {
   public static fromDto(dto: SiteDto): Site {
-    if (isNil(dto))
+    if (isNil(dto)){
       return SiteHelper.getEmpty();
-    else
+    }
       return {
         site_id: dto.site_id,
         name: dto.name,

@@ -8,6 +8,7 @@ import {Grade} from "@grade/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
 import {CardHelper} from "@shared/helper/card.helper";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-grade-detail',
@@ -19,8 +20,13 @@ export class GradeDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.grade.detail.title');
   config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
+  formGroup!: FormGroup;
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public gradeService: GradeService) { }
+
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
 
   ngOnInit(): void {
     this.activatedRouter.params

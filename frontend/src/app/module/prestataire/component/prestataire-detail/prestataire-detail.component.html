@@ -1,10 +1,10 @@
 <app-card [config]="cardConfig">
   <form action="" *ngIf="prestataireService.currentDetail$ | async as detail">
     <div class="alert alert-danger text-center" *ngIf="detail.prestataire_id.length === 0; else data">
-        Aucuns résultats trouvés.
+      Aucuns résultats trouvés.
     </div>
     <ng-template #data>
-      <input autofocus value="{{detail.prestataire_id}}" type="text" name="prestataire_id" placeholder="ID du prestataire" disabled>
+      <input autofocus value="{{detail.prestataire_id}}" type="text" placeholder="ID du prestataire" disabled>
       <input autofocus value="{{detail.name}}" type="text" name="prestataire_name" placeholder="Nom du prestataire">
       <input autofocus value="{{detail.service}}" type="text" name="prestataire_role" placeholder="Role du prestataire">
       <input autofocus value="{{detail.tel}}" type="text" name="prestataire_tel" placeholder="Numéro de tel.">
@@ -13,8 +13,8 @@
   </form>
 
   <div>
-    <input type="update" (click)="update()" value="Mettre à jour" />
-    <input type="archive" (click)="archive()" value="Archiver" />
+    <input type="update" (click)="update()" value="Mettre à jour"/>
+    <input type="archive" (click)="archive()" value="Archiver"/>
   </div>
 </app-card>
 
