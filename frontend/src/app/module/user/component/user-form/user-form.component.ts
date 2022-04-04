@@ -51,7 +51,7 @@ export class UserFormComponent implements OnInit {
 
   private initForm(): void {
     // Object UserCreatePayload
-    this.formGroup = UserHelper.toFormGroup(UserHelper.getEmpty());
+    this.formGroup = UserHelper.toFormGroup();
   }
 
   private setSelectConfig(): void {

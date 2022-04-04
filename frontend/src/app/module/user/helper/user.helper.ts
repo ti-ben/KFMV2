@@ -32,7 +32,7 @@ export class UserHelper {
     }
   }
 
-  public toFormGroup(user:User): FormGroup {
+  public static toFormGroup(user:User = UserHelper.getEmpty()): FormGroup {
     return new FormGroup({
       firstname: new FormControl(user.firstname, [Validators.required]),
       lastname: new FormControl(user.lastname),
