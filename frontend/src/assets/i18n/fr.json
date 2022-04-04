@@ -109,8 +109,8 @@
       "create": {
         "title": "Nouveau site"
       },
-      "create": {
-        "detail": "Détail du site"
+      "detail": {
+        "title": "Détail du site"
       }
     },
     "status": {
