@@ -1,9 +1,10 @@
-import {User} from '@user/model/business';
-import {UserDto} from '@user/model';
-import {SiteHelper} from '@site/helper';
-import {GradeHelper} from "@grade/helper";
-import {StatusHelper} from "@status/helper";
-import {AddressHelper} from "@address/helper";
+import { User } from '@user/model/business';
+import { UserDto } from '@user/model';
+import { SiteHelper } from '@site/helper';
+import { GradeHelper } from "@grade/helper";
+import { StatusHelper } from "@status/helper";
+import { AddressHelper } from "@address/helper";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class UserHelper {
   public static fromDto(dto: UserDto): User {
@@ -29,6 +30,30 @@ export class UserHelper {
       status: StatusHelper.fromDto(dto.status),
       address: AddressHelper.fromDto(dto.address)
     }
+  }
+
+  public toFormGroup(user:User): FormGroup {
+    return new FormGroup({
+      firstname: new FormControl(user.firstname, [Validators.required]),
+      lastname: new FormControl(user.lastname),
+      gender: new FormControl(user.gender),
+      avatar: new FormControl(''),
+      dob: new FormControl(''),
+      email: new FormControl(''),
+      password: new FormControl(''),
+      telpro: new FormControl(''),
+      telperso: new FormControl(''),
+      nationality: new FormControl(''),
+      numirn: new FormControl(''),
+      driver_license: new FormControl(''),
+      created_on: new FormControl(new Date()),
+      pob: new FormControl(''),
+      active: new FormControl(''),
+      status_name: new FormControl(''),
+      grade_name: new FormControl(''),
+      site_name: new FormControl(''),
+      cp: new FormControl('')
+    });
   }
 
   public toDto(user: User): UserDto {

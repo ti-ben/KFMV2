@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LabelWithParam} from "@shared/model";
 import {FormControl} from "@angular/forms";
+import { SelectConfig } from '@shared/model/select.config';
 
 @Component({
   selector: 'app-select',
@@ -8,10 +9,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements OnInit {
-
-  @Input() label!: LabelWithParam;
-  @Input() placeholder!: string;
-  @Input() ctrl!: FormControl;
+  @Input() config!:SelectConfig;
 
   constructor() { }
 

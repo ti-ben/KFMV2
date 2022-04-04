@@ -1,4 +1,11 @@
 {
+  "common": {
+    "select": {
+      "default": "Choisir une valeur"
+    },
+    "true": "Oui",
+    "false": "Non"
+  },
   "search-input": {
     "default-search": "Rechercher",
     "user-search": "Rechercher un utilisateur",

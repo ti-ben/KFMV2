@@ -1,9 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {UserCreatePayload} from '@user/model';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ApiResponse, CardConfig} from "@shared/model";
-import {CardHelper} from "@shared/helper/card.helper";
-import {UserService} from "@user/service/user.service";
+import { Component, OnInit } from '@angular/core';
+import { UserCreatePayload } from '@user/model';
+import { FormControl, FormGroup } from "@angular/forms";
+import { ApiResponse, CardConfig } from "@shared/model";
+import { CardHelper } from "@shared/helper/card.helper";
+import { UserService } from "@user/service/user.service";
+import { UserHelper } from '@user/helper';
+import { SiteService } from '@site/service/site.service';
+import { SelectConfig } from '@shared/model/select.config';
+import { Site } from '@site/model';
+import { SiteHelper } from '@site/helper';
+import { GenderHelper } from '@shared/helper/gender.helper';
+import { ActifHelper, DriverHelper } from '@shared/helper';
 
 @Component({
   selector: 'app-user-form',
@@ -13,11 +20,18 @@ import {UserService} from "@user/service/user.service";
 export class UserFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
   formGroup!: FormGroup;
+  userHelper = UserHelper
+  genderSelectConfig!: SelectConfig;
+  actifSelectConfig!: SelectConfig;
+  siteSelectConfig!: SelectConfig;
+  driverSelectConfig!: SelectConfig;
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, public siteService: SiteService) {
+  }
 
   ngOnInit(): void {
     this.initForm();
+    this.setSelectConfig();
   }
 
   public getControl(name: string): FormControl {
@@ -37,26 +51,36 @@ export class UserFormComponent implements OnInit {
 
   private initForm(): void {
     // Object UserCreatePayload
-    this.formGroup = new FormGroup({
-      firstname: new FormControl(''),
-      lastname: new FormControl(''),
-      gender: new FormControl(''),
-      avatar: new FormControl(''),
-      dob: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
-      telpro: new FormControl(''),
-      telperso: new FormControl(''),
-      nationality: new FormControl(''),
-      numirn: new FormControl(''),
-      driver_license: new FormControl(''),
-      created_on: new FormControl(new Date().toLocaleDateString('')),
-      pob: new FormControl(''),
-      active: new FormControl(''),
-      status_name: new FormControl(''),
-      grade_name: new FormControl(''),
-      site_name: new FormControl(''),
-      cp: new FormControl('')
-    })
+    this.formGroup = UserHelper.toFormGroup(UserHelper.getEmpty());
+  }
+
+  private setSelectConfig(): void {
+
+    this.driverSelectConfig = {
+      label: {label: 'form.user.label.driver_license'},
+      placeholder: 'form.user.placeholder.driver_license',
+      ctrl: this.getControl('driver_license'),
+      values: DriverHelper.getSelectOption()
+    };
+    this.siteService.list().subscribe((list: Site[]) => {
+      this.siteSelectConfig = {
+        label: {label: 'form.user.label.site_name'},
+        placeholder: 'form.user.placeholder.site_name',
+        ctrl: this.getControl('site_name'),
+        values: SiteHelper.toSiteOptionArray(list)
+      }
+    });
+    this.genderSelectConfig = {
+      label: {label: 'form.user.label.gender'},
+      placeholder: 'form.user.placeholder.gender',
+      ctrl: this.getControl('gender'),
+      values: GenderHelper.genSelectOption()
+    }
+    this.actifSelectConfig = {
+      label: {label: 'form.user.label.active'},
+      placeholder: 'form.user.placeholder.active',
+      ctrl: this.getControl('active'),
+      values: ActifHelper.toSelectOption()
+    }
   }
 }

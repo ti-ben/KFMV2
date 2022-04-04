@@ -32,7 +32,7 @@ li {
 
 html, body {
   height: 100%;
-  background:#eeeeee;
+  background: #eeeeee;
 }
 
 body {
@@ -40,9 +40,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-input[type=button], input[type=submit],
+label {
+  padding-top: 1rem;
+}
+
 input[type=reset], input[type=update],
-input[type=archive],input[type=date],
+input[type=archive], input[type=date],
 input[type=text], textarea {
   display: block;
   width: 100%;
@@ -50,7 +53,15 @@ input[type=text], textarea {
   color: white;
   padding: 0.375rem 0.75rem;
   text-decoration: none;
-  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type=submit], input[type=submit] {
+  border: 1px solid #ced4da;
+  color: white;
+  padding: 0.375rem 0.75rem;
+  text-decoration: none;
   cursor: pointer;
   text-align: center;
 }
@@ -64,19 +75,19 @@ textarea, input[type=date], input[type=text] {
   cursor: text;
 }
 
-textarea{
+textarea {
   height: 150px;
 }
 
-input[type=button], input[type=update]{
+input[type=submit], input[type=update] {
   background-color: #63b77f;
 }
 
-input[type=button]:hover, input[type=update]:hover{
+input[type=submit]:hover, input[type=update]:hover {
   background-color: #04AA6D;
 }
 
-input[type=archive]{
+input[type=archive] {
   background-color: #FF7582;
 }
 
@@ -84,4 +95,34 @@ input[type=archive]:hover {
   background-color: #f5606e;
 }
 
+.btn-area {
+  margin-top:15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 10px;
 
+  button{
+    padding:5px 15px;
+    color:#fff;
+    text-transform: uppercase;
+    border:1px solid #63b77f;
+    background-color: #63b77f;
+    @extend .transition-common;
+    &:hover{
+      color:#fff;
+      border:1px solid #04AA6D;
+      background-color: #04AA6D;
+
+    }
+  }
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  .flex-cell{
+    flex:1;
+  }
+}

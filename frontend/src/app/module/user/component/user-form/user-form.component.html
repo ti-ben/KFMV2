@@ -1,25 +1,79 @@
 <app-card [config]="cardConfig">
-  <form action="">
-    <app-input-text [label]="{label:'form.user.label.lastname'}" [placeholder]="'form.user.placeholder.lastname'" [ctrl]="getControl('lastname')"></app-input-text>
-    <app-input-text [label]="{label:'form.user.label.firstname'}" [placeholder]="'form.user.placeholder.firstname'" [ctrl]="getControl('firstname')"></app-input-text>
-    <app-input-text [label]="{label:'form.user.label.email'}" [placeholder]="'form.user.placeholder.email'" [ctrl]="getControl('email')"></app-input-text>
-    <app-input-text [label]="{label:'form.user.label.telperso'}" [placeholder]="'form.user.placeholder.telperso'" [ctrl]="getControl('telperso')"></app-input-text>
-    <app-input-text [label]="{label:'form.user.label.telpro'}" [placeholder]="'form.user.placeholder.telpro'" [ctrl]="getControl('telpro')"></app-input-text>
-    <app-input-text [label]="{label:'form.user.label.nationality'}" [placeholder]="'form.user.placeholder.nationality'" [ctrl]="getControl('nationality')"></app-input-text>
-    <app-select [label]="{label:'form.user.label.gender'}" [placeholder]="'form.user.placeholder.gender'" [ctrl]="getControl('gender')"></app-select>
-    <app-input-date [label]="{label:'form.user.label.dob'}" [placeholder]="'form.user.placeholder.dob'" [ctrl]="getControl('dob')"></app-input-date>
-    <app-select [label]="{label:'form.user.label.active'}" [placeholder]="'form.user.placeholder.active'" [ctrl]="getControl('active')"></app-select>
-    <app-select [label]="{label:'form.user.label.site_name'}" [placeholder]="'form.user.placeholder.site_name'" [ctrl]="getControl('site_name')"></app-select>
-    <app-input-text [label]="{label:'form.user.label.numirn'}" [placeholder]="'form.user.placeholder.numirn'" [ctrl]="getControl('numirn')"></app-input-text>
-    <app-select [label]="{label:'form.user.label.driver_license'}" [placeholder]="'form.user.placeholder.driver_license'" [ctrl]="getControl('driver_license')"></app-select>
-    <app-select [label]="{label:'form.user.label.status_name'}" [placeholder]="'form.user.placeholder.status_name'" [ctrl]="getControl('status_name')"></app-select>
-    <app-input-date [label]="{label:'form.user.label.created_on'}" [placeholder]="'form.user.placeholder.created_on'" [ctrl]="getControl('created_on')"></app-input-date>
-    <app-select [label]="{label:'form.user.label.site_name'}" [placeholder]="'form.user.placeholder.site_name'" [ctrl]="getControl('site_name')"></app-select>
-    <app-select [label]="{label:'form.user.label.grade_name'}" [placeholder]="'form.user.placeholder.grade_name'" [ctrl]="getControl('grade_name')"></app-select>
+  <form action="" *ngIf="formGroup">
+    <!-- first line -->
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.lastname'}" [placeholder]="'form.user.placeholder.lastname'"
+                        [ctrl]="getControl('lastname')"></app-input-text>
+      </div>
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.firstname'}" [placeholder]="'form.user.placeholder.firstname'"
+                        [ctrl]="getControl('firstname')"></app-input-text>
+      </div>
+      <div class="flex-cell">
+        <app-select [config]=genderSelectConfig ></app-select>
+      </div>
+    </div>
+
+    <!-- second line -->
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.email'}" [placeholder]="'form.user.placeholder.email'"
+                        [ctrl]="getControl('email')"></app-input-text>
+      </div>
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.telperso'}" [placeholder]="'form.user.placeholder.telperso'"
+                        [ctrl]="getControl('telperso')"></app-input-text>
+      </div>
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.telpro'}" [placeholder]="'form.user.placeholder.telpro'"
+                        [ctrl]="getControl('telpro')"></app-input-text>
+      </div>
+    </div>
+
+    <!-- third line -->
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.nationality'}"
+                        [placeholder]="'form.user.placeholder.nationality'"
+                        [ctrl]="getControl('nationality')"></app-input-text>
+      </div>
+      <div class="flex-cell">
+        <app-input-date [label]="{label:'form.user.label.dob'}" [placeholder]="'form.user.placeholder.dob'"
+                        [ctrl]="getControl('dob')"></app-input-date>
+      </div>
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.numirn'}" [placeholder]="'form.user.placeholder.numirn'"
+                        [ctrl]="getControl('numirn')"></app-input-text>
+      </div>
+    </div>
+    <!-- fourth line -->
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-select [config]="siteSelectConfig"></app-select>
+      </div>
+      <div class="flex-cell">
+        <app-select [config]="driverSelectConfig"></app-select>
+      </div>
+      <div class="flex-cell">
+        <app-select [config]="actifSelectConfig"></app-select>
+      </div>
+    </div>
+<!--
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-select [label]="{label:'form.user.label.status_name'}" [placeholder]="'form.user.placeholder.status_name'"
+                    [ctrl]="getControl('status_name')"></app-select>
+      </div>
+      <div class="flex-cell">
+        <app-select [label]="{label:'form.user.label.grade_name'}" [placeholder]="'form.user.placeholder.grade_name'"
+                    [ctrl]="getControl('grade_name')"></app-select>
+      </div>
+    </div>-->
   </form>
 
   <div class="btn-area">
-    <input type="button" class="btn btn-success btn-block" (click)="save()" value="Enregistrer le nouvel employé" />
+    <button (click)="save()"> Enregistrer le nouvel employé</button>
   </div>
 
 </app-card>
