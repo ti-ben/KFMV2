@@ -1,8 +1,13 @@
 {
-  "benoit": {
-    "afaire": {
-      "header": "Ajouter un bread crumb ou en tout cas afficher la page en cours."
-    }
+  "search-input": {
+    "default-search": "Search",
+    "user-search": "Search a user",
+    "car-search": "Searc a car",
+    "prestataire-search": "Search a provider",
+    "numberplate-search": "Search a licenseplate",
+    "grade-search": "Search a grade",
+    "site-search": "Search a site",
+    "status-search": "Search a status"
   },
   "table": {
     "employee": {

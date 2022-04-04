@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NumberplateService} from "@numberplate/service/numberplate.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiResponse, CardConfig} from "@shared/model";

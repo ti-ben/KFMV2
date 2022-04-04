@@ -92,8 +92,7 @@
         "grade": "Rôles",
         "status": "Statuts",
         "numberplate": "Immatriculations",
-        "tachygraphe": "Tachygraphe",
-        "detail": "Détail"
+        "tachygraphe": "Tachygraphe"
       }
     },
     "user-list": {
