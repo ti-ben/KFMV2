@@ -42,12 +42,12 @@ export class UserDetailIdentityComponent implements OnInit {
       status: new FormControl(this.detail.status.name),
       grade: new FormControl(this.detail.grade.name),
       site_name: new FormControl(this.detail.site.name),
-      cp: new FormControl(this.detail.address.cp)
+      //cp: new FormControl(this.detail.address.cp)
     })
   }
 
   //A vérifier parce que ça ne met pas à jour, ça créé un nouvel utilisateur, je dois faire un update
-  save(): void {
+  update(): void {
     if (this.formGroup.valid) {
       const payload: UserCreatePayload = this.formGroup.value;
       this.userService.update(payload).subscribe();

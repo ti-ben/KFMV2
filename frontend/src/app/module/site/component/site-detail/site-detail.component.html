@@ -4,14 +4,30 @@
       Sélectionnez le site à modifier / mettre à jour
     </div>
     <ng-template #data>
-      <input autofocus value="{{site.site_id}}" type="text" placeholder="ID du site" disabled/>
-      <input autofocus value="{{site.name}}" type="text" placeholder="Site name"/>
-      <input autofocus value="{{site.created_on}}" type="text" placeholder="Site créé le"/>
-      <textarea autofocus value="{{site.description}}" type="text-area">{{site.description}}</textarea>
+      <div class="flex-row">
+        <div class="flex-cell">
+          <input value="{{site.site_id}}" type="text" disabled/>
+        </div>
+      </div>
+      <div class="flex-row">
+        <div class="flex-cell">
+          <input value="{{site.name}}" type="text" placeholder="Site name"/>
+        </div>
+      </div>
+      <div class="flex-row">
+        <div class="flex-cell">
+          <input value="{{site.created_on}}" type="text" placeholder="Site créé le"/>
+        </div>
+      </div>
+      <div class="flex-row">
+        <div class="flex-cell">
+          <textarea value="{{site.description}}" type="text-area">{{site.description}}</textarea>
+        </div>
+      </div>
     </ng-template>
   </form>
-  <div>
-    <input type="update" (click)="update()" value="Mettre à jour"/>
-    <input type="archive" (click)="archive()" value="Archiver"/>
+  <div class="btn-area">
+    <button (click)="update()">Mettre à jour</button>
+    <button (click)="archive()">Archiver</button>
   </div>
 </app-card>

@@ -1,101 +1,105 @@
 <app-card [config]="cardConfig">
   <form [formGroup]="formGroup">
-  <div class="row g-3">
-    <div class="col-md-3">
+    <div class="flex-row">
+      <div class="flex-cell">
       <span>Nom</span>
-      <input type="text" class="form-control form-control-sm" formControlName="lastname" >
+      <input type="text" formControlName="lastname" >
     </div>
-    <div class="col-md-3">
+      <div class="flex-cell">
       <span>Prénom</span>
-      <input type="text" class="form-control form-control-sm" formControlName="firstname" >
+      <input type="text" formControlName="firstname" >
     </div>
 
-    <div class="col-md-6">
+      <div class="flex-cell">
       <span>Adresse email</span>
       <div class="input-group">
         <span class="input-group-text">@</span>
-        <input type="text" class="form-control form-control-sm" formControlName="email">
+        <input type="text" formControlName="email">
       </div>
     </div>
 
-    <div class="col-md-3">
+      <div class="flex-cell">
       <span>Tel. (Perso)</span>
-      <input type="text" class="form-control form-control-sm" formControlName="telperso">
+      <input type="text" formControlName="telperso">
     </div>
-
-    <div class="col-md-3">
+    </div>
+      <div class="flex-row">
+      <div class="flex-cell">
       <span>Tel. (Pro)</span>
-      <input type="text" class="form-control form-control-sm" formControlName="telpro">
+      <input type="text" formControlName="telpro">
     </div>
 
-    <div class="col-md-6">
+      <div class="flex-cell">
       <span>Nationalité</span>
-      <input type="text" class="form-control form-control-sm" formControlName="nationality">
+      <input type="text" formControlName="nationality">
     </div>
 
-    <div class="col-md-3">
+      <div class="flex-cell">
       <span>Genre</span>
-      <input type="text" class="form-control form-control-sm" formControlName="gender">
+      <input type="text" formControlName="gender">
     </div>
 
-    <div class="col-md-3">
+      <div class="flex-cell">
       <span>Date de naissance</span>
-      <input type="text" class="form-control form-control-sm" formControlName="dob">
+      <input type="text" formControlName="dob">
     </div>
-
-    <div class="col-md-6">
+      </div>
+        <div class="flex-row">
+      <div class="flex-cell">
       <span>Lieu de naissance</span>
-      <input type="text" class="form-control form-control-sm" formControlName="pob">
+      <input type="text" formControlName="pob">
     </div>
 
-    <div class="col-md-6">
+      <div class="flex-cell">
       <span>Adresse du domicile actuel</span>
-      <input type="text" class="form-control form-control-sm" value="">
+      <input type="text" formControlName="">
     </div>
 
-    <div class="col-md-2">
+      <div class="flex-cell">
       <span>Code Postal</span>
-      <input type="text" class="form-control form-control-sm" formControlName="cp">
+      <input type="text" formControlName="cp">
     </div>
 
-    <div class="col-md-4">
+      <div class="flex-cell">
       <span>Ville</span>
-      <input type="text" class="form-control form-control-sm" value="">
+      <input type="text" formControlName="town">
     </div>
-
-    <div class="col-md-4">
+        </div>
+          <div class="flex-row">
+      <div class="flex-cell">
       <span>N° registre national</span>
-      <input type="text" class="form-control form-control-sm" formControlName="numirn">
+      <input type="text" formControlName="numirn">
     </div>
 
-    <div class="col-md-2">
+      <div class="flex-cell">
       <span>Permis</span>
-      <input type="text" class="form-control form-control-sm" formControlName="driver_license">
+      <input type="text" formControlName="driver_license">
     </div>
 
-    <div class="col-md-2">
+      <div class="flex-cell">
       <span>Statut</span>
-      <input type="text" class="form-control form-control-sm" formControlName="status_name">
+      <input type="text" formControlName="status_name">
     </div>
-
-    <div class="col-md-2">
+<!--
+    <div class="flex-cell">
       <span>Date d'ajout</span>
-      <input type="text" class="form-control form-control-sm" formControlName="created_on">
+      <input type="text" formControlName="created_on">
     </div>
-
-    <div class="col-md-2">
+-->
+      <div class="flex-cell">
       <span>Site</span>
-      <input type="text" class="form-control form-control-sm" formControlName="site_name">
+      <input type="text" formControlName="site_name">
     </div>
-
-    <div class="col-md-2">
+<!--
+    <div class="flex-cell">
       <span>Rang</span>
-      <input type="text" class="form-control form-control-sm" formControlName="grade_name">
+      <input type="text" formControlName="grade_name">
     </div>
+    -->
   </div>
 </form>
 
 <div class="btn-area">
-  <button (click)="save()">Enregistrer les modifications</button>
+  <button (click)="update()">Mettre à jour les informations</button>
 </div>
 </app-card>
