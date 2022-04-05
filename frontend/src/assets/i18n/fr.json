@@ -327,7 +327,8 @@
         "email": "Adresse email",
         "password" : "Mot de passe",
         "password_verify": "Vérification du mot de passe",
-        "grade_name": "Rôle de l'utilisateur"
+        "grade_name": "Rôle de l'utilisateur",
+        "active": "Crédential utilisateur actif ?"
       }
     }
   }

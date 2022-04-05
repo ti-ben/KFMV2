@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiResponse, CardConfig} from "@shared/model";
+import {CardConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {UserHelper} from "@user/helper";
@@ -7,7 +7,7 @@ import {SelectConfig} from "@shared/model/select.config";
 import {GradeService} from "@grade/service/grade.service";
 import {Grade} from "@grade/model";
 import {GradeHelper} from "@grade/helper";
-import {UserCreatePayload} from "@user/model";
+import {ActifHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-user-detail-credential',
@@ -18,8 +18,10 @@ export class UserDetailCredentialComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.credential.detail.title');
   formGroup!: FormGroup;
   gradeSelectConfig!: SelectConfig;
+  actifSelectConfig!: SelectConfig;
 
-  constructor(public gradeService: GradeService) { }
+  constructor(public gradeService: GradeService) {
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -35,6 +37,7 @@ export class UserDetailCredentialComponent implements OnInit {
   }
 
   private setSelectConfig(): void {
+
     this.gradeService.list().subscribe((list: Grade[]) => {
       this.gradeSelectConfig = {
         label: {label: 'form.credential.label.grade_name'},
@@ -43,5 +46,12 @@ export class UserDetailCredentialComponent implements OnInit {
         values: GradeHelper.toGradeOptionArray(list)
       }
     });
+
+    this.actifSelectConfig = {
+      label: {label: 'form.credential.label.active'},
+      placeholder: 'form.credential.placeholder.active',
+      ctrl: this.getControl('active'),
+      values: ActifHelper.toSelectOption()
+    }
   }
 }
