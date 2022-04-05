@@ -38,7 +38,7 @@ export class VehiculeHelper {
       num_chassis: new FormControl(vehicule.num_chassis, [Validators.required]),
       classe_enviro: new FormControl(vehicule.classe_enviro, [Validators.required]),
       metrologie: new FormControl(vehicule.metrologie, [Validators.required]),
-      picture: new FormControl(''),
+      picture: new FormControl(vehicule.picture),
       nbr_km: new FormControl(vehicule.nbr_km, [Validators.required]),
       fuel: new FormControl(vehicule.fuel, [Validators.required]),
       type: new FormControl(vehicule.type, [Validators.required]),

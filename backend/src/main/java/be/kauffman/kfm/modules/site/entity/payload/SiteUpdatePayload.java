@@ -1,5 +1,6 @@
 package be.kauffman.kfm.modules.site.entity.payload;
 
+import be.kauffman.kfm.modules.address.entity.dto.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +14,5 @@ public class SiteUpdatePayload {
     UUID site_id;
     String name;
     String description;
+    Address addressList;
 }

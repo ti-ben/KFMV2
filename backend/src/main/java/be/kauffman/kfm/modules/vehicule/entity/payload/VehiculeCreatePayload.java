@@ -1,5 +1,6 @@
 package be.kauffman.kfm.modules.vehicule.entity.payload;
 
+import be.kauffman.kfm.modules.numberplate.entity.dto.Numberplate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,4 +28,5 @@ public class VehiculeCreatePayload {
     String picture;
     String fuel;
     String type;
+    Numberplate numberplate;
 }

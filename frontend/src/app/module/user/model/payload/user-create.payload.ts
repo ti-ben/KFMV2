@@ -17,5 +17,8 @@ export interface UserCreatePayload extends PayloadInterface {
   created_on: Date;
   pob: string;
   active: string;
-  site:any
+  site:any;
+  address:any;
+  grade:any;
+  status:any;
 }
