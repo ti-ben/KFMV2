@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { User } from '@user/model';
+import {User, UserCreatePayload} from '@user/model';
 import { UserHelper } from '@user/helper';
+import {ApiResponse} from "@shared/model";
+import {UserService} from "@user/service/user.service";
 
 @Component({
   selector: 'app-user-detail-identity',
@@ -13,7 +15,7 @@ export class UserDetailIdentityComponent implements OnInit {
   @Input() detail: User = UserHelper.getEmpty();
   formGroup!: FormGroup;
 
-  constructor() {
+  constructor(public userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -40,7 +42,11 @@ export class UserDetailIdentityComponent implements OnInit {
     })
   }
 
-  onClick() {
-    alert('envoi du form');
+  //A vérifier parce que ça ne met pas à jour, ça créé un nouvel utilisateur, je dois faire un update
+  save(): void {
+    if (this.formGroup.valid) {
+      const payload: UserCreatePayload = this.formGroup.value;
+      this.userService.update(payload).subscribe();
+    }
   }
 }

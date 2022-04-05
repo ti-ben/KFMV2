@@ -1,22 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { UserCreatePayload } from '@user/model';
-import { FormControl, FormGroup } from "@angular/forms";
-import { ApiResponse, CardConfig } from "@shared/model";
-import { CardHelper } from "@shared/helper/card.helper";
-import { UserService } from "@user/service/user.service";
-import { UserHelper } from '@user/helper';
-import { SiteService } from '@site/service/site.service';
-import { SelectConfig } from '@shared/model/select.config';
-import { Site } from '@site/model';
-import { SiteHelper } from '@site/helper';
-import { GenderHelper } from '@shared/helper/gender.helper';
-import { ActifHelper, DriverHelper } from '@shared/helper';
+import {Component, OnInit} from '@angular/core';
+import {UserCreatePayload} from '@user/model';
+import {FormControl, FormGroup} from "@angular/forms";
+import {ApiResponse, CardConfig} from "@shared/model";
+import {CardHelper} from "@shared/helper/card.helper";
+import {UserService} from "@user/service/user.service";
+import {UserHelper} from '@user/helper';
+import {SiteService} from '@site/service/site.service';
+import {SelectConfig} from '@shared/model/select.config';
+import {Site} from '@site/model';
+import {SiteHelper} from '@site/helper';
+import {GenderHelper} from '@shared/helper/gender.helper';
+import {ActifHelper, DriverHelper} from '@shared/helper';
+import {Status} from "@status/model";
+import {StatusService} from "@status/service/status.service";
+import {StatusHelper} from "@status/helper";
+import {GradeService} from "@grade/service/grade.service";
+import {Grade} from "@grade/model";
+import {GradeHelper} from "@grade/helper";
 
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.scss']
 })
+
 export class UserFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
   formGroup!: FormGroup;
@@ -25,8 +32,10 @@ export class UserFormComponent implements OnInit {
   actifSelectConfig!: SelectConfig;
   siteSelectConfig!: SelectConfig;
   driverSelectConfig!: SelectConfig;
+  statusSelectConfig!: SelectConfig;
+  gradeSelectConfig!: SelectConfig;
 
-  constructor(public userService: UserService, public siteService: SiteService) {
+  constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService, public gradeService: GradeService) {
   }
 
   ngOnInit(): void {
@@ -50,7 +59,6 @@ export class UserFormComponent implements OnInit {
   }
 
   private initForm(): void {
-    // Object UserCreatePayload
     this.formGroup = UserHelper.toFormGroup();
   }
 
@@ -62,6 +70,7 @@ export class UserFormComponent implements OnInit {
       ctrl: this.getControl('driver_license'),
       values: DriverHelper.getSelectOption()
     };
+
     this.siteService.list().subscribe((list: Site[]) => {
       this.siteSelectConfig = {
         label: {label: 'form.user.label.site_name'},
@@ -70,12 +79,32 @@ export class UserFormComponent implements OnInit {
         values: SiteHelper.toSiteOptionArray(list)
       }
     });
+
+    this.statusService.list().subscribe((list: Status[]) => {
+      this.statusSelectConfig = {
+        label: {label: 'form.user.label.status_name'},
+        placeholder: 'form.user.placeholder.status_name',
+        ctrl: this.getControl('status_name'),
+        values: StatusHelper.toStatusOptionArray(list)
+      }
+    });
+
+    this.gradeService.list().subscribe((list: Grade[]) => {
+      this.gradeSelectConfig = {
+        label: {label: 'form.user.label.grade_name'},
+        placeholder: 'form.user.placeholder.grade_name',
+        ctrl: this.getControl('grade_name'),
+        values: GradeHelper.toGradeOptionArray(list)
+      }
+    });
+
     this.genderSelectConfig = {
       label: {label: 'form.user.label.gender'},
       placeholder: 'form.user.placeholder.gender',
       ctrl: this.getControl('gender'),
       values: GenderHelper.genSelectOption()
-    }
+    };
+
     this.actifSelectConfig = {
       label: {label: 'form.user.label.active'},
       placeholder: 'form.user.placeholder.active',

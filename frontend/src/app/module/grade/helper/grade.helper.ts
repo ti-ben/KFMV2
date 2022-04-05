@@ -1,6 +1,10 @@
 import {Grade} from '@grade/model/business';
 import {GradeDto} from '@grade/model';
 import {isNil} from 'lodash';
+import {Status} from "@status/model";
+import {SelectOption} from "@shared/model/select.config";
+import {User} from "@user/model";
+import {FormGroup} from "@angular/forms";
 
 export class GradeHelper {
   public static fromDto(dto: GradeDto): Grade {
@@ -32,5 +36,11 @@ export class GradeHelper {
 
   static fromDtoArray(data: GradeDto[]): Grade[] {
     return data.map((dto: GradeDto) => GradeHelper.fromDto(dto));
+  }
+
+  static toGradeOptionArray(list: Grade[]): SelectOption[] {
+    return list.map((grade: Grade) => {
+      return {value: grade.grade_id, label: grade.name};
+    })
   }
 }

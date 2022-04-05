@@ -1,8 +1,8 @@
-import { DtoInterface } from '@shared/model';
-import {Site, SiteDto} from '@site/model';
-import {Grade, GradeDto} from "@grade/model";
-import {Status, StatusDto} from "@status/model";
-import {Address, AddressDto} from "@address/model";
+import {DtoInterface} from '@shared/model';
+import {SiteDto} from '@site/model';
+import {GradeDto} from "@grade/model";
+import {StatusDto} from "@status/model";
+import {AddressDto} from "@address/model";
 
 export interface UserDto extends DtoInterface {
   user_id: string,

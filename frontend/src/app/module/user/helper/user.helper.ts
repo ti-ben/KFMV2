@@ -1,10 +1,10 @@
-import { User } from '@user/model/business';
-import { UserDto } from '@user/model';
-import { SiteHelper } from '@site/helper';
-import { GradeHelper } from "@grade/helper";
-import { StatusHelper } from "@status/helper";
-import { AddressHelper } from "@address/helper";
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {User} from '@user/model/business';
+import {UserDto} from '@user/model';
+import {SiteHelper} from '@site/helper';
+import {GradeHelper} from "@grade/helper";
+import {StatusHelper} from "@status/helper";
+import {AddressHelper} from "@address/helper";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 export class UserHelper {
   public static fromDto(dto: UserDto): User {
@@ -32,27 +32,26 @@ export class UserHelper {
     }
   }
 
-  public static toFormGroup(user:User = UserHelper.getEmpty()): FormGroup {
+  public static toFormGroup(user: User = UserHelper.getEmpty()): FormGroup {
     return new FormGroup({
       firstname: new FormControl(user.firstname, [Validators.required]),
-      lastname: new FormControl(user.lastname),
-      gender: new FormControl(user.gender),
+      lastname: new FormControl(user.lastname, [Validators.required]),
+      gender: new FormControl(user.gender, [Validators.required]),
       avatar: new FormControl(''),
-      dob: new FormControl(''),
-      email: new FormControl(''),
+      dob: new FormControl(user.dob, [Validators.required]),
+      email: new FormControl(user.email, [Validators.required]),
       password: new FormControl(''),
       telpro: new FormControl(''),
       telperso: new FormControl(''),
-      nationality: new FormControl(''),
-      numirn: new FormControl(''),
-      driver_license: new FormControl(''),
+      nationality: new FormControl(user.nationality, [Validators.required]),
+      numirn: new FormControl(user.numirn, [Validators.required]),
+      driver_license: new FormControl(user.driver_license, [Validators.required]),
       created_on: new FormControl(new Date()),
-      pob: new FormControl(''),
-      active: new FormControl(''),
-      status_name: new FormControl(''),
-      grade_name: new FormControl(''),
-      site_name: new FormControl(''),
-      cp: new FormControl('')
+      pob: new FormControl(user.pob, [Validators.required]),
+      active: new FormControl(user.active, [Validators.required]),
+      site_name: new FormControl(user.site.name, [Validators.required]),
+      grade_name: new FormControl(user.grade.name, [Validators.required]),
+      status_name: new FormControl(user.status.name, [Validators.required])
     });
   }
 

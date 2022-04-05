@@ -1,7 +1,7 @@
-import { CardConfig } from '@shared/model';
+import {CardConfig} from '@shared/model';
 
 export class CardHelper {
-  static defaultConfig(title= 'common.default.title'): CardConfig {
+  static defaultConfig(title = 'common.default.title'): CardConfig {
     return {
       headerConfig: {
         title: {label: title}
@@ -10,7 +10,7 @@ export class CardHelper {
     };
   }
 
-  static siteConfig(title= 'common.default.title'): CardConfig {
+  static siteConfig(title = 'common.default.title'): CardConfig {
     return {
       headerConfig: {
         title: {label: title}
@@ -19,7 +19,7 @@ export class CardHelper {
     };
   }
 
-  static gradeConfig(title= 'common.default.title'): CardConfig {
+  static gradeConfig(title = 'common.default.title'): CardConfig {
     return {
       headerConfig: {
         title: {label: title}
@@ -28,7 +28,7 @@ export class CardHelper {
     };
   }
 
-  static statusConfig(title= 'common.default.title'): CardConfig {
+  static statusConfig(title = 'common.default.title'): CardConfig {
     return {
       headerConfig: {
         title: {label: title}
@@ -37,7 +37,7 @@ export class CardHelper {
     };
   }
 
-  static prestataireConfig(title= 'common.default.title'): CardConfig {
+  static prestataireConfig(title = 'common.default.title'): CardConfig {
     return {
       headerConfig: {
         title: {label: title}
@@ -46,7 +46,7 @@ export class CardHelper {
     };
   }
 
-  static numberplateConfig(title= 'common.default.title'): CardConfig {
+  static numberplateConfig(title = 'common.default.title'): CardConfig {
     return {
       headerConfig: {
         title: {label: title}

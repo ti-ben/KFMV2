@@ -38,6 +38,15 @@ export class UserService extends ApiService {
     }));
   }
 
+  update(payload: UserUpdatePayload): Observable<User> {
+    return this.put(ApiUriEnum.USER_UPDATE, payload)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? UserHelper.fromDto(response.data as UserDto) : UserHelper.getEmpty();
+        })
+      );
+  }
+
   list(): Observable<User[]> {
     return this.get(ApiUriEnum.USER_LIST)
       .pipe(
@@ -57,15 +66,6 @@ export class UserService extends ApiService {
           this.currentDetail$.next((response.result && !isNil(response.data)) ? UserHelper.fromDto(response.data as UserDto) : UserHelper.getEmpty());
         })).subscribe();
     }
-  }
-
-  update(payload: UserUpdatePayload): Observable<User> {
-    return this.put(ApiUriEnum.USER_UPDATE, payload)
-      .pipe(
-        map((response: ApiResponse) => {
-          return (response.result && !isNil(response.data)) ? UserHelper.fromDto(response.data as UserDto) : UserHelper.getEmpty();
-        })
-      );
   }
 
   delete(id: string): Observable<ApiResponse> {

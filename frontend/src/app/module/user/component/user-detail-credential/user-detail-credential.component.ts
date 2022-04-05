@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {CardConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper/card.helper";
+import {FormControl, FormGroup} from "@angular/forms";
+import {UserHelper} from "@user/helper";
+import {SelectConfig} from "@shared/model/select.config";
+import {GradeService} from "@grade/service/grade.service";
+import {Grade} from "@grade/model";
+import {GradeHelper} from "@grade/helper";
 
 @Component({
   selector: 'app-user-detail-credential',
@@ -9,10 +15,32 @@ import {CardHelper} from "@shared/helper/card.helper";
 })
 export class UserDetailCredentialComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.credential.detail.title');
+  formGroup!: FormGroup;
+  gradeSelectConfig!: SelectConfig;
 
-  constructor() { }
+  constructor(public gradeService: GradeService) { }
 
   ngOnInit(): void {
+    this.initForm();
+    this.setSelectConfig();
   }
 
+  private initForm(): void {
+    this.formGroup = UserHelper.toFormGroup();
+  }
+
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
+
+  private setSelectConfig(): void {
+    this.gradeService.list().subscribe((list: Grade[]) => {
+      this.gradeSelectConfig = {
+        label: {label: 'form.credential.label.grade_name'},
+        placeholder: 'form.credential.placeholder.grade_name',
+        ctrl: this.getControl('grade_name'),
+        values: GradeHelper.toGradeOptionArray(list)
+      }
+    });
+  }
 }

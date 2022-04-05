@@ -1,6 +1,7 @@
 import {Vehicule} from '@vehicule/model/business';
 import {VehiculeDto} from '@vehicule/model';
 import {NumberplateHelper} from '@numberplate/helper'
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export class VehiculeHelper {
   public static fromDto(dto: VehiculeDto): Vehicule {
@@ -25,6 +26,29 @@ export class VehiculeHelper {
       type: dto.type,
       numberplate: NumberplateHelper.fromDto(dto.numberplate)
     }
+  }
+
+  public static toFormGroup(vehicule: Vehicule = VehiculeHelper.getEmpty()): FormGroup {
+    return new FormGroup({
+      brand: new FormControl(vehicule.brand, [Validators.required]),
+      genre: new FormControl(vehicule.genre, [Validators.required]),
+      dop: new FormControl(vehicule.dop, [Validators.required]),
+      cde_carrosserie: new FormControl(vehicule.cde_carrosserie, [Validators.required]),
+      price: new FormControl(vehicule.price, [Validators.required]),
+      num_chassis: new FormControl(vehicule.num_chassis, [Validators.required]),
+      classe_enviro: new FormControl(vehicule.classe_enviro, [Validators.required]),
+      metrologie: new FormControl(vehicule.metrologie, [Validators.required]),
+      picture: new FormControl(''),
+      nbr_km: new FormControl(vehicule.nbr_km, [Validators.required]),
+      fuel: new FormControl(vehicule.fuel, [Validators.required]),
+      type: new FormControl(vehicule.type, [Validators.required]),
+      mom: new FormControl(vehicule.mom, [Validators.required]),
+      mma: new FormControl(vehicule.mma, [Validators.required]),
+      mmat: new FormControl(vehicule.mmat, [Validators.required]),
+      mta: new FormControl(vehicule.mta, [Validators.required]),
+      active: new FormControl(vehicule.active, [Validators.required]),
+      nump_late: new FormControl(vehicule.numberplate.num_plate, [Validators.required])
+    });
   }
 
   public toDto(vehicule: Vehicule): VehiculeDto {

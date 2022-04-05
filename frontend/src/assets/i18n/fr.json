@@ -6,6 +6,20 @@
     "true": "Oui",
     "false": "Non"
   },
+  "gender": {
+    "male": "Homme",
+    "female": "Femme",
+    "not_binary": "Non binaire"
+  },
+  "genre": {
+    "colis": "Colis",
+    "citerne": "Citerne"
+  },
+  "driver-license": {
+    "b": "B",
+    "c": "C",
+    "ce": "CE"
+  },
   "search-input": {
     "default-search": "Rechercher",
     "user-search": "Rechercher un utilisateur",
@@ -99,17 +113,14 @@
         "grade": "Rôles",
         "status": "Statuts",
         "numberplate": "Immatriculations",
-        "tachygraphe": "Tachygraphe"
+        "tachygraphe": "Tachygraphe",
+        "detail": "détail"
       }
     },
-    "user-list": {
-      "no-data": "Aucun utilisateur"
-    },
-    "car-list": {
-      "no-data": "Aucun véhicule"
-    },
-    "site-list": {
-      "no-data": "Aucun site"
+    "credential": {
+      "detail": {
+        "title": "Crédential"
+      }
     },
     "site": {
       "create": {
@@ -155,8 +166,8 @@
       "create": {
         "title": "Nouveau véhicule"
       },
-      "create": {
-        "detail": "Détail du véhicule"
+      "detail": {
+        "title": "Détail du véhicule"
       }
     },
     "user": {
@@ -167,6 +178,27 @@
         "title": "Détail de l'employé"
       }
     }
+  },
+  "user-list": {
+    "no-data": "Aucun utilisateur"
+  },
+  "vehicule-list": {
+    "no-data": "Aucun véhicule"
+  },
+  "prestataire-list": {
+    "no-data": "Aucun prestataire"
+  },
+  "grade-list": {
+    "no-data": "Aucun rôle"
+  },
+  "site-list": {
+    "no-data": "Aucun site"
+  },
+  "status-list": {
+    "no-data": "Aucun status"
+  },
+  "numberplate-list": {
+    "no-data": "Aucune immatriculation sélectionnée"
   },
   "form": {
     "site": {
@@ -266,6 +298,36 @@
         "lasname" : "Entrer un nom",
         "lasname" : "Entrer un prénom",
         "email": "Ajouter une adresse email"
+      }
+    },
+    "vehicule": {
+      "label": {
+        "dop": "Date d'achat",
+        "price": "Prix d'achat",
+        "num_chassis": "Numéro de chassis",
+        "brand": "Marque du véhicule",
+        "cde_carrosserie": "Code carrosserie du véhicule",
+        "type": "Type de véhicule",
+        "mom": "MOM",
+        "mma": "MMA",
+        "mmat": "MMAT",
+        "mta": "MTA",
+        "classe_enviro": "Classe environemental du véhicule",
+        "nbr_km": "Nombre de kilomètre lors de l'achat",
+        "metrologie": "Métrologie du véhicule",
+        "picture": "Image",
+        "fuel": "Type de carburant",
+        "active": "Actif",
+        "genre": "Genre de véhicule (colis ou citerne)?"
+      }
+    },
+    "credential": {
+      "label":{
+        "username": "Nom d'utilisateur",
+        "email": "Adresse email",
+        "password" : "Mot de passe",
+        "password_verify": "Vérification du mot de passe",
+        "grade_name": "Rôle de l'utilisateur"
       }
     }
   }
