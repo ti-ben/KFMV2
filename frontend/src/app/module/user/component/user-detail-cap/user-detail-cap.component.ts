@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
+import {CardConfig} from "@shared/model";
+import {CardHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-user-detail-cap',
@@ -7,6 +9,7 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./user-detail-cap.component.scss']
 })
 export class UserDetailCapComponent implements OnInit {
+  cardConfig: CardConfig = CardHelper.defaultConfig('page.user.session_cap.title');
   formGroup!: FormGroup;
   constructor() { }
 
@@ -16,7 +19,11 @@ export class UserDetailCapComponent implements OnInit {
     })
   }
 
-  onClick() {
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
+
+ save() {
     alert('envoi du form');
   }
 }

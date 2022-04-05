@@ -1,21 +1,63 @@
-<form action="" class="text-center">
-  <hr>
-  <b>Certificat d'aptitude professionnel du 03/03/2022 au 03/03/2022</b>
-  <app-input-date></app-input-date>
-  <app-input-date></app-input-date>
-  <input type="update" value="Ajouter"/>
-</form>
+<!-- ADD a new session -->
+<app-card [config]="cardConfig">
+  <form action="" *ngIf="formGroup">
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-date [label]="{label:'form.user.label.sess_start'}"
+                        [placeholder]="'form.user.placeholder.sess_start'"
+                        [ctrl]="getControl('sess_start')"></app-input-date>
+      </div>
+      <div class="flex-cell">
+        <app-input-date [label]="{label:'form.user.label.sess_end'}"
+                        [placeholder]="'form.user.placeholder.sess_end'"
+                        [ctrl]="getControl('sess_end')"></app-input-date>
+      </div>
+    </div>
+    <div class="btn-area">
+      <button (click)="save()">Enregistrer la nouvelle session</button>
+    </div>
+  </form>
+</app-card>
 
-<form action="" class="text-center">
-  <hr>
-  <b>Certificat d'aptitude professionnel du 03/03/2022 au 03/03/2022</b>
-  <app-input-date></app-input-date>
-  <app-input-date></app-input-date>
-  <app-input-text></app-input-text>
-  <app-input-text></app-input-text>
-  <app-textarea></app-textarea>
-  <input type="update" value="Ajouter"/>
-</form>
+<!-- ADD an appointment to the session -->
+<app-card [config]="cardConfig">
+  <form action="" *ngIf="formGroup">
+    <hr>
+    <b>Certificat d'aptitude professionnel du 03/03/2022 au 03/03/2022</b>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-date [label]="{label:'form.user.label.app_start'}"
+        [placeholder]="'form.user.placeholder.app_start'"
+        [ctrl]="getControl('app_start')"></app-input-date>
+      </div>
+      <div class="flex-cell">
+        <app-input-date [label]="{label:'form.user.label.app_end'}"
+                        [placeholder]="'form.user.placeholder.app_end'"
+                        [ctrl]="getControl('app_end')"></app-input-date>
+      </div>
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.theme'}"
+                        [placeholder]="'form.user.placeholder.theme'"
+                        [ctrl]="getControl('theme')"></app-input-text>
+      </div>
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.price'}"
+                        [placeholder]="'form.user.placeholder.price'"
+                        [ctrl]="getControl('price')"></app-input-text>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-textarea [label]="{label:'form.user.label.comment'}"
+                      [placeholder]="'form.user.placeholder.comment'"
+                      [ctrl]="getControl('comment')"></app-textarea>
+      </div>
+    </div>
+    <div class="btn-area">
+      <button (click)="save()">Enregistrer la nouvelle session</button>
+    </div>
+  </form>
+
 
 <!-- Appointment table for CAP -->
 <div class="row g-1 d-grid gap-3">
@@ -43,4 +85,4 @@
     </tbody>
   </table>
 </div>
-
+</app-card>

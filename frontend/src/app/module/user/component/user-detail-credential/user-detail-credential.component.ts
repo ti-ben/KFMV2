@@ -54,4 +54,8 @@ export class UserDetailCredentialComponent implements OnInit {
       values: ActifHelper.toSelectOption()
     }
   }
+
+  save() {
+    alert('envoi du form credential');
+  }
 }
