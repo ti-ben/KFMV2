@@ -1,6 +1,5 @@
-<hr>
-<ul class="nav nav-tabs">
-  <li class="nav-item" *ngFor="let item of list" (click)="clickHandler.emit(item)">
-    <span class="clickable nav-link">{{item.label}}</span>
+<ul>
+  <li  *ngFor="let item of list" (click)="clickHandler.emit(item)">
+    <span  >{{item.label}}</span>
   </li>
 </ul>

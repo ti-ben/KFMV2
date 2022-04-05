@@ -21,6 +21,7 @@ export class UserDetailComponent implements OnInit {
   UserDetailTab = TabItemAction;
   currentTab: TabItemAction = TabItemAction.USER_IDENTITY;
   cardConfig!: CardConfig;
+
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public userService: UserService) {
 
   }
@@ -39,6 +40,9 @@ export class UserDetailComponent implements OnInit {
           }
         })
       ).subscribe();
+    this.userService.currentDetail$.subscribe((data: User) => {
+      this.cardConfig.headerConfig = {title: {label: `${data.firstname} ${data.lastname}`}}
+    })
   }
 
   private setTab(): void {

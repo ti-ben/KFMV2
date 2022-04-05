@@ -1,5 +1,6 @@
 package be.kauffman.kfm.modules.user.entity.payload;
 
+import be.kauffman.kfm.modules.site.entity.dto.Site;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,4 +26,5 @@ public class UserCreatePayload {
     Date created_on;
     String pob;
     String active;
+    Site site;
 }

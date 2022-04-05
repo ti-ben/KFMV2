@@ -1,4 +1,4 @@
-<app-card [config]="cardConfig">
+
   <form [formGroup]="formGroup">
     <div class="flex-row">
       <div class="flex-cell">
@@ -52,7 +52,7 @@
 
       <div class="flex-cell">
       <span>Adresse du domicile actuel</span>
-      <input type="text" formControlName="">
+      <input type="text" formControlName="road">
     </div>
 
       <div class="flex-cell">
@@ -102,4 +102,3 @@
 <div class="btn-area">
   <button (click)="update()">Mettre à jour les informations</button>
 </div>
-</app-card>

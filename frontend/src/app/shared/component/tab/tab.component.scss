@@ -1,0 +1,18 @@
+@import '~assets/css/common';
+@import '~assets/css/variable';
+
+ul {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  gap: 15px;
+
+  li {
+    @extend .transition-common;
+    cursor: pointer;
+    padding: 5px;
+    &:hover {
+      color: $secondary-contrast-color;
+    }
+  }
+}

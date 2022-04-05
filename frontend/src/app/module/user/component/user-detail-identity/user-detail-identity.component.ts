@@ -13,7 +13,7 @@ import {CardHelper} from "@shared/helper";
 })
 
 export class UserDetailIdentityComponent implements OnInit {
-  cardConfig: CardConfig = CardHelper.defaultConfig('page.user.detail.title');
+  cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   @Input() detail: User = UserHelper.getEmpty();
   formGroup!: FormGroup;
 
@@ -39,10 +39,12 @@ export class UserDetailIdentityComponent implements OnInit {
       created_on: new FormControl(this.detail.created_on),
       pob: new FormControl(this.detail.pob),
       active: new FormControl(this.detail.active),
-      status: new FormControl(this.detail.status.name),
+      status_name: new FormControl(this.detail.status.name),
       grade: new FormControl(this.detail.grade.name),
       site_name: new FormControl(this.detail.site.name),
-      //cp: new FormControl(this.detail.address.cp)
+      cp: new FormControl(this.detail.address.cp),
+      road: new FormControl(this.detail.address.road),
+      town: new FormControl(this.detail.address.town)
     })
   }
 

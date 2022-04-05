@@ -25,6 +25,11 @@ export class UserListComponent extends WithMenuAndDestroyableBaseComponent imple
   }
 
   ngOnInit(): void {
+    this.userService.refresh$.pipe(
+      takeUntil(this.destroyers$),
+      switchMap(() => this.userService.list()),
+      tap((list: User[]) => this.list$.next(list))
+    );
     this.search$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.userService.search({search: search})),

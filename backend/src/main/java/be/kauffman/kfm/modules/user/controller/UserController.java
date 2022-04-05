@@ -49,6 +49,7 @@ public class UserController {
                 .setCreated_on(payload.getCreated_on())
                 .setPob(payload.getPob())
                 .setActive(payload.getActive())
+                .setSite(payload.getSite())
                 .build();
         return new ApiResponse(true, userRepository.save(user), null);
     }

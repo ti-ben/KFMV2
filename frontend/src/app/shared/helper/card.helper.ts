@@ -1,6 +1,11 @@
 import {CardConfig} from '@shared/model';
 
 export class CardHelper {
+  static defaultConfigWithoutHeader():CardConfig{
+    return {
+      css: 'max-width-1400 p-large margin-auto margin-large'
+    };
+  }
   static defaultConfig(title = 'common.default.title'): CardConfig {
     return {
       headerConfig: {

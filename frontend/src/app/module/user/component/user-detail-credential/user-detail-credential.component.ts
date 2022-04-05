@@ -15,7 +15,7 @@ import {ActifHelper} from "@shared/helper";
   styleUrls: ['./user-detail-credential.component.scss']
 })
 export class UserDetailCredentialComponent implements OnInit {
-  cardConfig: CardConfig = CardHelper.defaultConfig('page.credential.detail.title');
+  cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   formGroup!: FormGroup;
   gradeSelectConfig!: SelectConfig;
   actifSelectConfig!: SelectConfig;

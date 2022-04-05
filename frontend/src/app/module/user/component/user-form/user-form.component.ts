@@ -1,19 +1,19 @@
-import {Component, OnInit} from '@angular/core';
-import {UserCreatePayload} from '@user/model';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ApiResponse, CardConfig, SelectConfig} from "@shared/model";
-import {UserService} from "@user/service/user.service";
-import {UserHelper} from '@user/helper';
-import {SiteService} from '@site/service/site.service';
-import {Site} from '@site/model';
-import {SiteHelper} from '@site/helper';
-import {ActifHelper, DriverHelper, GenderHelper,CardHelper} from '@shared/helper';
-import {Status} from "@status/model";
-import {StatusService} from "@status/service/status.service";
-import {StatusHelper} from "@status/helper";
-import {GradeService} from "@grade/service/grade.service";
-import {Grade} from "@grade/model";
-import {GradeHelper} from "@grade/helper";
+import { Component, OnInit } from '@angular/core';
+import { UserCreatePayload } from '@user/model';
+import { FormControl, FormGroup } from "@angular/forms";
+import { ApiResponse, CardConfig, SelectConfig } from "@shared/model";
+import { UserService } from "@user/service/user.service";
+import { UserHelper } from '@user/helper';
+import { SiteService } from '@site/service/site.service';
+import { Site } from '@site/model';
+import { SiteHelper } from '@site/helper';
+import { ActifHelper, CardHelper, DriverHelper, GenderHelper } from '@shared/helper';
+import { Status } from "@status/model";
+import { StatusService } from "@status/service/status.service";
+import { StatusHelper } from "@status/helper";
+import { GradeService } from "@grade/service/grade.service";
+import { Grade } from "@grade/model";
+import { GradeHelper } from "@grade/helper";
 
 @Component({
   selector: 'app-user-form',
@@ -47,11 +47,13 @@ export class UserFormComponent implements OnInit {
   save(): void {
     if (this.formGroup.valid) {
       const payload: UserCreatePayload = this.formGroup.value;
-      this.userService.create(payload).subscribe((response: ApiResponse) => {
-        if (response.result) {
-          this.formGroup.reset();
-        }
-      })
+      console.log(payload);
+      payload.site = {site_id: payload.site}
+       this.userService.create(payload).subscribe((response: ApiResponse) => {
+           if (response.result) {
+             this.formGroup.reset();
+           }
+         })
     }
   }
 
@@ -72,7 +74,7 @@ export class UserFormComponent implements OnInit {
       this.siteSelectConfig = {
         label: {label: 'form.user.label.site_name'},
         placeholder: 'form.user.placeholder.site_name',
-        ctrl: this.getControl('site_name'),
+        ctrl: this.getControl('site'),
         values: SiteHelper.toSiteOptionArray(list)
       }
     });
