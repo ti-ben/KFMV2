@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CardConfig} from "@shared/model";
+import {ApiResponse, CardConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {UserHelper} from "@user/helper";
@@ -7,6 +7,7 @@ import {SelectConfig} from "@shared/model/select.config";
 import {GradeService} from "@grade/service/grade.service";
 import {Grade} from "@grade/model";
 import {GradeHelper} from "@grade/helper";
+import {UserCreatePayload} from "@user/model";
 
 @Component({
   selector: 'app-user-detail-credential',

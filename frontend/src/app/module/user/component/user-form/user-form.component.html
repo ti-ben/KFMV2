@@ -44,6 +44,11 @@
                         [ctrl]="getControl('nationality')"></app-input-text>
       </div>
       <div class="flex-cell">
+        <app-input-text [label]="{label:'form.user.label.pob'}"
+                        [placeholder]="'form.user.placeholder.pob'"
+                        [ctrl]="getControl('pob')"></app-input-text>
+      </div>
+      <div class="flex-cell">
         <app-input-date [label]="{label:'form.user.label.dob'}"
                         [placeholder]="'form.user.placeholder.dob'"
                         [ctrl]="getControl('dob')"></app-input-date>

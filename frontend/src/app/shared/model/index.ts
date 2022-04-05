@@ -8,3 +8,4 @@ export * from './tab-item.interface';
 export * from './constant';
 export * from './card.config';
 export * from './label-with-params';
+export * from './select.config';

@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {User, UserCreatePayload} from '@user/model';
-import { UserHelper } from '@user/helper';
-import {ApiResponse} from "@shared/model";
+import {UserHelper} from '@user/helper';
 import {UserService} from "@user/service/user.service";
+import {CardConfig} from "@shared/model";
+import {CardHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-user-detail-identity',
@@ -12,12 +13,15 @@ import {UserService} from "@user/service/user.service";
 })
 
 export class UserDetailIdentityComponent implements OnInit {
+  cardConfig: CardConfig = CardHelper.defaultConfig('page.user.detail.title');
   @Input() detail: User = UserHelper.getEmpty();
   formGroup!: FormGroup;
 
   constructor(public userService: UserService) {
   }
 
+  //Les infos de l'utilisateur ne changent pas lors de la sélection dans la liste
+  //Il reste sur les informations du premier user sélectionné
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       firstname: new FormControl(this.detail.firstname),

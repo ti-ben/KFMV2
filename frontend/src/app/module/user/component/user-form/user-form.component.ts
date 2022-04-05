@@ -1,16 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {UserCreatePayload} from '@user/model';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ApiResponse, CardConfig} from "@shared/model";
-import {CardHelper} from "@shared/helper/card.helper";
+import {ApiResponse, CardConfig, SelectConfig} from "@shared/model";
 import {UserService} from "@user/service/user.service";
 import {UserHelper} from '@user/helper';
 import {SiteService} from '@site/service/site.service';
-import {SelectConfig} from '@shared/model/select.config';
 import {Site} from '@site/model';
 import {SiteHelper} from '@site/helper';
-import {GenderHelper} from '@shared/helper/gender.helper';
-import {ActifHelper, DriverHelper} from '@shared/helper';
+import {ActifHelper, DriverHelper, GenderHelper,CardHelper} from '@shared/helper';
 import {Status} from "@status/model";
 import {StatusService} from "@status/service/status.service";
 import {StatusHelper} from "@status/helper";

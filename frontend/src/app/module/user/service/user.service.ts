@@ -7,7 +7,6 @@ import {map, tap} from 'rxjs/operators';
 import {isNil} from 'lodash';
 import {UserHelper} from '@user/helper';
 import {User, UserCreatePayload, UserDto, UserSearch, UserUpdatePayload} from '@user/model';
-import {VehiculeCreatePayload} from "@vehicule/model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class UserService extends ApiService {
     super(http);
   }
 
-  search(search:UserSearch): Observable<User[]> {
+  search(search: UserSearch): Observable<User[]> {
     return this.post(ApiUriEnum.USER_SEARCH, search)
       .pipe(
         map((response: ApiResponse) => {

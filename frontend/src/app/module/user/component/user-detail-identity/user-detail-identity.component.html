@@ -1,4 +1,5 @@
-<form [formGroup]="formGroup">
+<app-card [config]="cardConfig">
+  <form [formGroup]="formGroup">
   <div class="row g-3">
     <div class="col-md-3">
       <span>Nom</span>
@@ -93,7 +94,8 @@
     </div>
   </div>
 </form>
-<hr>
+
 <div class="btn-area">
   <button (click)="save()">Enregistrer les modifications</button>
 </div>
+</app-card>
