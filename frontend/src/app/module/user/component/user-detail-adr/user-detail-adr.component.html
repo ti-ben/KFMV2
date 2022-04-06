@@ -1,71 +1,19 @@
-<div class="row g-1 d-grid gap-3">
-
-  <div class="col-md-4 input-group input-group-sm date p-2">
-    <input type="text" class="form-control" value="" placeholder="Date début">
-    <span class="input-group-append input-group-sm">
-        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
-    </span>
+<div class="flex-row">
+  <div class="flex-cell">
+    <app-input-date></app-input-date>
   </div>
-
-  <div class="col-md-4 input-group input-group-sm date p-2">
-    <input type="text" class="form-control" value="" placeholder="Date fin">
-    <span class="input-group-append input-group-sm">
-        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
-    </span>
+  <div class="flex-cell">
+    <app-input-date></app-input-date>
   </div>
-
-  <div class="col-md-4 p-2">
-    <select class="custom-select custom-select-sm">
-      <option selected disabled value="">Types</option>
-      <option>Citerne</option>
-      <option>Colis</option>
-      <option>Citerne & Colis</option>
-    </select>
+  <div class="flex-cell">
+    <app-select></app-select>
   </div>
-
-  <div class="col-md-12 form-group p-2">
-    <textarea class="form-control form-control-sm" id="" value="" rows="3" placeholder="Commentaire"></textarea>
-  </div>
-
   <div class="btn-area">
-    <button>Ajouter</button>
+    <button><i class="fa-solid fa-square-plus"></i></button>
   </div>
-
 </div>
-
- Table to display elements from adr
-
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Date de l'évaluation</th>
-      <th scope="col">Types</th>
-      <th scope="col">Commentaire</th>
-      <th scope="col">Options</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="table-success">
-      <td>05/03/2022</td>
-      <td>Colis</td>
-      <td>Un commentaire</td>
-      <td>
-        <div class="btn-area">
-          <button>A</button>
-          <button>D</button>
-        </div>
-      </td>
-    </tr>
-    <tr class="table-success">
-      <td>09/03/2016</td>
-      <td>Colis</td>
-      <td>Un commentaire</td>
-      <td>
-        <div class="btn-area">
-          <button>A</button>
-          <button>D</button>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<div class="flex-row">
+  <div class="flex-cell">
+    <app-textarea></app-textarea>
+  </div>
+</div>

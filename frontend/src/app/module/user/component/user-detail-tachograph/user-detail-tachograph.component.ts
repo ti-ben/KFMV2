@@ -22,6 +22,10 @@ export class UserDetailTachographComponent implements OnInit {
     })
   }
 
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
+
   onClick() {
     alert('envoi du form');
   }

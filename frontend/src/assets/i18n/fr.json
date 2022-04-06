@@ -292,12 +292,19 @@
         "created_on": "Ajouté le",
         "site_name": "Travail à",
         "grade_name": "Rôle"
-
       },
       "placeholder": {
         "lasname" : "Entrer un nom",
         "lasname" : "Entrer un prénom",
         "email": "Ajouter une adresse email"
+      },
+      "tachograph": {
+        "label": {
+          "start_date": "Date de début",
+          "end_date": "Date de fin",
+          "comment": "Commentaire",
+          "num_carte": "Numéro de carte"
+        }
       }
     },
     "vehicule": {
