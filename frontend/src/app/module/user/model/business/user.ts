@@ -11,7 +11,7 @@ export interface User {
   avatar: string,
   dob: Date,
   email: string,
-  password: string,
+  //password: string,
   telpro: string,
   telperso: string,
   nationality: string,

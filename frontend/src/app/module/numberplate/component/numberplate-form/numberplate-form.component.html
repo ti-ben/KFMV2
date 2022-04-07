@@ -1,10 +1,18 @@
 <app-card [config]="cardConfig">
   <form action="">
-    <app-input-text [label]="{label:'form.numberplate.label.name'}" [placeholder]="'form.numberplate.placehodler.name'" [ctrl]="getControl('name')"></app-input-text>
-    <app-input-date [label]="{label:'form.numberplate.label.date'}" [placeholder]="'form.numberplate.placehodler.date'" [ctrl]="getControl('dop')"></app-input-date>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.numberplate.label.name'}" [placeholder]="'form.numberplate.placehodler.name'" [ctrl]="getControl('name')"></app-input-text>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-date [label]="{label:'form.numberplate.label.date'}" [placeholder]="'form.numberplate.placehodler.date'" [ctrl]="getControl('dop')"></app-input-date>
+      </div>
+    </div>
   </form>
 
   <div class="btn-area">
-    <button (click)="save()">Enregistrer l'immatriculation</button>
+    <button (click)="save()">Enregistrer</button>
   </div>
 </app-card>

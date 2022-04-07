@@ -23,7 +23,7 @@ export class NumberplateFormComponent implements OnInit {
   public getControl(name: string): FormControl {
     return this.formGroup.get(name) as FormControl;
   }
-
+//todo Check why the information are not saved when creating a new numberplate
   save(): void {
     if (this.formGroup.valid) {
       const payload: NumberplateCreatePayload = this.formGroup.value;
@@ -37,10 +37,9 @@ export class NumberplateFormComponent implements OnInit {
   }
 
   private initForm(): void {
-    // Object NumberplateCreatePayload
     this.formGroup = new FormGroup({
-      num_plate: new FormControl('', [Validators.required]),
-      dop: new FormControl('', [Validators.required]),
+      num_plate: new FormControl(''),
+      dop: new FormControl(''),
     });
   }
 

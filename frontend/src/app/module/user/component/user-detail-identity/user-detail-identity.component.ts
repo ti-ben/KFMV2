@@ -20,8 +20,8 @@ export class UserDetailIdentityComponent implements OnInit {
   constructor(public userService: UserService) {
   }
 
-  //Les infos de l'utilisateur ne changent pas lors de la sélection dans la liste
-  //Il reste sur les informations du premier user sélectionné
+  //todo Les infos de l'utilisateur ne changent pas lors de la sélection dans la liste,
+  // Il reste sur les informations du premier user sélectionné
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       firstname: new FormControl(this.detail.firstname),
@@ -30,7 +30,7 @@ export class UserDetailIdentityComponent implements OnInit {
       avatar: new FormControl(this.detail.avatar),
       dob: new FormControl(this.detail.dob),
       email: new FormControl(this.detail.email),
-      password: new FormControl(this.detail.password),
+      //password: new FormControl(this.detail.password),
       telpro: new FormControl(this.detail.telpro),
       telperso: new FormControl(this.detail.telperso),
       nationality: new FormControl(this.detail.nationality),
@@ -48,7 +48,7 @@ export class UserDetailIdentityComponent implements OnInit {
     })
   }
 
-  //A vérifier parce que ça ne met pas à jour, ça créé un nouvel utilisateur, je dois faire un update
+  //todo update user information to db
   update(): void {
     if (this.formGroup.valid) {
       const payload: UserCreatePayload = this.formGroup.value;

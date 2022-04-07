@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiResponse, CardConfig } from '@shared/model';
-import { CardHelper } from '@shared/helper/card.helper';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SiteCreatePayload } from '@site/model';
-import { SiteService } from '@site/service/site.service';
+import {Component, OnInit} from '@angular/core';
+import {ApiResponse, CardConfig} from '@shared/model';
+import {CardHelper} from '@shared/helper/card.helper';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {SiteCreatePayload} from '@site/model';
+import {SiteService} from '@site/service/site.service';
 
 @Component({
   selector: 'app-site-form',
@@ -38,7 +38,6 @@ export class SiteFormComponent implements OnInit {
   }
 
   private initForm(): void {
-    // Object SiteCreatePayload
     this.formGroup = new FormGroup({
       name: new FormControl('', [Validators.required]),
       description: new FormControl(''),

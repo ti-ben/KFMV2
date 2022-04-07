@@ -235,12 +235,12 @@
     },
     "numberplate": {
       "label": {
-        "name": "Numéro",
-        "date": "Date d'achat"
+        "name": "N° de plaque d'immatriculation",
+        "date": "Date d'achat de la plaque"
       },
       "placeholder": {
         "name": "Entrer un numéro de plaque",
-        "date": "Choisir une date d'acaht"
+        "date": "Choisir une date d'achat"
       }
     },
     "prestataire": {

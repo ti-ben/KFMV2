@@ -24,7 +24,7 @@ import { GradeHelper } from "@grade/helper";
 export class UserFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
   formGroup!: FormGroup;
-  userHelper = UserHelper
+  //userHelper = UserHelper;
   genderSelectConfig!: SelectConfig;
   actifSelectConfig!: SelectConfig;
   siteSelectConfig!: SelectConfig;
@@ -47,7 +47,7 @@ export class UserFormComponent implements OnInit {
   save(): void {
     if (this.formGroup.valid) {
       const payload: UserCreatePayload = this.formGroup.value;
-      console.log(payload);
+      //console.log(payload);
       payload.site = {site_id: payload.site}
        this.userService.create(payload).subscribe((response: ApiResponse) => {
            if (response.result) {

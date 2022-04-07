@@ -1,7 +1,20 @@
 <app-card [config]="cardConfig">
   <form action="">
-    <app-input-text [label]="{label:'form.status.label.name'}" [placeholder]="'form.status.placehodler.name'" [ctrl]="getControl('name')"></app-input-text>
-    <app-textarea [label]="{label:'form.status.label.description'}" [placeholder]="'form.status.placehodler.description'" [ctrl]="getControl('description')"></app-textarea>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.status.label.name'}" [placeholder]="'form.status.placehodler.name'"
+                        [ctrl]="getControl('name')"></app-input-text>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-textarea [label]="{label:'form.status.label.description'}"
+                      [placeholder]="'form.status.placehodler.description'"
+                      [ctrl]="getControl('description')"></app-textarea>
+      </div>
+    </div>
   </form>
-    <input type="update" (click)="save()" value="Enregistrer"/>
+  <div class="btn-area">
+    <button (click)="save()">Enregistrer</button>
+  </div>
 </app-card>

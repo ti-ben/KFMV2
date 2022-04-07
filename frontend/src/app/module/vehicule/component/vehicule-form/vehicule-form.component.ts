@@ -16,7 +16,7 @@ import {SelectConfig} from "@shared/model/select.config";
 export class VehiculeFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.vehicule.create.title');
   formGroup!: FormGroup;
-  vehiculeHelper = VehiculeHelper;
+  //vehiculeHelper = VehiculeHelper;
   actifSelectConfig!: SelectConfig;
   genreSelectConfig!: SelectConfig;
 
