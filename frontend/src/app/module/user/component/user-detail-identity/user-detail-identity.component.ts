@@ -3,8 +3,14 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {User, UserCreatePayload} from '@user/model';
 import {UserHelper} from '@user/helper';
 import {UserService} from "@user/service/user.service";
-import {CardConfig} from "@shared/model";
+import {CardConfig, SelectConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper";
+import {Site} from "@site/model";
+import {SiteHelper} from "@site/helper";
+import {SiteService} from "@site/service/site.service";
+import {Status} from "@status/model";
+import {StatusHelper} from "@status/helper";
+import {StatusService} from "@status/service/status.service";
 
 @Component({
   selector: 'app-user-detail-identity',
@@ -15,13 +21,21 @@ import {CardHelper} from "@shared/helper";
 export class UserDetailIdentityComponent implements OnInit, OnChanges {
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   @Input() detail: User = UserHelper.getEmpty();
+  siteSelectConfig!: SelectConfig;
+  statusSelectConfig!: SelectConfig;
   formGroup!: FormGroup;
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService) {
   }
 
   //Construit le composant
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setSelectConfig();
+  }
+
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
 
   // Affiche les informations du user sélectionné
   ngOnChanges(): void {
@@ -42,7 +56,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       active: new FormControl(this.detail.active),
       site: new FormControl(this.detail.site),
       //addressList: new FormControl([]),
-      grade : new FormControl(this.detail.grade),
+      grade: new FormControl(this.detail.grade),
       status: new FormControl(this.detail.status)
     })
   }
@@ -53,5 +67,26 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       const payload: UserCreatePayload = this.formGroup.value;
       this.userService.update(payload).subscribe();
     }
+  }
+
+  private setSelectConfig(): void {
+
+    this.siteService.list().subscribe((list: Site[]) => {
+      this.siteSelectConfig = {
+        label: {label: 'form.user.label.site_name'},
+        placeholder: 'form.user.placeholder.site_name',
+        ctrl: this.getControl('site_name'),
+        values: SiteHelper.toSiteOptionArray(list)
+      }
+    });
+
+    this.statusService.list().subscribe((list: Status[]) => {
+      this.statusSelectConfig = {
+        label: {label: 'form.user.label.status_name'},
+        placeholder: 'form.user.placeholder.status_name',
+        ctrl: this.getControl('status_name'),
+        values: StatusHelper.toStatusOptionArray(list)
+      }
+    });
   }
 }

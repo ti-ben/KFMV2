@@ -11,23 +11,25 @@
       </div>
       <div class="flex-row">
         <div class="flex-cell">
-          <input value="{{site.name}}" type="text" placeholder="Site name"/>
+          <input value="{{site.name}}" type="text" placeholder="Site name" (blur)="update()"/>
         </div>
       </div>
       <div class="flex-row">
         <div class="flex-cell">
-          <input value="{{site.created_on}}" type="text" placeholder="Site créé le"/>
+          <input value="{{site.created_on}}" type="text" placeholder="Site créé le" (blur)="update()"/>
         </div>
       </div>
       <div class="flex-row">
         <div class="flex-cell">
-          <textarea value="{{site.description}}" type="text-area">{{site.description}}</textarea>
+          <textarea value="{{site.description}}" type="text-area" (blur)="update()">{{site.description}}</textarea>
         </div>
       </div>
     </ng-template>
   </form>
   <div class="btn-area">
+    <!--
     <button (click)="update()">Mettre à jour</button>
+    -->
     <button (click)="archive()">Archiver</button>
   </div>
 </app-card>
