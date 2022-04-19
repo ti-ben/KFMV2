@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {User, UserCreatePayload} from '@user/model';
 import {UserHelper} from '@user/helper';
@@ -12,7 +12,7 @@ import {CardHelper} from "@shared/helper";
   styleUrls: ['./user-detail-identity.component.scss']
 })
 
-export class UserDetailIdentityComponent implements OnInit {
+export class UserDetailIdentityComponent implements OnInit, OnChanges {
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   @Input() detail: User = UserHelper.getEmpty();
   formGroup!: FormGroup;
@@ -20,9 +20,11 @@ export class UserDetailIdentityComponent implements OnInit {
   constructor(public userService: UserService) {
   }
 
-  //todo Les infos de l'utilisateur ne changent pas lors de la sélection dans la liste,
-  // Il reste sur les informations du premier user sélectionné
-  ngOnInit(): void {
+  //Construit le composant
+  ngOnInit(): void {}
+
+  // Affiche les informations du user sélectionné
+  ngOnChanges(): void {
     this.formGroup = new FormGroup({
       firstname: new FormControl(this.detail.firstname),
       lastname: new FormControl(this.detail.lastname),
@@ -30,7 +32,6 @@ export class UserDetailIdentityComponent implements OnInit {
       avatar: new FormControl(this.detail.avatar),
       dob: new FormControl(this.detail.dob),
       email: new FormControl(this.detail.email),
-      //password: new FormControl(this.detail.password),
       telpro: new FormControl(this.detail.telpro),
       telperso: new FormControl(this.detail.telperso),
       nationality: new FormControl(this.detail.nationality),
@@ -39,12 +40,10 @@ export class UserDetailIdentityComponent implements OnInit {
       created_on: new FormControl(this.detail.created_on),
       pob: new FormControl(this.detail.pob),
       active: new FormControl(this.detail.active),
-      status_name: new FormControl(this.detail.status.name),
-      grade: new FormControl(this.detail.grade.name),
-      site_name: new FormControl(this.detail.site.name),
-      cp: new FormControl(this.detail.address.cp),
-      road: new FormControl(this.detail.address.road),
-      town: new FormControl(this.detail.address.town)
+      site: new FormControl(this.detail.site),
+      //addressList: new FormControl([]),
+      grade : new FormControl(this.detail.grade),
+      status: new FormControl(this.detail.status)
     })
   }
 

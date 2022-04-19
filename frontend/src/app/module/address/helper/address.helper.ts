@@ -16,6 +16,7 @@ export class AddressHelper {
       num: dto.num
     }
   }
+
   public static toDto(address: Address): AddressDto {
     return {
       address_id: address.address_id,

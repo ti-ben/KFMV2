@@ -1,103 +1,106 @@
-
-  <form [formGroup]="formGroup">
-    <div class="flex-row">
-      <div class="flex-cell">
+<form [formGroup]="formGroup">
+  <div class="flex-row">
+    <div class="flex-cell">
       <span>Nom</span>
-      <input type="text" formControlName="lastname" >
+      <input type="text" formControlName="lastname" (blur)="update()">
     </div>
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Prénom</span>
-      <input type="text" formControlName="firstname" >
+      <input type="text" formControlName="firstname" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Adresse email</span>
       <div class="input-group">
-        <input type="text" formControlName="email">
+        <input type="text" formControlName="email" (blur)="update()">
       </div>
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Tel. (Perso)</span>
-      <input type="text" formControlName="telperso">
+      <input type="text" formControlName="telperso" (blur)="update()">
     </div>
-    </div>
-      <div class="flex-row">
-      <div class="flex-cell">
+  </div>
+
+  <div class="flex-row">
+    <div class="flex-cell">
       <span>Tel. (Pro)</span>
-      <input type="text" formControlName="telpro">
+      <input type="text" formControlName="telpro" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Nationalité</span>
-      <input type="text" formControlName="nationality">
+      <input type="text" formControlName="nationality" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Genre</span>
-      <input type="text" formControlName="gender">
+      <input type="text" formControlName="gender" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Date de naissance</span>
-      <input type="text" formControlName="dob">
+      <input type="text" formControlName="dob" (blur)="update()">
     </div>
-      </div>
-        <div class="flex-row">
-      <div class="flex-cell">
+  </div>
+
+  <div class="flex-row">
+    <div class="flex-cell">
       <span>Lieu de naissance</span>
-      <input type="text" formControlName="pob">
+      <input type="text" formControlName="pob" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Adresse du domicile actuel</span>
-      <input type="text" formControlName="road">
+      <input type="text" formControlName="address" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Code Postal</span>
-      <input type="text" formControlName="cp">
+      <input type="text" formControlName="cp" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Ville</span>
-      <input type="text" formControlName="town">
+      <input type="text" formControlName="town" (blur)="update()">
     </div>
-        </div>
-          <div class="flex-row">
-      <div class="flex-cell">
+  </div>
+
+  <div class="flex-row">
+    <div class="flex-cell">
       <span>N° registre national</span>
-      <input type="text" formControlName="numirn">
+      <input type="text" formControlName="numirn" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Permis</span>
-      <input type="text" formControlName="driver_license">
+      <input type="text" formControlName="driver_license" (blur)="update()">
     </div>
 
-      <div class="flex-cell">
+    <div class="flex-cell">
       <span>Statut</span>
-      <input type="text" formControlName="status_name">
+      <input type="text" formControlName="status">
     </div>
-<!--
-    <div class="flex-cell">
-      <span>Date d'ajout</span>
-      <input type="text" formControlName="created_on">
-    </div>
--->
-      <div class="flex-cell">
-      <span>Site</span>
-      <input type="text" formControlName="site_name">
-    </div>
-<!--
-    <div class="flex-cell">
-      <span>Rang</span>
-      <input type="text" formControlName="grade_name">
-    </div>
+    <!--
+        <div class="flex-cell">
+          <span>Date d'ajout</span>
+          <input type="text" formControlName="created_on">
+        </div>
     -->
+    <div class="flex-cell">
+      <span>Site</span>
+      <input type="text" formControlName="site" (blur)="update()">
+    </div>
+    <!--
+        <div class="flex-cell">
+          <span>Rang</span>
+          <input type="text" formControlName="grade_name">
+        </div>
+        -->
   </div>
 </form>
-
+<!--
 <div class="btn-area">
   <button (click)="update()">Mettre à jour les informations</button>
 </div>
+-->

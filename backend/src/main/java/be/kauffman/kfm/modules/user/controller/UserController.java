@@ -70,8 +70,8 @@ public class UserController {
         return new ApiResponse(true, fromDb, null);
     }
 
-    // Update record
-    @PostMapping("/update")
+    // Update record (Put to update a record Post to create a record)
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody UserUpdatePayload payload) {
         User fromDb = userRepository.findById(payload.getUser_id()).orElse(null);
         if (fromDb == null) {

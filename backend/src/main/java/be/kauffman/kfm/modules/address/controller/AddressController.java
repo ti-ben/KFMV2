@@ -49,7 +49,7 @@ public class AddressController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody AddressUpdatePayload payload) {
         Address fromDb = addressRepository.findById(payload.getAdresse_id()).orElse(null);
         if(fromDb == null){
