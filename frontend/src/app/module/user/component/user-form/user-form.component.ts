@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { UserCreatePayload } from '@user/model';
-import { FormControl, FormGroup } from "@angular/forms";
-import { ApiResponse, CardConfig, SelectConfig } from "@shared/model";
-import { UserService } from "@user/service/user.service";
-import { UserHelper } from '@user/helper';
-import { SiteService } from '@site/service/site.service';
-import { Site } from '@site/model';
-import { SiteHelper } from '@site/helper';
-import { ActifHelper, CardHelper, DriverHelper, GenderHelper } from '@shared/helper';
-import { Status } from "@status/model";
-import { StatusService } from "@status/service/status.service";
-import { StatusHelper } from "@status/helper";
-import { GradeService } from "@grade/service/grade.service";
-import { Grade } from "@grade/model";
-import { GradeHelper } from "@grade/helper";
+import {Component, OnInit} from '@angular/core';
+import {UserCreatePayload} from '@user/model';
+import {FormControl, FormGroup} from "@angular/forms";
+import {ApiResponse, CardConfig, SelectConfig} from "@shared/model";
+import {UserService} from "@user/service/user.service";
+import {UserHelper} from '@user/helper';
+import {SiteService} from '@site/service/site.service';
+import {Site} from '@site/model';
+import {SiteHelper} from '@site/helper';
+import {ActifHelper, CardHelper, DriverHelper, GenderHelper} from '@shared/helper';
+import {Status} from "@status/model";
+import {StatusService} from "@status/service/status.service";
+import {StatusHelper} from "@status/helper";
+import {GradeService} from "@grade/service/grade.service";
+import {Grade} from "@grade/model";
+import {GradeHelper} from "@grade/helper";
 
 @Component({
   selector: 'app-user-form',
@@ -24,7 +24,7 @@ import { GradeHelper } from "@grade/helper";
 export class UserFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
   formGroup!: FormGroup;
-  //userHelper = UserHelper;
+
   genderSelectConfig!: SelectConfig;
   actifSelectConfig!: SelectConfig;
   siteSelectConfig!: SelectConfig;
@@ -49,11 +49,11 @@ export class UserFormComponent implements OnInit {
       const payload: UserCreatePayload = this.formGroup.value;
       //console.log(payload);
       payload.site = {site_id: payload.site}
-       this.userService.create(payload).subscribe((response: ApiResponse) => {
-           if (response.result) {
-             this.formGroup.reset();
-           }
-         })
+      this.userService.create(payload).subscribe((response: ApiResponse) => {
+        if (response.result) {
+          this.formGroup.reset();
+        }
+      })
     }
   }
 
@@ -62,7 +62,6 @@ export class UserFormComponent implements OnInit {
   }
 
   private setSelectConfig(): void {
-
     this.driverSelectConfig = {
       label: {label: 'form.user.label.driver_license'},
       placeholder: 'form.user.placeholder.driver_license',
