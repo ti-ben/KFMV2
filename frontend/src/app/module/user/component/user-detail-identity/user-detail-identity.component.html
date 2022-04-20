@@ -49,23 +49,7 @@
       <span>Lieu de naissance</span>
       <input type="text" formControlName="pob" (blur)="update()"/>
     </div>
-
-    <div class="flex-cell">
-      <span>Adresse du domicile actuel</span>
-      <input type="text" formControlName="address" (blur)="update()"/>
-    </div>
-
-    <div class="flex-cell">
-      <span>Code Postal</span>
-      <input type="text" formControlName="cp" (blur)="update()"/>
-    </div>
-
-    <div class="flex-cell">
-      <span>Ville</span>
-      <input type="text" formControlName="town" (blur)="update()"/>
-    </div>
   </div>
-
   <div class="flex-row">
     <div class="flex-cell">
       <span>N° registre national</span>
@@ -76,20 +60,11 @@
       <span>Permis</span>
       <input type="text" formControlName="driver_license" (blur)="update()"/>
     </div>
-
     <div class="flex-cell">
-      <span>Statut</span>
-      <input type="text" formControlName="status" (blur)="update()"/>
+      <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig" [config]="statusSelectConfig"></app-select>
     </div>
     <div class="flex-cell">
-      <app-select [config]="statusSelectConfig"></app-select>
-    </div>
-    <div class="flex-cell">
-      <span>Site</span>
-      <input type="text" formControlName="site" (blur)="update()"/>
-    </div>
-    <div class="flex-cell">
-      <app-select [config]="siteSelectConfig"></app-select>
+      <app-select  *ngIf="siteSelectConfig$ | async as siteSelectConfig" [config]="siteSelectConfig"></app-select>
     </div>
   </div>
 </form>

@@ -25,4 +25,5 @@ public class Grade {
     private UUID grade_id;
     String name;
     String comment;
+    Boolean defaultValue;
 }

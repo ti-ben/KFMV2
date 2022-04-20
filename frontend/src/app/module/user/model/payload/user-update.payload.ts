@@ -20,4 +20,5 @@ export interface UserUpdatePayload extends PayloadInterface {
   address:any;
   grade:any;
   status:any;
+  user_id:string;
 }

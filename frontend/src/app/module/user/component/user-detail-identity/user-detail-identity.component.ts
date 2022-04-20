@@ -1,16 +1,21 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {User, UserUpdatePayload} from '@user/model';
-import {UserHelper} from '@user/helper';
-import {UserService} from "@user/service/user.service";
-import {CardConfig, SelectConfig} from "@shared/model";
-import {CardHelper} from "@shared/helper";
-import {Site} from "@site/model";
-import {SiteHelper} from "@site/helper";
-import {SiteService} from "@site/service/site.service";
-import {Status} from "@status/model";
-import {StatusHelper} from "@status/helper";
-import {StatusService} from "@status/service/status.service";
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { User, UserUpdatePayload } from '@user/model';
+import { UserHelper } from '@user/helper';
+import { UserService } from "@user/service/user.service";
+import { CardConfig, SelectConfig } from "@shared/model";
+import { CardHelper } from "@shared/helper";
+import { Site } from "@site/model";
+import { SiteHelper } from "@site/helper";
+import { SiteService } from "@site/service/site.service";
+import { Status } from "@status/model";
+import { StatusHelper } from "@status/helper";
+import { StatusService } from "@status/service/status.service";
+import { BehaviorSubject } from 'rxjs';
+import { isNil } from 'lodash';
+import { Grade } from '@grade/model';
+import { GradeService } from '@grade/service/grade.service';
+import { GradeHelper } from '@grade/helper';
 
 @Component({
   selector: 'app-user-detail-identity',
@@ -21,11 +26,15 @@ import {StatusService} from "@status/service/status.service";
 export class UserDetailIdentityComponent implements OnInit, OnChanges {
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   @Input() detail: User = UserHelper.getEmpty();
-  siteSelectConfig!: SelectConfig;
-  statusSelectConfig!: SelectConfig;
+  siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  statusSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  gradeList: Grade[] = [];
+  siteList: Site[] = [];
+  statusList: Status[] = [];
   formGroup!: FormGroup;
 
-  constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService) {
+  constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService, public gradeService: GradeService) {
   }
 
   //Construit le composant
@@ -54,10 +63,10 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       created_on: new FormControl(this.detail.created_on),
       pob: new FormControl(this.detail.pob),
       active: new FormControl(this.detail.active),
-      site: new FormControl(this.detail.site),
-      //addressList: new FormControl([]),
-      grade: new FormControl(this.detail.grade),
-      status: new FormControl(this.detail.status)
+      site: new FormControl(this.detail.site.site_id), // MAIS ATTENTION DE BIEN REPRENDRE LE SITE AU MOMENT DE L ENVOI DU FORMULAIRE
+      address: new FormControl([]),
+      grade: new FormControl(this.detail.grade.grade_id),
+      status: new FormControl(this.detail.status.status_id)
     })
   }
 
@@ -65,6 +74,12 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   update(): void {
     if (this.formGroup.valid) {
       const payload: UserUpdatePayload = this.formGroup.value;
+      // LIER LES OBJECTS AUX CLES
+      payload.user_id = this.detail.user_id;
+      payload.site = {site_id: payload.site};
+      payload.grade = (isNil(payload.grade) || payload.grade.length === 0) ? {grade_id: this.gradeList.find(g => g.name === 'User')!.grade_id} : {grade_id: payload.grade};
+      payload.status = {status_id: payload.status};
+      console.log('payload', payload);
       this.userService.update(payload).subscribe();
     }
   }
@@ -72,21 +87,33 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   private setSelectConfig(): void {
 
     this.siteService.list().subscribe((list: Site[]) => {
-      this.siteSelectConfig = {
+      this.siteList = list;
+      this.siteSelectConfig$.next({
         label: {label: 'form.user.label.site_name'},
         placeholder: 'form.user.placeholder.site_name',
-        ctrl: this.getControl('site_name'),
+        ctrl: this.getControl('site'),
         values: SiteHelper.toSiteOptionArray(list)
-      }
+      });
     });
 
     this.statusService.list().subscribe((list: Status[]) => {
-      this.statusSelectConfig = {
+      this.statusList = list;
+      this.statusSelectConfig$.next({
         label: {label: 'form.user.label.status_name'},
         placeholder: 'form.user.placeholder.status_name',
-        ctrl: this.getControl('status_name'),
+        ctrl: this.getControl('status'),
         values: StatusHelper.toStatusOptionArray(list)
-      }
+      });
+    });
+
+    this.gradeService.list().subscribe((list: Grade[]) => {
+      this.gradeList = list;
+      this.gradeSelectConfig$.next({
+        label: {label: 'form.user.label.grade_name'},
+        placeholder: 'form.user.placeholder.grade_name',
+        ctrl: this.getControl('grade'),
+        values: GradeHelper.toGradeOptionArray(list)
+      });
     });
   }
 }
