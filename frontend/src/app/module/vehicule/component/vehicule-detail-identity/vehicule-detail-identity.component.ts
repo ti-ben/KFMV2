@@ -14,8 +14,9 @@ export class VehiculeDetailIdentityComponent implements OnInit {
   formGroup!: FormGroup;
 
   constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.formGroup = new FormGroup({
       dop: new FormControl(this.detail.dop),
       active: new FormControl(this.detail.active),

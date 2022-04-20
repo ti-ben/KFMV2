@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {User, UserCreatePayload} from '@user/model';
+import {User, UserUpdatePayload} from '@user/model';
 import {UserHelper} from '@user/helper';
 import {UserService} from "@user/service/user.service";
 import {CardConfig, SelectConfig} from "@shared/model";
@@ -64,7 +64,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   //todo update user information to db
   update(): void {
     if (this.formGroup.valid) {
-      const payload: UserCreatePayload = this.formGroup.value;
+      const payload: UserUpdatePayload = this.formGroup.value;
       this.userService.update(payload).subscribe();
     }
   }

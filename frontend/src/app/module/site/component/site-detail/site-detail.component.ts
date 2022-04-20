@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {Component, Input, OnInit} from '@angular/core';
+//import {BehaviorSubject} from "rxjs";
 import {CardConfig, GenericTableConfig} from "@shared/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
 import {SiteService} from "@site/service/site.service";
-import {Site} from "@site/model";
+import {Site, SiteUpdatePayload} from "@site/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {GenericTableHelper} from "@shared/helper";
+import {SiteHelper} from "@site/helper";
+//import {GenericTableHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-site-detail',
@@ -18,7 +19,8 @@ import {GenericTableHelper} from "@shared/helper";
 
 export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  @Input() detail: Site = SiteHelper.getEmpty();
+  //config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
   formGroup!: FormGroup;
 
@@ -41,19 +43,23 @@ export class SiteDetailComponent implements OnInit {
       ).subscribe();
   }
 
-  update(): void{
-    alert('Mise à jour du site');
+  //todo update site information to db
+  update(): void {
+    if (this.formGroup.valid) {
+      const payload: SiteUpdatePayload = this.formGroup.value;
+      this.siteService.update(payload).subscribe();
+    }
   }
 
-  archive(): void{
+  archive(): void {
     alert('Archivage du site');
   }
-
+/*
   private setConfig(list: Site[]): void {
     let config = this.config$.getValue();
     config.fields = GenericTableHelper.genSiteFieldDefinitions();
     config.data = list;
     this.config$.next(config);
   }
-
+*/
 }
