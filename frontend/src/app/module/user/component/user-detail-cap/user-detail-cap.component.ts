@@ -11,10 +11,14 @@ import {CardHelper} from "@shared/helper";
 export class UserDetailCapComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.session_cap.title');
   formGroup!: FormGroup;
+  sessionForm!: FormGroup;
   constructor() { }
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
+
+    })
+    this.sessionForm = new FormGroup({
 
     })
   }
@@ -23,7 +27,11 @@ export class UserDetailCapComponent implements OnInit {
     return this.formGroup.get(name) as FormControl;
   }
 
- save() {
+ savePeriod() {
     alert('envoi du form');
+  }
+
+  addSession(){
+    alert('add Session')
   }
 }

@@ -30,11 +30,11 @@ public class Appointment {
     String type;
     String category;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name ="period_id_fk", referencedColumnName = "period_id")
     Period period;
 
-    @ManyToOne()
+    @OneToOne()
     @JoinColumn(name = "user_id_fk", referencedColumnName = "user_id")
     User user;
 
