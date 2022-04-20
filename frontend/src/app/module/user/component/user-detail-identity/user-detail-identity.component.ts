@@ -55,7 +55,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       pob: new FormControl(this.detail.pob),
       active: new FormControl(this.detail.active),
       site: new FormControl(this.detail.site),
-      //addressList: new FormControl([]),
+      addressList: new FormControl([]),
       grade: new FormControl(this.detail.grade),
       status: new FormControl(this.detail.status)
     })

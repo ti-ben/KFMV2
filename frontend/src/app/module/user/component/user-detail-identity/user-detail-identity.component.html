@@ -77,17 +77,11 @@
       <input type="text" formControlName="driver_license" (blur)="update()"/>
     </div>
 
-    <div class="flex-cell">
-      <span>Statut</span>
-      <input type="text" formControlName="status" (blur)="update()"/>
-    </div>
+
     <div class="flex-cell">
       <app-select [config]="statusSelectConfig"></app-select>
     </div>
-    <div class="flex-cell">
-      <span>Site</span>
-      <input type="text" formControlName="site" (blur)="update()"/>
-    </div>
+
     <div class="flex-cell">
       <app-select [config]="siteSelectConfig"></app-select>
     </div>
