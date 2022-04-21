@@ -1,8 +1,7 @@
-import { Site } from '@site/model/business';
-import { SiteDto } from '@site/model';
-import { isNil } from 'lodash';
-import { SelectOption } from '@shared/model/select.config';
-import {User} from "@user/model";
+import {Site} from '@site/model/business';
+import {SiteDto} from '@site/model';
+import {isNil} from 'lodash';
+import {SelectOption} from '@shared/model/select.config';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export class SiteHelper {

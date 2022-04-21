@@ -205,13 +205,13 @@
   "form": {
     "site": {
       "label": {
-        "name": "Nom",
+        "name": "Nom du site",
         "description": "Description",
         "created_on": "Date de création",
         "site_id": "ID"
       },
       "placeholder": {
-        "name": "Entrer un nom",
+        "name": "Entrer le nom du site",
         "description": "Entrer une description",
         "created_on": "Choisir une date"
       }

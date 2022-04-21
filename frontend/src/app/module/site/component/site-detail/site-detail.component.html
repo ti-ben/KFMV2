@@ -1,58 +1,57 @@
 <app-card [config]="cardConfig">
-  <form *ngIf="siteService.currentDetail$ | async as site">
-    <div class="alert alert-danger text-center" *ngIf="site.site_id.length === 0; else data">
-      Sélectionnez le site à modifier / mettre à jour
+  <form [formGroup]="formGroup" *ngIf="siteService.currentDetail$ | async as site">
+
+    <div class="flex-row">
+      <div class="flex-cell">
+        <!--
+        <span>Site id</span>
+        <input value="{{site.site_id}}" type="text" disabled/>
+        -->
+        <app-input-text [label]="{label:'form.site.label.site_id'}"
+                        [placeholder]="'form.site.placeholder.site_id'"
+                        [ctrl]="getControl('site_id')"></app-input-text>
+
+      </div>
     </div>
-    <ng-template #data>
-      <div class="flex-row">
-        <div class="flex-cell">
-          <!--
-          <span>Site id</span>
-          <input value="{{site.site_id}}" type="text" disabled/>
-          -->
-          <app-input-text [label]="{label:'form.site.label.site_id'}"
-                [placeholder]="'form.site.placeholder.site_id'"
-                [ctrl]="getControl('site_id')"></app-input-text>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <!--
+        <span>Sitename</span>
+        <input value="{{site.name}}" type="text" placeholder="Site name" (blur)="update()"/>
+        -->
+        <app-input-text [label]="{label:'form.site.label.name'}"
+                        [placeholder]="'form.site.placeholder.name'"
+                        [ctrl]="getControl('name')"
+                        [value]="site.name"
+                        (blur)="update()"></app-input-text>
 
-        </div>
       </div>
-      <div class="flex-row">
-        <div class="flex-cell">
-          <!--
-          <span>Sitename</span>
-          <input value="{{site.name}}" type="text" placeholder="Site name" (blur)="update()"/>
-          -->
-          <app-input-text [label]="{label:'form.site.label.name'}"
-                          [placeholder]="'form.site.placeholder.name'"
-                          [ctrl]="getControl('name')" (blur)="update()"></app-input-text>
+    </div>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <!--
+        <span>created_on</span>
+        <input value="{{site.created_on}}" type="text" placeholder="Site créé le" (blur)="update()"/>
+        -->
+        <app-input-text [label]="{label:'form.site.label.created_on'}"
+                        [placeholder]="'form.site.placeholder.created_on'"
+                        [ctrl]="getControl('created_on')"></app-input-text>
 
-        </div>
       </div>
-      <div class="flex-row">
-        <div class="flex-cell">
-          <!--
-          <span>created_on</span>
-          <input value="{{site.created_on}}" type="text" placeholder="Site créé le" (blur)="update()"/>
-          -->
-          <app-input-text [label]="{label:'form.site.label.created_on'}"
-                [placeholder]="'form.site.placeholder.created_on'"
-                [ctrl]="getControl('created_on')"></app-input-text>
+    </div>
+    <div class="flex-row">
+      <div class="flex-cell">
+        <!--
+        <span>description</span>
+        <textarea value="{{site.description}}" type="text-area" (blur)="update()">{{site.description}}</textarea>
+        -->
+        <app-textarea [label]="{label:'form.site.label.description'}"
+                      [placeholder]="'form.site.placeholder.description'"
+                      [ctrl]="getControl('description')"></app-textarea>
 
-        </div>
       </div>
-      <div class="flex-row">
-        <div class="flex-cell">
-          <!--
-          <span>description</span>
-          <textarea value="{{site.description}}" type="text-area" (blur)="update()">{{site.description}}</textarea>
-          -->
-          <app-textarea [label]="{label:'form.site.label.description'}"
-                        [placeholder]="'form.site.placeholder.description'"
-                        [ctrl]="getControl('description')"></app-textarea>
+    </div>
 
-        </div>
-      </div>
-    </ng-template>
   </form>
   <div class="btn-area">
     <!--
@@ -60,28 +59,28 @@
     -->
     <button (click)="archive()">Archiver</button>
   </div>
-<!--
-  <form [formGroup]="formGroup" *ngIf="siteService.currentDetail$ | async as site">
-      <div class="flex-row">
-        <div class="flex-cell">
-          <input type="text" formControlName="site_id" value="{{site.site_id}}" />
+  <!--
+    <form [formGroup]="formGroup" *ngIf="siteService.currentDetail$ | async as site">
+        <div class="flex-row">
+          <div class="flex-cell">
+            <input type="text" formControlName="site_id" value="{{site.site_id}}" />
+          </div>
         </div>
-      </div>
-      <div class="flex-row">
-        <div class="flex-cell">
-          <input type="text" formControlName="created_on" value="{{site.created_on}}" (blur)="update()"/>
+        <div class="flex-row">
+          <div class="flex-cell">
+            <input type="text" formControlName="created_on" value="{{site.created_on}}" (blur)="update()"/>
+          </div>
         </div>
-      </div>
-      <div class="flex-row">
-        <div class="flex-cell">
-          <input type="text" formControlName="name" value="{{site.name}}" (blur)="update()"/>
+        <div class="flex-row">
+          <div class="flex-cell">
+            <input type="text" formControlName="name" value="{{site.name}}" (blur)="update()"/>
+          </div>
         </div>
-      </div>
-      <div class="flex-row">
-        <div class="flex-cell">
-          <input type="text" formControlName="description" value="{{site.description}}" (blur)="update()"/>
+        <div class="flex-row">
+          <div class="flex-cell">
+            <input type="text" formControlName="description" value="{{site.description}}" (blur)="update()"/>
+          </div>
         </div>
-      </div>
-  </form>
-  -->
+    </form>
+    -->
 </app-card>

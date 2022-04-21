@@ -10,7 +10,6 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {SiteHelper} from "@site/helper";
 import {GenericTableHelper} from "@shared/helper";
-import {UserHelper} from "@user/helper";
 
 @Component({
   selector: 'app-site-detail',
@@ -49,7 +48,7 @@ export class SiteDetailComponent implements OnInit {
       ).subscribe();
   }
 
-  ngOnChanges(): void{
+  ngOnChanges(): void {
     this.formGroup = new FormGroup({
       site_id: new FormControl(this.detail.site_id),
       name: new FormControl(this.detail.name),
