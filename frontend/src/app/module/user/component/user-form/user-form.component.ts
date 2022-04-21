@@ -24,7 +24,6 @@ import {GradeHelper} from "@grade/helper";
 export class UserFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
   formGroup!: FormGroup;
-
   genderSelectConfig!: SelectConfig;
   actifSelectConfig!: SelectConfig;
   siteSelectConfig!: SelectConfig;

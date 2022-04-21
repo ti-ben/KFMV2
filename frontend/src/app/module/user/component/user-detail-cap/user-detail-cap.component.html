@@ -83,6 +83,17 @@
 -->
 <form action="">
   pour ajouter une nouvelle période
+  <div class="flex-row">
+    <div class="flex-cell">
+      <input type="date"/>
+    </div>
+    <div class="flex-cell">
+      <input type="date"/>
+    </div>
+    <div class="btn-area">
+      <button (click)="addPeriod()">add</button>
+    </div>
+  </div>
 </form>
 <!-- @todo récupérer la liste des périodes et utiliser un ngfor dans le div ci-dessous -->
 <div>
@@ -91,25 +102,29 @@
     <tr>
       <td>Date début</td>
       <td>Date fin</td>
-      <td>tdème</td>
+      <td>Thème</td>
       <td>Commentaire</td>
       <td>Action</td>
     </tr>
     <!-- @todo mettre un ngfor pour chaque rdv -->
     <tr>
-      <td>DB DATA</td>
-      <td>DB DATA</td>
-      <td>DB DATA</td>
-      <td>DB DATA</td>
-      <td>Action</td>
+      <td><input type="date" value="DB DATA"/></td>
+      <td><input type="date" value="DB DATA"/></td>
+      <td><input type="text" value="DB DATA"/></td>
+      <td><input type="text" value="DB DATA"/></td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteSession()">Delete</button>
+      </td>
     </tr>
     <!-- fin ngFor-->
     <tr>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><button (click)="addSession()">add</button></td>
+      <td><input type="date" placeholder="Date de début"/></td>
+      <td><input type="date" placeholder="Date de fin"/></td>
+      <td><input type="text" placeholder="Thème"/></td>
+      <td><input type="text" placeholder="Commentaire"/></td>
+      <td>
+        <button class="btn btn-success" (click)="addSession()">Add</button>
+      </td>
     </tr>
   </table>
 </div>

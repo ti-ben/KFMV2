@@ -23,5 +23,5 @@ public class GradeBuilder{
         return this;
     }
 
-    public Grade build() { return new Grade(grade_id, name, comment); }
+    public Grade build() { return new Grade(grade_id, name, comment); } // A cause de cette ligne
 }

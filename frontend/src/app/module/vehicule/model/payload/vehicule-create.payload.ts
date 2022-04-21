@@ -18,4 +18,5 @@ export interface VehiculeCreatePayload extends PayloadInterface {
   picture: string;
   fuel: string;
   type: string;
+  site:any;
 }

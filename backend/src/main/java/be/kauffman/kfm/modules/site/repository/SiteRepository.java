@@ -1,7 +1,6 @@
 package be.kauffman.kfm.modules.site.repository;
 
 import be.kauffman.kfm.modules.site.entity.dto.Site;
-import be.kauffman.kfm.modules.vehicule.entity.dto.Vehicule;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

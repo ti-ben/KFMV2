@@ -1,11 +1,11 @@
-import { PayloadInterface } from '@shared/model';
+import {PayloadInterface} from '@shared/model';
 
 export interface UserUpdatePayload extends PayloadInterface {
   firstname: string;
   lastname: string;
   gender: string;
   avatar: string;
-  dob:Date;
+  dob: Date;
   email: string;
   password: string;
   telpro: string;
@@ -16,9 +16,9 @@ export interface UserUpdatePayload extends PayloadInterface {
   created_on: Date;
   pob: string;
   active: string;
-  site:any;
-  address:any;
-  grade:any;
-  status:any;
-  user_id:string;
+  site: any;
+  address: any;
+  grade: any;
+  status: any;
+  user_id: string;
 }

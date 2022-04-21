@@ -32,4 +32,28 @@
     -->
     <button (click)="archive()">Archiver</button>
   </div>
+<!--
+  <form [formGroup]="formGroup" *ngIf="siteService.currentDetail$ | async as site">
+      <div class="flex-row">
+        <div class="flex-cell">
+          <input type="text" formControlName="site_id" value="{{site.site_id}}" />
+        </div>
+      </div>
+      <div class="flex-row">
+        <div class="flex-cell">
+          <input type="text" formControlName="created_on" value="{{site.created_on}}" (blur)="update()"/>
+        </div>
+      </div>
+      <div class="flex-row">
+        <div class="flex-cell">
+          <input type="text" formControlName="name" value="{{site.name}}" (blur)="update()"/>
+        </div>
+      </div>
+      <div class="flex-row">
+        <div class="flex-cell">
+          <input type="text" formControlName="description" value="{{site.description}}" (blur)="update()"/>
+        </div>
+      </div>
+  </form>
+  -->
 </app-card>

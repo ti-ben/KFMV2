@@ -1,6 +1,5 @@
 <app-card [config]="cardConfig">
   <form action="" *ngIf="formGroup">
-    <!-- first line -->
     <div class="flex-row">
       <div class="flex-cell">
         <app-input-text [label]="{label:'form.user.label.lastname'}"
@@ -15,15 +14,15 @@
       <div class="flex-cell">
         <app-select [config]=genderSelectConfig></app-select>
       </div>
-    </div>
 
-    <!-- second line -->
-    <div class="flex-row">
       <div class="flex-cell">
         <app-input-text [label]="{label:'form.user.label.email'}"
                         [placeholder]="'form.user.placeholder.email'"
                         [ctrl]="getControl('email')"></app-input-text>
       </div>
+    </div>
+
+    <div class="flex-row">
       <div class="flex-cell">
         <app-input-text [label]="{label:'form.user.label.telperso'}"
                         [placeholder]="'form.user.placeholder.telperso'"
@@ -34,10 +33,7 @@
                         [placeholder]="'form.user.placeholder.telpro'"
                         [ctrl]="getControl('telpro')"></app-input-text>
       </div>
-    </div>
 
-    <!-- third line -->
-    <div class="flex-row">
       <div class="flex-cell">
         <app-input-text [label]="{label:'form.user.label.nationality'}"
                         [placeholder]="'form.user.placeholder.nationality'"
@@ -48,6 +44,9 @@
                         [placeholder]="'form.user.placeholder.pob'"
                         [ctrl]="getControl('pob')"></app-input-text>
       </div>
+    </div>
+
+    <div class="flex-row">
       <div class="flex-cell">
         <app-input-date [label]="{label:'form.user.label.dob'}"
                         [placeholder]="'form.user.placeholder.dob'"
@@ -58,34 +57,26 @@
                         [placeholder]="'form.user.placeholder.numirn'"
                         [ctrl]="getControl('numirn')"></app-input-text>
       </div>
-    </div>
-    <!-- fourth line -->
-    <div class="flex-row">
+
       <div class="flex-cell">
         <app-select [config]="siteSelectConfig"></app-select>
-        </div>
+      </div>
       <div class="flex-cell">
         <app-select [config]="driverSelectConfig"></app-select>
       </div>
+    </div>
+    <div class="flex-row">
       <div class="flex-cell">
         <app-select [config]="actifSelectConfig"></app-select>
       </div>
-    </div>
 
-    <div class="flex-row">
       <div class="flex-cell">
         <app-select [config]="statusSelectConfig"></app-select>
       </div>
-<!--
-      <div class="flex-cell">
-        <app-select [config]="gradeSelectConfig"></app-select>
-      </div>
--->
     </div>
   </form>
 
   <div class="btn-area">
     <button (click)="save()">Enregistrer le nouvel employé</button>
   </div>
-
 </app-card>

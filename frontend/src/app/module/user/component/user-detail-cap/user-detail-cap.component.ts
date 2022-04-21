@@ -27,11 +27,15 @@ export class UserDetailCapComponent implements OnInit {
     return this.formGroup.get(name) as FormControl;
   }
 
- savePeriod() {
-    alert('envoi du form');
+ addPeriod() {
+    alert('add period');
   }
 
   addSession(){
     alert('add Session')
+  }
+
+  deleteSession(){
+    alert('delete Session')
   }
 }
