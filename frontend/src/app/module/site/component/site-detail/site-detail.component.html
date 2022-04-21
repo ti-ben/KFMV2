@@ -9,7 +9,8 @@
         -->
         <app-input-text [label]="{label:'form.site.label.site_id'}"
                         [placeholder]="'form.site.placeholder.site_id'"
-                        [ctrl]="getControl('site_id')"></app-input-text>
+                        [ctrl]="getControl('site_id')">
+        </app-input-text>
 
       </div>
     </div>
@@ -23,7 +24,8 @@
                         [placeholder]="'form.site.placeholder.name'"
                         [ctrl]="getControl('name')"
                         [value]="site.name"
-                        (blur)="update()"></app-input-text>
+                        (blur)="update()">
+        </app-input-text>
 
       </div>
     </div>
@@ -35,7 +37,8 @@
         -->
         <app-input-text [label]="{label:'form.site.label.created_on'}"
                         [placeholder]="'form.site.placeholder.created_on'"
-                        [ctrl]="getControl('created_on')"></app-input-text>
+                        [ctrl]="getControl('created_on')">
+        </app-input-text>
 
       </div>
     </div>
@@ -47,7 +50,8 @@
         -->
         <app-textarea [label]="{label:'form.site.label.description'}"
                       [placeholder]="'form.site.placeholder.description'"
-                      [ctrl]="getControl('description')"></app-textarea>
+                      [ctrl]="getControl('description')">
+        </app-textarea>
 
       </div>
     </div>
