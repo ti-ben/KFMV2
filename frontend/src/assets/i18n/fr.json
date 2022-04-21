@@ -18,7 +18,9 @@
   "driver-license": {
     "b": "B",
     "c": "C",
-    "ce": "CE"
+    "ce": "CE",
+    "cce": "C/CE",
+    "de": "DE"
   },
   "search-input": {
     "default-search": "Rechercher",
@@ -204,13 +206,14 @@
     "site": {
       "label": {
         "name": "Nom",
-        "decription": "Description",
-        "date": "Date de création"
+        "description": "Description",
+        "created_on": "Date de création",
+        "site_id": "ID"
       },
       "placeholder": {
         "name": "Entrer un nom",
-        "decription": "Entrer une description",
-        "date": "Choisir une date"
+        "description": "Entrer une description",
+        "created_on": "Choisir une date"
       }
     },
     "status": {

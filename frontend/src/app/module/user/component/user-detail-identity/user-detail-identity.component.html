@@ -15,14 +15,14 @@
         <input type="text" formControlName="email" (blur)="update()"/>
       </div>
     </div>
+  </div>
 
+  <div class="flex-row">
     <div class="flex-cell">
       <span>Tel. (Perso)</span>
       <input type="text" formControlName="telperso" (blur)="update()"/>
     </div>
-  </div>
 
-  <div class="flex-row">
     <div class="flex-cell">
       <span>Tel. (Pro)</span>
       <input type="text" formControlName="telpro" (blur)="update()"/>
@@ -32,7 +32,9 @@
       <span>Nationalité</span>
       <input type="text" formControlName="nationality" (blur)="update()"/>
     </div>
+  </div>
 
+  <div class="flex-row">
     <div class="flex-cell">
       <span>Genre</span>
       <input type="text" formControlName="gender" (blur)="update()"/>
@@ -42,9 +44,7 @@
       <span>Date de naissance</span>
       <input type="text" formControlName="dob" (blur)="update()"/>
     </div>
-  </div>
 
-  <div class="flex-row">
     <div class="flex-cell">
       <span>Lieu de naissance</span>
       <input type="text" formControlName="pob" (blur)="update()"/>
@@ -67,24 +67,24 @@
 -->
 
 
+  </div>
 
+  <div class="flex-row">
     <div class="flex-cell">
       <span>N° registre national</span>
       <input type="text" formControlName="numirn" (blur)="update()"/>
     </div>
 
     <div class="flex-cell">
-      <span>Permis</span>
-      <input type="text" formControlName="driver_license" (blur)="update()"/>
-    </div>
-
-
-    <div class="flex-cell">
-      <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig" [config]="statusSelectConfig"></app-select>
+      <app-select *ngIf="driverSelectConfig$ | async as driverSelectConfig" [config]="driverSelectConfig" (blur)="update()"></app-select>
     </div>
 
     <div class="flex-cell">
-      <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig" [config]="siteSelectConfig"></app-select>
+      <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig" [config]="statusSelectConfig" (blur)="update()"></app-select>
+    </div>
+
+    <div class="flex-cell">
+      <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig" [config]="siteSelectConfig" (blur)="update()"></app-select>
     </div>
   </div>
 </form>

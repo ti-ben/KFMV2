@@ -2,6 +2,8 @@ import { Site } from '@site/model/business';
 import { SiteDto } from '@site/model';
 import { isNil } from 'lodash';
 import { SelectOption } from '@shared/model/select.config';
+import {User} from "@user/model";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export class SiteHelper {
   public static fromDto(dto: SiteDto): Site {
@@ -36,6 +38,15 @@ export class SiteHelper {
 
   static fromDtoArray(data: SiteDto[]): Site[] {
     return data.map((dto: SiteDto) => SiteHelper.fromDto(dto));
+  }
+
+  public static toFormGroup(site: Site = SiteHelper.getEmpty()): FormGroup {
+    return new FormGroup({
+      site_id: new FormControl(site.site_id),
+      name: new FormControl(site.name, [Validators.required]),
+      description: new FormControl(site.description, [Validators.required]),
+      created_on: new FormControl(new Date())
+    });
   }
 
   static toSiteOptionArray(list: Site[]): SelectOption[] {

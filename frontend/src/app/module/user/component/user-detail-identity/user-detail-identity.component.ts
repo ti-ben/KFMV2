@@ -4,7 +4,7 @@ import { User, UserUpdatePayload } from '@user/model';
 import { UserHelper } from '@user/helper';
 import { UserService } from "@user/service/user.service";
 import { CardConfig, SelectConfig } from "@shared/model";
-import { CardHelper } from "@shared/helper";
+import {CardHelper, DriverHelper} from "@shared/helper";
 import { Site } from "@site/model";
 import { SiteHelper } from "@site/helper";
 import { SiteService } from "@site/service/site.service";
@@ -29,10 +29,12 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   statusSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  driverSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   gradeList: Grade[] = [];
   siteList: Site[] = [];
   statusList: Status[] = [];
   formGroup!: FormGroup;
+
 
   constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService, public gradeService: GradeService) {
   }
@@ -105,6 +107,14 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
         values: StatusHelper.toStatusOptionArray(list)
       });
     });
+
+      //todo à vérifier pour avoir le bon comportement
+      this.driverSelectConfig$.next( {
+        label: {label: 'form.user.label.driver_license'},
+        placeholder: 'form.user.placeholder.driver_license',
+        ctrl: this.getControl('driver_license'),
+        values: DriverHelper.getSelectOption()
+      });
 
     this.gradeService.list().subscribe((list: Grade[]) => {
       this.gradeList = list;

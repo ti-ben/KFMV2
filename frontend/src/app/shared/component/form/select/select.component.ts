@@ -15,7 +15,7 @@ export class SelectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('my config', this.config);
+    //console.log('my config', this.config);
   }
 
 }

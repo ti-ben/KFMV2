@@ -10,6 +10,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {SiteHelper} from "@site/helper";
 import {GenericTableHelper} from "@shared/helper";
+import {UserHelper} from "@user/helper";
 
 @Component({
   selector: 'app-site-detail',
@@ -20,7 +21,7 @@ import {GenericTableHelper} from "@shared/helper";
 export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
   @Input() detail: Site = SiteHelper.getEmpty();
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  //config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
   formGroup!: FormGroup;
 
@@ -31,7 +32,12 @@ export class SiteDetailComponent implements OnInit {
     return this.formGroup.get(name) as FormControl;
   }
 
+  private initForm(): void {
+    this.formGroup = SiteHelper.toFormGroup(); //A faire
+  }
+
   ngOnInit(): void {
+    this.initForm();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -54,23 +60,23 @@ export class SiteDetailComponent implements OnInit {
 
   //todo update site information to db
   update(): void {
-    if (this.formGroup.valid) {
+    //if (this.formGroup.valid) {
       const payload: SiteUpdatePayload = this.formGroup.value;
       payload.site_id = this.detail.site_id;
       //console.log('payload', payload);
       this.siteService.update(payload).subscribe();
-    }
+    //}
   }
 
   archive(): void {
     alert('Archivage du site');
   }
-
+/*
   private setConfig(list: Site[]): void {
     let config = this.config$.getValue();
     config.fields = GenericTableHelper.genSiteFieldDefinitions();
     config.data = list;
     this.config$.next(config);
   }
-
+*/
 }

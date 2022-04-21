@@ -6,22 +6,50 @@
     <ng-template #data>
       <div class="flex-row">
         <div class="flex-cell">
+          <!--
+          <span>Site id</span>
           <input value="{{site.site_id}}" type="text" disabled/>
+          -->
+          <app-input-text [label]="{label:'form.site.label.site_id'}"
+                [placeholder]="'form.site.placeholder.site_id'"
+                [ctrl]="getControl('site_id')"></app-input-text>
+
         </div>
       </div>
       <div class="flex-row">
         <div class="flex-cell">
+          <!--
+          <span>Sitename</span>
           <input value="{{site.name}}" type="text" placeholder="Site name" (blur)="update()"/>
+          -->
+          <app-input-text [label]="{label:'form.site.label.name'}"
+                          [placeholder]="'form.site.placeholder.name'"
+                          [ctrl]="getControl('name')"></app-input-text>
+
         </div>
       </div>
       <div class="flex-row">
         <div class="flex-cell">
+          <!--
+          <span>created_on</span>
           <input value="{{site.created_on}}" type="text" placeholder="Site créé le" (blur)="update()"/>
+          -->
+          <app-input-text [label]="{label:'form.site.label.created_on'}"
+                [placeholder]="'form.site.placeholder.created_on'"
+                [ctrl]="getControl('created_on')"></app-input-text>
+
         </div>
       </div>
       <div class="flex-row">
         <div class="flex-cell">
+          <!--
+          <span>description</span>
           <textarea value="{{site.description}}" type="text-area" (blur)="update()">{{site.description}}</textarea>
+          -->
+          <app-textarea [label]="{label:'form.site.label.description'}"
+                        [placeholder]="'form.site.placeholder.description'"
+                        [ctrl]="getControl('description')"></app-textarea>
+
         </div>
       </div>
     </ng-template>
