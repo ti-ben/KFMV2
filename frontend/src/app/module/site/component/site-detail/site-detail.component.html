@@ -24,7 +24,7 @@
           -->
           <app-input-text [label]="{label:'form.site.label.name'}"
                           [placeholder]="'form.site.placeholder.name'"
-                          [ctrl]="getControl('name')"></app-input-text>
+                          [ctrl]="getControl('name')" (blur)="update()"></app-input-text>
 
         </div>
       </div>
