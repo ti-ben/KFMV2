@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {CardConfig, GenericTableConfig} from "@shared/model";
+import {CardConfig} from "@shared/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
 import {SiteService} from "@site/service/site.service";
@@ -9,7 +8,6 @@ import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {SiteHelper} from "@site/helper";
-import {GenericTableHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-site-detail',
@@ -76,12 +74,13 @@ export class SiteDetailComponent implements OnInit {
   archive(): void {
     alert('Archivage du site');
   }
-/*
-  private setConfig(list: Site[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genSiteFieldDefinitions();
-    config.data = list;
-    this.config$.next(config);
-  }
-*/
+
+  /*
+    private setConfig(list: Site[]): void {
+      let config = this.config$.getValue();
+      config.fields = GenericTableHelper.genSiteFieldDefinitions();
+      config.data = list;
+      this.config$.next(config);
+    }
+  */
 }
