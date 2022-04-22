@@ -23,7 +23,6 @@
         <app-input-text [label]="{label:'form.site.label.name'}"
                         [placeholder]="'form.site.placeholder.name'"
                         [ctrl]="getControl('name')"
-                        [value]="site.name"
                         (blur)="update()">
         </app-input-text>
 
@@ -87,4 +86,7 @@
         </div>
     </form>
     -->
+  <pre>
+    {{formGroup.value | json}}
+  </pre>
 </app-card>

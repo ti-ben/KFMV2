@@ -20,7 +20,7 @@ import {GenericTableHelper} from "@shared/helper";
 export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
   @Input() detail: Site = SiteHelper.getEmpty();
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  //config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
   formGroup!: FormGroup;
 
@@ -37,6 +37,12 @@ export class SiteDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.formGroup = new FormGroup({
+      site_id: new FormControl(this.detail.site_id),
+      name: new FormControl(this.detail.name),
+      description: new FormControl(this.detail.description),
+      created_on: new FormControl(this.detail.created_on),
+    });
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -70,12 +76,12 @@ export class SiteDetailComponent implements OnInit {
   archive(): void {
     alert('Archivage du site');
   }
-
+/*
   private setConfig(list: Site[]): void {
     let config = this.config$.getValue();
     config.fields = GenericTableHelper.genSiteFieldDefinitions();
     config.data = list;
     this.config$.next(config);
   }
-
+*/
 }
