@@ -6,7 +6,7 @@ import {SiteDetailComponent, SiteFormComponent, SiteListComponent} from '@site/c
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {SiteHomeComponent} from './component/site-home/site-home.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import {ReactiveFormsModule} from "@angular/forms";
         SiteRoutingModule,
         SharedModule,
         TranslateModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ]
 })
 export class SiteModule {

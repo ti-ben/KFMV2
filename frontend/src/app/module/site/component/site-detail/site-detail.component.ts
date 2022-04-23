@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {CardConfig} from "@shared/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
@@ -18,7 +18,7 @@ import {SiteHelper} from "@site/helper";
 export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
   @Input() detail: Site = SiteHelper.getEmpty();
-  //config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  sitename = this.detail.name;
   id: string = '';
   formGroup!: FormGroup;
 
@@ -35,12 +35,6 @@ export class SiteDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.formGroup = new FormGroup({
-      site_id: new FormControl(this.detail.site_id),
-      name: new FormControl(this.detail.name),
-      description: new FormControl(this.detail.description),
-      created_on: new FormControl(this.detail.created_on),
-    });
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -67,20 +61,11 @@ export class SiteDetailComponent implements OnInit {
       const payload: SiteUpdatePayload = this.formGroup.value;
       payload.site_id = this.detail.site_id;
       console.log('payload', payload);
-      this.siteService.update(payload).subscribe();
+      //this.siteService.update(payload).subscribe();
     }
   }
 
   archive(): void {
     alert('Archivage du site');
   }
-
-  /*
-    private setConfig(list: Site[]): void {
-      let config = this.config$.getValue();
-      config.fields = GenericTableHelper.genSiteFieldDefinitions();
-      config.data = list;
-      this.config$.next(config);
-    }
-  */
 }

@@ -12,7 +12,6 @@ export class InputTextComponent implements OnInit {
   @Input() label!: LabelWithParam;
   @Input() placeholder!: string;
   @Input() ctrl!: FormControl;
-  @Input() value!: string;
 
   constructor() { }
 

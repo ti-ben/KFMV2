@@ -34,10 +34,10 @@
         <span>created_on</span>
         <input value="{{site.created_on}}" type="text" placeholder="Site créé le" (blur)="update()"/>
         -->
-        <app-input-text [label]="{label:'form.site.label.created_on'}"
+        <app-input-date [label]="{label:'form.site.label.created_on'}"
                         [placeholder]="'form.site.placeholder.created_on'"
                         [ctrl]="getControl('created_on')">
-        </app-input-text>
+        </app-input-date>
 
       </div>
     </div>
@@ -86,7 +86,4 @@
         </div>
     </form>
     -->
-  <pre>
-    {{formGroup.value | json}}
-  </pre>
 </app-card>

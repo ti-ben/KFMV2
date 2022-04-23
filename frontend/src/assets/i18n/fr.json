@@ -207,7 +207,7 @@
       "label": {
         "name": "Nom du site",
         "description": "Description",
-        "created_on": "Date de création",
+        "created_on": "Date de création du site",
         "site_id": "ID"
       },
       "placeholder": {

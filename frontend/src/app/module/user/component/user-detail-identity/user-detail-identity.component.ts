@@ -82,7 +82,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       payload.grade = (isNil(payload.grade) || payload.grade.length === 0) ? {grade_id: this.gradeList.find(g => g.name === 'User')!.grade_id} : {grade_id: payload.grade};
       payload.status = {status_id: payload.status};
       console.log('payload', payload);
-      //this.userService.update(payload).subscribe();
+      this.userService.update(payload).subscribe();
     }
   }
 

@@ -5,9 +5,13 @@ import {GradeHelper} from "@grade/helper";
 import {StatusHelper} from "@status/helper";
 import {AddressHelper} from "@address/helper";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {isNil} from "lodash";
 
 export class UserHelper {
   public static fromDto(dto: UserDto): User {
+    if (isNil(dto)) {
+      return UserHelper.getEmpty();
+    }
     return {
       user_id: dto.user_id,
       firstname: dto.firstname,
