@@ -1,2 +1,3 @@
 <label>{{label.label | translate:label.params}}</label>
-<input type="text" [formControl]="ctrl" />
+<input type="text" [formControl]="ctrl" (blur)="onBlur.emit()"/>
+
