@@ -13,7 +13,8 @@ export class SiteHelper {
       site_id: dto.site_id,
       name: dto.name,
       description: dto.description,
-      created_on: dto.created_on
+      created_on: dto.created_on,
+      active: dto.active
     }
   }
 
@@ -22,7 +23,8 @@ export class SiteHelper {
       site_id: site.site_id,
       name: site.name,
       description: site.description,
-      created_on: new Date()
+      created_on: new Date(),
+      active: site.active
     };
   }
 
@@ -31,7 +33,9 @@ export class SiteHelper {
       site_id: '',
       name: '',
       description: '',
-      created_on: new Date()
+      created_on: new Date(),
+      // Permet d'affecter une valeur par défaut au formulaire lors de la création du composant
+      active : false
     };
   }
 
@@ -44,7 +48,8 @@ export class SiteHelper {
       site_id: new FormControl(site.site_id),
       name: new FormControl(site.name, [Validators.required]),
       description: new FormControl(site.description, [Validators.required]),
-      created_on: new FormControl(new Date())
+      created_on: new FormControl(new Date()),
+      active: new FormControl(site.active)
     });
   }
 

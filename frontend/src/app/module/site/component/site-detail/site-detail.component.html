@@ -3,31 +3,25 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
         <span>Site id</span>
         <input value="{{site.site_id}}" type="text" disabled/>
-        -->
-        <app-input-text [label]="{label:'form.site.label.site_id'}"
-                        [placeholder]="'form.site.placeholder.site_id'"
-                        [ctrl]="getControl('site_id')">
-        </app-input-text>
-
       </div>
     </div>
+  <br>
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
-        <span>Sitename</span>
+
+        <span>Nom du site</span>
         <input value="{{site.name}}" type="text" placeholder="Site name" (blur)="update()"/>
-        -->
+
         <app-input-text [label]="{label:'form.site.label.name'}"
                         [placeholder]="'form.site.placeholder.name'"
                         [ctrl]="getControl('name')"
                         (blur)="update()">
         </app-input-text>
-
       </div>
     </div>
+
     <div class="flex-row">
       <div class="flex-cell">
         <!--
@@ -38,9 +32,9 @@
                         [placeholder]="'form.site.placeholder.created_on'"
                         [ctrl]="getControl('created_on')">
         </app-input-date>
-
       </div>
     </div>
+
     <div class="flex-row">
       <div class="flex-cell">
         <!--
@@ -51,17 +45,23 @@
                       [placeholder]="'form.site.placeholder.description'"
                       [ctrl]="getControl('description')">
         </app-textarea>
+      </div>
+    </div>
 
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-select [config]="actifSelectConfig" (blur)="update()"></app-select>
       </div>
     </div>
 
   </form>
+  <!--
   <div class="btn-area">
-    <!--
     <button (click)="update()">Mettre à jour</button>
-    -->
     <button (click)="archive()">Archiver</button>
-  </div>
+   </div>
+  -->
+
   <!--
     <form [formGroup]="formGroup" *ngIf="siteService.currentDetail$ | async as site">
         <div class="flex-row">

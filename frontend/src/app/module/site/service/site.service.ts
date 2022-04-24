@@ -67,7 +67,7 @@ export class SiteService extends ApiService {
       );
   }
 
-  delete(id: string): Observable<ApiResponse> {
-    return this.http.get(`${ApiUriEnum.SITE_DELETE}${id}`);
+  archive(id: string): Observable<ApiResponse> {
+    return this.http.get(`${ApiUriEnum.SITE_ARCHIVE}${id}`);
   }
 }

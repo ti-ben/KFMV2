@@ -24,6 +24,7 @@ public class Site {
     String name;
     String description;
     Date created_on;
+    Boolean active;
 
     @OneToOne()
     @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")

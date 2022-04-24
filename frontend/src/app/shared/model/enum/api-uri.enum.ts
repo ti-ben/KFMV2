@@ -35,6 +35,7 @@ export enum ApiUriEnum {
   SITE_CREATE = 'site/create',
   SITE_LIST = 'site/list',
   SITE_UPDATE = 'site/update/',
+  SITE_ARCHIVE = 'site/archive/',
   SITE_DETAIL = 'site/detail/',
   SITE_DELETE = 'site/delete/',
   SITE_SEARCH = 'site/search',

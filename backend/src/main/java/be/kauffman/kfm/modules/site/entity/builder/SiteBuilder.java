@@ -11,6 +11,7 @@ import java.util.UUID;
         String name = "Pas de nom de site";
         String description = "pas de description";
         Date created_on = new Date();
+        Boolean active = true;
         Address addressList;
 
         public SiteBuilder setSite_id(UUID site_id) {
@@ -33,10 +34,15 @@ import java.util.UUID;
             return this;
         }
 
+        public SiteBuilder setActive(Boolean active) {
+            this.active = active;
+            return this;
+        }
+
         public SiteBuilder setAddressList(Address addressList) {
             this.addressList = addressList;
             return this;
         }
-        public Site build() { return new Site(site_id, name, description, created_on, addressList); }
+        public Site build() { return new Site(site_id, name, description, created_on, active, addressList); }
     }
 

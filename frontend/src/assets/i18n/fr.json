@@ -208,7 +208,8 @@
         "name": "Nom du site",
         "description": "Description",
         "created_on": "Date de création du site",
-        "site_id": "ID"
+        "site_id": "ID",
+        "active": "Site actif?"
       },
       "placeholder": {
         "name": "Entrer le nom du site",

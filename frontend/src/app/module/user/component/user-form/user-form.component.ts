@@ -107,6 +107,6 @@ export class UserFormComponent implements OnInit {
       placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
       values: ActifHelper.toSelectOption()
-    }
+    };
   }
 }

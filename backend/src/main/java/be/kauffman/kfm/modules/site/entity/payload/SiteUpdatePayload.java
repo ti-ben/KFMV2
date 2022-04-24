@@ -14,5 +14,6 @@ public class SiteUpdatePayload {
     UUID site_id;
     String name;
     String description;
+    Boolean active;
     Address addressList;
 }

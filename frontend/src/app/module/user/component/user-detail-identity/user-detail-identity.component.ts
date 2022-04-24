@@ -1,21 +1,21 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { User, UserUpdatePayload } from '@user/model';
-import { UserHelper } from '@user/helper';
-import { UserService } from "@user/service/user.service";
-import { CardConfig, SelectConfig } from "@shared/model";
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {User, UserUpdatePayload} from '@user/model';
+import {UserHelper} from '@user/helper';
+import {UserService} from "@user/service/user.service";
+import {CardConfig, SelectConfig} from "@shared/model";
 import {CardHelper, DriverHelper} from "@shared/helper";
-import { Site } from "@site/model";
-import { SiteHelper } from "@site/helper";
-import { SiteService } from "@site/service/site.service";
-import { Status } from "@status/model";
-import { StatusHelper } from "@status/helper";
-import { StatusService } from "@status/service/status.service";
-import { BehaviorSubject } from 'rxjs';
-import { isNil } from 'lodash';
-import { Grade } from '@grade/model';
-import { GradeService } from '@grade/service/grade.service';
-import { GradeHelper } from '@grade/helper';
+import {Site} from "@site/model";
+import {SiteHelper} from "@site/helper";
+import {SiteService} from "@site/service/site.service";
+import {Status} from "@status/model";
+import {StatusHelper} from "@status/helper";
+import {StatusService} from "@status/service/status.service";
+import {BehaviorSubject} from 'rxjs';
+import {isNil} from 'lodash';
+import {Grade} from '@grade/model';
+import {GradeService} from '@grade/service/grade.service';
+import {GradeHelper} from '@grade/helper';
 
 @Component({
   selector: 'app-user-detail-identity',
@@ -108,13 +108,13 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       });
     });
 
-      //todo à vérifier pour avoir le bon comportement
-      this.driverSelectConfig$.next( {
-        label: {label: 'form.user.label.driver_license'},
-        placeholder: 'form.user.placeholder.driver_license',
-        ctrl: this.getControl('driver_license'),
-        values: DriverHelper.getSelectOption()
-      });
+    //todo à vérifier pour avoir le bon comportement
+    this.driverSelectConfig$.next({
+      label: {label: 'form.user.label.driver_license'},
+      placeholder: 'form.user.placeholder.driver_license',
+      ctrl: this.getControl('driver_license'),
+      values: DriverHelper.getSelectOption()
+    });
 
     this.gradeService.list().subscribe((list: Grade[]) => {
       this.gradeList = list;

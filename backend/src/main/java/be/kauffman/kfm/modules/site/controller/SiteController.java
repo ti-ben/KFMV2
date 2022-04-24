@@ -71,6 +71,14 @@ public class SiteController {
         return new ApiResponse(true, siteRepository.save(fromDb), null);
     }
 
-    // Delete record
-
+    // Delete or archive record
+    @PutMapping("/archive")
+    public ApiResponse archive(@RequestBody SiteUpdatePayload payload) {
+        Site fromDb = siteRepository.findById(payload.getSite_id()).orElse(null);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.site.archive.not-found");
+        }
+        fromDb.setActive(payload.getActive());
+        return new ApiResponse(true, siteRepository.save(fromDb), null);
+    }
 }
