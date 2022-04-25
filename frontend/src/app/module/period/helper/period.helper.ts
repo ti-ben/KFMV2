@@ -1,5 +1,6 @@
 import { Period } from '@period/model/business';
 import { PeriodDto } from '@period/model';
+import {Grade, GradeDto} from "@grade/model";
 
 export class PeriodHelper {
   public static fromDto(dto: PeriodDto): Period {
@@ -23,5 +24,9 @@ export class PeriodHelper {
       start_date: new Date(),
       end_date: new Date()
     };
+  }
+
+  static fromDtoArray(data: PeriodDto[]): Period[] {
+    return data.map((dto: PeriodDto) => PeriodHelper.fromDto(dto));
   }
 }

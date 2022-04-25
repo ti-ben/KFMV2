@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-// Don't forget to import the {entity path} to routing module!
 import {SiteRoutingModule} from '@site/site-routing.module';
 import {SiteDetailComponent, SiteFormComponent, SiteListComponent} from '@site/component';
 import {SharedModule} from "@shared/shared.module";
@@ -17,7 +16,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   ],
     imports: [
         CommonModule,
-        // Don't forget to add/import the {entity}RoutingModule
         SiteRoutingModule,
         SharedModule,
         TranslateModule,
@@ -25,5 +23,5 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         FormsModule
     ]
 })
-export class SiteModule {
-}
+
+export class SiteModule { }

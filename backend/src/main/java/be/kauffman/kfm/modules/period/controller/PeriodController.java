@@ -45,7 +45,7 @@ public class PeriodController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody PeriodUpdatePayload payload) {
         Period fromDb = periodRepository.findById(payload.getPeriod_id()).orElse(null);
         if(fromDb == null){

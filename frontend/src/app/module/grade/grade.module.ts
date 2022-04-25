@@ -9,12 +9,15 @@ import { GradeHomeComponent } from './component/grade-home/grade-home.component'
 import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [
-    GradeListComponent,
-    GradeFormComponent,
-    GradeDetailComponent,
-    GradeHomeComponent
-  ],
+    declarations: [
+        GradeListComponent,
+        GradeFormComponent,
+        GradeDetailComponent,
+        GradeHomeComponent
+    ],
+    exports: [
+        GradeListComponent
+    ],
     imports: [
         CommonModule,
         // Don't forget to add/import the {entity}RoutingModule & SharedModule

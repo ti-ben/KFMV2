@@ -52,12 +52,4 @@ export class GradeListComponent extends WithMenuAndDestroyableBaseComponent impl
     item.link += grade.grade_id;
     this.navigation.navigate(item);
   }
-
-  isValid(grade: Grade): Boolean{
-    if(grade.active === "true")
-    {
-      return true;
-    }
-    return false;
-  }
 }

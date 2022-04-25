@@ -6,14 +6,9 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let grade of list" (click)="detail(grade)">
-            <span class="large" *ngIf="isValid; else Invalid">
+            <span>
                 <i class="fa-solid fa-square-check" style="color: #04AA6D"></i> {{grade.name}}
             </span>
-            <ng-template #Invalid>
-            <span class="large">
-                <i class="fa-solid fa-square-check" style="color: red"></i> {{grade.name}}
-            </span>
-            </ng-template>
           </li>
         </ul>
       </ng-container>

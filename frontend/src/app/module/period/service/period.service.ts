@@ -8,6 +8,8 @@ import { isNil } from 'lodash';
 import { Period } from '@period/model/business';
 import { PeriodHelper } from '@period/helper';
 import { PeriodDto } from '@period/model';
+import {Grade, GradeDto} from "@grade/model";
+import {GradeHelper} from "@grade/helper";
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +24,13 @@ export class PeriodService extends ApiService {
     return this.http.get(`${this.baseUrl}${ApiUriEnum.PERIOD_CREATE}`);
   }
 
-// Théoriquement ici tu sors une liste d'utilisateur.
-// Observable<User[]>
-  list(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.PERIOD_LIST}`);
+  list(): Observable<Period[]> {
+    return this.get(ApiUriEnum.PERIOD_LIST)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? PeriodHelper.fromDtoArray(response.data as PeriodDto[]) : [];
+        })
+      )
   }
 
   detail(id: string): Observable<Period> {

@@ -82,7 +82,7 @@
 
 -->
 
-<form [formGroup]="periodGroup" >
+<form [formGroup]="periodGroup">
   pour ajouter une nouvelle période
   <div class="flex-row">
     <div class="flex-cell">
@@ -96,41 +96,46 @@
     </div>
   </div>
 </form>
+<app-grade-list></app-grade-list>
 <!-- @todo récupérer la liste des périodes et utiliser un ngfor dans le div ci-dessous -->
-<ng-container *ngIf="periodList$ | async  as plist">
+<ng-container *ngIf="periodList$ | async as plist">
   <ng-container *ngIf="plist.length > 0;else noData">
-<div *ngFor="let period of plist">
-  <div>Période - date de début et date de fin</div>
-  <table class="custom-table">
-    <tr>
-      <td>Date début</td>
-      <td>Date fin</td>
-      <td>Thème</td>
-      <td>Commentaire</td>
-      <td>Action</td>
-    </tr>
-    <!-- @todo mettre un ngfor pour chaque rdv -->
-    <tr *ngFor="let appoinment of aplist">
-      <td><input type="date" value="DB DATA"/></td>
-      <td><input type="date" value="DB DATA"/></td>
-      <td><input type="text" value="DB DATA"/></td>
-      <td><input type="text" value="DB DATA"/></td>
-      <td>
-        <button class="btn btn-danger" (click)="deleteSession()">Delete</button>
-      </td>
-    </tr>
-    <!-- fin ngFor-->
-    <tr>
-      <td><input type="date" placeholder="Date de début"/></td>
-      <td><input type="date" placeholder="Date de fin"/></td>
-      <td><input type="text" placeholder="Thème"/></td>
-      <td><input type="text" placeholder="Commentaire"/></td>
-      <td>
-        <button class="btn btn-success" (click)="addAppointment()">Add</button>
-      </td>
-    </tr>
-  </table>
-</div>
+    <div *ngFor="let period of plist">
+      <div>Période - date de début et date de fin</div>
+      <table class="custom-table">
+        <tr>
+          <td>Date début</td>
+          <td>Date fin</td>
+          <td>Thème</td>
+          <td>Commentaire</td>
+          <td>Action</td>
+        </tr>
+        <ng-container *ngIf="appointmentList$ | async as aplist">
+          <ng-container *ngIf="aplist.length > 0;else noData">
+            <!-- @todo mettre un ngfor pour chaque rdv -->
+            <tr *ngFor="let appoinment of aplist">
+              <td><input type="date" value="DB DATA"/></td>
+              <td><input type="date" value="DB DATA"/></td>
+              <td><input type="text" value="DB DATA"/></td>
+              <td><input type="text" value="DB DATA"/></td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteSession()">Delete</button>
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+        <!-- fin ngFor-->
+        <tr>
+          <td><input type="date" placeholder="Date de début"/></td>
+          <td><input type="date" placeholder="Date de fin"/></td>
+          <td><input type="text" placeholder="Thème"/></td>
+          <td><input type="text" placeholder="Commentaire"/></td>
+          <td>
+            <button class="btn btn-success" (click)="addAppointment()">Add</button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </ng-container>
   <ng-template #noData>
     <span class="p-medium">{{'page.grade-list.no-data' | translate}}</span>
