@@ -110,7 +110,7 @@
       <td>Action</td>
     </tr>
     <!-- @todo mettre un ngfor pour chaque rdv -->
-    <tr>
+    <tr *ngFor="let appoinment of aplist">
       <td><input type="date" value="DB DATA"/></td>
       <td><input type="date" value="DB DATA"/></td>
       <td><input type="text" value="DB DATA"/></td>
