@@ -1,10 +1,12 @@
 <app-card [config]="cardConfig">
   <form action="">
-    <app-input-text [label]="{label:'form.grade.label.name'}" [placeholder]="'form.grade.placehodler.name'" [ctrl]="getControl('name')"></app-input-text>
-    <app-textarea [label]="{label:'form.grade.label.comment'}" [placeholder]="'form.grade.placehodler.comment'" [ctrl]="getControl('description')"></app-textarea>
+    <app-input-text [label]="{label:'form.grade.label.name'}" [placeholder]="'form.grade.placehodler.name'"
+                    [ctrl]="getControl('name')"></app-input-text>
+    <app-textarea [label]="{label:'form.grade.label.comment'}" [placeholder]="'form.grade.placehodler.comment'"
+                  [ctrl]="getControl('comment')"></app-textarea>
   </form>
 
   <div class="btn-area">
-    <button (click)="save()">Enregistrer le nouveau rôle</button>
+    <button (click)="create()">Enregistrer le nouveau rôle</button>
   </div>
 </app-card>

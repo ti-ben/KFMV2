@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { LabelWithParam } from "@shared/model";
-import { FormControl } from "@angular/forms";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { SelectConfig } from '@shared/model/select.config';
 
 @Component({
@@ -10,12 +8,19 @@ import { SelectConfig } from '@shared/model/select.config';
 })
 export class SelectComponent implements OnInit {
   @Input() config!: SelectConfig;
+  @Output() onBlur = new EventEmitter<void>();
+
+
 
   constructor() {
   }
 
   ngOnInit(): void {
-    //console.log('my config', this.config);
+    console.log('ca init select');
+    console.log('my config', this.config.values);
   }
 
+  ngOnChange() {
+    console.log('ca change');
+  }
 }

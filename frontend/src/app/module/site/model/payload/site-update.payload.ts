@@ -5,4 +5,5 @@ export interface SiteUpdatePayload extends PayloadInterface {
   name: string;
   description: string;
   created_on: Date;
+  active: String;
 }

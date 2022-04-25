@@ -3,5 +3,5 @@ export interface Site {
   name: string,
   description: string,
   created_on: Date,
-  active: Boolean
+  active: String
 }

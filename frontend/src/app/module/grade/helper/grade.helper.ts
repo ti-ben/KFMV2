@@ -4,7 +4,7 @@ import {isNil} from 'lodash';
 import {Status} from "@status/model";
 import {SelectOption} from "@shared/model/select.config";
 import {User} from "@user/model";
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export class GradeHelper {
   public static fromDto(dto: GradeDto): Grade {
@@ -14,7 +14,8 @@ export class GradeHelper {
     return {
       grade_id: dto.grade_id,
       name: dto.name,
-      comment: dto.comment
+      comment: dto.comment,
+      active: dto.active
     }
   }
 
@@ -22,7 +23,8 @@ export class GradeHelper {
     return {
       grade_id: grade.grade_id,
       name: grade.name,
-      comment: grade.comment
+      comment: grade.comment,
+      active: grade.active
     };
   }
 
@@ -30,12 +32,22 @@ export class GradeHelper {
     return {
       grade_id: '',
       name: '',
-      comment: ''
+      comment: '',
+      active: ''
     };
   }
 
   static fromDtoArray(data: GradeDto[]): Grade[] {
     return data.map((dto: GradeDto) => GradeHelper.fromDto(dto));
+  }
+
+  public static toFormGroup(grade: Grade = GradeHelper.getEmpty()): FormGroup {
+    return new FormGroup({
+      grade_id: new FormControl(grade.grade_id),
+      name: new FormControl(grade.name, [Validators.required]),
+      comment: new FormControl(grade.comment),
+      active: new FormControl(grade.active)
+    })
   }
 
   static toGradeOptionArray(list: Grade[]): SelectOption[] {

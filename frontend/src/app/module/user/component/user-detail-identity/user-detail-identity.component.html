@@ -58,15 +58,15 @@
     </div>
 
     <div class="flex-cell">
-      <app-select *ngIf="driverSelectConfig$ | async as driverSelectConfig" [config]="driverSelectConfig" (blur)="update()"></app-select>
+      <app-select *ngIf="driverSelectConfig$ | async as driverSelectConfig" [config]="driverSelectConfig" (onBlur)="update()"></app-select>
     </div>
 
     <div class="flex-cell">
-      <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig" [config]="statusSelectConfig" (blur)="update()"></app-select>
+      <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig" [config]="statusSelectConfig" (onBlur)="update()"></app-select>
     </div>
 
     <div class="flex-cell">
-      <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig" [config]="siteSelectConfig" (blur)="update()"></app-select>
+      <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig" [config]="siteSelectConfig" (onBlur)="update()"></app-select>
     </div>
   </div>
 </form>

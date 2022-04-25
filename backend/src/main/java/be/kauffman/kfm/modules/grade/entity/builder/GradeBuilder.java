@@ -1,12 +1,14 @@
 package be.kauffman.kfm.modules.grade.entity.builder;
 
 import be.kauffman.kfm.modules.grade.entity.dto.Grade;
+
 import java.util.UUID;
 
-public class GradeBuilder{
+public class GradeBuilder {
     UUID grade_id;
-    String name;
-    String comment;
+    String name = "";
+    String comment = "";
+    String active = "";
 
     public GradeBuilder setGrade_id(UUID grade_id) {
         this.grade_id = grade_id;
@@ -23,5 +25,12 @@ public class GradeBuilder{
         return this;
     }
 
-    public Grade build() { return new Grade(grade_id, name, comment); } // A cause de cette ligne
+    public GradeBuilder setActive(String active) {
+        this.active = active;
+        return this;
+    }
+
+    public Grade build() {
+        return new Grade(grade_id, name, comment, active);
+    }
 }

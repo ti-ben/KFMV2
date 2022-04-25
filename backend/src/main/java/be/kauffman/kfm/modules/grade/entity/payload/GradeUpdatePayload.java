@@ -13,4 +13,5 @@ public class GradeUpdatePayload {
     UUID grade_id;
     String comment;
     String name;
+    String active;
 }

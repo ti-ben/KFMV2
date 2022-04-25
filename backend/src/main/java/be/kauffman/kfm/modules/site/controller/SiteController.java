@@ -68,6 +68,8 @@ public class SiteController {
         }
         fromDb.setName(payload.getName());
         fromDb.setDescription(payload.getDescription());
+        fromDb.setCreated_on(payload.getCreated_on());
+        fromDb.setActive(payload.getActive());
         return new ApiResponse(true, siteRepository.save(fromDb), null);
     }
 

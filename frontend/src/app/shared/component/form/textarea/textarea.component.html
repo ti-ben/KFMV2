@@ -1,2 +1,2 @@
 <label >{{label.label | translate:label.params}}</label>
-<textarea [formControl]="ctrl"></textarea>
+<textarea [formControl]="ctrl" (blur)="onBlur.emit()"></textarea>

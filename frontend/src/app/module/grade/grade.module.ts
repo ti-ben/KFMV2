@@ -6,6 +6,7 @@ import {GradeDetailComponent, GradeFormComponent, GradeListComponent} from '@gra
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import { GradeHomeComponent } from './component/grade-home/grade-home.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GradeHomeComponent } from './component/grade-home/grade-home.component'
         // Don't forget to add/import the {entity}RoutingModule & SharedModule
         GradeRoutingModule,
         SharedModule,
-        TranslateModule
+        TranslateModule,
+        ReactiveFormsModule
     ]
 })
 export class GradeModule {

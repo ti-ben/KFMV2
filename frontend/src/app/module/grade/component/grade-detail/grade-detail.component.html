@@ -1,5 +1,38 @@
 <app-card [config]="cardConfig">
-  <form action="" *ngIf="gradeService.currentDetail$ | async as detail">
+  <form [formGroup]="formGroup" *ngIf="gradeService.currentDetail$ | async as grade">
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.grade.label.grade_id'}"
+                        [placeholder]="'form.grade.placeholder.grade_id'"
+                        [ctrl]="getControl('grade_id')"
+                        (onBlur)="update()">
+        </app-input-text>
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-input-text [label]="{label:'form.grade.label.name'}"
+                        [placeholder]="'form.grade.placeholder.name'"
+                        [ctrl]="getControl('name')"
+                        (onBlur)="update()">
+        </app-input-text>
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-textarea [label]="{label:'form.grade.label.comment'}"
+                      [placeholder]="'form.grade.placeholder.comment'"
+                      [ctrl]="getControl('comment')"
+                      (onBlur)="update()">
+        </app-textarea>
+
+        <input class="form-control form-control-sm" value="{{detail.active}}" type="text" name="active" placeholder="active">
+      </div>
+    </div>
+
+    <!--
     <ng-container *ngIf="detail.grade_id.length ===0;else data">
       Aucuns résultats trouvés.
     </ng-container>
@@ -8,12 +41,16 @@
       <input autofocus class="form-control form-control-sm" value="{{detail.name}}" type="text" name="role_name" placeholder="Rôle name">
       <textarea autofocus class="form-control form-control-sm" value="{{detail.comment}}" type="text-area" name="role_description" rows="4" placeholder="Description du rôle">{{detail.comment}}</textarea>
     </ng-template>
+    -->
   </form>
 
   <div class="btn-area">
+    <!--
     <input type="update" (click)="update()" value="Mettre à jour" />
-    <input type="archive" (click)="archive()" value="Archiver" />
+    -->
+    <button (click)="archive()">Archiver</button>
   </div>
+
 </app-card>
 
 <!--

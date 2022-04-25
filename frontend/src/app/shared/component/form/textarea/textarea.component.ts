@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { LabelWithParam } from '@shared/model';
 import { FormControl } from '@angular/forms';
 
@@ -11,6 +11,7 @@ export class TextareaComponent implements OnInit {
   @Input() label!: LabelWithParam;
   @Input() placeholder!: string;
   @Input() ctrl!: FormControl;
+  @Output() onBlur = new EventEmitter<void>();
 
   constructor() {
   }

@@ -62,7 +62,7 @@ public class PrestataireController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody PrestataireUpdatePayload payload){
         Prestataire fromDb = prestataireRepository.findById(payload.getPrestataire_id()).orElse(null);
         if(fromDb == null){

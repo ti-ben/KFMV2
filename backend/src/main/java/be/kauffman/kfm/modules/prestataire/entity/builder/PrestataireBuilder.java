@@ -5,12 +5,12 @@ import be.kauffman.kfm.modules.prestataire.entity.dto.Prestataire;
 
 import java.util.UUID;
 
-public class PrestataireBuilder{
+public class PrestataireBuilder {
     UUID prestataire_id;
-    String name     = "";
-    String tel      = "";
-    String email    = "";
-    String service     = "";
+    String name = "";
+    String tel = "";
+    String email = "";
+    String service = "";
     Address addressList;
 
     public PrestataireBuilder setPrestataire_id(UUID prestataire_id) {
@@ -43,5 +43,7 @@ public class PrestataireBuilder{
         return this;
     }
 
-    public Prestataire build() { return new Prestataire(prestataire_id, name, tel, email, service, addressList);}
+    public Prestataire build() {
+        return new Prestataire(prestataire_id, name, tel, email, service, addressList);
+    }
 }

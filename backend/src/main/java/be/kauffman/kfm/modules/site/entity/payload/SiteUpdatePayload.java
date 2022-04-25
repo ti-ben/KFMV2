@@ -4,6 +4,8 @@ import be.kauffman.kfm.modules.address.entity.dto.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -13,7 +15,8 @@ import java.util.UUID;
 public class SiteUpdatePayload {
     UUID site_id;
     String name;
+    Date created_on;
     String description;
-    Boolean active;
+    String active;
     Address addressList;
 }

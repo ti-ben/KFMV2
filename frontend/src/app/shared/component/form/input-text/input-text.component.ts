@@ -18,6 +18,7 @@ export class InputTextComponent implements OnInit {
     }
 
     ngOnInit(): void {
+      console.log('ca init input text');
     }
 
     ngOnChange() {

@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class GradeCreatePayload {
     String comment;
     String name;
+    String active;
 }

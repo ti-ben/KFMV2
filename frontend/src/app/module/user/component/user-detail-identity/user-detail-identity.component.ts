@@ -28,9 +28,9 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   @Input() detail: User = UserHelper.getEmpty();
   siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   statusSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  //gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   driverSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  gradeList: Grade[] = [];
+  //gradeList: Grade[] = [];
   siteList: Site[] = [];
   statusList: Status[] = [];
   formGroup!: FormGroup;
@@ -67,19 +67,20 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       active: new FormControl(this.detail.active),
       site: new FormControl(this.detail.site.site_id), // MAIS ATTENTION DE BIEN REPRENDRE LE SITE AU MOMENT DE L ENVOI DU FORMULAIRE
       address: new FormControl([]),
-      grade: new FormControl(this.detail.grade.grade_id),
+      //grade: new FormControl(this.detail.grade.grade_id),
       status: new FormControl(this.detail.status.status_id)
     })
   }
 
   //todo update user information to db
   update(): void {
+    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
     if (this.formGroup.valid) {
       const payload: UserUpdatePayload = this.formGroup.value;
       // LIER LES OBJECTS AUX CLES
       payload.user_id = this.detail.user_id;
       payload.site = {site_id: payload.site};
-      payload.grade = (isNil(payload.grade) || payload.grade.length === 0) ? {grade_id: this.gradeList.find(g => g.name === 'User')!.grade_id} : {grade_id: payload.grade};
+      //payload.grade = (isNil(payload.grade) || payload.grade.length === 0) ? {grade_id: this.gradeList.find(g => g.name === 'User')!.grade_id} : {grade_id: payload.grade};
       payload.status = {status_id: payload.status};
       console.log('payload', payload);
       this.userService.update(payload).subscribe();
@@ -115,7 +116,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       ctrl: this.getControl('driver_license'),
       values: DriverHelper.getSelectOption()
     });
-
+/*
     this.gradeService.list().subscribe((list: Grade[]) => {
       this.gradeList = list;
       this.gradeSelectConfig$.next({
@@ -124,6 +125,6 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
         ctrl: this.getControl('grade'),
         values: GradeHelper.toGradeOptionArray(list)
       });
-    });
+    });*/
   }
 }

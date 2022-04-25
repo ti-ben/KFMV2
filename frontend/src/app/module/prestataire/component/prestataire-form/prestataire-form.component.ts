@@ -36,7 +36,6 @@ export class PrestataireFormComponent implements OnInit {
   }
 
   private initForm(): void {
-    // Object SiteCreatePayload
     this.formGroup = new FormGroup({
       name: new FormControl('', [Validators.required]),
       tel: new FormControl('', [Validators.required]),

@@ -2,6 +2,8 @@ package be.kauffman.kfm.modules.grade.controller;
 
 import be.kauffman.kfm.modules.grade.entity.builder.GradeBuilder;
 import be.kauffman.kfm.modules.grade.repository.GradeRepository;
+import be.kauffman.kfm.modules.site.entity.dto.Site;
+import be.kauffman.kfm.modules.site.entity.payload.SiteUpdatePayload;
 import be.kauffman.kfm.modules.vehicule.entity.payload.VehiculeSearchPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -59,7 +61,7 @@ public class GradeController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody GradeUpdatePayload payload) {
         Grade fromDb = gradeRepository.findById(payload.getGrade_id()).orElse(null);
         if(fromDb == null){
@@ -70,5 +72,14 @@ public class GradeController {
         return new ApiResponse(true, gradeRepository.save(fromDb), null);
     }
 
-    // Delete record
+    // Delete or archive record
+    @PutMapping("/archive")
+    public ApiResponse archive(@RequestBody GradeUpdatePayload payload) {
+        Grade fromDb = gradeRepository.findById(payload.getGrade_id()).orElse(null);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.grade.archive.not-found");
+        }
+        fromDb.setActive(payload.getActive());
+        return new ApiResponse(true, gradeRepository.save(fromDb), null);
+    }
 }

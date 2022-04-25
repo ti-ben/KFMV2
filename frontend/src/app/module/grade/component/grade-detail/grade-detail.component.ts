@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {CardConfig, GenericTableConfig} from "@shared/model";
+import {Component, Input, OnInit} from '@angular/core';
+import {CardConfig} from "@shared/model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {GradeService} from "@grade/service/grade.service";
-import {GenericTableHelper} from "@shared/helper";
-import {Grade} from "@grade/model";
+import {Grade, GradeUpdatePayload} from "@grade/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
+import {GradeHelper} from "@grade/helper";
 
 @Component({
   selector: 'app-grade-detail',
@@ -18,17 +17,26 @@ import {FormControl, FormGroup} from "@angular/forms";
 
 export class GradeDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.grade.detail.title');
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  @Input() detail: Grade = GradeHelper.getEmpty();
   id: string = '';
   formGroup!: FormGroup;
 
-  constructor(public router: Router, public activatedRouter: ActivatedRoute, public gradeService: GradeService) { }
+  constructor(public router: Router, public activatedRouter: ActivatedRoute, public gradeService: GradeService) {
+  }
 
   public getControl(name: string): FormControl {
     return this.formGroup.get(name) as FormControl;
   }
 
+  private initForm(grade: Grade): void {
+    this.formGroup = GradeHelper.toFormGroup(grade);
+  }
+
   ngOnInit(): void {
+    this.gradeService.currentDetail$.subscribe((grade: Grade) => {
+      this.detail = grade;
+      this.initForm(grade);
+    })
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -40,18 +48,23 @@ export class GradeDetailComponent implements OnInit {
       ).subscribe();
   }
 
-  update(): void{
-    alert('Mise à jour du prestataire');
+  update(): void {
+    console.log('mes valeurs', this.formGroup.value);
+    if(this.formGroup.valid){
+      const payload: GradeUpdatePayload = this.formGroup.value;
+      payload.grade_id = this.detail.grade_id;
+      this.gradeService.update(payload).subscribe();
+    }
   }
 
   archive(): void{
-    alert('Archivage du prestataire');
-  }
-
-  private setConfig(list: Grade[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genGradeFieldDefinitions();
-    config.data = list;
-    this.config$.next(config);
+    const payload: GradeUpdatePayload = this.formGroup.value;
+    if(payload.active === "true")
+    {
+      payload.active = "false";
+      this.gradeService.update(payload).subscribe();
+    }
+    payload.active ="true";
+    this.gradeService.update(payload).subscribe();
   }
 }

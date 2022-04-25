@@ -3,9 +3,10 @@
     <app-input-text [label]="{label:'form.site.label.name'}" [placeholder]="'form.site.placehodler.name'" [ctrl]="getControl('name')"></app-input-text>
     <app-input-date [label]="{label:'form.site.label.created_on'}" [placeholder]="'form.site.placehodler.created_on'" [ctrl]="getControl('created_on')"></app-input-date>
     <app-textarea [label]="{label:'form.site.label.description'}" [placeholder]="'form.site.placehodler.description'" [ctrl]="getControl('description')"></app-textarea>
+    <app-select [config]="actifSelectConfig"></app-select>
   </form>
 
   <div class="btn-area">
-    <button (click)="save()">Enregistrer</button>
+    <button (click)="create()">Enregistrer</button>
   </div>
 </app-card>

@@ -10,7 +10,7 @@ import {MenuHelper} from "@shared/helper/menu.helper";
 import {
   WithMenuAndDestroyableBaseComponent
 } from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
-import {Site} from "@site/model";
+
 
 @Component({
   selector: 'app-grade-list',
@@ -30,7 +30,9 @@ export class GradeListComponent extends WithMenuAndDestroyableBaseComponent impl
     this.gradeService.refresh$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.gradeService.list()),
-      tap((list: Grade[]) => {this.list$.next(list)}))
+      tap((list: Grade[]) => {
+        this.list$.next(list)
+      }))
       .subscribe();
 
     this.search$.pipe(
@@ -49,5 +51,13 @@ export class GradeListComponent extends WithMenuAndDestroyableBaseComponent impl
     const item = cloneDeep(MenuHelper.gradeDetailMenuItem());
     item.link += grade.grade_id;
     this.navigation.navigate(item);
+  }
+
+  isValid(grade: Grade): Boolean{
+    if(grade.active === "true")
+    {
+      return false;
+    }
+    return true;
   }
 }

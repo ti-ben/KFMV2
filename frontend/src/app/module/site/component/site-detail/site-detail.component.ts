@@ -20,6 +20,7 @@ export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
   @Input() detail: Site = SiteHelper.getEmpty();
   id: string = '';
+  selected: string ='';
   actifSelectConfig!: SelectConfig;
   formGroup!: FormGroup;
 
@@ -31,7 +32,7 @@ export class SiteDetailComponent implements OnInit {
   }
 
   private initForm(site: Site): void {
-    this.formGroup = SiteHelper.toFormGroup(site); //A faire
+    this.formGroup = SiteHelper.toFormGroup(site);
   }
 
   ngOnInit(): void {
@@ -51,21 +52,21 @@ export class SiteDetailComponent implements OnInit {
       ).subscribe();
   }
 
-  //todo update site information to db
+  //La date et le status actif ou inactif ne s'enregistre pas en db
   update(): void {
-    console.log('mes valeurs', this.formGroup.value);
+    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
     if (this.formGroup.valid) {
       const payload: SiteUpdatePayload = this.formGroup.value;
       payload.site_id = this.detail.site_id;
-      console.log('payload', payload);
+      console.log('payload', payload); // A retirer (debug)
       this.siteService.update(payload).subscribe();
     }
   }
-
+/*
   archive(): void {
     alert('Archivage du site');
   }
-
+*/
   private setSelectConfig(): void {
     this.actifSelectConfig = {
       label: {label: 'form.site.label.active'},

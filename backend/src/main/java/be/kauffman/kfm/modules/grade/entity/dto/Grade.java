@@ -25,9 +25,6 @@ public class Grade {
     private UUID grade_id;
     String name;
     String comment;
-    Boolean defaultValue;
+    String active;
 
-    //todo j'ai du ajouter ce constructeur sinon j'avais une erreur dans le fichier GradeBuilder.java
-    public Grade(UUID grade_id, String name, String comment) {
-    }
 }

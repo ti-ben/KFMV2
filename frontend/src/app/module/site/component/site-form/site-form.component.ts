@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiResponse, CardConfig} from '@shared/model';
+import {ApiResponse, CardConfig, SelectConfig} from '@shared/model';
 import {CardHelper} from '@shared/helper/card.helper';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SiteCreatePayload} from '@site/model';
 import {SiteService} from '@site/service/site.service';
+import {ActifHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-site-form',
@@ -12,6 +13,7 @@ import {SiteService} from '@site/service/site.service';
 })
 export class SiteFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.siteConfig('page.site.create.title');
+  actifSelectConfig!: SelectConfig;
   formGroup!: FormGroup;
 
   constructor(public siteService: SiteService) {
@@ -19,16 +21,12 @@ export class SiteFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.setSelectConfig();
   }
 
-  public getControl(name: string): FormControl {
-    return this.formGroup.get(name) as FormControl;
-  }
-
-  save(): void {
+  create(): void {
     if (this.formGroup.valid) {
       const payload: SiteCreatePayload = this.formGroup.value;
-      payload.created_on = new Date(payload.created_on);
       this.siteService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.formGroup.reset();
@@ -41,8 +39,21 @@ export class SiteFormComponent implements OnInit {
     this.formGroup = new FormGroup({
       name: new FormControl('', [Validators.required]),
       description: new FormControl(''),
-      created_on: new FormControl(new Date())
+      created_on: new FormControl(new Date()),
+      active: new FormControl('')
     });
   }
 
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
+
+  private setSelectConfig(): void {
+    this.actifSelectConfig = {
+      label: {label: 'form.site.label.active'},
+      placeholder: 'form.site.placeholder.active',
+      ctrl: this.getControl('active'),
+      values: ActifHelper.toSelectOption()
+    };
+  }
 }
