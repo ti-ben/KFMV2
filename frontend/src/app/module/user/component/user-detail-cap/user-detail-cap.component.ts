@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {CardConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper";
+import {BehaviorSubject} from "rxjs";
+import {Period} from "@period/model";
 
 @Component({
   selector: 'app-user-detail-cap',
@@ -10,28 +12,31 @@ import {CardHelper} from "@shared/helper";
 })
 export class UserDetailCapComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.session_cap.title');
-  formGroup!: FormGroup;
-  sessionForm!: FormGroup;
+  periodList$ = new BehaviorSubject<Period[]>([]);
+  periodGroup!: FormGroup;
+  appointmentForm!: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
-    this.formGroup = new FormGroup({
+    this.periodGroup = new FormGroup({
 
     })
-    this.sessionForm = new FormGroup({
+    this.appointmentForm = new FormGroup({
 
     })
   }
 
   public getControl(name: string): FormControl {
-    return this.formGroup.get(name) as FormControl;
+    return this.periodGroup.get(name) as FormControl;
+    return this.appointmentForm.get(name) as FormControl;
   }
 
  addPeriod() {
     alert('add period');
   }
 
-  addSession(){
+  addAppointment(){
     alert('add Session')
   }
 

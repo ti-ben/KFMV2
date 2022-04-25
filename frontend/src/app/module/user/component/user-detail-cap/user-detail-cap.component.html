@@ -81,7 +81,8 @@
 </div>
 
 -->
-<form action="">
+
+<form [formGroup]="periodGroup" >
   pour ajouter une nouvelle période
   <div class="flex-row">
     <div class="flex-cell">
@@ -96,7 +97,9 @@
   </div>
 </form>
 <!-- @todo récupérer la liste des périodes et utiliser un ngfor dans le div ci-dessous -->
-<div>
+<ng-container *ngIf="periodList$ | async  as plist">
+  <ng-container *ngIf="plist.length > 0;else noData">
+<div *ngFor="let period of plist">
   <div>Période - date de début et date de fin</div>
   <table class="custom-table">
     <tr>
@@ -123,8 +126,13 @@
       <td><input type="text" placeholder="Thème"/></td>
       <td><input type="text" placeholder="Commentaire"/></td>
       <td>
-        <button class="btn btn-success" (click)="addSession()">Add</button>
+        <button class="btn btn-success" (click)="addAppointment()">Add</button>
       </td>
     </tr>
   </table>
 </div>
+  </ng-container>
+  <ng-template #noData>
+    <span class="p-medium">{{'page.grade-list.no-data' | translate}}</span>
+  </ng-template>
+</ng-container>

@@ -56,8 +56,8 @@ export class GradeListComponent extends WithMenuAndDestroyableBaseComponent impl
   isValid(grade: Grade): Boolean{
     if(grade.active === "true")
     {
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 }

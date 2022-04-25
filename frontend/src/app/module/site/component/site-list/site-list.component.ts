@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { LabelWithParam } from '@shared/model';
-import { SiteService } from "@site/service/site.service";
-import { Site } from "@site/model";
-import { NavigationService } from "@shared/service/navigation.service";
-import { cloneDeep } from "lodash";
-import { MenuHelper } from "@shared/helper/menu.helper";
-import { WithMenuAndDestroyableBaseComponent } from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
+import {Component, OnInit} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {switchMap, takeUntil, tap} from 'rxjs/operators';
+import {LabelWithParam} from '@shared/model';
+import {SiteService} from "@site/service/site.service";
+import {Site} from "@site/model";
+import {NavigationService} from "@shared/service/navigation.service";
+import {cloneDeep} from "lodash";
+import {MenuHelper} from "@shared/helper/menu.helper";
+import {WithMenuAndDestroyableBaseComponent} from "@shared/component/with-menu-and-destroyable/with-menu-and-destroyable.component";
 
 @Component({
   selector: 'app-site-list',
@@ -28,7 +28,9 @@ export class SiteListComponent extends WithMenuAndDestroyableBaseComponent imple
     this.siteService.refresh$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.siteService.list()),
-      tap((list: Site[]) => {this.list$.next(list)}))
+      tap((list: Site[]) => {
+        this.list$.next(list)
+      }))
       .subscribe();
 
     this.search$.pipe(

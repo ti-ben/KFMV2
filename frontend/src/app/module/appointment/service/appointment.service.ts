@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '@shared/service/api.service';
 import { HttpService } from '@shared/service/http.service';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import { ApiResponse, ApiUriEnum } from '@shared/model';
 import { map } from 'rxjs/operators';
 import { isNil } from 'lodash';
@@ -13,6 +13,8 @@ import { AppointmentDto } from '@appointment/model';
   providedIn: 'root'
 })
 export class AppointmentService extends ApiService {
+  currentDetail$ = new BehaviorSubject<Appointment>(AppointmentHelper.getEmpty());
+  refresh$ = new Subject<any>();
 
   constructor(public http: HttpService) {
     super(http);
