@@ -24,4 +24,5 @@ public class Numberplate {
     UUID numberplate_id;
     String num_plate;
     Date dop;
+    String active;
 }

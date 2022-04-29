@@ -12,4 +12,5 @@ import java.util.Date;
 public class NumberplateCreatePayload {
     String num_plate;
     Date dop;
+    String active;
 }

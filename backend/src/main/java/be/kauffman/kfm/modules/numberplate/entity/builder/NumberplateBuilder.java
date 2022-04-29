@@ -9,6 +9,7 @@ public class NumberplateBuilder {
     UUID numberplate_id;
     String num_plate;
     Date dop;
+    String active;
 
     public NumberplateBuilder setNumberplate_id(UUID numberplate_id) {
         this.numberplate_id = numberplate_id;
@@ -25,7 +26,12 @@ public class NumberplateBuilder {
         return this;
     }
 
+    public NumberplateBuilder setActive(String active) {
+        this.active = active;
+        return this;
+    }
+
     public Numberplate build() {
-        return new Numberplate(numberplate_id, num_plate, dop);
+        return new Numberplate(numberplate_id, num_plate, dop, active);
     }
 }

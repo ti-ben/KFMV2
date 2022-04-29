@@ -39,6 +39,7 @@ public class NumberplateController {
         Numberplate numberplate = new NumberplateBuilder()
                 .setNum_plate(payload.getNum_plate())
                 .setDop(payload.getDop())
+                .setActive(payload.getActive())
                 .build();
         return new ApiResponse(true, numberplateRepository.save(numberplate), null);
     }
@@ -68,6 +69,7 @@ public class NumberplateController {
         }
         fromDb.setNum_plate(payload.getNum_plate());
         fromDb.setDop(payload.getDop());
+        fromDb.setActive(payload.getActive());
         return new ApiResponse(true, numberplateRepository.save(fromDb), null);
     }
 

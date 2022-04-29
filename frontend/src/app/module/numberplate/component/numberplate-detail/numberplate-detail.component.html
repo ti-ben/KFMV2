@@ -3,10 +3,17 @@
 
     <div class="flex-row">
       <div class="flex-cell">
+        <!--
         <span>Numberplate id</span>
         <input value="{{numberplate.numberplate_id}}" type="text" disabled/>
+        -->
+        <app-input-text [label]="{label:'form.numberplate.label.numberplate_id'}"
+                        [placeholder]="'form.site.numberplate.numberplate_id'"
+                        [ctrl]="getControl('numberplate_id')">
+        </app-input-text>
       </div>
     </div>
+
 
     <div class="flex-row">
       <div class="flex-cell">
@@ -35,7 +42,7 @@
         </app-input-date>
       </div>
     </div>
-<!--
+
     <div class="flex-row">
       <div class="flex-cell">
         <app-select [config]="actifSelectConfig"
@@ -43,14 +50,15 @@
         </app-select>
       </div>
     </div>
-    -->
+
   </form>
 
+  <!--
   <div class="btn-area">
     <button (click)="archive()">Archiver</button>
   </div>
 
-  <!--
+
   <div>
     <input type="update" (click)="update()" value="Mettre à jour" />
     <input type="archive" (click)="archive()" value="Archiver" />

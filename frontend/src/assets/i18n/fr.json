@@ -239,11 +239,13 @@
     },
     "numberplate": {
       "label": {
+        "numberplate_id": "ID plaque d'immatriculation",
         "num_plate": "N° de plaque d'immatriculation",
         "dop": "Date d'achat de la plaque",
         "active": "Plaque active ?"
       },
       "placeholder": {
+        "numberplate_id": "ID plaque d'immatriculation",
         "num_plate": "Entrer un numéro de plaque",
         "dop": "Choisir une date d'achat",
         "active": "Plaque active ?"

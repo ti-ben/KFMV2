@@ -5,7 +5,7 @@ import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
 import {ActifHelper} from "@shared/helper";
 import {NumberplateService} from "@numberplate/service/numberplate.service";
-import {Numberplate} from "@numberplate/model";
+import {Numberplate, NumberplateUpdatePayload} from "@numberplate/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {NumberplateHelper} from "@numberplate/helper";
@@ -52,12 +52,20 @@ export class NumberplateDetailComponent implements OnInit {
   }
 
   update(): void {
-    alert('Mise à jour de la plaque');
+    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
+    if (this.formGroup.valid) {
+      const payload: NumberplateUpdatePayload = this.formGroup.value;
+      payload.numberplate_id = this.detail.numberplate_id;
+      console.log('payload', payload); // A retirer (debug)
+      this.numberplateService.update(payload).subscribe();
+    }
   }
 
-  archive(): void {
-    alert('Archivage de la plaque');
-  }
+/*
+    archive(): void {
+      alert('Archivage de la plaque');
+    }
+*/
 
   private setSelectConfig(): void {
     this.actifSelectConfig = {
