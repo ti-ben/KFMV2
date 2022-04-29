@@ -42,7 +42,8 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <app-select [config]="actifSelectConfig"
+        <app-select *ngIf="actifSelectConfig$ | async as actifSelectConfig"
+                    [config]="actifSelectConfig"
                     (onBlur)="update()">
         </app-select>
       </div>

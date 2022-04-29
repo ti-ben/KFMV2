@@ -9,6 +9,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {SiteHelper} from "@site/helper";
 import {ActifHelper} from "@shared/helper";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-site-detail',
@@ -20,7 +21,7 @@ export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
   @Input() detail: Site = SiteHelper.getEmpty();
   id: string = '';
-  actifSelectConfig!: SelectConfig;
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   formGroup!: FormGroup;
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public siteService: SiteService) {
@@ -68,11 +69,11 @@ export class SiteDetailComponent implements OnInit {
     }
   */
   private setSelectConfig(): void {
-    this.actifSelectConfig = {
+    this.actifSelectConfig$.next( {
       label: {label: 'form.site.label.active'},
       placeholder: 'form.site.placeholder.active',
       ctrl: this.getControl('active'),
       values: ActifHelper.toSelectOption()
-    };
+    });
   }
 }
