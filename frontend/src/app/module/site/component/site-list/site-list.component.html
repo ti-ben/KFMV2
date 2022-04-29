@@ -6,7 +6,7 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let site of list" (click)="detail(site)">
-            <span class="large"> {{site.name | uppercase}} </span>
+            <span class="large"><i class="fa-solid fa-square-check" style="color: #04AA6D"></i> {{site.name | uppercase}} </span>
           </li>
         </ul>
       </ng-container>

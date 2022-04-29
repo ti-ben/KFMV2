@@ -6,7 +6,7 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let vehicule of list" (click)="detail(vehicule)">
-             [{{vehicule.numberplate.num_plate | uppercase}}] {{vehicule.brand}}
+            <span><i class="fa-solid fa-square-check" style="color: #04AA6D"></i> [{{vehicule.numberplate.num_plate | uppercase}}] {{vehicule.brand}}</span>
           </li>
         </ul>
       </ng-container>

@@ -1,72 +1,102 @@
 <form [formGroup]="formGroup">
   <div class="flex-row">
     <div class="flex-cell">
-      <span>Nom</span>
-      <input type="text" formControlName="lastname" (blur)="update()"/>
+      <app-input-text [label]="{label:'form.user.label.lastname'}"
+                      [placeholder]="'form.user.placeholder.lastname'"
+                      [ctrl]="getControl('lastname')" (onBlur)="update()">
+      </app-input-text>
     </div>
     <div class="flex-cell">
-      <span>Prénom</span>
-      <input type="text" formControlName="firstname" (blur)="update()"/>
+      <app-input-text [label]="{label:'form.user.label.firstname'}"
+                      [placeholder]="'form.user.placeholder.firstname'"
+                      [ctrl]="getControl('firstname')" (onBlur)="update()">
+      </app-input-text>
+    </div>
+    <div class="flex-cell">
+      <app-input-text [label]="{label:'form.user.label.email'}"
+                      [placeholder]="'form.user.placeholder.email'"
+                      [ctrl]="getControl('email')" (onBlur)="update()">
+      </app-input-text>
+    </div>
+  </div>
+
+
+  <div class="flex-row">
+
+    <div class="flex-cell">
+      <app-input-text [label]="{label:'form.user.label.telperso'}"
+                      [placeholder]="'form.user.placeholder.telperso'"
+                      [ctrl]="getControl('telperso')" (onBlur)="update()">
+      </app-input-text>
     </div>
 
     <div class="flex-cell">
-      <span>Adresse email</span>
-      <div class="input-group">
-        <input type="text" formControlName="email" (blur)="update()"/>
-      </div>
+      <app-input-text [label]="{label:'form.user.label.telpro'}"
+                      [placeholder]="'form.user.placeholder.telpro'"
+                      [ctrl]="getControl('telpro')" (onBlur)="update()">
+      </app-input-text>
+    </div>
+
+    <div class="flex-cell">
+      <app-input-text [label]="{label:'form.user.label.nationality'}"
+                      [placeholder]="'form.user.placeholder.nationality'"
+                      [ctrl]="getControl('nationality')" (onBlur)="update()">
+      </app-input-text>
     </div>
   </div>
 
   <div class="flex-row">
     <div class="flex-cell">
-      <span>Tel. (Perso)</span>
-      <input type="text" formControlName="telperso" (blur)="update()"/>
+      <app-input-text [label]="{label:'form.user.label.gender'}"
+                      [placeholder]="'form.user.placeholder.gender'"
+                      [ctrl]="getControl('gender')" (onBlur)="update()">
+      </app-input-text>
     </div>
 
     <div class="flex-cell">
-      <span>Tel. (Pro)</span>
-      <input type="text" formControlName="telpro" (blur)="update()"/>
+      <app-input-text [label]="{label:'form.user.label.dob'}"
+                      [placeholder]="'form.user.placeholder.dob'"
+                      [ctrl]="getControl('dob')" (onBlur)="update()">
+      </app-input-text>
     </div>
 
     <div class="flex-cell">
-      <span>Nationalité</span>
-      <input type="text" formControlName="nationality" (blur)="update()"/>
-    </div>
-  </div>
-
-  <div class="flex-row">
-    <div class="flex-cell">
-      <span>Genre</span>
-      <input type="text" formControlName="gender" (blur)="update()"/>
-    </div>
-
-    <div class="flex-cell">
-      <span>Date de naissance</span>
-      <input type="text" formControlName="dob" (blur)="update()"/>
-    </div>
-
-    <div class="flex-cell">
-      <span>Lieu de naissance</span>
-      <input type="text" formControlName="pob" (blur)="update()"/>
+      <app-input-text [label]="{label:'form.user.label.pob'}"
+                      [placeholder]="'form.user.placeholder.pob'"
+                      [ctrl]="getControl('pob')" (onBlur)="update()">
+      </app-input-text>
     </div>
   </div>
 
   <div class="flex-row">
+    <app-input-text [label]="{label:'form.user.label.numirn'}"
+                    [placeholder]="'form.user.placeholder.numirn'"
+                    [ctrl]="getControl('numirn')" (onBlur)="update()">
+    </app-input-text>
+
     <div class="flex-cell">
-      <span>N° registre national</span>
-      <input type="text" formControlName="numirn" (blur)="update()"/>
+      <app-select *ngIf="driverSelectConfig$ | async as driverSelectConfig"
+                  [config]="driverSelectConfig"
+                  (onBlur)="update()"></app-select>
     </div>
 
     <div class="flex-cell">
-      <app-select *ngIf="driverSelectConfig$ | async as driverSelectConfig" [config]="driverSelectConfig" (onBlur)="update()"></app-select>
+      <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig"
+                  [config]="statusSelectConfig"
+                  (onBlur)="update()"></app-select>
     </div>
 
     <div class="flex-cell">
-      <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig" [config]="statusSelectConfig" (onBlur)="update()"></app-select>
+      <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig"
+                  [config]="siteSelectConfig"
+                  (onBlur)="update()"></app-select>
     </div>
 
     <div class="flex-cell">
-      <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig" [config]="siteSelectConfig" (onBlur)="update()"></app-select>
+      <app-select *ngIf="actifSelectConfig$ | async as actifSelectConfig"
+                  [config]="actifSelectConfig"
+                  (onBlur)="update()">
+      </app-select>
     </div>
   </div>
 </form>

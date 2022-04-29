@@ -301,7 +301,7 @@
         "gender": "Genre",
         "dob": "Date de naissance",
         "pob": "Lieu de naissance",
-        "active": "Actif",
+        "active": "Utilisateur actif ?",
         "numirn": "Numério de registre nationnal",
         "driver_license": "Type de permis",
         "status_name": "Status",

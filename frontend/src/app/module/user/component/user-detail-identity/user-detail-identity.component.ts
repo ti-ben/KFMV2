@@ -4,7 +4,7 @@ import {User, UserUpdatePayload} from '@user/model';
 import {UserHelper} from '@user/helper';
 import {UserService} from "@user/service/user.service";
 import {CardConfig, SelectConfig} from "@shared/model";
-import {CardHelper, DriverHelper} from "@shared/helper";
+import {ActifHelper, CardHelper, DriverHelper} from "@shared/helper";
 import {Site} from "@site/model";
 import {SiteHelper} from "@site/helper";
 import {SiteService} from "@site/service/site.service";
@@ -12,10 +12,7 @@ import {Status} from "@status/model";
 import {StatusHelper} from "@status/helper";
 import {StatusService} from "@status/service/status.service";
 import {BehaviorSubject} from 'rxjs';
-import {isNil} from 'lodash';
-import {Grade} from '@grade/model';
 import {GradeService} from '@grade/service/grade.service';
-import {GradeHelper} from '@grade/helper';
 
 @Component({
   selector: 'app-user-detail-identity',
@@ -28,9 +25,8 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   @Input() detail: User = UserHelper.getEmpty();
   siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   statusSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  //gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   driverSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  //gradeList: Grade[] = [];
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   siteList: Site[] = [];
   statusList: Status[] = [];
   formGroup!: FormGroup;
@@ -39,13 +35,21 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService, public gradeService: GradeService) {
   }
 
-  //Construit le composant
-  ngOnInit(): void {
-    this.setSelectConfig();
-  }
-
   public getControl(name: string): FormControl {
     return this.formGroup.get(name) as FormControl;
+  }
+
+  private initForm(user: User): void {
+    this.formGroup = UserHelper.toFormGroup(user);
+  }
+
+  //Construit le composant
+  ngOnInit(): void {
+    this.userService.currentDetail$.subscribe((user: User) => {
+      this.detail = user;
+      this.initForm(user);
+    })
+    this.setSelectConfig();
   }
 
   // Affiche les informations du user sélectionné
@@ -80,7 +84,6 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       // LIER LES OBJECTS AUX CLES
       payload.user_id = this.detail.user_id;
       payload.site = {site_id: payload.site};
-      //payload.grade = (isNil(payload.grade) || payload.grade.length === 0) ? {grade_id: this.gradeList.find(g => g.name === 'User')!.grade_id} : {grade_id: payload.grade};
       payload.status = {status_id: payload.status};
       console.log('payload', payload);
       this.userService.update(payload).subscribe();
@@ -109,22 +112,18 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       });
     });
 
-    //todo à vérifier pour avoir le bon comportement
     this.driverSelectConfig$.next({
       label: {label: 'form.user.label.driver_license'},
       placeholder: 'form.user.placeholder.driver_license',
       ctrl: this.getControl('driver_license'),
       values: DriverHelper.getSelectOption()
     });
-/*
-    this.gradeService.list().subscribe((list: Grade[]) => {
-      this.gradeList = list;
-      this.gradeSelectConfig$.next({
-        label: {label: 'form.user.label.grade_name'},
-        placeholder: 'form.user.placeholder.grade_name',
-        ctrl: this.getControl('grade'),
-        values: GradeHelper.toGradeOptionArray(list)
-      });
-    });*/
+
+    this.actifSelectConfig$.next( {
+      label: {label: 'form.user.label.active'},
+      placeholder: 'form.user.placeholder.active',
+      ctrl: this.getControl('active'),
+      values: ActifHelper.toSelectOption()
+    });
   }
 }

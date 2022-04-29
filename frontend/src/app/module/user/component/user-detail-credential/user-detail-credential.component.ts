@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CardConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -15,8 +15,8 @@ import {ActifHelper} from "@shared/helper";
   styleUrls: ['./user-detail-credential.component.scss']
 })
 export class UserDetailCredentialComponent implements OnInit {
-  //@Input() detail: Credential = CredentialHelper.getEmpty();
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
+  //@Input() detail: Credential = CredentialHelper.getEmpty();
   formGroup!: FormGroup;
   gradeSelectConfig!: SelectConfig;
   actifSelectConfig!: SelectConfig;

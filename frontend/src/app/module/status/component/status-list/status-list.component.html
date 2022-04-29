@@ -6,7 +6,7 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let status of list" (click)="detail(status)">
-            <span class="large">{{status.name}}</span>
+            <span class="large"><i class="fa-solid fa-square-check" style="color: #04AA6D"></i> {{status.name}}</span>
           </li>
         </ul>
       </ng-container>

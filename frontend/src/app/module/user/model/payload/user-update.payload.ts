@@ -1,6 +1,7 @@
 import {PayloadInterface} from '@shared/model';
 
 export interface UserUpdatePayload extends PayloadInterface {
+  user_id: string;
   firstname: string;
   lastname: string;
   gender: string;
@@ -20,5 +21,4 @@ export interface UserUpdatePayload extends PayloadInterface {
   address: any;
   grade: any;
   status: any;
-  user_id: string;
 }

@@ -47,7 +47,8 @@ export class UserDetailComponent implements OnInit {
 
   private setTab(): void {
     this.tabs = [
-      {label: 'Identité', type: TabItemAction.USER_IDENTITY},
+      {label: 'Information', type: TabItemAction.USER_IDENTITY},
+      {label: 'Adresse', type: TabItemAction.USER_IDENTITY},
       {label: 'CAP', type: TabItemAction.USER_CAP},
       {label: 'ADR', type: TabItemAction.USER_ADR},
       {label: 'Sélection médicale', type: TabItemAction.USER_SELECTMED},

@@ -6,7 +6,7 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let prestataire of list" (click)="detail(prestataire)">
-            {{prestataire.name| uppercase}}
+            <span><i class="fa-solid fa-square-check" style="color: #04AA6D"></i> {{prestataire.name| uppercase}}</span>
           </li>
         </ul>
       </ng-container>

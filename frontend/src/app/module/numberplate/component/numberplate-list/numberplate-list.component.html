@@ -6,9 +6,7 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let numberplate of list" (click)="detail(numberplate)">
-            <span class="large">
-              {{numberplate.num_plate}}
-            </span>
+            <span class="large"><i class="fa-solid fa-square-check" style="color: #04AA6D"></i> {{numberplate.num_plate}}</span>
           </li>
         </ul>
       </ng-container>
