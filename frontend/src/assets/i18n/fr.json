@@ -263,14 +263,16 @@
         "name": "Nom du prestataire",
         "tel": "Numéro de téléphone",
         "email": "Adresse email",
-        "service": "Type de service"
+        "service": "Type de service",
+        "active": "Prestataire actif ?"
       },
       "placeholder": {
         "prestataire_id": "ID du prestataire",
         "name": "Entrer un nom",
         "tel": "Entrer un numéro",
         "email": "Entrer une adresse email",
-        "service": "Entrer le type de service"
+        "service": "Entrer le type de service",
+        "active": "Prestataire actif ?"
       }
     },
     "vehicule": {

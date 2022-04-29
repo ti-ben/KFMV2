@@ -15,7 +15,6 @@ import { isNil } from 'lodash';
 })
 
 export class UserDetailComponent implements OnInit {
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
   tabs: TabItem[] = [];
   UserDetailTab = TabItemAction;
@@ -48,7 +47,7 @@ export class UserDetailComponent implements OnInit {
   private setTab(): void {
     this.tabs = [
       {label: 'Information', type: TabItemAction.USER_IDENTITY},
-      {label: 'Adresse', type: TabItemAction.USER_IDENTITY},
+      {label: 'Adresse', type: TabItemAction.USER_ADDRESS},
       {label: 'CAP', type: TabItemAction.USER_CAP},
       {label: 'ADR', type: TabItemAction.USER_ADR},
       {label: 'Sélection médicale', type: TabItemAction.USER_SELECTMED},
@@ -57,10 +56,4 @@ export class UserDetailComponent implements OnInit {
     ]
   }
 
-  private setConfig(list: User[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genUserFieldDefinitions();
-    config.data = list;
-    this.config$.next(config);
-  }
 }

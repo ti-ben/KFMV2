@@ -15,7 +15,6 @@ import {Vehicule} from "@vehicule/model";
 })
 
 export class VehiculeDetailComponent implements OnInit {
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
   id: string = '';
   tabs: TabItem[] = [];
   VehiculeDetailTab = TabItemAction;
@@ -45,14 +44,9 @@ export class VehiculeDetailComponent implements OnInit {
       {label: 'ADR', type: TabItemAction.VEHICULE_ADR},
       {label: 'Métrologie', type: TabItemAction.VEHICULE_METROLOGY},
       {label: 'Contrôle technique', type: TabItemAction.VEHICULE_TECHNICAL_CONTROL},
-      {label: 'Intervention technique', type: TabItemAction.VEHICULE_TECHNICAL_INTERVENTION}
+      {label: 'Intervention technique', type: TabItemAction.VEHICULE_TECHNICAL_INTERVENTION},
+      {label: 'Immatriculation', type: TabItemAction.VEHICULE_NUMBERPLATE}
     ]
   }
 
-  private setConfig(list: Vehicule[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genVehiculeFieldDefinitions();
-    config.data = list;
-    this.config$.next(config);
-  }
 }
