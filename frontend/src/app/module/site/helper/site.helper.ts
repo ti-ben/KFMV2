@@ -34,7 +34,6 @@ export class SiteHelper {
       name: '',
       description: '',
       created_on: new Date("dd/MM/yyyy"),
-      // Permet d'affecter une valeur par défaut au formulaire lors de la création du composant
       active : ''
     };
   }

@@ -1,17 +1,59 @@
 <app-card [config]="cardConfig">
-  <form action="" *ngIf="numberplateService.currentDetail$ | async as detail">
-    <ng-container class="alert alert-danger text-center" *ngIf="detail.numberplate_id.length ===0;else data">
-      Aucuns résultats trouvés.
-    </ng-container>
-    <ng-template #data>
-      <input autofocus value="{{detail.numberplate_id}}" type="text" placeholder="ID du prestataire" disabled>
-      <input autofocus value="{{detail.num_plate}}" type="text" placeholder="Nom du prestataire">
-      <input autofocus value="{{detail.dop}}" type="text" placeholder="Nom du prestataire">
-    </ng-template>
+  <form [formGroup]="formGroup" action="" *ngIf="numberplateService.currentDetail$ | async as numberplate">
+
+    <div class="flex-row">
+      <div class="flex-cell">
+        <span>Numberplate id</span>
+        <input value="{{numberplate.numberplate_id}}" type="text" disabled/>
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-cell">
+        <!--
+        <span>Nom de la plaque</span>
+        <input autofocus value="{{numberplate.num_plate}}" type="text" placeholder="Numéro de la plaque" (blur)="update()">
+        -->
+        <app-input-text [label]="{label:'form.numberplate.label.num_plate'}"
+                        [placeholder]="'form.site.numberplate.num_plate'"
+                        [ctrl]="getControl('num_plate')"
+                        (onBlur)="update()">
+        </app-input-text>
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-cell">
+        <!--
+        <span>created_on</span>
+        <input autofocus value="{{numberplate.dop}}" type="text" placeholder="Nom du prestataire"  (blur)="update()">
+        -->
+        <app-input-date [label]="{label:'form.numberplate.label.dop'}"
+                        [placeholder]="'form.numberplate.placeholder.dop'"
+                        [ctrl]="getControl('dop')"
+                        (onBlur)="update()">
+        </app-input-date>
+      </div>
+    </div>
+<!--
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-select [config]="actifSelectConfig"
+                    (onBlur)="update()">
+        </app-select>
+      </div>
+    </div>
+    -->
   </form>
 
+  <div class="btn-area">
+    <button (click)="archive()">Archiver</button>
+  </div>
+
+  <!--
   <div>
     <input type="update" (click)="update()" value="Mettre à jour" />
     <input type="archive" (click)="archive()" value="Archiver" />
   </div>
+  -->
 </app-card>

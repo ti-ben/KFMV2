@@ -20,7 +20,6 @@ export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
   @Input() detail: Site = SiteHelper.getEmpty();
   id: string = '';
-  selected: string ='';
   actifSelectConfig!: SelectConfig;
   formGroup!: FormGroup;
 

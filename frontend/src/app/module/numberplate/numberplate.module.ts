@@ -5,6 +5,7 @@ import { NumberplateListComponent, NumberplateFormComponent, NumberplateDetailCo
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import { NumberplateHomeComponent } from './component/numberplate-home/numberplate-home.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -20,7 +21,8 @@ import { NumberplateHomeComponent } from './component/numberplate-home/numberpla
         // Don't forget to add/import the {entity}RoutingModule & SharedModule
         NumberplateRoutingModule,
         SharedModule,
-        TranslateModule
+        TranslateModule,
+        ReactiveFormsModule
     ]
 })
 export class NumberplateModule { }
