@@ -8,6 +8,7 @@ import {GradeService} from "@grade/service/grade.service";
 import {Grade} from "@grade/model";
 import {GradeHelper} from "@grade/helper";
 import {ActifHelper} from "@shared/helper";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-user-detail-credential',
@@ -18,8 +19,9 @@ export class UserDetailCredentialComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   //@Input() detail: Credential = CredentialHelper.getEmpty();
   formGroup!: FormGroup;
-  gradeSelectConfig!: SelectConfig;
-  actifSelectConfig!: SelectConfig;
+  gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  gradeList: Grade[] = [];
 
   constructor(public gradeService: GradeService) {
   }
@@ -37,26 +39,32 @@ export class UserDetailCredentialComponent implements OnInit {
     return this.formGroup.get(name) as FormControl;
   }
 
+  create() {
+    alert('envoi du form credential');
+  }
+
+  update() {
+    alert('envoi du form credential');
+  }
+
   private setSelectConfig(): void {
 
     this.gradeService.list().subscribe((list: Grade[]) => {
-      this.gradeSelectConfig = {
+      this.gradeList = list;
+      this.gradeSelectConfig$.next( {
         label: {label: 'form.credential.label.grade_name'},
         placeholder: 'form.credential.placeholder.grade_name',
         ctrl: this.getControl('grade_name'),
         values: GradeHelper.toGradeOptionArray(list)
-      }
+      });
     });
 
-    this.actifSelectConfig = {
-      label: {label: 'form.credential.label.active'},
-      placeholder: 'form.credential.placeholder.active',
+    this.actifSelectConfig$.next( {
+      label: {label: 'form.user.label.active'},
+      placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
       values: ActifHelper.toSelectOption()
-    }
+    });
   }
 
-  save() {
-    alert('envoi du form credential');
-  }
 }

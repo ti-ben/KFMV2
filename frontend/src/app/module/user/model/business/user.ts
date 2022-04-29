@@ -11,7 +11,6 @@ export interface User {
   avatar: string,
   dob: Date,
   email: string,
-  //password: string,
   telpro: string,
   telperso: string,
   nationality: string,
@@ -21,7 +20,7 @@ export interface User {
   pob: string,
   active: string,
   site: Site,
-  grade: Grade,
+  //grade: Grade,
   status: Status,
   address: Address
 }

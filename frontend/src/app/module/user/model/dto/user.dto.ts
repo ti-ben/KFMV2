@@ -12,7 +12,6 @@ export interface UserDto extends DtoInterface {
   avatar: string,
   dob: Date,
   email: string,
-  //password: string,
   telpro: string,
   telperso: string,
   nationality: string,
@@ -22,7 +21,7 @@ export interface UserDto extends DtoInterface {
   pob: string,
   active: string,
   site: SiteDto,
-  grade: GradeDto,
+  //grade: GradeDto,
   status: StatusDto,
   address: AddressDto
 }
