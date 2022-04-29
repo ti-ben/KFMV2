@@ -16,5 +16,6 @@ public class PrestataireUpdatePayload {
     String tel;
     String email;
     String service;
+    String active;
     Address addressList;
 }

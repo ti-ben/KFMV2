@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class StatusCreatePayload {
     String name;
     String description;
+    String active;
 }

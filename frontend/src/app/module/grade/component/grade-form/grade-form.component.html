@@ -4,6 +4,8 @@
                     [ctrl]="getControl('name')"></app-input-text>
     <app-textarea [label]="{label:'form.grade.label.comment'}" [placeholder]="'form.grade.placehodler.comment'"
                   [ctrl]="getControl('comment')"></app-textarea>
+    <!-- Le select pose problème, mais on peut pêtre le remplacer par une valeur par defaur dans le back ou frontend ? -->
+    <!--<app-select [config]="actifSelectConfig"></app-select>-->
   </form>
 
   <div class="btn-area">

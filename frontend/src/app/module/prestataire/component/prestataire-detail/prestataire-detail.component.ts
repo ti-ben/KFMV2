@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {CardConfig, GenericTableConfig} from "@shared/model";
+import {Component, Input, OnInit} from '@angular/core';
+import {CardConfig, SelectConfig} from "@shared/model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PrestataireService} from "@prestataire/service/prestataire.service";
 import {tap} from "rxjs/operators";
-import {Prestataire} from "@prestataire/model";
-import {GenericTableHelper} from "@shared/helper";
+import {Prestataire, PrestataireUpdatePayload} from "@prestataire/model";
 import {isNil} from "lodash";
 import {FormControl, FormGroup} from "@angular/forms";
 import {CardHelper} from "@shared/helper/card.helper";
+import {PrestataireHelper} from "@prestataire/helper";
+import {ActifHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-prestataire-detail',
@@ -18,8 +18,9 @@ import {CardHelper} from "@shared/helper/card.helper";
 
 export class PrestataireDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.prestataire.detail.title');
-  config$: BehaviorSubject<GenericTableConfig> = new BehaviorSubject<GenericTableConfig>({data: [], fields: []});
+  @Input() detail: Prestataire = PrestataireHelper.getEmpty();
   id: string = '';
+  actifSelectConfig!: SelectConfig;
   formGroup!: FormGroup;
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public prestataireService: PrestataireService) {
@@ -29,7 +30,16 @@ export class PrestataireDetailComponent implements OnInit {
     return this.formGroup.get(name) as FormControl;
   }
 
+  private initForm(prestataire: Prestataire): void {
+    this.formGroup = PrestataireHelper.toFormGroup(prestataire);
+  }
+
   ngOnInit(): void {
+    this.prestataireService.currentDetail$.subscribe((prestataire: Prestataire) => {
+      this.detail = prestataire;
+      this.initForm(prestataire);
+    })
+    this.setSelectConfig();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -41,18 +51,29 @@ export class PrestataireDetailComponent implements OnInit {
       ).subscribe();
   }
 
-  update(): void{
-    alert('Mise à jour du prestataire');
+  update(): void {
+    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
+    if (this.formGroup.valid) {
+      const payload: PrestataireUpdatePayload = this.formGroup.value;
+      payload.prestataire_id = this.detail.prestataire_id;
+      console.log('payload', payload); // A retirer (debug)
+      this.prestataireService.update(payload).subscribe();
+    }
   }
 
-  archive(): void{
-    alert('Archivage du prestataire');
+  /*
+    archive(): void {
+      alert('Archivage du site');
+    }
+  */
+
+  private setSelectConfig(): void {
+    this.actifSelectConfig = {
+      label: {label: 'form.prestataire.label.active'},
+      placeholder: 'form.prestataire.placeholder.active',
+      ctrl: this.getControl('active'),
+      values: ActifHelper.toSelectOption()
+    };
   }
 
-  private setConfig(list: Prestataire[]): void {
-    let config = this.config$.getValue();
-    config.fields = GenericTableHelper.genPrestataireFieldDefinitions();
-    config.data = list;
-    this.config$.next(config);
-  }
 }

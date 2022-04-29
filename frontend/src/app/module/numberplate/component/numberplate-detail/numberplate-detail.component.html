@@ -43,11 +43,16 @@
       </div>
     </div>
 
+
+
     <div class="flex-row">
       <div class="flex-cell">
         <app-select [config]="actifSelectConfig"
                     (onBlur)="update()">
         </app-select>
+        <br>
+        <input autofocus value="{{numberplate.active}}" type="text" id="active" name="active" placeholder="Nom du prestataire"  (blur)="update()">
+
       </div>
     </div>
 

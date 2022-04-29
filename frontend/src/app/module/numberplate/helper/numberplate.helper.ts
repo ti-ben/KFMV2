@@ -11,21 +11,24 @@ export class NumberplateHelper {
     return {
       numberplate_id: dto.numberplate_id,
       num_plate: dto.num_plate,
-      dop: dto.dop
+      dop: dto.dop,
+      active: dto.active
     }
   }
   public static toDto(numberplate: Numberplate): NumberplateDto {
     return {
       numberplate_id: numberplate.numberplate_id,
       num_plate: numberplate.num_plate,
-      dop: new Date()
+      dop: new Date(),
+      active: numberplate.active
     };
   }
   static getEmpty():Numberplate {
     return {
       numberplate_id: '',
       num_plate: '',
-      dop: new Date()
+      dop: new Date(),
+      active: ''
     };
   }
 
@@ -37,7 +40,8 @@ export class NumberplateHelper {
     return new FormGroup({
       numberplate_id: new FormControl(numberplate.numberplate_id),
       num_plate: new FormControl(numberplate.num_plate),
-      dop: new FormControl(numberplate.dop)
+      dop: new FormControl(numberplate.dop),
+      active: new FormControl(numberplate.active)
     });
   }
 

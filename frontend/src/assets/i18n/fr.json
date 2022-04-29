@@ -153,7 +153,7 @@
         "title": "Nouvelle plaque d'immatriculation"
       },
       "detail": {
-        "title" : "Détail de la plaque d'immatriculation"
+        "title": "Détail de la plaque d'immatriculation"
       }
     },
     "prestataire": {
@@ -219,22 +219,28 @@
     },
     "status": {
       "label": {
-        "name": "Nom",
-        "description": "Description"
+        "name": "Nom du statut",
+        "description": "Description",
+        "active": "Status actif ?"
       },
       "placeholder": {
-        "name": "Entrer un nom",
-        "description": "Entrer une description"
+        "name": "Entrer un nom de statut",
+        "description": "Entrer une description",
+        "active": "Status actif ?"
       }
     },
     "grade": {
       "label": {
+        "grade_id": "ID du grade",
         "name": "Nom du rôle",
-        "comment": "Description"
+        "comment": "Description",
+        "active": "Grade actif ?"
       },
       "placeholder": {
+        "grade_id": "ID du grade",
         "name": "Entrer le nom du rôle",
-        "comment": "Entrer une description"
+        "comment": "Entrer une description",
+        "active": "Choisir une valeur"
       }
     },
     "numberplate": {
@@ -253,12 +259,14 @@
     },
     "prestataire": {
       "label": {
+        "prestataire_id": "ID du prestataire",
         "name": "Nom du prestataire",
         "tel": "Numéro de téléphone",
         "email": "Adresse email",
         "service": "Type de service"
       },
       "placeholder": {
+        "prestataire_id": "ID du prestataire",
         "name": "Entrer un nom",
         "tel": "Entrer un numéro",
         "email": "Entrer une adresse email",
@@ -302,8 +310,8 @@
         "grade_name": "Rôle"
       },
       "placeholder": {
-        "lasname" : "Entrer un nom",
-        "lasname" : "Entrer un prénom",
+        "lasname": "Entrer un nom",
+        "lasname": "Entrer un prénom",
         "email": "Ajouter une adresse email"
       },
       "tachograph": {
@@ -337,10 +345,10 @@
       }
     },
     "credential": {
-      "label":{
+      "label": {
         "username": "Nom d'utilisateur",
         "email": "Adresse email",
-        "password" : "Mot de passe",
+        "password": "Mot de passe",
         "password_verify": "Vérification du mot de passe",
         "grade_name": "Rôle de l'utilisateur",
         "active": "Crédential utilisateur actif ?"

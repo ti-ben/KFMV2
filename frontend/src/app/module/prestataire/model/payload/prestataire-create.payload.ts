@@ -5,4 +5,5 @@ export interface PrestataireCreatePayload extends PayloadInterface {
   tel: string;
   email: string;
   service: string;
+  active: string;
 }

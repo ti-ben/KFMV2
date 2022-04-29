@@ -1,31 +1,48 @@
-<app-card [config]="cardConfig" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-  <form action="" *ngIf="statusService.currentDetail$ | async as status">
-    <div class="flex-row" *ngIf="status.status_id.length === 0; else data">
-      <div class="flex-cell">
-        Sélectionnez le status à modifier / mettre à jour
-      </div>
-    </div>
-    <ng-template #data>
+<app-card [config]="cardConfig">
+  <form [formGroup]="formGroup" *ngIf="statusService.currentDetail$ | async as status">
       <div class="flex-row">
         <div class="flex-cell">
-          <input autofocus value="{{status.status_id}}" type="text" placeholder="ID du site" disabled>
+          <app-input-text [label]="{label:'form.status.label.status_id'}"
+                          [placeholder]="'form.status.placeholder.status_id'"
+                          [ctrl]="getControl('status_id')">
+          </app-input-text>
         </div>
         </div>
+
         <div class="flex-row">
           <div class="flex-cell">
-            <input autofocus value="{{status.name}}" type="text" name="site_name" placeholder="Site name">
+            <app-input-text [label]="{label:'form.status.label.name'}"
+                            [placeholder]="'form.status.placeholder.name'"
+                            [ctrl]="getControl('name')"
+                            (onBlur)="update()">
+            </app-input-text>
           </div>
         </div>
+
         <div class="flex-row">
           <div class="flex-cell">
-            <textarea autofocus value="{{status.description}}" type="text-area"
-                      placeholder="Description du site en quelques mots">{{status.description}}</textarea>
+            <app-textarea [label]="{label:'form.status.label.description'}"
+                          [placeholder]="'form.status.placeholder.description'"
+                          [ctrl]="getControl('description')"
+                          (onBlur)="update()">
+            </app-textarea>
           </div>
         </div>
-    </ng-template>
+
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-select [config]="actifSelectConfig"
+                    (onBlur)="update()">
+        </app-select>
+      </div>
+    </div>
+
+    <input value="{{status.active}}" type="text" placeholder="Actif"/>
   </form>
+  <!--
   <div class="btn-area">
     <button (click)="update()">Mettre à jour</button>
     <button (click)="archive()">Archiver</button>
-  </div>
+   </div>
+  -->
 </app-card>

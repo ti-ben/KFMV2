@@ -6,6 +6,7 @@ import {StatusDetailComponent, StatusFormComponent, StatusListComponent} from '@
 import {SharedModule} from "@shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import { StatusHomeComponent } from './component/status-home/status-home.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StatusHomeComponent } from './component/status-home/status-home.compone
         // Don't forget to add/import the {entity}RoutingModule & SharedModule
         StatusRoutingModule,
         SharedModule,
-        TranslateModule
+        TranslateModule,
+        ReactiveFormsModule
     ]
 })
 export class StatusModule {

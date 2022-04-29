@@ -23,6 +23,7 @@ public class Prestataire {
     String tel;
     String email;
     String service;
+    String active;
 
     @OneToOne()
     @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")

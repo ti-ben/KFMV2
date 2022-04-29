@@ -61,7 +61,7 @@ public class NumberplateController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody NumberplateUpdatePayload payload) {
         Numberplate fromDb = numberplateRepository.findById(payload.getNumberplate_id()).orElse(null);
         if (fromDb == null) {

@@ -13,4 +13,5 @@ public class StatusUpdatePayload {
     UUID status_id;
     String name;
     String description;
+    String active;
 }

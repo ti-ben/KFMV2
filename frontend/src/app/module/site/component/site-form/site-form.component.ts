@@ -21,7 +21,6 @@ export class SiteFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.setSelectConfig();
   }
 
   create(): void {
@@ -46,14 +45,5 @@ export class SiteFormComponent implements OnInit {
 
   public getControl(name: string): FormControl {
     return this.formGroup.get(name) as FormControl;
-  }
-
-  private setSelectConfig(): void {
-    this.actifSelectConfig = {
-      label: {label: 'form.site.label.active'},
-      placeholder: 'form.site.placeholder.active',
-      ctrl: this.getControl('active'),
-      values: ActifHelper.toSelectOption()
-    };
   }
 }

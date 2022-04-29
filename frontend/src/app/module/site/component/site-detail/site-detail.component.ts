@@ -1,14 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CardConfig, SelectConfig } from "@shared/model";
-import { tap } from "rxjs/operators";
-import { isNil } from "lodash";
-import { SiteService } from "@site/service/site.service";
-import { Site, SiteUpdatePayload } from "@site/model";
-import { CardHelper } from "@shared/helper/card.helper";
-import { FormControl, FormGroup } from "@angular/forms";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { SiteHelper } from "@site/helper";
-import { ActifHelper } from "@shared/helper";
+import {Component, Input, OnInit} from '@angular/core';
+import {CardConfig, SelectConfig} from "@shared/model";
+import {tap} from "rxjs/operators";
+import {isNil} from "lodash";
+import {SiteService} from "@site/service/site.service";
+import {Site, SiteUpdatePayload} from "@site/model";
+import {CardHelper} from "@shared/helper/card.helper";
+import {FormControl, FormGroup} from "@angular/forms";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {SiteHelper} from "@site/helper";
+import {ActifHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-site-detail',
@@ -61,11 +61,12 @@ export class SiteDetailComponent implements OnInit {
       this.siteService.update(payload).subscribe();
     }
   }
-/*
-  archive(): void {
-    alert('Archivage du site');
-  }
-*/
+
+  /*
+    archive(): void {
+      alert('Archivage du site');
+    }
+  */
   private setSelectConfig(): void {
     this.actifSelectConfig = {
       label: {label: 'form.site.label.active'},

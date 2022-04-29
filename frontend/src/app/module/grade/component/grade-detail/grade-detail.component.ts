@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CardConfig} from "@shared/model";
+import {CardConfig, SelectConfig} from "@shared/model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {GradeService} from "@grade/service/grade.service";
 import {Grade, GradeUpdatePayload} from "@grade/model";
@@ -8,6 +8,7 @@ import {isNil} from "lodash";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {GradeHelper} from "@grade/helper";
+import {ActifHelper} from "@shared/helper";
 
 @Component({
   selector: 'app-grade-detail',
@@ -19,6 +20,7 @@ export class GradeDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.grade.detail.title');
   @Input() detail: Grade = GradeHelper.getEmpty();
   id: string = '';
+  actifSelectConfig!: SelectConfig;
   formGroup!: FormGroup;
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public gradeService: GradeService) {
@@ -37,6 +39,7 @@ export class GradeDetailComponent implements OnInit {
       this.detail = grade;
       this.initForm(grade);
     })
+    this.setSelectConfig();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -67,4 +70,14 @@ export class GradeDetailComponent implements OnInit {
     payload.active ="true";
     this.gradeService.update(payload).subscribe();
   }
+
+  private setSelectConfig(): void {
+    this.actifSelectConfig = {
+      label: {label: 'form.grade.label.active'},
+      placeholder: 'form.grade.placeholder.active',
+      ctrl: this.getControl('active'),
+      values: ActifHelper.toSelectOption()
+    };
+  }
+
 }

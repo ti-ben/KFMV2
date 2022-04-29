@@ -13,5 +13,6 @@ public class PrestataireCreatePayload {
     String tel;
     String email;
     String role;
+    String service;
     Address addressList;
 }

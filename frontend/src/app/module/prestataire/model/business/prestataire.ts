@@ -3,5 +3,6 @@ export interface Prestataire {
   name: string,
   tel: string,
   email: string,
-  service: string
+  service: string,
+  active: string
 }

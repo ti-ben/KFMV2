@@ -24,4 +24,5 @@ public class Status {
     private UUID status_id;
     String name;
     String description;
+    String active;
 }

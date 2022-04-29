@@ -6,8 +6,9 @@ import java.util.UUID;
 
     public class StatusBuilder{
         UUID status_id;
-        String name = "Pas de nom";
-        String description = "Pas de description";
+        String name = "";
+        String description = "";
+        String active = "";
 
         public StatusBuilder setStatus_id(UUID status_id) {
             this.status_id = status_id;
@@ -24,6 +25,11 @@ import java.util.UUID;
             return this;
         }
 
-        public Status build() { return new Status(status_id, name, description); }
+        public StatusBuilder setActive(String active) {
+            this.active = active;
+            return this;
+        }
+
+        public Status build() { return new Status(status_id, name, description, active); }
     }
 

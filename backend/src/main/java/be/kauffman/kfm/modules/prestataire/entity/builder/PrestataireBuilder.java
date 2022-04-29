@@ -11,6 +11,7 @@ public class PrestataireBuilder {
     String tel = "";
     String email = "";
     String service = "";
+    String active = "";
     Address addressList;
 
     public PrestataireBuilder setPrestataire_id(UUID prestataire_id) {
@@ -38,12 +39,17 @@ public class PrestataireBuilder {
         return this;
     }
 
+    public PrestataireBuilder setActive(String active) {
+        this.active = active;
+        return this;
+    }
+
     public PrestataireBuilder setAddressList(Address addressList) {
         this.addressList = addressList;
         return this;
     }
 
     public Prestataire build() {
-        return new Prestataire(prestataire_id, name, tel, email, service, addressList);
+        return new Prestataire(prestataire_id, name, tel, email, service, active, addressList);
     }
 }

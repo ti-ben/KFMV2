@@ -3,17 +3,15 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <span>Site id</span>
-        <input value="{{site.site_id}}" type="text" disabled/>
+        <app-input-text [label]="{label:'form.site.label.site_id'}"
+                        [placeholder]="'form.site.placeholder.site_id'"
+                        [ctrl]="getControl('site_id')">
+        </app-input-text>
       </div>
     </div>
 
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
-        <span>Nom du site</span>
-        <input value="{{site.name}}" type="text" placeholder="Site name" (blur)="update()"/>
-        -->
         <app-input-text [label]="{label:'form.site.label.name'}"
                         [placeholder]="'form.site.placeholder.name'"
                         [ctrl]="getControl('name')"
@@ -24,10 +22,6 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
-        <span>created_on</span>
-        <input value="{{site.created_on}}" type="text" placeholder="Site créé le" (blur)="update()"/>
-        -->
         <app-input-date [label]="{label:'form.site.label.created_on'}"
                         [placeholder]="'form.site.placeholder.created_on'"
                         [ctrl]="getControl('created_on')"
@@ -38,10 +32,6 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
-        <span>description</span>
-        <textarea value="{{site.description}}" type="text-area" (blur)="update()">{{site.description}}</textarea>
-        -->
         <app-textarea [label]="{label:'form.site.label.description'}"
                       [placeholder]="'form.site.placeholder.description'"
                       [ctrl]="getControl('description')"
@@ -49,6 +39,7 @@
         </app-textarea>
       </div>
     </div>
+
     <div class="flex-row">
       <div class="flex-cell">
         <app-select [config]="actifSelectConfig"
@@ -56,6 +47,7 @@
         </app-select>
       </div>
     </div>
+
     <input value="{{site.active}}" type="text" placeholder="Actif"/>
   </form>
   <!--

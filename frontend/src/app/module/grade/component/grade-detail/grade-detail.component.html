@@ -28,59 +28,23 @@
                       (onBlur)="update()">
         </app-textarea>
 
-        <input class="form-control form-control-sm" value="{{detail.active}}" type="text" name="active" placeholder="active">
       </div>
     </div>
 
-    <!--
-    <ng-container *ngIf="detail.grade_id.length ===0;else data">
-      Aucuns résultats trouvés.
-    </ng-container>
-    <ng-template #data>
-      <input autofocus class="form-control form-control-sm" value="{{detail.grade_id}}" type="text" name="grade_id" placeholder="ID du Rôle" disabled>
-      <input autofocus class="form-control form-control-sm" value="{{detail.name}}" type="text" name="role_name" placeholder="Rôle name">
-      <textarea autofocus class="form-control form-control-sm" value="{{detail.comment}}" type="text-area" name="role_description" rows="4" placeholder="Description du rôle">{{detail.comment}}</textarea>
-    </ng-template>
-    -->
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-select [config]="actifSelectConfig"
+                    (onBlur)="update()">
+        </app-select>
+      </div>
+    </div>
+    <input class="form-control form-control-sm" value="{{detail.active}}" type="text" name="active" placeholder="active">
+
   </form>
-
+  <!--
   <div class="btn-area">
-    <!--
-    <input type="update" (click)="update()" value="Mettre à jour" />
-    -->
+    <button (click)="update()">Mettre à jour</button>
     <button (click)="archive()">Archiver</button>
-  </div>
-
+   </div>
+  -->
 </app-card>
-
-<!--
-<div class="container-fluid p-4 shadow mx-auto" style="max-width: 600px;">
-  <ng-container *ngIf="gradeService.currentDetail$ | async as detail">
-    <ng-container *ngIf="detail.grade_id.length ===0;else data">
-        Aucuns résultats trouvés.
-    </ng-container>
-    <ng-template #data>
-      <hr>
-      <p class="text-center">Détails du rôle <b>{{detail.name}}</b></p>
-      <hr>
-      <div class="input-group input-group-sm mb-3">
-        <input autofocus class="form-control form-control-sm" value="{{detail.grade_id}}" type="text" name="grade_id"
-               placeholder="ID du Rôle" disabled>
-      </div>
-      <div class="input-group input-group-sm mb-3">
-        <input autofocus class="form-control form-control-sm" value="{{detail.name}}" type="text" name="role_name"
-               placeholder="Rôle name" disabled>
-      </div>
-      <div class="input-group input-group-sm mb-3">
-        <textarea autofocus class="form-control form-control-sm" value="{{detail.comment}}" type="text-area"
-                  name="role_description" rows="4" placeholder="Description du rôle"
-                  disabled>{{detail.comment}}</textarea>
-      </div>
-      <div>
-        <input type="update" (click)="update()" value="Mettre à jour" />
-        <input type="archive" (click)="archive()" value="Archiver" />
-      </div>
-    </ng-template>
-  </ng-container>
-</div>
--->

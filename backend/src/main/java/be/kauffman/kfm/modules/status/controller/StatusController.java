@@ -59,7 +59,7 @@ public class StatusController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody StatusUpdatePayload payload) {
         Status fromDb = statusRepository.findById(payload.getStatus_id()).orElse(null);
         if(fromDb == null){
