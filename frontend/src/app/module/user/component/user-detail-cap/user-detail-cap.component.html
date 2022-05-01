@@ -99,7 +99,7 @@
 <app-grade-list></app-grade-list>
 <!-- @todo récupérer la liste des périodes et utiliser un ngfor dans le div ci-dessous -->
 <ng-container *ngIf="periodList$ | async as plist">
-  <ng-container *ngIf="plist.length > 0;else noData">
+
     <div *ngFor="let period of plist">
       <div>Période - date de début et date de fin</div>
       <table class="custom-table">
@@ -111,7 +111,7 @@
           <td>Action</td>
         </tr>
         <ng-container *ngIf="appointmentList$ | async as aplist">
-          <ng-container *ngIf="aplist.length > 0;else noData">
+
             <!-- @todo mettre un ngfor pour chaque rdv -->
             <tr *ngFor="let appoinment of aplist">
               <td><input type="date" value="DB DATA"/></td>
@@ -122,7 +122,7 @@
                 <button class="btn btn-danger" (click)="deleteSession()">Delete</button>
               </td>
             </tr>
-          </ng-container>
+
         </ng-container>
         <!-- fin ngFor-->
         <tr>
@@ -137,7 +137,4 @@
       </table>
     </div>
   </ng-container>
-  <ng-template #noData>
-    <span class="p-medium">{{'page.grade-list.no-data' | translate}}</span>
-  </ng-template>
-</ng-container>
+

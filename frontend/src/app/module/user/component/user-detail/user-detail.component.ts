@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from "@user/service/user.service";
-import { BehaviorSubject } from "rxjs";
-import { CardConfig, GenericTableConfig, TabItem, TabItemAction } from "@shared/model";
-import { User } from "@user/model";
-import { GenericTableHelper } from "@shared/helper";
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
-import { isNil } from 'lodash';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "@user/service/user.service";
+import {CardConfig, TabItem, TabItemAction} from "@shared/model";
+import {User} from "@user/model";
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {tap} from 'rxjs/operators';
+import {isNil} from 'lodash';
 
 @Component({
   selector: 'app-user-detail',

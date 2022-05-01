@@ -11,19 +11,20 @@ import {TachygrapheHelper} from "@tachygraphe/helper";
 export class UserDetailTachographComponent implements OnInit {
   @Input() detail: Tachygraphe = TachygrapheHelper.getEmpty();
   formGroup!: FormGroup;
-  constructor() { }
 
-  ngOnInit(): void {
-    this.formGroup = new FormGroup({
-      start_date: new FormControl(this.detail.start_date),
-      end_date: new FormControl(this.detail.end_date),
-      num_carte: new FormControl(this.detail.num_carte),
-      comment: new FormControl(this.detail.comment)
-    })
+  constructor() {
+  }
+
+  private initForm(): void {
+    this.formGroup = TachygrapheHelper.toFormGroup();
   }
 
   public getControl(name: string): FormControl {
     return this.formGroup.get(name) as FormControl;
+  }
+
+  ngOnInit(): void {
+    this.initForm();
   }
 
   onClick() {
