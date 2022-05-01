@@ -203,6 +203,24 @@
     "no-data": "Aucune immatriculation sélectionnée"
   },
   "form": {
+    "address": {
+      "label": {
+        "address_id": "N° ID",
+        "country": "Pays",
+        "cp": "Code Postal",
+        "num": "Numéro",
+        "road": "Rue",
+        "town": "Ville"
+      },
+      "placeholder": {
+        "address_id": "N° ID",
+        "country": "Pays",
+        "cp": "Code Postal",
+        "num": "Numéro",
+        "road": "Rue",
+        "town": "Ville"
+      }
+    },
     "site": {
       "label": {
         "name": "Nom du site",

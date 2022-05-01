@@ -16,6 +16,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {UserHomeComponent} from './component/user-home/user-home.component';
 import {UserDetailCredentialComponent} from './component/user-detail-credential/user-detail-credential.component';
 import {GradeModule} from "@grade/grade.module";
+import { UserDetailAddressComponent } from './component/user-detail-address/user-detail-address.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {GradeModule} from "@grade/grade.module";
     UserDetailTachographComponent,
     UserDetailSummaryComponent,
     UserHomeComponent,
-    UserDetailCredentialComponent
+    UserDetailCredentialComponent,
+    UserDetailAddressComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,6 @@
 // Export all component linked to the entity
 export * from './user-detail/user-detail.component';
+export * from './user-detail-address/user-detail-address.component';
 export * from './user-detail-adr/user-detail-adr.component';
 export * from './user-detail-cap/user-detail-cap.component';
 export * from './user-detail-credential/user-detail-credential.component';

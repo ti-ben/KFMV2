@@ -1,6 +1,8 @@
 import { Address } from '@address/model/business';
 import { AddressDto } from '@address/model';
 import {isNil} from 'lodash';
+import {User} from "@user/model";
+import {FormControl, FormGroup} from "@angular/forms";
 
 export class AddressHelper {
   public static fromDto(dto: AddressDto): Address {
@@ -26,6 +28,16 @@ export class AddressHelper {
       country: address.country,
       num: address.num
     };
+  }
+
+  public static toFormGroup(address: Address = AddressHelper.getEmpty()): FormGroup {
+    return new FormGroup({
+      road: new FormControl(address.road),
+      cp: new FormControl(address.cp),
+      town: new FormControl(address.town),
+      country: new FormControl(address.country),
+      num: new FormControl(address.num)
+    });
   }
 
   static getEmpty():Address {
