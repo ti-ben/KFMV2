@@ -60,7 +60,7 @@ export class MenuHelper {
 
   public static carDetailMenuItem(): MenuItem {
     return {
-      label: 'page.dashboard.menu.Detail',
+      label: 'page.dashboard.menu.detail',
       link: AppRoute.VEHICULE_DETAIL,
       type: MenuItemType.VEHICULE_DETAIL,
       icon: 'fa-truck', active: false

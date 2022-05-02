@@ -1,23 +1,14 @@
-
-<form>
-  <p>vehicule-detail-numberplate works!</p>
+<form [formGroup]="formGroup">
   <div class="flex-row">
-
     <div class="flex-cell">
-      <span>N° d'immatricumation</span>
-      <input/>
-      <app-select></app-select>
+      <app-select [config]="numberplateSelectConfig"></app-select>
     </div>
-
     <div class="flex-cell">
-      <span>Roule à</span>
-      <input/>
-      <app-select></app-select>
+      <app-select [config]="siteSelectConfig"></app-select>
     </div>
-
   </div>
 </form>
 <div class="flex-row">
-<p>Historique des plaques d'immatriculation du camion</p>
+  <p>Historique des plaques d'immatriculation du camion</p>
 </div>
 

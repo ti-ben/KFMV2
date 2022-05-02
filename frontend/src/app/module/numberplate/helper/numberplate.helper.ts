@@ -2,6 +2,8 @@ import { Numberplate } from '@numberplate/model/business';
 import { NumberplateDto } from '@numberplate/model';
 import {isNil} from "lodash";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Grade} from "@grade/model";
+import {SelectOption} from "@shared/model";
 
 export class NumberplateHelper {
   public static fromDto(dto: NumberplateDto): Numberplate {
@@ -43,6 +45,12 @@ export class NumberplateHelper {
       dop: new FormControl(numberplate.dop),
       active: new FormControl(numberplate.active)
     });
+  }
+
+  static toNumberplateOptionArray(list: Numberplate[]): SelectOption[] {
+    return list.map((numberplate: Numberplate) => {
+      return {value: numberplate.numberplate_id, label: numberplate.num_plate};
+    })
   }
 
 }
