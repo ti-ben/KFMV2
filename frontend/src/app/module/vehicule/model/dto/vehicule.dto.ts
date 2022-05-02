@@ -1,5 +1,6 @@
 import { DtoInterface } from '@shared/model';
 import {NumberplateDto} from "@numberplate/model";
+import {SiteDto} from "@site/model";
 
 export interface VehiculeDto extends DtoInterface{
   vehicule_id: string,
@@ -20,5 +21,6 @@ export interface VehiculeDto extends DtoInterface{
   picture: string,
   fuel: string,
   type: string,
-  numberplate: NumberplateDto
+  numberplate: NumberplateDto,
+  site: SiteDto
 }

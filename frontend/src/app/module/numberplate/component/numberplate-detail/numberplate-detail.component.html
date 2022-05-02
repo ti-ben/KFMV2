@@ -3,10 +3,6 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
-        <span>Numberplate id</span>
-        <input value="{{numberplate.numberplate_id}}" type="text" disabled/>
-        -->
         <app-input-text [label]="{label:'form.numberplate.label.numberplate_id'}"
                         [placeholder]="'form.site.numberplate.numberplate_id'"
                         [ctrl]="getControl('numberplate_id')">
@@ -17,10 +13,6 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
-        <span>Nom de la plaque</span>
-        <input autofocus value="{{numberplate.num_plate}}" type="text" placeholder="Numéro de la plaque" (blur)="update()">
-        -->
         <app-input-text [label]="{label:'form.numberplate.label.num_plate'}"
                         [placeholder]="'form.site.numberplate.num_plate'"
                         [ctrl]="getControl('num_plate')"
@@ -31,10 +23,6 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <!--
-        <span>created_on</span>
-        <input autofocus value="{{numberplate.dop}}" type="text" placeholder="Nom du prestataire"  (blur)="update()">
-        -->
         <app-input-date [label]="{label:'form.numberplate.label.dop'}"
                         [placeholder]="'form.numberplate.placeholder.dop'"
                         [ctrl]="getControl('dop')"
@@ -43,30 +31,31 @@
       </div>
     </div>
 
+    <div class="flex-row">
+      <div class="flex-cell">
+        <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig"
+                    [config]="siteSelectConfig"
+                    (onBlur)="update()">
+        </app-select>
 
+        <span>A retirer une fois le problème réglé, juste là pour test</span>
+        <input autofocus value="{{numberplate.site.name}}" type="text" disabled>
+      </div>
+    </div>
 
     <div class="flex-row">
       <div class="flex-cell">
         <app-select [config]="actifSelectConfig"
                     (onBlur)="update()">
         </app-select>
-        <br>
-        <input autofocus value="{{numberplate.active}}" type="text" id="active" name="active" placeholder="Nom du prestataire"  (blur)="update()">
 
+        <span>A retirer une fois le problème réglé, juste là pour test</span>
+        <input autofocus value="{{numberplate.active}}" type="text" disabled>
       </div>
     </div>
 
+    <div class="btn-area">
+      <button>Exporter la liste des plaques</button>
+    </div>
   </form>
-
-  <!--
-  <div class="btn-area">
-    <button (click)="archive()">Archiver</button>
-  </div>
-
-
-  <div>
-    <input type="update" (click)="update()" value="Mettre à jour" />
-    <input type="archive" (click)="archive()" value="Archiver" />
-  </div>
-  -->
 </app-card>

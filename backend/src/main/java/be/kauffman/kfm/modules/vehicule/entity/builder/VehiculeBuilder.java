@@ -1,5 +1,7 @@
 package be.kauffman.kfm.modules.vehicule.entity.builder;
 import be.kauffman.kfm.modules.numberplate.entity.dto.Numberplate;
+import be.kauffman.kfm.modules.site.entity.builder.SiteBuilder;
+import be.kauffman.kfm.modules.site.entity.dto.Site;
 import be.kauffman.kfm.modules.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
@@ -25,6 +27,7 @@ public class VehiculeBuilder{
     String fuel;
     String type;
     Numberplate numberplate;
+    Site site;
 
     public VehiculeBuilder setVehicule_id(UUID vehicule_id) {
         this.vehicule_id = vehicule_id;
@@ -121,5 +124,10 @@ public class VehiculeBuilder{
         return this;
     }
 
-    public Vehicule build() { return new Vehicule(vehicule_id, dop, active,price, num_chassis, brand, cde_carrosserie,genre, mom, mma, mmat,mta, classe_enviro, nbr_km, metrologie, picture, fuel, type, numberplate); }
+    public VehiculeBuilder SetSite(Site site) {
+        this.site = site;
+        return this;
+    }
+
+    public Vehicule build() { return new Vehicule(vehicule_id, dop, active,price, num_chassis, brand, cde_carrosserie,genre, mom, mma, mmat,mta, classe_enviro, nbr_km, metrologie, picture, fuel, type, numberplate, site); }
 }

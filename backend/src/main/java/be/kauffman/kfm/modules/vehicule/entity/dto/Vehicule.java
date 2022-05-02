@@ -1,6 +1,7 @@
 package be.kauffman.kfm.modules.vehicule.entity.dto;
 
 import be.kauffman.kfm.modules.numberplate.entity.dto.Numberplate;
+import be.kauffman.kfm.modules.site.entity.dto.Site;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,4 +43,8 @@ public class Vehicule {
     @OneToOne()
     @JoinColumn(name = "numberplate_id_fk", referencedColumnName = "numberplate_id")
     Numberplate numberplate;
+
+    @ManyToOne()
+    @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
+    Site site;
 }

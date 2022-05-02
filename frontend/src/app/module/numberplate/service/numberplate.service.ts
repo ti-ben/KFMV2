@@ -21,7 +21,7 @@ export class NumberplateService extends ApiService {
     super(http);
   }
 
-  search(search:NumberplateSearch): Observable<Numberplate[]> {
+  search(search: NumberplateSearch): Observable<Numberplate[]> {
     return this.post(ApiUriEnum.NUMBERPLATE_SEARCH, search)
       .pipe(
         map((response: ApiResponse) => {

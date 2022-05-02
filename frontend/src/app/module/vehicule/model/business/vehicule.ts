@@ -1,4 +1,5 @@
 import {Numberplate} from "@numberplate/model";
+import {Site} from "@site/model";
 
 export interface Vehicule {
   vehicule_id: string,
@@ -19,5 +20,6 @@ export interface Vehicule {
   picture: string,
   fuel: string,
   type: string,
-  numberplate: Numberplate
+  numberplate: Numberplate,
+  site: Site
 }

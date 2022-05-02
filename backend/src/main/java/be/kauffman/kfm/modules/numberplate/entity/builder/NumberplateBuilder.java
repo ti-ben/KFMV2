@@ -1,6 +1,8 @@
 package be.kauffman.kfm.modules.numberplate.entity.builder;
 
 import be.kauffman.kfm.modules.numberplate.entity.dto.Numberplate;
+import be.kauffman.kfm.modules.site.entity.dto.Site;
+import be.kauffman.kfm.modules.vehicule.entity.builder.VehiculeBuilder;
 
 import java.util.Date;
 import java.util.UUID;
@@ -10,6 +12,8 @@ public class NumberplateBuilder {
     String num_plate;
     Date dop;
     String active;
+    Site site;
+
 
     public NumberplateBuilder setNumberplate_id(UUID numberplate_id) {
         this.numberplate_id = numberplate_id;
@@ -31,7 +35,12 @@ public class NumberplateBuilder {
         return this;
     }
 
+    public NumberplateBuilder SetSite(Site site) {
+        this.site = site;
+        return this;
+    }
+
     public Numberplate build() {
-        return new Numberplate(numberplate_id, num_plate, dop, active);
+        return new Numberplate(numberplate_id, num_plate, dop, active, site);
     }
 }

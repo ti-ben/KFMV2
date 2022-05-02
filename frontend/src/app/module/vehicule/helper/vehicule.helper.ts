@@ -2,6 +2,7 @@ import {Vehicule} from '@vehicule/model/business';
 import {VehiculeDto} from '@vehicule/model';
 import {NumberplateHelper} from '@numberplate/helper'
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {SiteHelper} from "@site/helper";
 
 export class VehiculeHelper {
   public static fromDto(dto: VehiculeDto): Vehicule {
@@ -24,7 +25,8 @@ export class VehiculeHelper {
       picture: dto.picture,
       fuel: dto.fuel,
       type: dto.type,
-      numberplate: NumberplateHelper.fromDto(dto.numberplate)
+      numberplate: NumberplateHelper.fromDto(dto.numberplate),
+      site: SiteHelper.fromDto(dto.site)
     }
   }
 
@@ -48,6 +50,7 @@ export class VehiculeHelper {
       mta: new FormControl(vehicule.mta),
       active: new FormControl(vehicule.active),
       nump_late: new FormControl(vehicule.numberplate.num_plate),
+      site: new FormControl(vehicule.site.name)
     });
   }
 
@@ -71,7 +74,8 @@ export class VehiculeHelper {
       picture: vehicule.picture,
       fuel: vehicule.fuel,
       type: vehicule.type,
-      numberplate: NumberplateHelper.toDto(vehicule.numberplate)
+      numberplate: NumberplateHelper.toDto(vehicule.numberplate),
+      site: SiteHelper.toDto(vehicule.site)
     };
   }
 
@@ -95,7 +99,8 @@ export class VehiculeHelper {
       picture: '',
       fuel: '',
       type: '',
-      numberplate: NumberplateHelper.getEmpty()
+      numberplate: NumberplateHelper.getEmpty(),
+      site: SiteHelper.getEmpty()
     };
   }
 

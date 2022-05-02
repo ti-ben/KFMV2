@@ -227,12 +227,15 @@
         "description": "Description",
         "created_on": "Date de création du site",
         "site_id": "ID",
-        "active": "Site actif?"
+        "active": "Site actif?",
+        "site_name": "Plaque d'immatriculation achetée par (site) ?"
       },
       "placeholder": {
         "name": "Entrer le nom du site",
         "description": "Entrer une description",
-        "created_on": "Choisir une date"
+        "created_on": "Choisir une date",
+        "active": "Site actif?",
+        "site_name": "Choisir une valeur"
       }
     },
     "status": {
@@ -295,19 +298,51 @@
     },
     "vehicule": {
       "label": {
-        "brand": "Marque",
+        "brand": "Marque du véhicule",
         "dop": "Date d'achat",
         "email": "Email",
         "service": "Service",
         "actif": "Actif",
+        "price": "Prix d'achat",
+        "num_chassis": "Numéro de chassis",
+        "cde_carrosserie": "Code carrosserie du véhicule",
         "type": "Type de véhicule",
-        "fuel": "Type de carburant"
+        "mom": "MOM",
+        "mma": "MMA",
+        "mmat": "MMAT",
+        "mta": "MTA",
+        "classe_enviro": "Classe environemental du véhicule",
+        "nbr_km": "Nombre de kilomètre lors de l'achat",
+        "metrologie": "Métrologie du véhicule",
+        "picture": "Image",
+        "fuel": "Type de carburant",
+        "active": "Actif",
+        "genre": "Genre de véhicule (colis ou citerne)?",
+        "num_plate": "N° de plaque d'immatriculation",
+        "site_name": "Roule à"
       },
       "placeholder": {
-        "brand": "Entrer une marque",
-        "dop": "Entrer une date d'achat",
-        "email": "Entrer une adresse email",
-        "service": "Entre le type de service"
+        "brand": "Marque du véhicule ?",
+        "dop": "Date d'achat ?",
+        "email": "Email ?",
+        "service": "Type de service?",
+        "price": "Prix d'achat?",
+        "num_chassis": "Numéro de chassis?",
+        "cde_carrosserie": "Code carrosserie du véhicule",
+        "type": "Type de véhicule?",
+        "mom": "MOM",
+        "mma": "MMA",
+        "mmat": "MMAT",
+        "mta": "MTA",
+        "classe_enviro": "Classe environemental du véhicule?",
+        "nbr_km": "Nombre de kilomètre lors de l'achat?",
+        "metrologie": "Métrologie du véhicule",
+        "picture": "Image",
+        "fuel": "Type de carburant?",
+        "active": "Actif?",
+        "genre": "Genre de véhicule (colis ou citerne)?",
+        "num_plate": "N° de plaque d'immatriculation?",
+        "site_name": "Roule à ?"
       }
     },
     "user": {
@@ -341,27 +376,6 @@
           "comment": "Commentaire",
           "num_carte": "Numéro de carte"
         }
-      }
-    },
-    "vehicule": {
-      "label": {
-        "dop": "Date d'achat",
-        "price": "Prix d'achat",
-        "num_chassis": "Numéro de chassis",
-        "brand": "Marque du véhicule",
-        "cde_carrosserie": "Code carrosserie du véhicule",
-        "type": "Type de véhicule",
-        "mom": "MOM",
-        "mma": "MMA",
-        "mmat": "MMAT",
-        "mta": "MTA",
-        "classe_enviro": "Classe environemental du véhicule",
-        "nbr_km": "Nombre de kilomètre lors de l'achat",
-        "metrologie": "Métrologie du véhicule",
-        "picture": "Image",
-        "fuel": "Type de carburant",
-        "active": "Actif",
-        "genre": "Genre de véhicule (colis ou citerne)?"
       }
     },
     "credential": {

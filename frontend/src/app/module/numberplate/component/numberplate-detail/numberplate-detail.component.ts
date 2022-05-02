@@ -9,6 +9,10 @@ import {Numberplate, NumberplateUpdatePayload} from "@numberplate/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {NumberplateHelper} from "@numberplate/helper";
+import {BehaviorSubject} from "rxjs";
+import {Site} from "@site/model";
+import {SiteHelper} from "@site/helper";
+import {SiteService} from "@site/service/site.service";
 
 @Component({
   selector: 'app-numberplate-detail',
@@ -18,12 +22,14 @@ import {NumberplateHelper} from "@numberplate/helper";
 
 export class NumberplateDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.numberplateConfig('page.numberplate.detail.title');
+  siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   @Input() detail: Numberplate = NumberplateHelper.getEmpty();
   id: string = '';
   actifSelectConfig!: SelectConfig;
+  siteList: Site[] = [];
   formGroup!: FormGroup;
 
-  constructor(public router: Router, public activatedRouter: ActivatedRoute, public numberplateService: NumberplateService) {
+  constructor(public router: Router, public activatedRouter: ActivatedRoute, public numberplateService: NumberplateService, public siteService: SiteService) {
   }
 
   public getControl(name: string): FormControl {
@@ -61,13 +67,18 @@ export class NumberplateDetailComponent implements OnInit {
     }
   }
 
-/*
-    archive(): void {
-      alert('Archivage de la plaque');
-    }
-*/
-
   private setSelectConfig(): void {
+
+    this.siteService.list().subscribe((list: Site[]) => {
+      this.siteList = list;
+      this.siteSelectConfig$.next({
+        label: {label: 'form.site.label.site_name'},
+        placeholder: 'form.site.placeholder.site_name',
+        ctrl: this.getControl('site'),
+        values: SiteHelper.toSiteOptionArray(list)
+      });
+    });
+
     this.actifSelectConfig = {
       label: {label: 'form.numberplate.label.active'},
       placeholder: 'form.numberplate.placeholder.active',

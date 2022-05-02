@@ -7,7 +7,6 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {NumberplateService} from "@numberplate/service/numberplate.service";
 import {Numberplate} from "@numberplate/model";
 import {NumberplateHelper} from "@numberplate/helper";
-import {UserHelper} from "@user/helper";
 
 @Component({
   selector: 'app-vehicule-detail-numberplate',
