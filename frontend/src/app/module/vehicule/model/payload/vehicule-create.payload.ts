@@ -2,7 +2,7 @@ import { PayloadInterface } from '@shared/model';
 
 export interface VehiculeCreatePayload extends PayloadInterface {
   dop: Date;
-  active: boolean;
+  active: string;
   price: string;
   num_chassis: string;
   brand: string;

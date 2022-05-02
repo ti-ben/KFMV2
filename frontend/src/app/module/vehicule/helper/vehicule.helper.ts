@@ -31,23 +31,23 @@ export class VehiculeHelper {
   public static toFormGroup(vehicule: Vehicule = VehiculeHelper.getEmpty()): FormGroup {
     return new FormGroup({
       brand: new FormControl(vehicule.brand, [Validators.required]),
-      genre: new FormControl(vehicule.genre, [Validators.required]),
+      genre: new FormControl(vehicule.genre),
       dop: new FormControl(vehicule.dop, [Validators.required]),
-      cde_carrosserie: new FormControl(vehicule.cde_carrosserie, [Validators.required]),
+      cde_carrosserie: new FormControl(vehicule.cde_carrosserie),
       price: new FormControl(vehicule.price, [Validators.required]),
-      num_chassis: new FormControl(vehicule.num_chassis, [Validators.required]),
-      classe_enviro: new FormControl(vehicule.classe_enviro, [Validators.required]),
-      metrologie: new FormControl(vehicule.metrologie, [Validators.required]),
+      num_chassis: new FormControl(vehicule.num_chassis),
+      classe_enviro: new FormControl(vehicule.classe_enviro),
+      metrologie: new FormControl(vehicule.metrologie),
       picture: new FormControl(vehicule.picture),
       nbr_km: new FormControl(vehicule.nbr_km, [Validators.required]),
-      fuel: new FormControl(vehicule.fuel, [Validators.required]),
+      fuel: new FormControl(vehicule.fuel),
       type: new FormControl(vehicule.type, [Validators.required]),
-      mom: new FormControl(vehicule.mom, [Validators.required]),
-      mma: new FormControl(vehicule.mma, [Validators.required]),
-      mmat: new FormControl(vehicule.mmat, [Validators.required]),
-      mta: new FormControl(vehicule.mta, [Validators.required]),
-      active: new FormControl(vehicule.active, [Validators.required]),
-      nump_late: new FormControl(vehicule.numberplate.num_plate, [Validators.required])
+      mom: new FormControl(vehicule.mom),
+      mma: new FormControl(vehicule.mma),
+      mmat: new FormControl(vehicule.mmat),
+      mta: new FormControl(vehicule.mta),
+      active: new FormControl(vehicule.active),
+      nump_late: new FormControl(vehicule.numberplate.num_plate),
     });
   }
 

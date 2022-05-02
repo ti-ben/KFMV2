@@ -13,6 +13,7 @@ import {VehiculeDetailTechnicalControlComponent} from './component/vehicule-deta
 import {ReactiveFormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 import {VehiculeHomeComponent} from './component/vehicule-home/vehicule-home.component';
+import { VehiculeDetailNumberplateComponent } from './component/vehicule-detail-numberplate/vehicule-detail-numberplate.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {VehiculeHomeComponent} from './component/vehicule-home/vehicule-home.com
     VehiculeDetailSummaryComponent,
     VehiculeDetailTechnicalInterventionComponent,
     VehiculeDetailTechnicalControlComponent,
-    VehiculeHomeComponent
+    VehiculeHomeComponent,
+    VehiculeDetailNumberplateComponent
   ],
     imports: [
         CommonModule,

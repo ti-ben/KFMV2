@@ -40,7 +40,7 @@ export class VehiculeDetailComponent implements OnInit {
 
   private setTab(): void {
     this.tabs = [
-      {label: 'Identité', type: TabItemAction.VEHICULE_IDENTITY},
+      {label: 'Informations', type: TabItemAction.VEHICULE_IDENTITY},
       {label: 'ADR', type: TabItemAction.VEHICULE_ADR},
       {label: 'Métrologie', type: TabItemAction.VEHICULE_METROLOGY},
       {label: 'Contrôle technique', type: TabItemAction.VEHICULE_TECHNICAL_CONTROL},

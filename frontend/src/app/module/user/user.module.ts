@@ -17,6 +17,7 @@ import {UserHomeComponent} from './component/user-home/user-home.component';
 import {UserDetailCredentialComponent} from './component/user-detail-credential/user-detail-credential.component';
 import {GradeModule} from "@grade/grade.module";
 import { UserDetailAddressComponent } from './component/user-detail-address/user-detail-address.component';
+import {AppointmentModule} from "@appointment/appointment.module";
 
 @NgModule({
   declarations: [
@@ -33,14 +34,15 @@ import { UserDetailAddressComponent } from './component/user-detail-address/user
     UserDetailCredentialComponent,
     UserDetailAddressComponent
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    SharedModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    GradeModule
-  ]
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        SharedModule,
+        ReactiveFormsModule,
+        TranslateModule,
+        GradeModule,
+        AppointmentModule
+    ]
 
 })
 export class UserModule {

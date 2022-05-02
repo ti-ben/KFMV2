@@ -5,15 +5,18 @@ import { AppointmentRoutingModule } from '@appointment/appointment-routing.modul
 import { AppointmentListComponent, AppointmentFormComponent, AppointmentDetailComponent } from '@appointment/component';
 
 @NgModule({
-  declarations: [
-    AppointmentListComponent,
-    AppointmentFormComponent,
-    AppointmentDetailComponent
-  ],
-  imports: [
-    CommonModule,
-    // Don't forget to add/import the {entity}RoutingModule
-    AppointmentRoutingModule
-  ]
+    declarations: [
+        AppointmentListComponent,
+        AppointmentFormComponent,
+        AppointmentDetailComponent
+    ],
+    exports: [
+        AppointmentFormComponent
+    ],
+    imports: [
+        CommonModule,
+        // Don't forget to add/import the {entity}RoutingModule
+        AppointmentRoutingModule
+    ]
 })
 export class AppointmentModule { }

@@ -17,7 +17,6 @@ import {BehaviorSubject} from "rxjs";
 })
 export class UserDetailCredentialComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
-  //@Input() detail: Credential = UserCredentialHelper.getEmpty();
   formGroup!: FormGroup;
   gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);

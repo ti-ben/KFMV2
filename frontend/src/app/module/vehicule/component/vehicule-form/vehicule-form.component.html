@@ -79,13 +79,15 @@
                         [ctrl]="getControl('picture')"></app-input-text>
       </div>
       <div class="flex-cell">
-        <app-input-text [label]="{label:'form.vehicule.label.fuel'}" [placeholder]="'form.vehicule.placehodler.fuel'"
+        <app-input-text [label]="{label:'form.vehicule.label.fuel'}"
+                        [placeholder]="'form.vehicule.placehodler.fuel'"
                         [ctrl]="getControl('fuel')"></app-input-text>
       </div>
     </div>
     <div class="flex-row">
       <div class="flex-cell">
-        <app-input-text [label]="{label:'form.vehicule.label.type'}" [placeholder]="'form.vehicule.placehodler.type'"
+        <app-input-text [label]="{label:'form.vehicule.label.type'}"
+                        [placeholder]="'form.vehicule.placehodler.type'"
                         [ctrl]="getControl('type')"></app-input-text>
       </div>
       <div class="flex-cell">
@@ -95,7 +97,7 @@
   </form>
 
   <div class="btn-area">
-    <button type="button" (click)="save()">Enregistrer le nouveau véhicule</button>
+    <button (click)="save()">Enregistrer le nouveau véhicule</button>
   </div>
 
 </app-card>

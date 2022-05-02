@@ -16,7 +16,6 @@ import {SelectConfig} from "@shared/model/select.config";
 export class VehiculeFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.vehicule.create.title');
   formGroup!: FormGroup;
-  //vehiculeHelper = VehiculeHelper;
   actifSelectConfig!: SelectConfig;
   genreSelectConfig!: SelectConfig;
 
@@ -35,6 +34,7 @@ export class VehiculeFormComponent implements OnInit {
   save(): void {
     if (this.formGroup.valid) {
       const payload: VehiculeCreatePayload = this.formGroup.value;
+      console.log(payload);
       payload.dop = new Date(payload.dop);
       this.vehiculeService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {

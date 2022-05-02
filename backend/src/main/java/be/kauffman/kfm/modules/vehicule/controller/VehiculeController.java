@@ -74,7 +74,7 @@ public class VehiculeController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody VehiculeUpdatePayload payload) {
         Vehicule fromDb = vehiculeRepository.findById(payload.getVehicule_id()).orElse(null);
         if (fromDb == null) {
