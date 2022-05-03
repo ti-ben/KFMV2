@@ -1,3 +1,4 @@
+<!--
 <div class="row g-1 d-grid gap-3">
 
   <div class="col-md-6 input-group input-group-sm date p-2">
@@ -16,7 +17,7 @@
 
   <div class="col-md-12 p-2">
     <button class="btn btn-success btn-sm btn-block">Ajouter</button>
-    <!-- <button class="btn btn-sm btn-danger btn-block">Annuler</button> -->
+
   </div>
 
 </div>
@@ -53,7 +54,6 @@
 
   <div class="form-group col-md-12 p-2">
     <button class="btn btn-sm btn-success btn-block">Ajouter</button>
-    <!-- <button class="btn btn-sm btn-danger btn-block">Annuler</button> -->
   </div>
 </div>
 
@@ -81,3 +81,62 @@
   </tbody>
 </table>
 </div>
+
+-->
+
+<form>
+  <span>Ajouter une nouvelle période</span>
+  <div class="flex-row">
+    <div class="flex-cell">
+      <app-input-date></app-input-date>
+    </div>
+    <div class="flex-cell">
+      <app-input-date></app-input-date>
+    </div>
+    <div class="btn-area">
+      <button>add</button>
+    </div>
+  </div>
+</form>
+<br>
+<form>
+  <span>Ajouter un rdv pour la selection médicale</span>
+  <div class="flex-row">
+    <div class="flex-cell">
+      <app-input-date></app-input-date>
+    </div>
+    <div class="flex-cell">
+      <app-select></app-select>
+    </div>
+    <div class="flex-cell">
+      <app-input-text></app-input-text>
+    </div>
+    <div class="btn-area">
+      <button>add</button>
+    </div>
+  </div>
+  <div class="flex-row">
+    <div class="flex-cell">
+      <app-textarea></app-textarea>
+    </div>
+  </div>
+  <br>
+  <div>
+    <span>Liste des select med pour le chauffeur</span>
+    <table class="custom-table">
+      <tr>
+        <td><b>Date de la sélection médicale</b></td>
+        <td><b>Prestataire</b></td>
+        <td><b>Commentaire</b></td>
+        <td><b>Options</b></td>
+      </tr>
+      <tr>
+        <td><input value="Data #1" /></td>
+        <td><input value="Data #2" /></td>
+        <td><input value="Data #3" /></td>
+        <td><input value="Data #4" /></td>
+      </tr>
+    </table>
+  </div>
+</form>
+

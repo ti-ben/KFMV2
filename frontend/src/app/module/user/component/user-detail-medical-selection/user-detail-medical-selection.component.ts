@@ -16,8 +16,8 @@ export class UserDetailMedicalSelectionComponent implements OnInit {
     })
   }
 
-  onClick() {
-    alert('envoi du form');
+  savePeriod() {
+    alert('envoi du form period');
   }
 
 }
