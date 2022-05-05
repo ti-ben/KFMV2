@@ -25,6 +25,7 @@ export class NumberplateDetailComponent implements OnInit {
   siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   @Input() detail: Numberplate = NumberplateHelper.getEmpty();
   id: string = '';
+  active: string = '';
   actifSelectConfig!: SelectConfig;
   siteList: Site[] = [];
   formGroup!: FormGroup;
@@ -58,11 +59,9 @@ export class NumberplateDetailComponent implements OnInit {
   }
 
   update(): void {
-    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
     if (this.formGroup.valid) {
       const payload: NumberplateUpdatePayload = this.formGroup.value;
       payload.numberplate_id = this.detail.numberplate_id;
-      console.log('payload', payload); // A retirer (debug)
       this.numberplateService.update(payload).subscribe();
     }
   }
@@ -77,7 +76,7 @@ export class NumberplateDetailComponent implements OnInit {
         ctrl: this.getControl('site'),
         values: SiteHelper.toSiteOptionArray(list)
       });
-    });
+    })
 
     this.actifSelectConfig = {
       label: {label: 'form.numberplate.label.active'},

@@ -3,6 +3,8 @@ import {PrestataireDto} from '@prestataire/model';
 import {Site} from "@site/model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PrestataireService} from "@prestataire/service/prestataire.service";
+import {Status} from "@status/model";
+import {SelectOption} from "@shared/model";
 
 export class PrestataireHelper {
   public static fromDto(dto: PrestataireDto): Prestataire {
@@ -51,6 +53,12 @@ export class PrestataireHelper {
       service: new FormControl(prestataire.service, [Validators.required]),
       active: new FormControl(prestataire.active)
     });
+  }
+
+  static toPrestataireOptionArray(list: Prestataire[]): SelectOption[] {
+    return list.map((prestataire: Prestataire) => {
+      return {value: prestataire.prestataire_id, label: prestataire.name};
+    })
   }
 
 }

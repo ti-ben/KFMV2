@@ -70,8 +70,8 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       pob: new FormControl(this.detail.pob),
       active: new FormControl(this.detail.active),
       site: new FormControl(this.detail.site.site_id), // MAIS ATTENTION DE BIEN REPRENDRE LE SITE AU MOMENT DE L ENVOI DU FORMULAIRE
-      address: new FormControl([]),
-      //grade: new FormControl(this.detail.grade.grade_id),
+      address: new FormControl(this.detail.address.address_id),
+      grade: new FormControl(this.detail.grade.grade_id),
       status: new FormControl(this.detail.status.status_id)
     })
   }

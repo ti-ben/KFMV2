@@ -54,6 +54,7 @@ export class UserHelper {
       site_name: new FormControl(user.site.name, [Validators.required]),
       grade_name: new FormControl(user.grade.name, [Validators.required]),
       status_name: new FormControl(user.status.name, [Validators.required]),
+      address_id: new FormControl(user.address.address_id)
     });
   }
 

@@ -14,11 +14,10 @@ export class SelectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //console.log('ca init select');
-    console.log('my config', this.config.values);
+
   }
 
   ngOnChange() {
-    //console.log('ca change');
+
   }
 }

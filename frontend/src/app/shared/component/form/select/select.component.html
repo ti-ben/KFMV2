@@ -1,8 +1,7 @@
 <ng-container *ngIf="config">
   <label>{{config.label.label | translate:config.label.params}}</label>
-
   <select class="form-control form-control-sm" [formControl]="config.ctrl" (blur)="onBlur.emit()">
-    <option value="">{{'common.select.default' | translate}}</option>
+    <option value="{{config.values}}">{{'common.select.default' | translate}}</option>
     <option *ngFor="let option of config.values" value="{{option.value}}">{{option.label | translate}}</option>
   </select>
 </ng-container>

@@ -16,7 +16,7 @@ export class UserDetailCapComponent implements OnInit {
   periodList$ = new BehaviorSubject<Period[]>([]);
   appointmentList$ = new BehaviorSubject<Appointment[]>([]);
   periodGroup!: FormGroup;
-  appointmentForm!: FormGroup;
+  appointmentGroup!: FormGroup;
 
   constructor() { }
 
@@ -26,14 +26,14 @@ export class UserDetailCapComponent implements OnInit {
     this.periodGroup = new FormGroup({
 
     })
-    this.appointmentForm = new FormGroup({
+    this.appointmentGroup = new FormGroup({
 
     })
   }
 
   public getControl(name: string): FormControl {
     return this.periodGroup.get(name) as FormControl;
-    return this.appointmentForm.get(name) as FormControl;
+    return this.appointmentGroup.get(name) as FormControl;
   }
 
  addPeriod() {

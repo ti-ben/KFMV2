@@ -221,6 +221,27 @@
         "town": "Ville"
       }
     },
+    "appointment": {
+      "label": {
+        "start_date": "Date de début du rendez-vous",
+        "end_date": "Date de fin du rendez-vous",
+        "price": "Prix"
+      },
+      "placeholder": {
+        "start_date": "Date de début",
+        "end_date": "Date de fin"
+      }
+    },
+    "period": {
+      "label": {
+        "start_date": "Date de début de la période",
+        "end_date": "Date de fin de la période"
+      },
+      "placeholder": {
+        "start_date": "Date de début",
+        "end_date": "Date de fin"
+      }
+    },
     "site": {
       "label": {
         "name": "Nom du site",
@@ -357,7 +378,7 @@
         "dob": "Date de naissance",
         "pob": "Lieu de naissance",
         "active": "Utilisateur actif ?",
-        "numirn": "Numério de registre nationnal",
+        "numirn": "Numéro de registre nationnal",
         "driver_license": "Type de permis",
         "status_name": "Status",
         "created_on": "Ajouté le",

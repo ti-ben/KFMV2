@@ -32,6 +32,7 @@ export class AddressHelper {
 
   public static toFormGroup(address: Address = AddressHelper.getEmpty()): FormGroup {
     return new FormGroup({
+      address_id: new FormControl(address.address_id),
       road: new FormControl(address.road),
       cp: new FormControl(address.cp),
       town: new FormControl(address.town),

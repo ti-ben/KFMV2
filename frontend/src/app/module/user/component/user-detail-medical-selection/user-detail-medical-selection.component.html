@@ -1,142 +1,54 @@
-<!--
-<div class="row g-1 d-grid gap-3">
-
-  <div class="col-md-6 input-group input-group-sm date p-2">
-    <input type="text" class="form-control" name="healthcare_periode_dte_deb" placeholder="Date début">
-    <span class="input-group-append input-group-sm">
-      <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
-    </span>
-  </div>
-
-  <div class="col-md-6 input-group input-group-sm date p-2">
-    <input type="text" class="form-control" name="healthcare_periode_dte_fin" placeholder="Date fin">
-    <span class="input-group-append input-group-sm">
-      <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
-    </span>
-  </div>
-
-  <div class="col-md-12 p-2">
-    <button class="btn btn-success btn-sm btn-block">Ajouter</button>
-
-  </div>
-
-</div>
-
-<div class="row g-1 d-grid gap-3">
-
-  <div class="col-md-12 text-center p-2">
-    <span><b>Sélection médicale du 03/03/2022 au 03/03/2022</b></span>
-  </div>
-
-  <div class="input-group input-group-sm date col-md-4 p-2">
-    <input type="text" class="form-control form-select-sm" name="selectmed_dte_rdv" placeholder="Date du rdv">
-      <span class="input-group-append input-group-sm">
-        <span class="input-group-text bg-white d-block"><i class="fa fa-calendar"></i></span>
-      </span>
-  </div>
-
-  <div class="col-md-4 p-2">
-    <select class="custom-select custom-select-sm" name="selectmed_prestataire">
-      <option selected disabled value="">Prestataire</option>
-      <option>Medex</option>
-      <option>Attentia</option>
-    </select>
-  </div>
-
-  <div class="col-md-4 p-2">
-    <input type="text" class="form-control form-control-sm" name="selectmed_prix" value="" placeholder="Prix">
-  </div>
-
-  <div class="form-group col-md-12 p-2">
-    <textarea class="form-control form-control-sm" name="selectmed_commentaire" value="" rows="3"
-              placeholder="Commentaire"></textarea>
-  </div>
-
-  <div class="form-group col-md-12 p-2">
-    <button class="btn btn-sm btn-success btn-block">Ajouter</button>
-  </div>
-</div>
-
-<div class="text-center">
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Date de la sélection médicale</th>
-    <th scope="col">Prestataire</th>
-    <th scope="col">Commentaire</th>
-    <th scope="col">Options</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr class="table-success">
-    <td>{{null}}</td>
-    <td>{{null}}</td>
-    <td>{{null}}</td>
-    <td>
-      <button class="btn float-end btn-sm btn-warning"><i class="fa fa-edit"></i></button>
-      <button class="btn float-end btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-    </td>
-  </tr>
-
-  </tbody>
-</table>
-</div>
-
--->
-
-<form>
+<form [formGroup]="formGroup">
   <span>Ajouter une nouvelle période</span>
   <div class="flex-row">
     <div class="flex-cell">
-      <app-input-date></app-input-date>
+      <app-input-date [label]="{label:'form.period.label.start_date'}"
+                      [placeholder]="'form.period.placeholder.start_date'"
+                      [ctrl]="getControl('start_date')">
+      </app-input-date>
     </div>
     <div class="flex-cell">
-      <app-input-date></app-input-date>
+      <app-input-date [label]="{label:'form.period.label.end_date'}"
+                      [placeholder]="'form.period.placeholder.end_date'"
+                      [ctrl]="getControl('end_date')">
+      </app-input-date>
     </div>
     <div class="btn-area">
-      <button>add</button>
+      <button (click)="savePeriod()">add</button>
     </div>
   </div>
 </form>
-<br>
-<form>
-  <span>Ajouter un rdv pour la selection médicale</span>
+
+<form [formGroup]="formGroup">
   <div class="flex-row">
     <div class="flex-cell">
-      <app-input-date></app-input-date>
+      <app-input-date [label]="{label:'form.appointment.label.start_date'}"
+                      [placeholder]="'form.appointment.placeholder.start_date'"
+                      [ctrl]="getControl('start_date')">
+      </app-input-date>
     </div>
     <div class="flex-cell">
-      <app-select></app-select>
+      <app-input-date [label]="{label:'form.appointment.label.end_date'}"
+                      [placeholder]="'form.appointment.placeholder.end_date'"
+                      [ctrl]="getControl('end_date')">
+      </app-input-date>
     </div>
     <div class="flex-cell">
-      <app-input-text></app-input-text>
+      <app-select *ngIf="prestataireSelectConfig$ | async as prestataireSelectConfig"
+                  [config]="prestataireSelectConfig"
+                  (onBlur)="update()">
+      </app-select>
+    </div>
+    <div class="flex-cell">
+      <app-input-text [label]="{label:'form.appointment.label.price'}"
+                      [placeholder]="'form.appointment.placeholder.price'"
+                      [ctrl]="getControl('price')"></app-input-text>
     </div>
     <div class="btn-area">
-      <button>add</button>
+      <button (click)="saveAppointment()">add</button>
     </div>
   </div>
-  <div class="flex-row">
-    <div class="flex-cell">
-      <app-textarea></app-textarea>
-    </div>
-  </div>
-  <br>
-  <div>
-    <span>Liste des select med pour le chauffeur</span>
-    <table class="custom-table">
-      <tr>
-        <td><b>Date de la sélection médicale</b></td>
-        <td><b>Prestataire</b></td>
-        <td><b>Commentaire</b></td>
-        <td><b>Options</b></td>
-      </tr>
-      <tr>
-        <td><input value="Data #1" /></td>
-        <td><input value="Data #2" /></td>
-        <td><input value="Data #3" /></td>
-        <td><input value="Data #4" /></td>
-      </tr>
-    </table>
-  </div>
+
+
 </form>
 
