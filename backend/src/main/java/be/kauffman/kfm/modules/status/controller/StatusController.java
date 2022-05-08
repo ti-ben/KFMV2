@@ -38,6 +38,7 @@ public class StatusController {
         Status status = new StatusBuilder()
                 .setName(payload.getName())
                 .setDescription(payload.getDescription())
+                .setActive(payload.getActive())
                 .build();
         return new ApiResponse(true, statusRepository.save(status), null);
     }
@@ -67,6 +68,7 @@ public class StatusController {
         }
         fromDb.setName(payload.getName());
         fromDb.setDescription(payload.getDescription());
+        fromDb.setActive(payload.getActive());
         return new ApiResponse(true, statusRepository.save(fromDb), null);
     }
 
