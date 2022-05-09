@@ -48,8 +48,9 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
     this.userService.currentDetail$.subscribe((user: User) => {
       this.detail = user;
       this.initForm(user);
+      this.setSelectConfig();
     })
-    this.setSelectConfig();
+    //this.setSelectConfig();
   }
 
   // Affiche les informations du user sélectionné
@@ -69,22 +70,21 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       created_on: new FormControl(this.detail.created_on),
       pob: new FormControl(this.detail.pob),
       active: new FormControl(this.detail.active),
-      site: new FormControl(this.detail.site.site_id), // MAIS ATTENTION DE BIEN REPRENDRE LE SITE AU MOMENT DE L ENVOI DU FORMULAIRE
+      site: new FormControl(this.detail.site.name), // MAIS ATTENTION DE BIEN REPRENDRE LE SITE AU MOMENT DE L ENVOI DU FORMULAIRE
       address: new FormControl(this.detail.address.address_id),
-      grade: new FormControl(this.detail.grade.grade_id),
-      status: new FormControl(this.detail.status.status_id)
+      grade: new FormControl(this.detail.grade.name),
+      status: new FormControl(this.detail.status.name)
     })
   }
 
   //todo update user information to db
   update(): void {
-    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
     if (this.formGroup.valid) {
       const payload: UserUpdatePayload = this.formGroup.value;
-      // LIER LES OBJECTS AUX CLES
       payload.user_id = this.detail.user_id;
       payload.site = {site_id: payload.site};
       payload.status = {status_id: payload.status};
+      payload.grade = {grade_id: payload.grade}
       console.log('payload', payload);
       this.userService.update(payload).subscribe();
     }

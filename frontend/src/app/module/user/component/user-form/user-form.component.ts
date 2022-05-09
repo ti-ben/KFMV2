@@ -46,8 +46,8 @@ export class UserFormComponent implements OnInit {
   save(): void {
     if (this.formGroup.valid) {
       const payload: UserCreatePayload = this.formGroup.value;
-      //console.log(payload);
       payload.site = {site_id: payload.site}
+      payload.status = {status_id: payload.status}
       this.userService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.formGroup.reset();

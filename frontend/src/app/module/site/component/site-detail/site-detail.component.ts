@@ -39,8 +39,8 @@ export class SiteDetailComponent implements OnInit {
     this.siteService.currentDetail$.subscribe((site: Site) => {
       this.detail = site;
       this.initForm(site);
+      this.setSelectConfig();
     })
-    this.setSelectConfig();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -54,11 +54,11 @@ export class SiteDetailComponent implements OnInit {
 
   //La date et le status actif ou inactif ne s'enregistre pas en db
   update(): void {
-    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
+    //console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
     if (this.formGroup.valid) {
       const payload: SiteUpdatePayload = this.formGroup.value;
       payload.site_id = this.detail.site_id;
-      console.log('payload', payload); // A retirer (debug)
+      //console.log('payload', payload); // A retirer (debug)
       this.siteService.update(payload).subscribe();
     }
   }

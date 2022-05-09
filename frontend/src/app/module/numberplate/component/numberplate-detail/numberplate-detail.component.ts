@@ -45,8 +45,9 @@ export class NumberplateDetailComponent implements OnInit {
     this.numberplateService.currentDetail$.subscribe((numberplate: Numberplate) => {
       this.detail = numberplate;
       this.initForm(numberplate);
+      this.setSelectConfig();
     })
-    this.setSelectConfig();
+    //this.setSelectConfig();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {

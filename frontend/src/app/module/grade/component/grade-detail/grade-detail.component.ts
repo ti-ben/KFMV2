@@ -38,8 +38,9 @@ export class GradeDetailComponent implements OnInit {
     this.gradeService.currentDetail$.subscribe((grade: Grade) => {
       this.detail = grade;
       this.initForm(grade);
+      this.setSelectConfig();
     })
-    this.setSelectConfig();
+    //this.setSelectConfig();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -58,17 +59,6 @@ export class GradeDetailComponent implements OnInit {
       payload.grade_id = this.detail.grade_id;
       this.gradeService.update(payload).subscribe();
     }
-  }
-
-  archive(): void{
-    const payload: GradeUpdatePayload = this.formGroup.value;
-    if(payload.active === "true")
-    {
-      payload.active = "false";
-      this.gradeService.update(payload).subscribe();
-    }
-    payload.active ="true";
-    this.gradeService.update(payload).subscribe();
   }
 
   private setSelectConfig(): void {

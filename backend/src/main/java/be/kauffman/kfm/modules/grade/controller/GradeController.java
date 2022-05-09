@@ -69,6 +69,7 @@ public class GradeController {
         }
         fromDb.setName(payload.getName());
         fromDb.setComment(payload.getComment());
+        fromDb.setActive(payload.getActive());
         return new ApiResponse(true, gradeRepository.save(fromDb), null);
     }
 

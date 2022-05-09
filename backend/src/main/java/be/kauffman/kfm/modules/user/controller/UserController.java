@@ -51,6 +51,7 @@ public class UserController {
                 .setPob(payload.getPob())
                 .setActive(payload.getActive())
                 .setSite(payload.getSite())
+                .setStatus(payload.getStatus())
                 .build();
         return new ApiResponse(true, userRepository.save(user), null);
     }
@@ -92,6 +93,8 @@ public class UserController {
         fromDb.setCreated_on(payload.getCreated_on());
         fromDb.setPob(payload.getPob());
         fromDb.setActive(payload.getActive());
+        fromDb.setSite(payload.getSite());
+        fromDb.setStatus(payload.getStatus());
         return new ApiResponse(true, userRepository.save(fromDb), null);
     }
 
