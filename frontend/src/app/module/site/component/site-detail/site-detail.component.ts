@@ -63,11 +63,6 @@ export class SiteDetailComponent implements OnInit {
     }
   }
 
-  /*
-    archive(): void {
-      alert('Archivage du site');
-    }
-  */
   private setSelectConfig(): void {
     this.actifSelectConfig$.next( {
       label: {label: 'form.site.label.active'},

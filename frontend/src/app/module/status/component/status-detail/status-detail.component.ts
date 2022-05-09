@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {CardConfig, SelectConfig} from "@shared/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
@@ -52,11 +52,11 @@ export class StatusDetailComponent implements OnInit {
   }
 
   update(): void {
-    alert('Mise à jour du prestataire');
+    alert('Mise à jour du status');
   }
 
   archive(): void {
-    alert('Archivage du prestataire');
+    alert('Archivage du status');
   }
 
   private setSelectConfig(): void {

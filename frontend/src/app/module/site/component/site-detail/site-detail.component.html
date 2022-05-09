@@ -27,6 +27,7 @@
                         [ctrl]="getControl('created_on')"
                         (onBlur)="update()">
         </app-input-date>
+        <input value="{{site.created_on}}" type="text" placeholder="created_on"/>
       </div>
     </div>
 
@@ -48,13 +49,6 @@
         </app-select>
       </div>
     </div>
-
     <input value="{{site.active}}" type="text" placeholder="Actif"/>
   </form>
-  <!--
-  <div class="btn-area">
-    <button (click)="update()">Mettre à jour</button>
-    <button (click)="archive()">Archiver</button>
-   </div>
-  -->
 </app-card>
