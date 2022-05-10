@@ -1,7 +1,6 @@
-import { Appointment } from '@appointment/model/business';
-import { AppointmentDto } from '@appointment/model';
-import {User} from "@user/model";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Appointment} from '@appointment/model/business';
+import {AppointmentDto} from '@appointment/model';
+import {FormControl, FormGroup} from "@angular/forms";
 
 export class AppointmentHelper {
   public static fromDto(dto: AppointmentDto): Appointment {
@@ -42,7 +41,7 @@ export class AppointmentHelper {
     };
   }
 
-  static getEmpty():Appointment {
+  static getEmpty(): Appointment {
     return {
       appointment_id: '',
       start_date: new Date(),
