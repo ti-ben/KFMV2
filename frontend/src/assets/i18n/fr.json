@@ -11,9 +11,10 @@
     "female": "Femme",
     "not_binary": "Non binaire"
   },
-  "genre": {
+  "type": {
     "colis": "Colis",
-    "citerne": "Citerne"
+    "citerne": "Citerne",
+    "citerne_colis": "Citerne & Colis"
   },
   "driver-license": {
     "b": "B",

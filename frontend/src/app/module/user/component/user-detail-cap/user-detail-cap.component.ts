@@ -26,6 +26,7 @@ export class UserDetailCapComponent implements OnInit {
     this.periodGroup = new FormGroup({
 
     })
+
     this.appointmentGroup = new FormGroup({
 
     })

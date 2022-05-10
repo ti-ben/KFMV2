@@ -4,8 +4,9 @@ import {GenreEnum} from '@shared/model';
 export class GenreHelper {
   static toSelectOption(): SelectOption[] {
     return [
-      {label: 'genre.colis', value: GenreEnum.COLIS},
-      {label: 'genre.citerne', value: GenreEnum.CITERNE}
+      {label: 'type.colis', value: GenreEnum.COLIS},
+      {label: 'type.citerne', value: GenreEnum.CITERNE},
+      {label: 'type.citerne_colis', value: GenreEnum.CITERNE_OR_COLIS}
     ]
   }
 }

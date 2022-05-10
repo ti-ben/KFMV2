@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {UserHelper} from "@user/helper";
+import {AppointmentHelper} from "@appointment/helper";
 import {SelectConfig} from "@shared/model";
-import {GenreHelper} from "@shared/helper";
+import {ActifHelper, GenreHelper} from "@shared/helper";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-user-detail-adr',
@@ -10,8 +11,9 @@ import {GenreHelper} from "@shared/helper";
   styleUrls: ['./user-detail-adr.component.scss']
 })
 export class UserDetailAdrComponent implements OnInit {
-  formGroup!: FormGroup;
+  adrGroup!: FormGroup;
   genreSelectConfig!: SelectConfig;
+  typeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
 
   constructor() {
   }
@@ -22,24 +24,28 @@ export class UserDetailAdrComponent implements OnInit {
   }
 
   public getControl(name: string): FormControl {
-    return this.formGroup.get(name) as FormControl;
+    return this.adrGroup.get(name) as FormControl;
   }
 
   private initForm(): void {
-    this.formGroup = UserHelper.toFormGroup();
+    this.adrGroup = AppointmentHelper.toFormGroup();
   }
 
   private setSelectConfig(): void {
-    this.genreSelectConfig = {
-      label: {label: 'form.user.label.genre'},
-      placeholder: 'form.user.placeholder.genre',
-      ctrl: this.getControl('genre'),
+    this.typeSelectConfig$.next( {
+      label: {label: 'form.adr.label.type'},
+      placeholder: 'form.adr.placeholder.type',
+      ctrl: this.getControl('type'),
       values: GenreHelper.toSelectOption()
-    }
+    });
   }
 
-  onClick() {
-    alert('envoi du form');
+  addAdr() {
+    alert('Ajout ADR');
+  }
+
+  update() {
+    alert('Update ADR');
   }
 
 }
