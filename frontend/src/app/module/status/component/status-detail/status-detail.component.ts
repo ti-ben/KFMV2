@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CardConfig, SelectConfig} from "@shared/model";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
@@ -6,9 +6,10 @@ import {StatusService} from "@status/service/status.service";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Status} from "@status/model";
+import {Status, StatusUpdatePayload} from "@status/model";
 import {StatusHelper} from "@status/helper";
 import {ActifHelper} from "@shared/helper";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-status-detail',
@@ -20,7 +21,7 @@ export class StatusDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.status.detail.title');
   @Input() detail: Status = StatusHelper.getEmpty();
   id: string = '';
-  actifSelectConfig!: SelectConfig;
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   formGroup!: FormGroup;
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public statusService: StatusService) {
@@ -38,8 +39,8 @@ export class StatusDetailComponent implements OnInit {
     this.statusService.currentDetail$.subscribe((status: Status) => {
       this.detail = status;
       this.initForm(status);
+      this.setSelectConfig();
     })
-    this.setSelectConfig();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -52,20 +53,20 @@ export class StatusDetailComponent implements OnInit {
   }
 
   update(): void {
-    alert('Mise à jour du status');
-  }
-
-  archive(): void {
-    alert('Archivage du status');
+    if (this.formGroup.valid) {
+      const payload: StatusUpdatePayload = this.formGroup.value;
+      payload.status_id = this.detail.status_id;
+      this.statusService.update(payload).subscribe();
+    }
   }
 
   private setSelectConfig(): void {
-    this.actifSelectConfig = {
+    this.actifSelectConfig$.next({
       label: {label: 'form.status.label.active'},
       placeholder: 'form.status.placeholder.active',
       ctrl: this.getControl('active'),
       values: ActifHelper.toSelectOption()
-    };
+    });
   }
 
 }

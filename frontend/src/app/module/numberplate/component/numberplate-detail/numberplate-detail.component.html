@@ -38,25 +38,17 @@
                     (onBlur)="update()">
         </app-select>
 
-        <span>A retirer une fois le problème réglé, juste là pour test</span>
         <input autofocus value="{{numberplate.site.name}}" type="text" disabled>
       </div>
     </div>
 
     <div class="flex-row">
       <div class="flex-cell">
-        <app-select [config]="actifSelectConfig"
+        <app-select *ngIf="actifSelectConfig$ | async as actifSelectConfig"
+                    [config]="actifSelectConfig"
                     (onBlur)="update()">
         </app-select>
-
-        <span>A retirer une fois le problème réglé, juste là pour test</span>
-        <input autofocus value="{{numberplate.active}}" type="text" disabled>
       </div>
     </div>
-    <div class="btn-area">
-      <button>Exporter la liste des plaques</button>
-    </div>
   </form>
-  {{detail | json}}
-
 </app-card>

@@ -10,7 +10,7 @@ import {
 import {UserDetailCapComponent} from './component/user-detail-cap/user-detail-cap.component';
 import {UserDetailAdrComponent} from './component/user-detail-adr/user-detail-adr.component';
 import {UserDetailTachographComponent} from './component/user-detail-tachograph/user-detail-tachograph.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserDetailSummaryComponent} from './component/user-detail-summary/user-detail-summary.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {UserHomeComponent} from './component/user-home/user-home.component';
@@ -41,7 +41,8 @@ import {AppointmentModule} from "@appointment/appointment.module";
         ReactiveFormsModule,
         TranslateModule,
         GradeModule,
-        AppointmentModule
+        AppointmentModule,
+        FormsModule
     ]
 
 })

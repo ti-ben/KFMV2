@@ -31,18 +31,12 @@
 
     <div class="flex-row">
       <div class="flex-cell">
-        <app-select [config]="actifSelectConfig"
+        <app-select *ngIf="actifSelectConfig$ | async as actifSelectConfig"
+                    [config]="actifSelectConfig"
                     (onBlur)="update()">
         </app-select>
       </div>
     </div>
-
-    <input value="{{status.active}}" type="text" placeholder="Actif"/>
   </form>
-  <!--
-  <div class="btn-area">
-    <button (click)="update()">Mettre à jour</button>
-    <button (click)="archive()">Archiver</button>
-   </div>
-  -->
+
 </app-card>

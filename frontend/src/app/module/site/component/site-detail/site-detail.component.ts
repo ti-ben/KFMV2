@@ -64,7 +64,7 @@ export class SiteDetailComponent implements OnInit {
   }
 
   private setSelectConfig(): void {
-    this.actifSelectConfig$.next( {
+    this.actifSelectConfig$.next({
       label: {label: 'form.site.label.active'},
       placeholder: 'form.site.placeholder.active',
       ctrl: this.getControl('active'),

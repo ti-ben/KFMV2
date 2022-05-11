@@ -11,7 +11,7 @@ import {SiteService} from "@site/service/site.service";
 import {Status} from "@status/model";
 import {StatusHelper} from "@status/helper";
 import {StatusService} from "@status/service/status.service";
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {GradeService} from '@grade/service/grade.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   siteList: Site[] = [];
   statusList: Status[] = [];
   formGroup!: FormGroup;
-
+  refresh$ = new Subject<any>();
 
   constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService, public gradeService: GradeService) {
   }
@@ -78,6 +78,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   }
 
   //todo update user information to db
+
   update(): void {
     if (this.formGroup.valid) {
       const payload: UserUpdatePayload = this.formGroup.value;

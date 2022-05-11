@@ -23,7 +23,7 @@ export class NumberplateHelper {
     return {
       numberplate_id: numberplate.numberplate_id,
       num_plate: numberplate.num_plate,
-      dop: new Date(),
+      dop: new Date("dd/MM/yyyy"),
       active: numberplate.active,
       site: SiteHelper.toDto(numberplate.site)
     };
@@ -32,12 +32,11 @@ export class NumberplateHelper {
     return {
       numberplate_id: '',
       num_plate: '',
-      dop: new Date(),
+      dop: new Date("dd/MM/yyyy"),
       active: '',
       site: SiteHelper.getEmpty()
     };
   }
-
 
   public static toFormGroup(numberplate: Numberplate = NumberplateHelper.getEmpty()) : FormGroup {
     return new FormGroup({
@@ -45,7 +44,7 @@ export class NumberplateHelper {
       num_plate: new FormControl(numberplate.num_plate),
       dop: new FormControl(numberplate.dop),
       active: new FormControl(numberplate.active),
-      site: new FormControl(numberplate.site.name)
+      site: new FormControl(numberplate.site)
     });
   }
 

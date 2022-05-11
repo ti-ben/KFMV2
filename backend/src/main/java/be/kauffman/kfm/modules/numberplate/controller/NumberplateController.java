@@ -70,6 +70,7 @@ public class NumberplateController {
         fromDb.setNum_plate(payload.getNum_plate());
         fromDb.setDop(payload.getDop());
         fromDb.setActive(payload.getActive());
+        fromDb.setSite(payload.getSite());
         return new ApiResponse(true, numberplateRepository.save(fromDb), null);
     }
 
