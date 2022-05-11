@@ -38,7 +38,7 @@ export class SiteFormComponent implements OnInit {
     this.formGroup = new FormGroup({
       name: new FormControl('', [Validators.required]),
       description: new FormControl(''),
-      created_on: new FormControl(new Date()),
+      created_on: new FormControl(new Date("dd/MM/yyyy")),
       active: new FormControl('')
     });
   }

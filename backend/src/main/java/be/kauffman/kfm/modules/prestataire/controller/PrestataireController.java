@@ -72,6 +72,7 @@ public class PrestataireController {
         fromDb.setEmail(payload.getEmail());
         fromDb.setTel(payload.getTel());
         fromDb.setService(payload.getService());
+        fromDb.setActive(payload.getActive());
         return new ApiResponse(true, prestataireRepository.save(fromDb), null);
     }
 

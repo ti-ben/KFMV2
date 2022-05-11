@@ -52,13 +52,10 @@ export class SiteDetailComponent implements OnInit {
       ).subscribe();
   }
 
-  //La date et le status actif ou inactif ne s'enregistre pas en db
   update(): void {
-    //console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
     if (this.formGroup.valid) {
       const payload: SiteUpdatePayload = this.formGroup.value;
       payload.site_id = this.detail.site_id;
-      //console.log('payload', payload); // A retirer (debug)
       this.siteService.update(payload).subscribe();
     }
   }

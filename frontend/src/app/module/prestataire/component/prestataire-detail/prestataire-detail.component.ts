@@ -9,6 +9,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {CardHelper} from "@shared/helper/card.helper";
 import {PrestataireHelper} from "@prestataire/helper";
 import {ActifHelper} from "@shared/helper";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-prestataire-detail',
@@ -20,7 +21,7 @@ export class PrestataireDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.prestataire.detail.title');
   @Input() detail: Prestataire = PrestataireHelper.getEmpty();
   id: string = '';
-  actifSelectConfig!: SelectConfig;
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   formGroup!: FormGroup;
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public prestataireService: PrestataireService) {
@@ -38,8 +39,8 @@ export class PrestataireDetailComponent implements OnInit {
     this.prestataireService.currentDetail$.subscribe((prestataire: Prestataire) => {
       this.detail = prestataire;
       this.initForm(prestataire);
+      this.setSelectConfig();
     })
-    this.setSelectConfig();
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -52,28 +53,20 @@ export class PrestataireDetailComponent implements OnInit {
   }
 
   update(): void {
-    console.log('mes valeurs', this.formGroup.value); // A retirer (debug)
     if (this.formGroup.valid) {
       const payload: PrestataireUpdatePayload = this.formGroup.value;
       payload.prestataire_id = this.detail.prestataire_id;
-      console.log('payload', payload); // A retirer (debug)
       this.prestataireService.update(payload).subscribe();
     }
   }
 
-  /*
-    archive(): void {
-      alert('Archivage du site');
-    }
-  */
-
   private setSelectConfig(): void {
-    this.actifSelectConfig = {
+    this.actifSelectConfig$.next( {
       label: {label: 'form.prestataire.label.active'},
       placeholder: 'form.prestataire.placeholder.active',
       ctrl: this.getControl('active'),
       values: ActifHelper.toSelectOption()
-    };
+    });
   }
 
 }
