@@ -28,6 +28,14 @@
     "de": "DE"
   },
   "form": {
+    "adr": {
+      "label": {
+        "start_date": "Date début",
+        "end_date":"Date fin",
+        "type": "Type",
+        "comment": "Commentaire"
+      }
+    },
     "address": {
       "label": {
         "address_id": "N° ID",

@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AppointmentHelper} from "@appointment/helper";
-import {SelectConfig} from "@shared/model";
+import {ApiResponse, SelectConfig} from "@shared/model";
 import {ActifHelper, GenreHelper} from "@shared/helper";
 import {BehaviorSubject} from "rxjs";
+import {AppointmentCreatePayload} from "@appointment/model";
+import {AppointmentService} from "@appointment/service/appointment.service";
 
 @Component({
   selector: 'app-user-detail-adr',
@@ -11,11 +13,11 @@ import {BehaviorSubject} from "rxjs";
   styleUrls: ['./user-detail-adr.component.scss']
 })
 export class UserDetailAdrComponent implements OnInit {
-  adrGroup!: FormGroup;
-  genreSelectConfig!: SelectConfig;
   typeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  genreSelectConfig!: SelectConfig;
+  adrGroup!: FormGroup;
 
-  constructor() {
+  constructor(public appointmentService: AppointmentService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +33,23 @@ export class UserDetailAdrComponent implements OnInit {
     this.adrGroup = AppointmentHelper.toFormGroup();
   }
 
+  addAdr() {
+    if(this.adrGroup.valid)
+    {
+      const payload: AppointmentCreatePayload = this.adrGroup.value;
+      console.log('paylaod', payload);
+      this.appointmentService.create(payload).subscribe((response: ApiResponse) => {
+        if(response.result){
+          this.adrGroup.reset();
+        }
+      })
+    }
+  }
+
+  update() {
+    alert('Update ADR');
+  }
+
   private setSelectConfig(): void {
     this.typeSelectConfig$.next( {
       label: {label: 'form.adr.label.type'},
@@ -38,14 +57,6 @@ export class UserDetailAdrComponent implements OnInit {
       ctrl: this.getControl('type'),
       values: GenreHelper.toSelectOption()
     });
-  }
-
-  addAdr() {
-    alert('Ajout ADR');
-  }
-
-  update() {
-    alert('Update ADR');
   }
 
 }

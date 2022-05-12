@@ -1,4 +1,4 @@
-import { PayloadInterface } from '@shared/model';
+import {PayloadInterface} from '@shared/model';
 
 export interface SiteCreatePayload extends PayloadInterface {
   name: string;

@@ -30,7 +30,9 @@ export class SiteService extends ApiService {
   }
 
   create(payload: SiteCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.SITE_CREATE, payload).pipe(tap((response: ApiResponse) => {
+    return this.post(ApiUriEnum.SITE_CREATE, payload)
+      .pipe(
+        tap((response: ApiResponse) => {
       if (response.result) {
         this.refresh$.next();
       }

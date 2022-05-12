@@ -25,9 +25,9 @@ public class AppointmentController {
         Appointment appointment = new AppointmentBuilder()
                 .setStart_date(payload.getStart_date())
                 .setEnd_date(payload.getEnd_date())
-                .setPrice(payload.getComment())
+                .setPrice(payload.getPrice())
                 .setTheme(payload.getTheme())
-                .setComment(payload.getPrice())
+                .setComment(payload.getComment())
                 .setType(payload.getType())
                 .setCategory(payload.getCategory())
                 .build();

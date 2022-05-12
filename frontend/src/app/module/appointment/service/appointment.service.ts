@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from '@shared/service/api.service';
-import { HttpService } from '@shared/service/http.service';
+import {Injectable} from '@angular/core';
+import {ApiService} from '@shared/service/api.service';
+import {HttpService} from '@shared/service/http.service';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import { ApiResponse, ApiUriEnum } from '@shared/model';
-import { map } from 'rxjs/operators';
-import { isNil } from 'lodash';
-import { Appointment } from '@appointment/model/business';
-import { AppointmentHelper } from '@appointment/helper';
-import { AppointmentDto } from '@appointment/model';
+import {ApiResponse, ApiUriEnum} from '@shared/model';
+import {map, tap} from 'rxjs/operators';
+import {isNil} from 'lodash';
+import {Appointment} from '@appointment/model/business';
+import {AppointmentHelper} from '@appointment/helper';
+import {AppointmentCreatePayload, AppointmentDto} from '@appointment/model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,14 +20,24 @@ export class AppointmentService extends ApiService {
     super(http);
   }
 
-  create(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_CREATE}`);
+  create(payload: AppointmentCreatePayload): Observable<ApiResponse> {
+    return this.post(ApiUriEnum.APPOINTMENT_CREATE, payload)
+      .pipe(
+        tap((response: ApiResponse) => {
+      if (response.result) {
+        this.refresh$.next();
+      }
+    }));
   }
 
-// Théoriquement ici tu sors une liste d'utilisateur.
-// Observable<User[]>
-  list(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}`);
+  list(usr_id: string, appt_id: string): Observable<Appointment[]> {
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${usr_id}${appt_id}`);
+    /*return this.get(ApiUriEnum.APPOINTMENT_LIST)
+      .pipe(
+        map((reponse: ApiResponse) => {
+          return (reponse.result && !isNil(response.data)) ? AppointmentHelper.fromDto(response.data as AppointmentDto[]) : [];
+        })
+      )*/
   }
 
   detail(id: string): Observable<Appointment> {
@@ -39,8 +49,9 @@ export class AppointmentService extends ApiService {
       );
   }
 
-  update(id: string): Observable<Appointment> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_UPDATE}${id}`)
+  update(appt_id: string): Observable<Appointment>
+{
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_UPDATE}${appt_id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? AppointmentHelper.fromDto(response.data as AppointmentDto) : AppointmentHelper.getEmpty();
