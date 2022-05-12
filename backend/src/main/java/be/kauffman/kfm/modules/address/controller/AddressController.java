@@ -60,7 +60,6 @@ public class AddressController {
         fromDb.setNum(payload.getNum());
         fromDb.setRoad(payload.getRoad());
         fromDb.setTown(payload.getTown());
-
         return new ApiResponse(true, addressRepository.save(fromDb), null);
     }
 

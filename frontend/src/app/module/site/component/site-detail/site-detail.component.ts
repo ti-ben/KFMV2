@@ -10,6 +10,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {SiteHelper} from "@site/helper";
 import {ActifHelper} from "@shared/helper";
 import {BehaviorSubject} from "rxjs";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-site-detail',
@@ -19,12 +20,12 @@ import {BehaviorSubject} from "rxjs";
 
 export class SiteDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.site.detail.title');
-  @Input() detail: Site = SiteHelper.getEmpty();
-  id: string = '';
   actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  @Input() detail: Site = SiteHelper.getEmpty();
   formGroup!: FormGroup;
+  id: string = '';
 
-  constructor(public router: Router, public activatedRouter: ActivatedRoute, public siteService: SiteService) {
+  constructor(public router: Router, public activatedRouter: ActivatedRoute, public siteService: SiteService, private datePipe: DatePipe) {
   }
 
   public getControl(name: string): FormControl {

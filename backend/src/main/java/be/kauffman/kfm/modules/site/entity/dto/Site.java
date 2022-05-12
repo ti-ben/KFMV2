@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,6 +24,8 @@ public class Site {
     private UUID site_id;
     String name;
     String description;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date created_on;
     String active;
 

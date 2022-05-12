@@ -23,7 +23,7 @@ export class SiteHelper {
       site_id: site.site_id,
       name: site.name,
       description: site.description,
-      created_on: new Date("dd/MM/yyyy"),
+      created_on: new Date("yyyy-MM-dd"),
       active: site.active
     };
   }
@@ -33,7 +33,7 @@ export class SiteHelper {
       site_id: '',
       name: '',
       description: '',
-      created_on: new Date("dd/MM/yyyy"),
+      created_on: new Date("yyyy-MM-dd"),
       active : ''
     };
   }
@@ -47,7 +47,7 @@ export class SiteHelper {
       site_id: new FormControl(site.site_id),
       name: new FormControl(site.name, [Validators.required]),
       description: new FormControl(site.description, [Validators.required]),
-      created_on: new FormControl(new Date("dd/MM/yyyy")),
+      created_on: new FormControl(new Date("yyyy-MM-dd")),
       active: new FormControl(site.active, [Validators.required])
     });
   }

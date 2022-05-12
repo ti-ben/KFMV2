@@ -1,41 +1,4 @@
 {
-  "common": {
-    "select": {
-      "default": "Choisir une valeur"
-    },
-    "true": "Oui",
-    "false": "Non"
-  },
-  "gender": {
-    "male": "Homme",
-    "female": "Femme",
-    "not_binary": "Non binaire"
-  },
-  "type": {
-    "colis": "Colis",
-    "citerne": "Citerne",
-    "citerne_colis": "Citerne & Colis"
-  },
-  "driver-license": {
-    "b": "B",
-    "c": "C",
-    "ce": "CE",
-    "cce": "C/CE",
-    "de": "DE"
-  },
-  "search-input": {
-    "default-search": "Rechercher",
-    "user-search": "Rechercher un utilisateur",
-    "car-search": "Rechercher un véhicule",
-    "prestataire-search": "Rechercher un prestataire",
-    "numberplate-search": "Rechercher une immat",
-    "grade-search": "Rechercher un rôle",
-    "site-search": "Rechercher un site",
-    "status-search": "Rechercher un status"
-  },
-  "header": {
-    "breadcrumb": "affichage de la page en cours"
-  },
   "button": {
     "user-add": "Nouvel utilisateur",
     "car-add": "Nouveau véhicule",
@@ -45,163 +8,24 @@
     "site-add": "Nouveau site",
     "status-add": "Nouveau status"
   },
-  "table": {
-    "employee": {
-      "avatar": "Image",
-      "lastname": "Nom",
-      "firstname": "Prenom",
-      "gender": "Genre",
-      "dob": "Date de naissance",
-      "email": "Adresse mail",
-      "telpro": "Tél. pro",
-      "telperso": "Tél. perso",
-      "nationality": "Nationalité",
-      "numirn": "Numéro de registre",
-      "driver_license": "Permis",
-      "created_on": "Créé le",
-      "pob": "Lieu de naissance"
+  "common": {
+    "select": {
+      "default": "Choisir une valeur"
     },
-    "vehicule": {
-      "dop": "Date d'achat",
-      "active": "Actif?",
-      "price": "Prix",
-      "num_chassis": "N° de chassis",
-      "brand": "Marque",
-      "cde_carrosserie": "Code carrosserie",
-      "genre": "Genre",
-      "mom": "MOM",
-      "mma": "MMA",
-      "mmat": "MMAT",
-      "mta": "MTA",
-      "classe_enviro": "Classe environnemental",
-      "nbr_km": "Kilométrage",
-      "metrologie": "Métrologie",
-      "picture": "Photo",
-      "fuel": "type de carburant",
-      "type": "Type de véhicule"
-    },
-    "site": {
-      "name": "Nom du site",
-      "description": "Description"
-    },
-    "grade": {
-      "name": "Nom du rôle",
-      "comment": "Description"
-    },
-    "status": {
-      "name": "Nom du status",
-      "description": "Description"
-    },
-    "numberplate": {
-      "num_plate": "Numéro de plaque",
-      "dop": "Date d'achat"
-    },
-    "prestataire": {
-      "name": "Nom",
-      "tel": "Tél.:",
-      "email": "adresse email",
-      "service": "Type de service"
-    }
+    "true": "Oui",
+    "false": "Non"
   },
-  "page": {
-    "dashboard": {
-      "menu": {
-        "create": "Nouveau",
-        "home": "Accueil",
-        "employee": "Employés",
-        "dashboard": "Tableau de bord",
-        "car": "Véhicules",
-        "site": "Site",
-        "provider": "Prestataires",
-        "grade": "Rôles",
-        "status": "Statuts",
-        "numberplate": "Immatriculations",
-        "tachygraphe": "Tachygraphe",
-        "detail": "détail"
-      }
-    },
-    "credential": {
-      "detail": {
-        "title": "Crédential"
-      }
-    },
-    "site": {
-      "create": {
-        "title": "Nouveau site"
-      },
-      "detail": {
-        "title": "Détail du site"
-      }
-    },
-    "status": {
-      "create": {
-        "title": "Nouveau status"
-      },
-      "detail": {
-        "title": "Détail du status"
-      }
-    },
-    "grade": {
-      "create": {
-        "title": "Nouveau rôle"
-      },
-      "detail": {
-        "title": "Détail du rôle"
-      }
-    },
-    "numberplate": {
-      "create": {
-        "title": "Nouvelle plaque d'immatriculation"
-      },
-      "detail": {
-        "title": "Détail de la plaque d'immatriculation"
-      }
-    },
-    "prestataire": {
-      "create": {
-        "title": "Nouveau prestataire"
-      },
-      "detail": {
-        "title": "Détail du prestataire"
-      }
-    },
-    "vehicule": {
-      "create": {
-        "title": "Nouveau véhicule"
-      },
-      "detail": {
-        "title": "Détail du véhicule"
-      }
-    },
-    "user": {
-      "create": {
-        "title": "Nouvel employé"
-      },
-      "detail": {
-        "title": "Détail de l'employé"
-      }
-    }
+  "change-language": {
+    "french": "Français",
+    "dutch": "Néerlandais",
+    "english": "Anglais"
   },
-  "user-list": {
-    "no-data": "Aucun utilisateur"
-  },
-  "vehicule-list": {
-    "no-data": "Aucun véhicule"
-  },
-  "prestataire-list": {
-    "no-data": "Aucun prestataire"
-  },
-  "grade-list": {
-    "no-data": "Aucun rôle"
-  },
-  "site-list": {
-    "no-data": "Aucun site"
-  },
-  "status-list": {
-    "no-data": "Aucun status"
-  },
-  "numberplate-list": {
-    "no-data": "Aucune immatriculation sélectionnée"
+  "driver-license": {
+    "b": "B",
+    "c": "C",
+    "ce": "CE",
+    "cce": "C/CE",
+    "de": "DE"
   },
   "form": {
     "address": {
@@ -410,5 +234,186 @@
         "active": "Crédential utilisateur actif ?"
       }
     }
+  },
+  "gender": {
+    "male": "Homme",
+    "female": "Femme",
+    "not_binary": "Non binaire"
+  },
+  "grade-list": {
+    "no-data": "Aucun rôle"
+  },
+  "header": {
+    "breadcrumb": "affichage de la page en cours"
+  },
+  "numberplate-list": {
+    "no-data": "Aucune immatriculation sélectionnée"
+  },
+  "prestataire-list": {
+    "no-data": "Aucun prestataire"
+  },
+  "page": {
+    "dashboard": {
+      "menu": {
+        "create": "Nouveau",
+        "home": "Accueil",
+        "employee": "Employés",
+        "dashboard": "Tableau de bord",
+        "car": "Véhicules",
+        "site": "Site",
+        "provider": "Prestataires",
+        "grade": "Rôles",
+        "status": "Statuts",
+        "numberplate": "Immatriculations",
+        "tachygraphe": "Tachygraphe",
+        "detail": "détail"
+      }
+    },
+    "credential": {
+      "detail": {
+        "title": "Crédential"
+      }
+    },
+    "site": {
+      "create": {
+        "title": "Nouveau site"
+      },
+      "detail": {
+        "title": "Détail du site"
+      }
+    },
+    "status": {
+      "create": {
+        "title": "Nouveau status"
+      },
+      "detail": {
+        "title": "Détail du status"
+      }
+    },
+    "grade": {
+      "create": {
+        "title": "Nouveau rôle"
+      },
+      "detail": {
+        "title": "Détail du rôle"
+      }
+    },
+    "numberplate": {
+      "create": {
+        "title": "Nouvelle plaque d'immatriculation"
+      },
+      "detail": {
+        "title": "Détail de la plaque d'immatriculation"
+      }
+    },
+    "prestataire": {
+      "create": {
+        "title": "Nouveau prestataire"
+      },
+      "detail": {
+        "title": "Détail du prestataire"
+      }
+    },
+    "vehicule": {
+      "create": {
+        "title": "Nouveau véhicule"
+      },
+      "detail": {
+        "title": "Détail du véhicule"
+      }
+    },
+    "user": {
+      "create": {
+        "title": "Nouvel employé"
+      },
+      "detail": {
+        "title": "Détail de l'employé"
+      }
+    }
+  },
+  "site-list": {
+    "no-data": "Aucun site"
+  },
+  "status-list": {
+    "no-data": "Aucun status"
+  },
+  "search-input": {
+    "default-search": "Rechercher",
+    "user-search": "Rechercher un utilisateur",
+    "car-search": "Rechercher un véhicule",
+    "prestataire-search": "Rechercher un prestataire",
+    "numberplate-search": "Rechercher une immat",
+    "grade-search": "Rechercher un rôle",
+    "site-search": "Rechercher un site",
+    "status-search": "Rechercher un status"
+  },
+  "table": {
+    "employee": {
+      "avatar": "Image",
+      "lastname": "Nom",
+      "firstname": "Prenom",
+      "gender": "Genre",
+      "dob": "Date de naissance",
+      "email": "Adresse mail",
+      "telpro": "Tél. pro",
+      "telperso": "Tél. perso",
+      "nationality": "Nationalité",
+      "numirn": "Numéro de registre",
+      "driver_license": "Permis",
+      "created_on": "Créé le",
+      "pob": "Lieu de naissance"
+    },
+    "vehicule": {
+      "dop": "Date d'achat",
+      "active": "Actif?",
+      "price": "Prix",
+      "num_chassis": "N° de chassis",
+      "brand": "Marque",
+      "cde_carrosserie": "Code carrosserie",
+      "genre": "Genre",
+      "mom": "MOM",
+      "mma": "MMA",
+      "mmat": "MMAT",
+      "mta": "MTA",
+      "classe_enviro": "Classe environnemental",
+      "nbr_km": "Kilométrage",
+      "metrologie": "Métrologie",
+      "picture": "Photo",
+      "fuel": "type de carburant",
+      "type": "Type de véhicule"
+    },
+    "site": {
+      "name": "Nom du site",
+      "description": "Description"
+    },
+    "grade": {
+      "name": "Nom du rôle",
+      "comment": "Description"
+    },
+    "status": {
+      "name": "Nom du status",
+      "description": "Description"
+    },
+    "numberplate": {
+      "num_plate": "Numéro de plaque",
+      "dop": "Date d'achat"
+    },
+    "prestataire": {
+      "name": "Nom",
+      "tel": "Tél.:",
+      "email": "adresse email",
+      "service": "Type de service"
+    }
+  },
+  "type": {
+    "colis": "Colis",
+    "citerne": "Citerne",
+    "citerne_colis": "Citerne & Colis"
+  },
+  "user-list": {
+    "no-data": "Aucun utilisateur"
+  },
+  "vehicule-list": {
+    "no-data": "Aucun véhicule"
   }
 }
