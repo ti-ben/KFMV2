@@ -1,25 +1,2 @@
-<div class="flex-row">
-  <div class="flex-cell">
-    <app-input-date [label]="{label:'form.user.tachograph.label.start_date'}"
-                    [placeholder]="'form.user.tachograph.placeholder.start_date'"
-                    [ctrl]="getControl('start_date')"></app-input-date>
-  </div>
-  <div class="flex-cell">
-    <app-input-date [label]="{label:'form.user.tachograph.label.end_date'}"
-                    [placeholder]="'form.user.tachograph.placeholder.end_date'"
-                    [ctrl]="getControl('end_date')"></app-input-date>
-  </div>
-  <div class="flex-cell">
-    <app-input-text [label]="{label:'form.user.tachograph.label.num_carte'}"
-                    [placeholder]="'form.user.tachograph.placeholder.num_carte'"
-                    [ctrl]="getControl('num_carte')"></app-input-text>
-  </div>
-  <div class="flex-cell">
-    <app-input-text [label]="{label:'form.user.tachograph.label.comment'}"
-                    [placeholder]="'form.user.tachograph.placeholder.comment'"
-                    [ctrl]="getControl('comment')"></app-input-text>
-  </div>
-  <div class="btn-area">
-    <button><i class="fa-solid fa-square-plus"></i></button>
-  </div>
-</div>
+<app-tachygraphe-form></app-tachygraphe-form>
+<app-tachygraphe-list></app-tachygraphe-list>

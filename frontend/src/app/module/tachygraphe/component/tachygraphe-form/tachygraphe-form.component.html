@@ -1,1 +1,30 @@
-<p>tachygraphe-form works!</p>
+<ng-container>
+  <div class="flex-row">
+    <div class="flex-cell">
+      <app-input-date [label]="{label:'form.user.tachograph.label.start_date'}"
+                      [placeholder]="'form.user.tachograph.placeholder.start_date'"
+                      [ctrl]="getControl('start_date')"></app-input-date>
+    </div>
+    <div class="flex-cell">
+      <app-input-date [label]="{label:'form.user.tachograph.label.end_date'}"
+                      [placeholder]="'form.user.tachograph.placeholder.end_date'"
+                      [ctrl]="getControl('end_date')"></app-input-date>
+    </div>
+    <div class="flex-cell">
+      <app-input-text [label]="{label:'form.user.tachograph.label.num_carte'}"
+                      [placeholder]="'form.user.tachograph.placeholder.num_carte'"
+                      [ctrl]="getControl('num_carte')"></app-input-text>
+    </div>
+  </div>
+  <div class="flex-row">
+    <div class="flex-cell">
+      <app-textarea [label]="{label:'form.user.tachograph.label.comment'}"
+                    [placeholder]="'form.user.tachograph.placeholder.comment'"
+                    [ctrl]="getControl('comment')">
+      </app-textarea>
+    </div>
+  </div>
+  <div class="btn-area">
+    <button>AJOUTER</button>
+  </div>
+</ng-container>
