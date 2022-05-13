@@ -19,6 +19,7 @@ import {GradeModule} from "@grade/grade.module";
 import { UserDetailAddressComponent } from './component/user-detail-address/user-detail-address.component';
 import {AppointmentModule} from "@appointment/appointment.module";
 import {TachygrapheModule} from "@tachygraphe/tachygraphe.module";
+import {AddressModule} from "@address/address.module";
 
 @NgModule({
   declarations: [
@@ -35,17 +36,18 @@ import {TachygrapheModule} from "@tachygraphe/tachygraphe.module";
     UserDetailCredentialComponent,
     UserDetailAddressComponent
   ],
-    imports: [
-        CommonModule,
-        UserRoutingModule,
-        SharedModule,
-        ReactiveFormsModule,
-        TranslateModule,
-        GradeModule,
-        AppointmentModule,
-        FormsModule,
-        TachygrapheModule
-    ]
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    GradeModule,
+    AppointmentModule,
+    FormsModule,
+    TachygrapheModule,
+    AddressModule
+  ]
 
 })
 export class UserModule {
