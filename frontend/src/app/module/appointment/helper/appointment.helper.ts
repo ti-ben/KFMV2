@@ -1,6 +1,7 @@
 import {Appointment} from '@appointment/model/business';
 import {AppointmentDto} from '@appointment/model';
 import {FormControl, FormGroup} from "@angular/forms";
+import {Site, SiteDto} from "@site/model";
 
 export class AppointmentHelper {
   public static fromDto(dto: AppointmentDto): Appointment {
@@ -52,5 +53,9 @@ export class AppointmentHelper {
       type: '',
       category: ''
     };
+  }
+
+  static fromDtoArray(data: AppointmentDto[]): Appointment[] {
+    return data.map((dto: AppointmentDto) => AppointmentHelper.fromDto(dto));
   }
 }

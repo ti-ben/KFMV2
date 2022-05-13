@@ -8,6 +8,8 @@ import {isNil} from 'lodash';
 import {Appointment} from '@appointment/model/business';
 import {AppointmentHelper} from '@appointment/helper';
 import {AppointmentCreatePayload, AppointmentDto} from '@appointment/model';
+import {Site, SiteDto} from "@site/model";
+import {SiteHelper} from "@site/helper";
 
 @Injectable({
   providedIn: 'root'
@@ -30,16 +32,19 @@ export class AppointmentService extends ApiService {
     }));
   }
 
-  list(usr_id: string, appt_id: string): Observable<Appointment[]> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${usr_id}${appt_id}`);
-    /*return this.get(ApiUriEnum.APPOINTMENT_LIST)
-      .pipe(
-        map((reponse: ApiResponse) => {
-          return (reponse.result && !isNil(response.data)) ? AppointmentHelper.fromDto(response.data as AppointmentDto[]) : [];
-        })
-      )*/
+  list(usr_id: string, per_id: string): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${usr_id}/${per_id}`);
   }
-
+/*
+  list(usr_id : string, per_id: string): Observable<Appointment[]> {
+    return this.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${usr_id}/${per_id}`)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? AppointmentHelper.fromDtoArray(response.data as AppointmentDto[]) : [];
+        })
+      )
+  }
+*/
   detail(id: string): Observable<Appointment> {
     return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_DETAIL}${id}`)
       .pipe(
@@ -49,9 +54,8 @@ export class AppointmentService extends ApiService {
       );
   }
 
-  update(appt_id: string): Observable<Appointment>
-{
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_UPDATE}${appt_id}`)
+  update(id: string): Observable<Appointment> {
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_UPDATE}${id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? AppointmentHelper.fromDto(response.data as AppointmentDto) : AppointmentHelper.getEmpty();

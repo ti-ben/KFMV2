@@ -5,7 +5,7 @@ export enum ApiUriEnum {
   ADDRESS_DETAIL = 'address/detail/',
   ADDRESS_DELETE = 'address/delete/',
   APPOINTMENT_CREATE = 'appointment/create',
-  APPOINTMENT_LIST = 'appointment/list',
+  APPOINTMENT_LIST = 'appointment/list/',
   APPOINTMENT_UPDATE = 'appointment/update/',
   APPOINTMENT_DETAIL = 'appointment/detail/',
   APPOINTMENT_DELETE = 'appointment/delete/',

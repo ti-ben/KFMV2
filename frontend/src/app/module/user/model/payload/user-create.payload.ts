@@ -1,12 +1,11 @@
-import { PayloadInterface } from '@shared/model';
-import { Site, SiteDto } from '@site/model';
+import {PayloadInterface} from '@shared/model';
 
 export interface UserCreatePayload extends PayloadInterface {
   firstname: string;
   lastname: string;
   gender: string;
   avatar: string;
-  dob:Date;
+  dob: Date;
   email: string;
   password: string;
   telpro: string;
@@ -17,8 +16,8 @@ export interface UserCreatePayload extends PayloadInterface {
   created_on: Date;
   pob: string;
   active: string;
-  site:any;
-  address:any;
-  grade:any;
-  status:any;
+  site: any;
+  address: any;
+  grade: any;
+  status: any;
 }

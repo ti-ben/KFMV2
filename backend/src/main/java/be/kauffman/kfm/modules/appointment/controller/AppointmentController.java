@@ -34,7 +34,7 @@ public class AppointmentController {
         return new ApiResponse(true, appointmentRepository.save(appointment), null);
     }
 
-    // Read all records
+    // Read all records by period & user id
     @GetMapping("/list/{periodId}/{userId}")
     public ApiResponse get(@PathVariable("periodId") UUID periodId,@PathVariable("userId") UUID userId){
         return new ApiResponse(true, appointmentRepository.findByPeriodAndUser(periodId,userId), null);
