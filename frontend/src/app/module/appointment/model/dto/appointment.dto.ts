@@ -1,4 +1,7 @@
-export interface AppointmentDto {
+import {DtoInterface} from "@shared/model";
+import {UserDto} from "@user/model";
+
+export interface AppointmentDto extends DtoInterface {
   appointment_id: string,
   start_date: Date,
   end_date: Date,
@@ -6,5 +9,6 @@ export interface AppointmentDto {
   theme: string,
   comment: string,
   type: string,
-  category: string
+  category: string,
+
 }

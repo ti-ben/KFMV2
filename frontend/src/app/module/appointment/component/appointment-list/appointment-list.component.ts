@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import {AppointmentService} from "@appointment/service/appointment.service";
 import {ApiResponse} from "@shared/model";
 import {Appointment} from "@appointment/model";
+import {UserService} from "@user/service/user.service";
 
 @Component({
   selector: 'app-appointment-list',
@@ -14,16 +15,17 @@ export class AppointmentListComponent implements OnInit {
   adr!: ApiResponse;
   userAppointmentAdr!: ApiResponse;
 
-  constructor(public appointmentService: AppointmentService) {
+  constructor(public appointmentService: AppointmentService, public userService: UserService) {
   }
 
   ngOnInit(): void {
     this.getAllAppointmentByUserIdAndPeriodId();
     this.getAllAppointmentByUserId();
+    console.log('user_id', this.userService.currentDetail$.value.user_id);
   }
 
   getAllAppointmentByUserIdAndPeriodId(): void {
-    this.appointmentService.list('c5ace2c1-24c5-4e4c-92d4-79e6af763478','3de5f78e-c3b8-4df5-8274-3f2d0fba6de8').subscribe({
+    this.appointmentService.list(this.userService.currentDetail$.value.user_id,'3de5f78e-c3b8-4df5-8274-3f2d0fba6de8').subscribe({
       next: (data) => {
         this.adr = data;
         console.log(this.adr);
@@ -33,7 +35,7 @@ export class AppointmentListComponent implements OnInit {
   }
 
   getAllAppointmentByUserId(): void {
-    this.appointmentService.listUserAppointment('c5ace2c1-24c5-4e4c-92d4-79e6af763478').subscribe({
+    this.appointmentService.listUserAppointment(this.userService.currentDetail$.value.user_id).subscribe({
       next: (uapp) => {
         this.userAppointmentAdr = uapp;
         console.log(this.userAppointmentAdr);

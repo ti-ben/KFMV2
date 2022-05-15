@@ -6,6 +6,7 @@ import {ApiResponse, SelectConfig} from "@shared/model";
 import {GenreHelper} from "@shared/helper";
 import {AppointmentHelper} from "@appointment/helper";
 import {AppointmentCreatePayload} from "@appointment/model";
+import {UserService} from "@user/service/user.service";
 
 @Component({
   selector: 'app-appointment-form',
@@ -16,7 +17,7 @@ export class AppointmentFormComponent implements OnInit {
   typeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   adrGroup!: FormGroup;
 
-  constructor(public appointmentService: AppointmentService) {
+  constructor(public appointmentService: AppointmentService, public userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class AppointmentFormComponent implements OnInit {
   addAdr() {
     if (this.adrGroup.valid) {
       const payload: AppointmentCreatePayload = this.adrGroup.value;
+      payload.category = 'adr';
       console.log('paylaod', payload);
       this.appointmentService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {

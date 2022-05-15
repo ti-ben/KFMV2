@@ -1,10 +1,13 @@
 import {Appointment} from '@appointment/model/business';
 import {AppointmentDto} from '@appointment/model';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Site, SiteDto} from "@site/model";
+import {isNil} from "lodash";
 
 export class AppointmentHelper {
   public static fromDto(dto: AppointmentDto): Appointment {
+    if (isNil(dto)) {
+      return AppointmentHelper.getEmpty();
+    }
     return {
       appointment_id: dto.appointment_id,
       start_date: dto.start_date,
@@ -13,7 +16,8 @@ export class AppointmentHelper {
       theme: dto.theme,
       comment: dto.comment,
       type: dto.type,
-      category: dto.category
+      category: dto.category,
+
     }
   }
 
@@ -26,6 +30,7 @@ export class AppointmentHelper {
       comment: new FormControl(appointment.comment),
       type: new FormControl(appointment.type),
       category: new FormControl(appointment.category),
+
     });
   }
 
@@ -39,6 +44,7 @@ export class AppointmentHelper {
       comment: appointment.comment,
       type: appointment.type,
       category: appointment.category
+
     };
   }
 
@@ -51,7 +57,8 @@ export class AppointmentHelper {
       theme: '',
       comment: '',
       type: '',
-      category: ''
+      category: '',
+
     };
   }
 

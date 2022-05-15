@@ -13,4 +13,8 @@ export class UserDetailAdrComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAdrAppointmentAdded()
+  {
+
+  }
 }

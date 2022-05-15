@@ -1,3 +1,5 @@
+import {User} from "@user/model";
+
 export interface Appointment {
   appointment_id: string,
   start_date: Date,
@@ -6,5 +8,6 @@ export interface Appointment {
   theme: string,
   comment: string,
   type: string,
-  category: string
+  category: string,
+
 }
