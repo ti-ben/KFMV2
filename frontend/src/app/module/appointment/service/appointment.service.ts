@@ -8,8 +8,6 @@ import {isNil} from 'lodash';
 import {Appointment} from '@appointment/model/business';
 import {AppointmentHelper} from '@appointment/helper';
 import {AppointmentCreatePayload, AppointmentDto} from '@appointment/model';
-import {Site, SiteDto} from "@site/model";
-import {SiteHelper} from "@site/helper";
 
 @Injectable({
   providedIn: 'root'
@@ -26,25 +24,20 @@ export class AppointmentService extends ApiService {
     return this.post(ApiUriEnum.APPOINTMENT_CREATE, payload)
       .pipe(
         tap((response: ApiResponse) => {
-      if (response.result) {
-        this.refresh$.next();
-      }
-    }));
+          if (response.result) {
+            this.refresh$.next();
+          }
+        }));
   }
 
   list(usr_id: string, per_id: string): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${usr_id}/${per_id}`);
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${per_id}/${usr_id}`);
   }
-/*
-  list(usr_id : string, per_id: string): Observable<Appointment[]> {
-    return this.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${usr_id}/${per_id}`)
-      .pipe(
-        map((response: ApiResponse) => {
-          return (response.result && !isNil(response.data)) ? AppointmentHelper.fromDtoArray(response.data as AppointmentDto[]) : [];
-        })
-      )
+
+  listUserAppointment(usr_id: string): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LISTAPP}${usr_id}`);
   }
-*/
+
   detail(id: string): Observable<Appointment> {
     return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_DETAIL}${id}`)
       .pipe(

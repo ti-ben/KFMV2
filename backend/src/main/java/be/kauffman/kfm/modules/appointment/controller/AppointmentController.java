@@ -37,7 +37,12 @@ public class AppointmentController {
     // Read all records by period & user id
     @GetMapping("/list/{periodId}/{userId}")
     public ApiResponse get(@PathVariable("periodId") UUID periodId,@PathVariable("userId") UUID userId){
-        return new ApiResponse(true, appointmentRepository.findByPeriodAndUser(periodId,userId), null);
+        return new ApiResponse(true, appointmentRepository.findAppointmentByPerioIddAndUserId(periodId,userId), null);
+    }
+
+    @GetMapping("/listapp/{userId}")
+    public ApiResponse get(@PathVariable("userId") UUID userId){
+        return new ApiResponse(true, appointmentRepository.findByAppointmentByUserId(userId), null);
     }
 
     // Read record details
@@ -64,7 +69,6 @@ public class AppointmentController {
         fromDb.setComment(payload.getComment());
         fromDb.setType(payload.getType());
         fromDb.setCategory(payload.getCategory());
-
         return new ApiResponse(true, appointmentRepository.save(fromDb), null);
     }
 
