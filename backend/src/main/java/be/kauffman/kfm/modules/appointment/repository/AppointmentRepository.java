@@ -11,6 +11,6 @@ public interface AppointmentRepository extends JpaRepository<Appointment, UUID> 
     @Query ("SELECT a from Appointment a WHERE a.period.period_id =:period AND a.user.user_id=:user")
     List<Appointment> findAppointmentByPerioIddAndUserId(UUID period, UUID user);
 
-    @Query ("SELECT a from Appointment a WHERE a.user.user_id=:user")
+    @Query ("SELECT a from Appointment a WHERE a.user.user_id=:user AND a.category='adr'")
     List<Appointment> findByAppointmentByUserId(UUID user);
 }
