@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationService } from '@shared/service/navigation.service';
+import {AuthService} from "../../../../security";
 
 @Component({
   selector: 'app-dashboard-top-nav',
@@ -11,7 +12,7 @@ export class DashboardTopNavComponent implements OnInit {
 
   showLanguageMenu = false;
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -24,5 +25,9 @@ export class DashboardTopNavComponent implements OnInit {
     if (this.showLanguageMenu) {
       this.showLanguageMenu = false;
     }
+  }
+
+  logout() {
+this.authService.logout();
   }
 }

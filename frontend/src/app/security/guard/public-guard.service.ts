@@ -12,7 +12,8 @@ export class PublicGuardService implements CanActivate {
   constructor(private auth: AuthService) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
+  canActivate(route: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.auth.isAuthenticated) {
       this.auth.navigation.navigateToSecure();
       return false;

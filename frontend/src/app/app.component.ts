@@ -9,6 +9,7 @@ import {AuthService} from './security';
 })
 
 export class AppComponent {
+  title: any;
   constructor(private translate: TranslateService, public authService: AuthService) {
     translate.setDefaultLang('fr');
     this.authService.me();

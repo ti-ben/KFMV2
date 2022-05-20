@@ -72,5 +72,4 @@ public class AppointmentController {
         return new ApiResponse(true, appointmentRepository.save(fromDb), null);
     }
 
-
 }
