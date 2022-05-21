@@ -30,6 +30,7 @@ public class AppointmentController {
                 .setComment(payload.getComment())
                 .setType(payload.getType())
                 .setCategory(payload.getCategory())
+                .setTag(payload.getTag())
                 .build();
         return new ApiResponse(true, appointmentRepository.save(appointment), null);
     }
@@ -40,9 +41,9 @@ public class AppointmentController {
         return new ApiResponse(true, appointmentRepository.findAppointmentByPerioIddAndUserId(periodId,userId), null);
     }
 
-    @GetMapping("/listapp/{userId}")
-    public ApiResponse get(@PathVariable("userId") UUID userId){
-        return new ApiResponse(true, appointmentRepository.findByAppointmentByUserId(userId), null);
+    @GetMapping("/listapp/{tag}/{userId}")
+    public ApiResponse get(@PathVariable("tag") String tag, @PathVariable("userId") UUID userId ){
+        return new ApiResponse(true, appointmentRepository.findByAppointmentByUserId(userId, tag), null);
     }
 
     // Read record details

@@ -20,4 +20,5 @@ public class AppointmentUpdatePayload {
     String comment;
     String type;
     String category;
+    String tag;
 }

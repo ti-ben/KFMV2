@@ -10,5 +10,6 @@ export interface AppointmentDto extends DtoInterface {
   comment: string,
   type: string,
   category: string,
-
+  tag: string,
+  //user: UserDto,
 }

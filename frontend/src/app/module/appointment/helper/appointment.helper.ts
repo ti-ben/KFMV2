@@ -2,6 +2,7 @@ import {Appointment} from '@appointment/model/business';
 import {AppointmentDto} from '@appointment/model';
 import {FormControl, FormGroup} from "@angular/forms";
 import {isNil} from "lodash";
+import {UserHelper} from "@user/helper";
 
 export class AppointmentHelper {
   public static fromDto(dto: AppointmentDto): Appointment {
@@ -17,7 +18,8 @@ export class AppointmentHelper {
       comment: dto.comment,
       type: dto.type,
       category: dto.category,
-
+      tag: dto.tag,
+      //user: UserHelper.fromDto(dto.user)
     }
   }
 
@@ -30,6 +32,8 @@ export class AppointmentHelper {
       comment: new FormControl(appointment.comment),
       type: new FormControl(appointment.type),
       category: new FormControl(appointment.category),
+      tag: new FormControl((appointment.tag)),
+      //user_id: new FormControl(appointment.user.user_id)
 
     });
   }
@@ -43,7 +47,9 @@ export class AppointmentHelper {
       theme: appointment.theme,
       comment: appointment.comment,
       type: appointment.type,
-      category: appointment.category
+      category: appointment.category,
+      tag: appointment.tag,
+      //user: UserHelper.toDto(appointment.user)
 
     };
   }
@@ -58,7 +64,8 @@ export class AppointmentHelper {
       comment: '',
       type: '',
       category: '',
-
+      tag: '',
+      //user: UserHelper.getEmpty()
     };
   }
 

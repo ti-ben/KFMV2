@@ -29,6 +29,7 @@ public class Appointment {
     String comment;
     String type;
     String category;
+    String tag;
 
     @ManyToOne()
     @JoinColumn(name ="period_id_fk", referencedColumnName = "period_id")

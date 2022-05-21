@@ -8,5 +8,6 @@ export interface AppointmentCreatePayload extends PayloadInterface {
   comment: string,
   type: string,
   category: string,
-  user: any
+  user: any,
+  tag: string
 }

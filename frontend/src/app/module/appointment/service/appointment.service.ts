@@ -30,12 +30,12 @@ export class AppointmentService extends ApiService {
         }));
   }
 
-  list(usr_id: string, per_id: string): Observable<ApiResponse> {
+  listAdr(usr_id: string, per_id: string, tag: string): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LIST}${per_id}/${usr_id}`);
   }
 
-  listUserAppointment(usr_id: string): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LISTAPP}${usr_id}`);
+  listUserAdrAppointment(usr_id: string, tag: string): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.APPOINTMENT_LISTAPP}${tag}/${usr_id}`);
   }
 
   detail(id: string): Observable<Appointment> {

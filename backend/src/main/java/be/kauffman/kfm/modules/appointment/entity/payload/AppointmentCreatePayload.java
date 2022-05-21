@@ -18,4 +18,5 @@ public class AppointmentCreatePayload {
     String comment;
     String type;
     String category;
+    String tag;
 }

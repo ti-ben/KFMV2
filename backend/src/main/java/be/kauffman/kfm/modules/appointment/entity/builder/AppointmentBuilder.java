@@ -15,6 +15,7 @@ public class AppointmentBuilder {
     String comment;
     String type;
     String category;
+    String tag;
     Period period;
     User user;
 
@@ -57,6 +58,11 @@ public class AppointmentBuilder {
         return this;
     }
 
+    public AppointmentBuilder setTag(String tag) {
+        this.tag = tag;
+        return this;
+    }
+
     public AppointmentBuilder setPeriod(Period period) {
         this.period = period;
         return this;
@@ -68,7 +74,7 @@ public class AppointmentBuilder {
     }
 
     public Appointment build() {
-        return new Appointment(appointment_id, start_date, end_date, price, theme, comment, type, category, period, user);
+        return new Appointment(appointment_id, start_date, end_date, price, theme, comment, type, category, tag, period, user);
     }
 
 }

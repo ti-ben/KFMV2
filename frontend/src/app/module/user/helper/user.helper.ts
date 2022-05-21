@@ -109,4 +109,5 @@ export class UserHelper {
   static fromDtoArray(data: UserDto[]): User[] {
     return data.map((dto: UserDto) => UserHelper.fromDto(dto));
   }
+
 }

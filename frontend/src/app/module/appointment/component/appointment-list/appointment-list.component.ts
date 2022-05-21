@@ -20,11 +20,11 @@ export class AppointmentListComponent implements OnInit {
 
   ngOnInit(): void {
     //this.getAllAppointmentByUserIdAndPeriodId();
-    this.getAllAppointmentByUserId();
+    this.getAllAdrByUserId();
   }
 
   getAllAppointmentByUserIdAndPeriodId(): void {
-    this.appointmentService.list(this.userService.currentDetail$.value.user_id,'3de5f78e-c3b8-4df5-8274-3f2d0fba6de8').subscribe({
+    this.appointmentService.listAdr(this.userService.currentDetail$.value.user_id,'3de5f78e-c3b8-4df5-8274-3f2d0fba6de8', 'adr').subscribe({
       next: (data) => {
         this.adr = data;
         console.log('list',this.adr);
@@ -33,8 +33,8 @@ export class AppointmentListComponent implements OnInit {
     });
   }
 
-  getAllAppointmentByUserId(): void {
-    this.appointmentService.listUserAppointment(this.userService.currentDetail$.value.user_id).subscribe({
+  getAllAdrByUserId(): void {
+    this.appointmentService.listUserAdrAppointment(this.userService.currentDetail$.value.user_id, 'adr').subscribe({
       next: (uapp) => {
         this.userAppointmentAdr = uapp;
         console.log('listUserAppointment',this.userAppointmentAdr);
