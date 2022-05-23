@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {TachygrapheHelper} from "@tachygraphe/helper";
-import {Tachygraphe} from "@tachygraphe/model";
+import {Component, OnInit} from '@angular/core';
+import {ApiResponse} from "@shared/model";
+import {AppointmentService} from "@appointment/service/appointment.service";
+import {UserService} from "@user/service/user.service";
 
 @Component({
   selector: 'app-tachygraphe-list',
@@ -9,16 +9,18 @@ import {Tachygraphe} from "@tachygraphe/model";
   styleUrls: ['./tachygraphe-list.component.scss']
 })
 export class TachygrapheListComponent implements OnInit {
-  @Input() detail: Tachygraphe = TachygrapheHelper.getEmpty();
-  formGroup!: FormGroup;
+  userTachographList!: ApiResponse;
+  private user_id = this.userService.currentDetail$.value.user_id;
+  private tab_tag = 'tachygraphe';
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.formGroup = TachygrapheHelper.toFormGroup();
+  constructor(public appointmentService: AppointmentService, public userService: UserService) {
   }
 
-  public getControl(name: string): FormControl {
-    return this.formGroup.get(name) as FormControl;
+  ngOnInit(): void {
+    //this.getallTachyInfoByUserId();
+  }
+
+  getallTachyInfoByUserId() {
+    alert(`Get all tachy info for user id ${this.user_id}`);
   }
 }

@@ -9,7 +9,7 @@ import {Appointment} from '@appointment/model/business';
 import {AppointmentHelper} from '@appointment/helper';
 import {AppointmentCreatePayload, AppointmentDto} from '@appointment/model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AppointmentService extends ApiService {
   currentDetail$ = new BehaviorSubject<Appointment>(AppointmentHelper.getEmpty());
   refresh$ = new Subject<any>();

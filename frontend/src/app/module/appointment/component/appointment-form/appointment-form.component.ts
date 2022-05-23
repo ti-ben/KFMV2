@@ -15,7 +15,10 @@ import {UserService} from "@user/service/user.service";
 })
 export class AppointmentFormComponent implements OnInit {
   typeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  adrGroup!: FormGroup;
+  adrFormGroup!: FormGroup;
+
+  user_id = this.userService.currentDetail$.value;
+  tab_tag = 'adr';
 
   constructor(public appointmentService: AppointmentService, public userService: UserService) {
   }
@@ -26,25 +29,25 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   addAdr() {
-    if (this.adrGroup.valid) {
-      const payload: AppointmentCreatePayload = this.adrGroup.value;
-      payload.tag = 'adr';
-      payload.user = this.userService.currentDetail$.value;
+    if (this.adrFormGroup.valid) {
+      const payload: AppointmentCreatePayload = this.adrFormGroup.value;
+      payload.tag = this.tab_tag;
+      payload.user = this.user_id;
       console.log('paylaod', payload);
       this.appointmentService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
-          this.adrGroup.reset();
+          this.adrFormGroup.reset();
         }
       })
     }
   }
 
   private initForm(): void {
-    this.adrGroup = AppointmentHelper.toFormGroup();
+    this.adrFormGroup = AppointmentHelper.toFormGroup();
   }
 
   public getControl(name: string): FormControl {
-    return this.adrGroup.get(name) as FormControl;
+    return this.adrFormGroup.get(name) as FormControl;
   }
 
   private setSelectConfig(): void {

@@ -1,7 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Tachygraphe} from "@tachygraphe/model";
+import {Tachygraphe, TachygrapheCreatePayload} from "@tachygraphe/model";
 import {TachygrapheHelper} from "@tachygraphe/helper";
+import {TachygrapheService} from "@tachygraphe/service/tachygraphe.service";
+import {UserService} from "@user/service/user.service";
+import {ApiResponse} from "@shared/model";
 
 @Component({
   selector: 'app-tachygraphe-form',
@@ -10,24 +13,35 @@ import {TachygrapheHelper} from "@tachygraphe/helper";
 })
 export class TachygrapheFormComponent implements OnInit {
   @Input() detail: Tachygraphe = TachygrapheHelper.getEmpty();
-  formGroup!: FormGroup;
+  tachoFormGroup!: FormGroup;
 
-  constructor() {
-  }
+  user_id = this.userService.currentDetail$.value;
 
-  private initForm(): void {
-    this.formGroup = TachygrapheHelper.toFormGroup();
-  }
-
-  public getControl(name: string): FormControl {
-    return this.formGroup.get(name) as FormControl;
+  constructor(public tachographService: TachygrapheService, public userService: UserService) {
   }
 
   ngOnInit(): void {
     this.initForm();
   }
 
-  onClick() {
-    alert('envoi du form');
+  addTachograph() {
+    if(this.tachoFormGroup.valid){
+      const payload: TachygrapheCreatePayload = this.tachoFormGroup.value;
+      payload.user = this.user_id;
+      console.log('payload', payload);
+      this.tachographService.create(payload).subscribe((response: ApiResponse) => {
+        if(response.result) {
+          this.tachoFormGroup.reset();
+        }
+      })
+    }
+  }
+
+  private initForm(): void {
+    this.tachoFormGroup = TachygrapheHelper.toFormGroup();
+  }
+
+  public getControl(name: string): FormControl {
+    return this.tachoFormGroup.get(name) as FormControl;
   }
 }

@@ -10,29 +10,10 @@
     </thead>
     <tbody>
     <tr>
-      <td>
-        <app-input-date [label]="{label:'form.user.tachograph.label.start_date'}"
-                        [placeholder]="'form.user.tachograph.placeholder.start_date'"
-                        [ctrl]="getControl('start_date')">
-        </app-input-date>
-      </td>
-      <td>
-        <app-input-date [label]="{label:'form.user.tachograph.label.end_date'}"
-                        [placeholder]="'form.user.tachograph.placeholder.end_date'"
-                        [ctrl]="getControl('end_date')">
-        </app-input-date>
-      </td>
-      <td>
-        <app-input-text [label]="{label:'form.user.tachograph.label.num_carte'}"
-                        [placeholder]="'form.user.tachograph.placeholder.num_carte'"
-                        [ctrl]="getControl('num_carte')"></app-input-text>
-      </td>
-      <td>
-        <app-textarea [label]="{label:'form.user.tachograph.label.comment'}"
-                      [placeholder]="'form.user.tachograph.placeholder.comment'"
-                      [ctrl]="getControl('comment')">
-        </app-textarea>
-      </td>
+      <td scope="col">Date de début</td>
+      <td scope="col">Date de fin</td>
+      <td scope="col">N° de carte</td>
+      <td scope="col">Commentaire</td>
     </tr>
     </tbody>
   </table>

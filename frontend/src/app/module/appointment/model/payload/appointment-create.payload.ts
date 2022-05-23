@@ -1,4 +1,5 @@
 import {PayloadInterface} from '@shared/model';
+import {User} from "@user/model";
 
 export interface AppointmentCreatePayload extends PayloadInterface {
   start_date: Date,
@@ -8,6 +9,6 @@ export interface AppointmentCreatePayload extends PayloadInterface {
   comment: string,
   type: string,
   category: string,
-  user: any,
-  tag: string
+  user: User,
+  tag: string,
 }
