@@ -58,7 +58,7 @@ export class UserHelper {
     });
   }
 
-  public toDto(user: User): UserDto {
+  public static toDto(user: User): UserDto {
     return {
       user_id: user.user_id,
       firstname: user.firstname,
@@ -109,5 +109,4 @@ export class UserHelper {
   static fromDtoArray(data: UserDto[]): User[] {
     return data.map((dto: UserDto) => UserHelper.fromDto(dto));
   }
-
 }

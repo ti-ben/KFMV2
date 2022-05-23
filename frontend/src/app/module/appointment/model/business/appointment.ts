@@ -10,5 +10,5 @@ export interface Appointment {
   type: string;
   category: string;
   tag: string;
-  //user: User;
+  user: User;
 }

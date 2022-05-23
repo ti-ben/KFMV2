@@ -29,7 +29,7 @@ export class AppointmentFormComponent implements OnInit {
     if (this.adrGroup.valid) {
       const payload: AppointmentCreatePayload = this.adrGroup.value;
       payload.tag = 'adr';
-      payload.user = this.userService.currentDetail$.value.user_id;
+      payload.user = this.userService.currentDetail$.value;
       console.log('paylaod', payload);
       this.appointmentService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {

@@ -11,5 +11,5 @@ export interface AppointmentDto extends DtoInterface {
   type: string,
   category: string,
   tag: string,
-  //user: UserDto,
+  user: UserDto,
 }

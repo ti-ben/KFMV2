@@ -19,7 +19,7 @@ export class AppointmentHelper {
       type: dto.type,
       category: dto.category,
       tag: dto.tag,
-      //user: UserHelper.fromDto(dto.user)
+      user: UserHelper.fromDto(dto.user)
     }
   }
 
@@ -33,12 +33,12 @@ export class AppointmentHelper {
       type: new FormControl(appointment.type),
       category: new FormControl(appointment.category),
       tag: new FormControl((appointment.tag)),
-      //user_id: new FormControl(appointment.user.user_id)
+      user: new FormControl(appointment.user),
 
     });
   }
 
-  public toDto(appointment: Appointment): AppointmentDto {
+  public static toDto(appointment: Appointment): AppointmentDto {
     return {
       appointment_id: appointment.appointment_id,
       start_date: new Date(),
@@ -49,7 +49,7 @@ export class AppointmentHelper {
       type: appointment.type,
       category: appointment.category,
       tag: appointment.tag,
-      //user: UserHelper.toDto(appointment.user)
+      user: UserHelper.toDto(appointment.user)
 
     };
   }
@@ -65,7 +65,7 @@ export class AppointmentHelper {
       type: '',
       category: '',
       tag: '',
-      //user: UserHelper.getEmpty()
+      user: UserHelper.getEmpty(),
     };
   }
 
