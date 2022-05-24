@@ -5,6 +5,7 @@ import be.kauffman.kfm.modules.tachygraphe.entity.dto.Tachygraphe;
 import be.kauffman.kfm.modules.tachygraphe.entity.payload.TachygrapheCreatePayload;
 import be.kauffman.kfm.modules.tachygraphe.entity.payload.TachygrapheUpdatePayload;
 import be.kauffman.kfm.common.entity.ApiResponse;
+import be.kauffman.kfm.modules.user.entity.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import be.kauffman.kfm.utachygraphe.repository.TachygrapheRepository;
@@ -27,6 +28,7 @@ public class TachygrapheController {
                 .setEnd_date(payload.getEnd_date())
                 .setNum_carte(payload.getNum_carte())
                 .setComment(payload.getComment())
+                .setUser(payload.getUser())
                 .build();
         return new ApiResponse(true, tachygrapheRepository.save(tachygraphe), null);
     }

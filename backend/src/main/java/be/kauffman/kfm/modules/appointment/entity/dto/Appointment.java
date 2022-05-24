@@ -35,6 +35,8 @@ public class Appointment {
     @JoinColumn(name ="period_id_fk", referencedColumnName = "period_id")
     Period period;
 
+
+
     @OneToOne()
     @JoinColumn(name = "user_id_fk", referencedColumnName = "user_id")
     User user;

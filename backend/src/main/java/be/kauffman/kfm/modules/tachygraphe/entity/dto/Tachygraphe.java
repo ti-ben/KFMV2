@@ -29,4 +29,6 @@ public class Tachygraphe {
     @ManyToOne()
     @JoinColumn(name = "user_id_fk", referencedColumnName = "user_id")
     User user;
+
+
 }
