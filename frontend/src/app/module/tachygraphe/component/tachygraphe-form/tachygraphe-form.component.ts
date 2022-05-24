@@ -5,6 +5,7 @@ import {TachygrapheHelper} from "@tachygraphe/helper";
 import {TachygrapheService} from "@tachygraphe/service/tachygraphe.service";
 import {UserService} from "@user/service/user.service";
 import {ApiResponse} from "@shared/model";
+import {keys} from "lodash";
 
 @Component({
   selector: 'app-tachygraphe-form',
@@ -15,7 +16,7 @@ export class TachygrapheFormComponent implements OnInit {
   @Input() detail: Tachygraphe = TachygrapheHelper.getEmpty();
   tachoFormGroup!: FormGroup;
 
-  user_id = this.userService.currentDetail$.value;
+  user_id = this.userService.currentDetail$.value.user_id;
 
   constructor(public tachographService: TachygrapheService, public userService: UserService) {
   }
@@ -27,7 +28,7 @@ export class TachygrapheFormComponent implements OnInit {
   addTachograph() {
     if(this.tachoFormGroup.valid){
       const payload: TachygrapheCreatePayload = this.tachoFormGroup.value;
-      payload.user = this.user_id;
+      payload.user.user_id = this.user_id;
       console.log('payload', payload);
       this.tachographService.create(payload).subscribe((response: ApiResponse) => {
         if(response.result) {

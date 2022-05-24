@@ -32,8 +32,8 @@ export class TachygrapheService extends ApiService {
     return this.http.get(`${this.baseUrl}${ApiUriEnum.TACHYGRAPHE_LIST}${usr_id}`);
   }
 
-  detail(tachograph_id: string): Observable<Tachygraphe> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.TACHYGRAPHE_DETAIL}${tachograph_id}`)
+  detail(tachograph_id: string, usr_id: string): Observable<Tachygraphe> {
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.TACHYGRAPHE_DETAIL}${tachograph_id}/${usr_id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? TachygrapheHelper.fromDto(response.data as TachygrapheDto) : TachygrapheHelper.getEmpty();
@@ -41,8 +41,8 @@ export class TachygrapheService extends ApiService {
       );
   }
 
-  update(tachograph_id: string): Observable<Tachygraphe> {
-    return this.http.get(`${this.baseUrl}${ApiUriEnum.TACHYGRAPHE_UPDATE}${tachograph_id}`)
+  update(tachograph_id: string, usr_id: string): Observable<Tachygraphe> {
+    return this.http.get(`${this.baseUrl}${ApiUriEnum.TACHYGRAPHE_UPDATE}${tachograph_id}/${usr_id}`)
       .pipe(
         map((response: ApiResponse) => {
           return (response.result && !isNil(response.data)) ? TachygrapheHelper.fromDto(response.data as TachygrapheDto) : TachygrapheHelper.getEmpty();
