@@ -1,7 +1,6 @@
-import { Address } from '@address/model/business';
-import { AddressDto } from '@address/model';
+import {Address} from '@address/model/business';
+import {AddressDto} from '@address/model';
 import {isNil} from 'lodash';
-import {User} from "@user/model";
 import {FormControl, FormGroup} from "@angular/forms";
 
 export class AddressHelper {
@@ -9,14 +8,14 @@ export class AddressHelper {
     if (isNil(dto))
       return AddressHelper.getEmpty();
     else
-    return {
-      address_id: dto.address_id,
-      road: dto.road,
-      cp: dto.cp,
-      town: dto.town,
-      country: dto.country,
-      num: dto.num
-    }
+      return {
+        address_id: dto.address_id,
+        road: dto.road,
+        cp: dto.cp,
+        town: dto.town,
+        country: dto.country,
+        num: dto.num
+      }
   }
 
   public static toDto(address: Address): AddressDto {
@@ -41,7 +40,7 @@ export class AddressHelper {
     });
   }
 
-  static getEmpty():Address {
+  static getEmpty(): Address {
     return {
       address_id: '',
       road: '',

@@ -26,7 +26,7 @@ public class UserBuilder {
     String pob;
     String active;
     Site site;
-    Address addressList;
+    Address address;
     Grade grade;
     Status status;
 
@@ -110,8 +110,8 @@ public class UserBuilder {
         return this;
     }
 
-    public UserBuilder setAddressList(Address addressList) {
-        this.addressList = addressList;
+    public UserBuilder setAddress(Address address) {
+        this.address = address;
         return this;
     }
 
@@ -126,7 +126,7 @@ public class UserBuilder {
     }
 
     public User build() {
-        return new User(user_id, firstname, lastname, gender, avatar, dob, email, telpro, telperso, nationality, numirn, driver_license, created_on, pob, active, site, addressList, grade, status);
+        return new User(user_id, firstname, lastname, gender, avatar, dob, email, telpro, telperso, nationality, numirn, driver_license, created_on, pob, active, site, address, grade, status);
     }
 
 }

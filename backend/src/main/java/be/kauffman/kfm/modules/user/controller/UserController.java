@@ -52,6 +52,8 @@ public class UserController {
                 .setActive(payload.getActive())
                 .setSite(payload.getSite())
                 .setStatus(payload.getStatus())
+                .setGrade(payload.getGrade())
+                .setAddress(payload.getAddress())
                 .build();
         return new ApiResponse(true, userRepository.save(user), null);
     }

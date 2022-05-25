@@ -7,14 +7,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UserDetailAdrComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  onAdrAppointmentAdded()
-  {
-
-  }
 }

@@ -12,7 +12,7 @@ import java.util.UUID;
         String description = "pas de description";
         Date created_on = new Date();
         String active = "true";
-        Address addressList;
+        Address address;
 
         public SiteBuilder setSite_id(UUID site_id) {
             this.site_id = site_id;
@@ -39,10 +39,10 @@ import java.util.UUID;
             return this;
         }
 
-        public SiteBuilder setAddressList(Address addressList) {
-            this.addressList = addressList;
+        public SiteBuilder setAddress(Address address) {
+            this.address = address;
             return this;
         }
-        public Site build() { return new Site(site_id, name, description, created_on, active, addressList); }
+        public Site build() { return new Site(site_id, name, description, created_on, active, address); }
     }
 

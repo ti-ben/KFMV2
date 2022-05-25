@@ -45,7 +45,7 @@ public class User {
 
     @OneToOne()
     @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
-    Address addressList;
+    Address address;
 
     @ManyToOne()
     @JoinColumn(name = "grade_id_fk", referencedColumnName = "grade_id")

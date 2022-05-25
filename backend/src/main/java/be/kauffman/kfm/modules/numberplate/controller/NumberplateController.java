@@ -6,7 +6,6 @@ import be.kauffman.kfm.modules.numberplate.entity.dto.Numberplate;
 import be.kauffman.kfm.modules.numberplate.entity.payload.NumberplateCreatePayload;
 import be.kauffman.kfm.modules.numberplate.entity.payload.NumberplateUpdatePayload;
 import be.kauffman.kfm.modules.numberplate.repository.NumberplateRepository;
-import be.kauffman.kfm.modules.vehicule.entity.dto.Vehicule;
 import be.kauffman.kfm.modules.vehicule.entity.payload.VehiculeSearchPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +21,18 @@ public class NumberplateController {
     @Autowired
     NumberplateRepository numberplateRepository;
 
+    // Create new record
+    @PostMapping("/create")
+    public ApiResponse create(@RequestBody NumberplateCreatePayload payload) {
+        Numberplate numberplate = new NumberplateBuilder()
+                .setNum_plate(payload.getNum_plate())
+                .setDop(payload.getDop())
+                .setActive(payload.getActive())
+                .setSite(payload.getSite())
+                .build();
+        return new ApiResponse(true, numberplateRepository.save(numberplate), null);
+    }
+
     // search
     @PostMapping("/search")
     public ApiResponse search(@RequestBody VehiculeSearchPayload search) {
@@ -31,17 +42,6 @@ public class NumberplateController {
         } catch (Exception e) {
             return new ApiResponse(true, null, null);
         }
-    }
-
-    // Create new record
-    @PostMapping("/create")
-    public ApiResponse create(@RequestBody NumberplateCreatePayload payload) {
-        Numberplate numberplate = new NumberplateBuilder()
-                .setNum_plate(payload.getNum_plate())
-                .setDop(payload.getDop())
-                .setActive(payload.getActive())
-                .build();
-        return new ApiResponse(true, numberplateRepository.save(numberplate), null);
     }
 
     // Read all records

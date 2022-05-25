@@ -28,7 +28,7 @@ export class TachygrapheService extends ApiService {
         }));
   }
 
-  listTachograph(usr_id: string): Observable<ApiResponse> {
+  listUserTachograph(usr_id: string): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}${ApiUriEnum.TACHYGRAPHE_LIST}${usr_id}`);
   }
 

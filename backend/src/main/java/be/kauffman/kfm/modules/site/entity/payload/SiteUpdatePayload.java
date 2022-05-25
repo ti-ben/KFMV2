@@ -18,5 +18,5 @@ public class SiteUpdatePayload {
     Date created_on;
     String description;
     String active;
-    Address addressList;
+    Address address;
 }

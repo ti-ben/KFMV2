@@ -1,7 +1,6 @@
 package be.kauffman.kfm.modules.numberplate.repository;
 
 import be.kauffman.kfm.modules.numberplate.entity.dto.Numberplate;
-import be.kauffman.kfm.modules.prestataire.entity.dto.Prestataire;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

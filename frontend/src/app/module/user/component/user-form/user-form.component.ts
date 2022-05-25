@@ -11,9 +11,6 @@ import {ActifHelper, CardHelper, DriverHelper, GenderHelper} from '@shared/helpe
 import {Status} from "@status/model";
 import {StatusService} from "@status/service/status.service";
 import {StatusHelper} from "@status/helper";
-import {GradeService} from "@grade/service/grade.service";
-import {Grade} from "@grade/model";
-import {GradeHelper} from "@grade/helper";
 
 @Component({
   selector: 'app-user-form',
@@ -29,9 +26,8 @@ export class UserFormComponent implements OnInit {
   siteSelectConfig!: SelectConfig;
   driverSelectConfig!: SelectConfig;
   statusSelectConfig!: SelectConfig;
-  gradeSelectConfig!: SelectConfig;
 
-  constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService, public gradeService: GradeService) {
+  constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService) {
   }
 
   ngOnInit(): void {
@@ -46,8 +42,7 @@ export class UserFormComponent implements OnInit {
   save(): void {
     if (this.formGroup.valid) {
       const payload: UserCreatePayload = this.formGroup.value;
-      payload.site = {site_id: payload.site}
-      payload.status = {status_id: payload.status}
+      console.log('Payload', payload);
       this.userService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.formGroup.reset();
@@ -81,17 +76,8 @@ export class UserFormComponent implements OnInit {
       this.statusSelectConfig = {
         label: {label: 'form.user.label.status_name'},
         placeholder: 'form.user.placeholder.status_name',
-        ctrl: this.getControl('status_name'),
+        ctrl: this.getControl('status'),
         values: StatusHelper.toStatusOptionArray(list)
-      }
-    });
-
-    this.gradeService.list().subscribe((list: Grade[]) => {
-      this.gradeSelectConfig = {
-        label: {label: 'form.user.label.grade_name'},
-        placeholder: 'form.user.placeholder.grade_name',
-        ctrl: this.getControl('grade_name'),
-        values: GradeHelper.toGradeOptionArray(list)
       }
     });
 

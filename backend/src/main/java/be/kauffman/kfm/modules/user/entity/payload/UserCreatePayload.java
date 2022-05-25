@@ -30,7 +30,7 @@ public class UserCreatePayload {
     String pob;
     String active;
     Site site;
-    Address addressList;
     Grade grade;
     Status status;
+    Address address;
 }

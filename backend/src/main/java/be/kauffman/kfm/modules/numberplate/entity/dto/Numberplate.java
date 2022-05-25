@@ -24,7 +24,7 @@ public class Numberplate {
     Date dop;
     String active;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "site_id_fk", referencedColumnName = "site_id")
     Site site;
 }

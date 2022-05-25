@@ -14,5 +14,5 @@ public class PrestataireCreatePayload {
     String email;
     String role;
     String service;
-    Address addressList;
+    Address address;
 }

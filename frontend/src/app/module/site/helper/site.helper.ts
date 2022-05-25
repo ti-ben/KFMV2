@@ -38,10 +38,6 @@ export class SiteHelper {
     };
   }
 
-  static fromDtoArray(data: SiteDto[]): Site[] {
-    return data.map((dto: SiteDto) => SiteHelper.fromDto(dto));
-  }
-
   public static toFormGroup(site: Site = SiteHelper.getEmpty()): FormGroup {
     return new FormGroup({
       site_id: new FormControl(site.site_id),
@@ -50,6 +46,10 @@ export class SiteHelper {
       created_on: new FormControl(new Date("yyyy-MM-dd")),
       active: new FormControl(site.active, [Validators.required])
     });
+  }
+
+  static fromDtoArray(data: SiteDto[]): Site[] {
+    return data.map((dto: SiteDto) => SiteHelper.fromDto(dto));
   }
 
   static toSiteOptionArray(list: Site[]): SelectOption[] {

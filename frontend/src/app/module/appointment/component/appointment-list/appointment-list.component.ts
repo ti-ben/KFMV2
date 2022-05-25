@@ -9,7 +9,6 @@ import {UserService} from "@user/service/user.service";
   styleUrls: ['./appointment-list.component.scss']
 })
 export class AppointmentListComponent implements OnInit {
-  //search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   userAppointmentAdr!: ApiResponse;
 
   private user_id = this.userService.currentDetail$.value.user_id;
@@ -26,7 +25,6 @@ export class AppointmentListComponent implements OnInit {
     this.appointmentService.listUserAdrAppointment(this.user_id, this.tab_tag).subscribe({
       next: (uapp) => {
         this.userAppointmentAdr = uapp;
-        console.log('listUserAppointmentAdr', this.userAppointmentAdr);
       }
     });
   }

@@ -30,7 +30,9 @@ export class VehiculeService extends ApiService {
   }
 
   create(payload: VehiculeCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.VEHICULE_CREATE, payload).pipe(tap((response: ApiResponse) => {
+    return this.post(ApiUriEnum.VEHICULE_CREATE, payload)
+      .pipe(
+        tap((response: ApiResponse) => {
       if (response.result) {
         this.refresh$.next();
       }

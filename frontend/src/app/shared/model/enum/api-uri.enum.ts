@@ -47,7 +47,7 @@ export enum ApiUriEnum {
   STATUS_DELETE = 'status/delete/',
   STATUS_SEARCH = 'status/search',
   TACHYGRAPHE_CREATE = 'tachygraphe/create',
-  TACHYGRAPHE_LIST = 'tachygraphe/list',
+  TACHYGRAPHE_LIST = 'tachygraphe/list/',
   TACHYGRAPHE_UPDATE = 'tachygraphe/update/',
   TACHYGRAPHE_DETAIL = 'tachygraphe/detail/',
   TACHYGRAPHE_DELETE = 'tachygraphe/delete/',

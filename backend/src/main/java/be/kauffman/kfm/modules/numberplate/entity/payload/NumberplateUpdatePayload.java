@@ -11,6 +11,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class NumberplateUpdatePayload {
     UUID numberplate_id;
     String num_plate;

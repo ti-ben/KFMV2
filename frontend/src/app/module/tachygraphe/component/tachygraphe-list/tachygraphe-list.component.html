@@ -1,19 +1,21 @@
 <ng-container>
-  <table class="table">
+  <table class="table text-center">
     <thead>
     <tr>
       <th scope="col">Date de début</th>
       <th scope="col">Date de fin</th>
       <th scope="col">N° de carte</th>
       <th scope="col">Commentaire</th>
+      <th scope="col">Option</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td scope="col">Date de début</td>
-      <td scope="col">Date de fin</td>
-      <td scope="col">N° de carte</td>
-      <td scope="col">Commentaire</td>
+    <tr *ngFor="let item of userTachographList.data">
+      <td scope="col"><input class="form-control text-center" value="{{item.start_date | date: 'dd/MM/yyyy'}}" disabled /></td>
+      <td scope="col"><input class="form-control text-center" value="{{item.end_date | date: 'dd/MM/yyyy'}}" disabled /></td>
+      <td scope="col"><input class="form-control text-center" value="{{item.num_carte}}" disabled /></td>
+      <td scope="col"><input class="form-control text-center" value="{{item.comment}}" disabled /></td>
+      <td scope="col"><button class="btn btn-warning"> E </button>&nbsp;<button class="btn btn-danger"> D </button></td>
     </tr>
     </tbody>
   </table>

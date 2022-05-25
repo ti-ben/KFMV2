@@ -31,5 +31,5 @@ public class Site {
 
     @OneToOne()
     @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
-    Address addressList;
+    Address address;
 }

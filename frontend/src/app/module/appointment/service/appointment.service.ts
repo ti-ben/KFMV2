@@ -11,7 +11,7 @@ import {AppointmentCreatePayload, AppointmentDto} from '@appointment/model';
 
 @Injectable({providedIn: 'root'})
 export class AppointmentService extends ApiService {
-  currentDetail$ = new BehaviorSubject<Appointment>(AppointmentHelper.getEmpty());
+  //currentDetail$ = new BehaviorSubject<Appointment>(AppointmentHelper.getEmpty());
   refresh$ = new Subject<any>();
 
   constructor(public http: HttpService) {

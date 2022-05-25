@@ -1,11 +1,15 @@
 import {Vehicule} from '@vehicule/model/business';
 import {VehiculeDto} from '@vehicule/model';
 import {NumberplateHelper} from '@numberplate/helper'
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {SiteHelper} from "@site/helper";
+import {isNil} from "lodash";
 
 export class VehiculeHelper {
   public static fromDto(dto: VehiculeDto): Vehicule {
+    if (isNil(dto)) {
+      return VehiculeHelper.getEmpty();
+    }
     return {
       vehicule_id: dto.vehicule_id,
       dop: dto.dop,
@@ -32,25 +36,25 @@ export class VehiculeHelper {
 
   public static toFormGroup(vehicule: Vehicule = VehiculeHelper.getEmpty()): FormGroup {
     return new FormGroup({
-      brand: new FormControl(vehicule.brand, [Validators.required]),
+      brand: new FormControl(vehicule.brand),
       genre: new FormControl(vehicule.genre),
-      dop: new FormControl(vehicule.dop, [Validators.required]),
+      dop: new FormControl(vehicule.dop),
       cde_carrosserie: new FormControl(vehicule.cde_carrosserie),
-      price: new FormControl(vehicule.price, [Validators.required]),
+      price: new FormControl(vehicule.price),
       num_chassis: new FormControl(vehicule.num_chassis),
       classe_enviro: new FormControl(vehicule.classe_enviro),
       metrologie: new FormControl(vehicule.metrologie),
       picture: new FormControl(vehicule.picture),
-      nbr_km: new FormControl(vehicule.nbr_km, [Validators.required]),
+      nbr_km: new FormControl(vehicule.nbr_km),
       fuel: new FormControl(vehicule.fuel),
-      type: new FormControl(vehicule.type, [Validators.required]),
+      type: new FormControl(vehicule.type),
       mom: new FormControl(vehicule.mom),
       mma: new FormControl(vehicule.mma),
       mmat: new FormControl(vehicule.mmat),
       mta: new FormControl(vehicule.mta),
       active: new FormControl(vehicule.active),
-      nump_late: new FormControl(vehicule.numberplate.num_plate),
-      site: new FormControl(vehicule.site.name)
+      nump_late: new FormControl(vehicule.numberplate),
+      site: new FormControl(vehicule.site)
     });
   }
 

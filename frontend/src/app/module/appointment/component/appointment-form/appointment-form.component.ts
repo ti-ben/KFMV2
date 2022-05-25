@@ -7,6 +7,7 @@ import {GenreHelper} from "@shared/helper";
 import {AppointmentHelper} from "@appointment/helper";
 import {AppointmentCreatePayload} from "@appointment/model";
 import {UserService} from "@user/service/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-appointment-form',
@@ -33,7 +34,6 @@ export class AppointmentFormComponent implements OnInit {
       const payload: AppointmentCreatePayload = this.adrFormGroup.value;
       payload.tag = this.tab_tag;
       payload.user = this.user_id;
-      console.log('paylaod', payload);
       this.appointmentService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.adrFormGroup.reset();

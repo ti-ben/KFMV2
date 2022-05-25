@@ -10,6 +10,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class TachygrapheCreatePayload {
     Date start_date;
     Date end_date;

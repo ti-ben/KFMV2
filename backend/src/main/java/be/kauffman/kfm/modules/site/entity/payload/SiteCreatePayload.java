@@ -15,5 +15,5 @@ public class SiteCreatePayload {
     String description;
     Date created_on;
     String active;
-    Address addressList;
+    Address address;
 }

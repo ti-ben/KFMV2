@@ -97,6 +97,7 @@ public class VehiculeController {
         fromDb.setPicture(payload.getPicture());
         fromDb.setFuel(payload.getFuel());
         fromDb.setType(payload.getType());
+        fromDb.setSite(payload.getSite());
         return new ApiResponse(true, vehiculeRepository.save(fromDb), null);
     }
 

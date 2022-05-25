@@ -30,7 +30,9 @@ export class UserService extends ApiService {
   }
 
   create(payload: UserCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.USER_CREATE, payload).pipe(tap((response: ApiResponse) => {
+    return this.post(ApiUriEnum.USER_CREATE, payload)
+      .pipe(
+        tap((response: ApiResponse) => {
       if (response.result) {
         this.refresh$.next();
       }

@@ -12,7 +12,7 @@ public class PrestataireBuilder {
     String email = "";
     String service = "";
     String active = "";
-    Address addressList;
+    Address address;
 
     public PrestataireBuilder setPrestataire_id(UUID prestataire_id) {
         this.prestataire_id = prestataire_id;
@@ -44,12 +44,12 @@ public class PrestataireBuilder {
         return this;
     }
 
-    public PrestataireBuilder setAddressList(Address addressList) {
-        this.addressList = addressList;
+    public PrestataireBuilder setAddress(Address address) {
+        this.address = address;
         return this;
     }
 
     public Prestataire build() {
-        return new Prestataire(prestataire_id, name, tel, email, service, active, addressList);
+        return new Prestataire(prestataire_id, name, tel, email, service, active, address);
     }
 }

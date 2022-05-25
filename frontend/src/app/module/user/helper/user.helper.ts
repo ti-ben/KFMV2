@@ -4,7 +4,7 @@ import {SiteHelper} from '@site/helper';
 import {GradeHelper} from "@grade/helper";
 import {StatusHelper} from "@status/helper";
 import {AddressHelper} from "@address/helper";
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {isNil} from "lodash";
 
 export class UserHelper {
@@ -37,24 +37,24 @@ export class UserHelper {
 
   public static toFormGroup(user: User = UserHelper.getEmpty()): FormGroup {
     return new FormGroup({
-      firstname: new FormControl(user.firstname, [Validators.required]),
-      lastname: new FormControl(user.lastname, [Validators.required]),
-      gender: new FormControl(user.gender, [Validators.required]),
+      firstname: new FormControl(user.firstname),
+      lastname: new FormControl(user.lastname),
+      gender: new FormControl(user.gender),
       avatar: new FormControl(''),
-      dob: new FormControl(user.dob, [Validators.required]),
-      email: new FormControl(user.email, [Validators.required]),
-      telpro: new FormControl(user.telpro, [Validators.required]),
-      telperso: new FormControl(user.telperso, [Validators.required]),
-      nationality: new FormControl(user.nationality, [Validators.required]),
-      numirn: new FormControl(user.numirn, [Validators.required]),
-      driver_license: new FormControl(user.driver_license, [Validators.required]),
-      created_on: new FormControl(new Date("dd/MM/yyyy")),
-      pob: new FormControl(user.pob, [Validators.required]),
-      active: new FormControl(user.active, [Validators.required]),
-      site_name: new FormControl(user.site.name, [Validators.required]),
-      grade_name: new FormControl(user.grade.name, [Validators.required]),
-      status_name: new FormControl(user.status.name, [Validators.required]),
-      address_id: new FormControl(user.address.address_id)
+      dob: new FormControl(user.dob),
+      email: new FormControl(user.email),
+      telpro: new FormControl(user.telpro),
+      telperso: new FormControl(user.telperso),
+      nationality: new FormControl(user.nationality),
+      numirn: new FormControl(user.numirn),
+      driver_license: new FormControl(user.driver_license),
+      created_on: new FormControl(new Date()),
+      pob: new FormControl(user.pob),
+      active: new FormControl(user.active),
+      site: new FormControl(user.site),
+      grade: new FormControl(user.grade),
+      status: new FormControl(user.status),
+      address: new FormControl(user.address)
     });
   }
 
@@ -65,14 +65,14 @@ export class UserHelper {
       lastname: user.lastname,
       gender: user.gender,
       avatar: user.avatar,
-      dob: new Date("dd/MM/yyyy"),
+      dob: new Date(),
       email: user.email,
       telpro: user.telpro,
       telperso: user.telperso,
       nationality: user.nationality,
       numirn: user.numirn,
       driver_license: user.driver_license,
-      created_on: new Date("dd/MM/yyyy"),
+      created_on: new Date(),
       pob: user.pob,
       active: user.active,
       site: SiteHelper.toDto(user.site),
@@ -86,8 +86,8 @@ export class UserHelper {
     return {
       active: '',
       avatar: '',
-      created_on: new Date("dd/MM/yyyy"),
-      dob: new Date("dd/MM/yyyy"),
+      created_on: new Date(),
+      dob: new Date(),
       driver_license: '',
       email: '',
       firstname: '',

@@ -32,7 +32,7 @@ public class UserUpdatePayload {
     String pob;
     String active;
     Site site;
-    Address addressList;
+    Address address;
     Grade grade;
     Status status;
 }

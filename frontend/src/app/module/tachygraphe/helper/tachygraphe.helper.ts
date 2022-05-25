@@ -51,4 +51,7 @@ export class  TachygrapheHelper {
     };
   }
 
+  static fromDtoArray(data: TachygrapheDto[]): Tachygraphe[] {
+    return data.map((dto: TachygrapheDto) => TachygrapheHelper.fromDto(dto));
+  }
 }

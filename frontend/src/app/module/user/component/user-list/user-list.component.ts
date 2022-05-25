@@ -30,6 +30,7 @@ export class UserListComponent extends WithMenuAndDestroyableBaseComponent imple
       switchMap(() => this.userService.list()),
       tap((list: User[]) => this.list$.next(list))
     );
+
     this.search$.pipe(
       takeUntil(this.destroyers$),
       switchMap((search: string) => this.userService.search({search: search})),

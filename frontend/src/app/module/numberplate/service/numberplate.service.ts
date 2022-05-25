@@ -31,11 +31,22 @@ export class NumberplateService extends ApiService {
   }
 
   create(payload: NumberplateCreatePayload): Observable<ApiResponse> {
-    return this.post(ApiUriEnum.NUMBERPLATE_CREATE, payload).pipe(tap((response: ApiResponse) => {
+    return this.post(ApiUriEnum.NUMBERPLATE_CREATE, payload)
+      .pipe(
+        tap((response: ApiResponse) => {
       if (response.result) {
         this.refresh$.next();
       }
     }));
+  }
+
+  update(payload: NumberplateUpdatePayload): Observable<Numberplate> {
+    return this.put(ApiUriEnum.NUMBERPLATE_UPDATE, payload)
+      .pipe(
+        map((response: ApiResponse) => {
+          return (response.result && !isNil(response.data)) ? NumberplateHelper.fromDto(response.data as NumberplateDto) : NumberplateHelper.getEmpty();
+        })
+      );
   }
 
   list(): Observable<Numberplate[]> {
@@ -57,15 +68,6 @@ export class NumberplateService extends ApiService {
           this.currentDetail$.next((response.result && !isNil(response.data)) ? NumberplateHelper.fromDto(response.data as NumberplateDto) : NumberplateHelper.getEmpty());
         })).subscribe();
     }
-  }
-
-  update(payload: NumberplateUpdatePayload): Observable<Numberplate> {
-    return this.put(ApiUriEnum.NUMBERPLATE_UPDATE, payload)
-      .pipe(
-        map((response: ApiResponse) => {
-          return (response.result && !isNil(response.data)) ? NumberplateHelper.fromDto(response.data as NumberplateDto) : NumberplateHelper.getEmpty();
-        })
-      );
   }
 
   delete(id: string): Observable<ApiResponse> {

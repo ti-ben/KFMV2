@@ -17,7 +17,7 @@ export interface UserCreatePayload extends PayloadInterface {
   pob: string;
   active: string;
   site: any;
-  address: any;
-  grade: any;
   status: any;
+  //grade: any;
+  //address: any;
 }

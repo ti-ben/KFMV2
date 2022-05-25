@@ -1,8 +1,7 @@
-import { Numberplate } from '@numberplate/model/business';
-import { NumberplateDto } from '@numberplate/model';
+import {Numberplate} from '@numberplate/model/business';
+import {NumberplateDto} from '@numberplate/model';
 import {isNil} from "lodash";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Grade} from "@grade/model";
 import {SelectOption} from "@shared/model";
 import {SiteHelper} from "@site/helper";
 
@@ -19,6 +18,7 @@ export class NumberplateHelper {
       site: SiteHelper.fromDto(dto.site)
     }
   }
+
   public static toDto(numberplate: Numberplate): NumberplateDto {
     return {
       numberplate_id: numberplate.numberplate_id,
@@ -28,7 +28,8 @@ export class NumberplateHelper {
       site: SiteHelper.toDto(numberplate.site)
     };
   }
-  static getEmpty():Numberplate {
+
+  static getEmpty(): Numberplate {
     return {
       numberplate_id: '',
       num_plate: '',
@@ -38,7 +39,7 @@ export class NumberplateHelper {
     };
   }
 
-  public static toFormGroup(numberplate: Numberplate = NumberplateHelper.getEmpty()) : FormGroup {
+  public static toFormGroup(numberplate: Numberplate = NumberplateHelper.getEmpty()): FormGroup {
     return new FormGroup({
       numberplate_id: new FormControl(numberplate.numberplate_id),
       num_plate: new FormControl(numberplate.num_plate),
