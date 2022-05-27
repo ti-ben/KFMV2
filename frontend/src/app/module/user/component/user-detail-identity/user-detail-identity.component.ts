@@ -71,8 +71,8 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       pob: new FormControl(this.detail.pob),
       active: new FormControl(this.detail.active),
       site: new FormControl(this.detail.site.name), // MAIS ATTENTION DE BIEN REPRENDRE LE SITE AU MOMENT DE L ENVOI DU FORMULAIRE
-      address: new FormControl(this.detail.address.address_id),
-      grade: new FormControl(this.detail.grade.name),
+      //address: new FormControl(this.detail.address.address_id),
+      //grade: new FormControl(this.detail.grade.grade_id),
       status: new FormControl(this.detail.status.name)
     })
   }
@@ -85,7 +85,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       payload.user_id = this.detail.user_id;
       payload.site = {site_id: payload.site};
       payload.status = {status_id: payload.status};
-      payload.grade = {grade_id: payload.grade}
+      //payload.grade = {grade_id: payload.grade}
       console.log('payload', payload);
       this.userService.update(payload).subscribe();
     }

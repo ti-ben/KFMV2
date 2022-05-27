@@ -27,7 +27,7 @@ export class NumberplateListComponent extends WithMenuAndDestroyableBaseComponen
   ngOnInit(): void {
     this.numberplateService.refresh$.pipe(
       takeUntil(this.destroyers$),
-      switchMap((search: string) => this.numberplateService.list()),
+      switchMap(() => this.numberplateService.list()),
       tap((list: Numberplate[]) => {this.list$.next(list)}))
       .subscribe();
 

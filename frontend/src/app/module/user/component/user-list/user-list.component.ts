@@ -28,8 +28,8 @@ export class UserListComponent extends WithMenuAndDestroyableBaseComponent imple
     this.userService.refresh$.pipe(
       takeUntil(this.destroyers$),
       switchMap(() => this.userService.list()),
-      tap((list: User[]) => this.list$.next(list))
-    );
+      tap((list: User[]) => {this.list$.next(list)}))
+      .subscribe();
 
     this.search$.pipe(
       takeUntil(this.destroyers$),

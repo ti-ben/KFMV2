@@ -55,7 +55,7 @@ export class NumberplateDetailComponent implements OnInit {
       const payload: NumberplateUpdatePayload = this.formGroup.value;
       console.log('payload',payload);
       payload.numberplate_id = this.detail.numberplate_id;
-      payload.site = this.detail.site;
+      payload.site = {site_id: payload.site};
       this.numberplateService.update(payload).subscribe();
     }
   }

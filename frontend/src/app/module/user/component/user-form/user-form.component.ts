@@ -11,6 +11,7 @@ import {ActifHelper, CardHelper, DriverHelper, GenderHelper} from '@shared/helpe
 import {Status} from "@status/model";
 import {StatusService} from "@status/service/status.service";
 import {StatusHelper} from "@status/helper";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-user-form',
@@ -42,6 +43,12 @@ export class UserFormComponent implements OnInit {
   save(): void {
     if (this.formGroup.valid) {
       const payload: UserCreatePayload = this.formGroup.value;
+      payload.site = {site_id: payload.site};
+      payload.status = {status_id: payload.status};
+      //payload.address = {address_id: payload.address}
+      //payload.grade = {grade_id: payload.grade}
+      payload.created_on = new Date();
+      payload.avatar = "test.png";
       console.log('Payload', payload);
       this.userService.create(payload).subscribe((response: ApiResponse) => {
         if (response.result) {

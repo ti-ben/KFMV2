@@ -59,7 +59,7 @@
       </div>
 
       <div class="flex-cell">
-        <app-select [config]="siteSelectConfig"></app-select>
+        <app-select [config]="siteSelectConfig!"></app-select>
       </div>
       <div class="flex-cell">
         <app-select [config]="driverSelectConfig"></app-select>
@@ -67,7 +67,8 @@
     </div>
     <div class="flex-row">
       <div class="flex-cell">
-        <app-select [config]="actifSelectConfig"></app-select>
+        <app-select [config]="actifSelectConfig">
+        </app-select>
       </div>
 
       <div class="flex-cell">

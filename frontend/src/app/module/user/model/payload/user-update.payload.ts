@@ -19,6 +19,6 @@ export interface UserUpdatePayload extends PayloadInterface {
   active: string;
   site: any;
   address: any;
-  grade: any;
+  //grade: any;
   status: any;
 }

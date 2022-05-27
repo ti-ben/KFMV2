@@ -6,6 +6,9 @@ import {StatusHelper} from "@status/helper";
 import {AddressHelper} from "@address/helper";
 import {FormControl, FormGroup} from '@angular/forms';
 import {isNil} from "lodash";
+import {Site} from "@site/model";
+import {SelectOption} from "@shared/model";
+import {getLocaleDateTimeFormat} from "@angular/common";
 
 export class UserHelper {
   public static fromDto(dto: UserDto): User {
@@ -31,7 +34,7 @@ export class UserHelper {
       site: SiteHelper.fromDto(dto.site),
       grade: GradeHelper.fromDto(dto.grade),
       status: StatusHelper.fromDto(dto.status),
-      address: AddressHelper.fromDto(dto.address)
+      //address: AddressHelper.fromDto(dto.address)
     }
   }
 
@@ -52,9 +55,9 @@ export class UserHelper {
       pob: new FormControl(user.pob),
       active: new FormControl(user.active),
       site: new FormControl(user.site),
-      grade: new FormControl(user.grade),
+      //grade: new FormControl(user.grade),
       status: new FormControl(user.status),
-      address: new FormControl(user.address)
+      //address: new FormControl(user.address)
     });
   }
 
@@ -78,7 +81,7 @@ export class UserHelper {
       site: SiteHelper.toDto(user.site),
       grade: GradeHelper.toDto(user.grade),
       status: StatusHelper.toDto(user.status),
-      address: AddressHelper.toDto(user.address)
+      //address: AddressHelper.toDto(user.address)
     };
   }
 
@@ -102,11 +105,17 @@ export class UserHelper {
       site: SiteHelper.getEmpty(),
       grade: GradeHelper.getEmpty(),
       status: StatusHelper.getEmpty(),
-      address: AddressHelper.getEmpty()
+      //address: AddressHelper.getEmpty()
     };
   }
 
   static fromDtoArray(data: UserDto[]): User[] {
     return data.map((dto: UserDto) => UserHelper.fromDto(dto));
+  }
+
+  static toSiteOptionArray(list: Site[]): SelectOption[] {
+    return list.map((site: Site) => {
+      return {value: site.site_id, label: site.name};
+    })
   }
 }

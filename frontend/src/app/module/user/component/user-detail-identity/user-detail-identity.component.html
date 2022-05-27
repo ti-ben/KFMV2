@@ -54,10 +54,11 @@
     </div>
 
     <div class="flex-cell">
-      <app-input-text [label]="{label:'form.user.label.dob'}"
+      <app-input-date [label]="{label:'form.user.label.dob'}"
                       [placeholder]="'form.user.placeholder.dob'"
-                      [ctrl]="getControl('dob')" (onBlur)="update()">
-      </app-input-text>
+                      [ctrl]="getControl('dob')"
+                      (onBlur)="update()">
+      </app-input-date>
     </div>
 
     <div class="flex-cell">
