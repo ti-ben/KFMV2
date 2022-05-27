@@ -6,7 +6,7 @@
       <ng-container *ngIf="list.length > 0;else noData">
         <ul>
           <li *ngFor="let user of list" (click)="detail(user)">
-            <i class="fa-solid fa-square-check" style="color: #04AA6D"></i> {{user.lastname| uppercase}}  {{user.firstname}}
+            <i class="fa-solid fa-square-check" style="{{isActive(user.active)}}"></i> {{user.lastname| uppercase}} {{user.firstname}}
           </li>
         </ul>
       </ng-container>

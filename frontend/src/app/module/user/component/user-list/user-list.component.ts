@@ -19,6 +19,7 @@ export class UserListComponent extends WithMenuAndDestroyableBaseComponent imple
   list$ = new BehaviorSubject<User[]>([]);
   search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   labelWithParam: LabelWithParam = {label: 'button.user-add'};
+  color = '';
 
   constructor(public userService: UserService, public navigation: NavigationService) {
     super(navigation);
@@ -36,6 +37,16 @@ export class UserListComponent extends WithMenuAndDestroyableBaseComponent imple
       switchMap((search: string) => this.userService.search({search: search})),
       tap((list: User[]) => this.list$.next(list)))
       .subscribe();
+  }
+
+  // Display the color red if user is inactive or green if user is active
+  isActive(value: string): string {
+    if(value == 'true'){
+      return this.color = 'color: #04AA6D';
+    }
+    else{
+      return this.color = 'color: #ff1a00';
+    }
   }
 
   create(): void {
