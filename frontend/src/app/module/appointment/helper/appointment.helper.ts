@@ -25,8 +25,8 @@ export class AppointmentHelper {
 
   public static toFormGroup(appointment: Appointment = AppointmentHelper.getEmpty()): FormGroup {
     return new FormGroup({
-      start_date: new FormControl(appointment.start_date),
-      end_date: new FormControl(appointment.end_date),
+      start_date: new FormControl(appointment.start_date.toString().slice(0,10)),
+      end_date: new FormControl(appointment.end_date.toString().slice(0,10)),
       price: new FormControl(appointment.price),
       theme: new FormControl(appointment.theme),
       comment: new FormControl(appointment.comment),
@@ -41,8 +41,8 @@ export class AppointmentHelper {
   public static toDto(appointment: Appointment): AppointmentDto {
     return {
       appointment_id: appointment.appointment_id,
-      start_date: new Date(),
-      end_date: new Date(),
+      start_date: new Date("dd/MM/yyyy"),
+      end_date: new Date("dd/MM/yyyy"),
       price: appointment.price,
       theme: appointment.theme,
       comment: appointment.comment,
@@ -57,8 +57,8 @@ export class AppointmentHelper {
   static getEmpty(): Appointment {
     return {
       appointment_id: '',
-      start_date: new Date(),
-      end_date: new Date(),
+      start_date: new Date("dd/MM/yyyy"),
+      end_date: new Date("dd/MM/yyyy"),
       price: '',
       theme: '',
       comment: '',

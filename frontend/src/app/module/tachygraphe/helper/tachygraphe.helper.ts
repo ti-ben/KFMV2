@@ -19,21 +19,11 @@ export class  TachygrapheHelper {
     }
   }
 
-  public static toFormGroup(tachygraphe: Tachygraphe = TachygrapheHelper.getEmpty()): FormGroup{
-    return new FormGroup({
-      start_date: new FormControl(tachygraphe.start_date),
-      end_date: new FormControl(tachygraphe.end_date),
-      num_carte: new FormControl(tachygraphe.num_carte),
-      comment: new FormControl(tachygraphe.comment),
-      user: new FormControl(tachygraphe.user)
-    });
-  }
-
   public toDto(tachygraphe: Tachygraphe): TachygrapheDto  {
     return {
       tachygraphe_id: tachygraphe.tachygraphe_id,
-      start_date: new Date(),
-      end_date: new Date(),
+      start_date: new Date("dd/MM/yyyy"),
+      end_date: new Date("dd/MM/yyyy"),
       num_carte: tachygraphe.num_carte,
       comment: tachygraphe.comment,
       user: UserHelper.toDto(tachygraphe.user)
@@ -43,12 +33,22 @@ export class  TachygrapheHelper {
   static getEmpty():Tachygraphe {
     return {
       tachygraphe_id: '',
-      start_date: new Date(),
-      end_date: new Date(),
+      start_date: new Date("dd/MM/yyyy"),
+      end_date: new Date("dd/MM/yyyy"),
       num_carte: '',
       comment: '',
       user: UserHelper.getEmpty()
     };
+  }
+
+  public static toFormGroup(tachygraphe: Tachygraphe = TachygrapheHelper.getEmpty()): FormGroup{
+    return new FormGroup({
+      start_date: new FormControl(tachygraphe.start_date.toString().slice(0,10)),
+      end_date: new FormControl(tachygraphe.end_date.toString().slice(0,10)),
+      num_carte: new FormControl(tachygraphe.num_carte),
+      comment: new FormControl(tachygraphe.comment),
+      user: new FormControl(tachygraphe.user)
+    });
   }
 
   static fromDtoArray(data: TachygrapheDto[]): Tachygraphe[] {

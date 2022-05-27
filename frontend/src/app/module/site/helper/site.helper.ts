@@ -2,7 +2,7 @@ import {Site} from '@site/model/business';
 import {SiteDto} from '@site/model';
 import {isNil} from 'lodash';
 import {SelectOption} from '@shared/model/select.config';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 
 export class SiteHelper {
   public static fromDto(dto: SiteDto): Site {
@@ -23,7 +23,7 @@ export class SiteHelper {
       site_id: site.site_id,
       name: site.name,
       description: site.description,
-      created_on: new Date("yyyy-MM-dd"),
+      created_on: new Date("dd/MM/yyyy"),
       active: site.active
     };
   }
@@ -33,18 +33,18 @@ export class SiteHelper {
       site_id: '',
       name: '',
       description: '',
-      created_on: new Date("yyyy-MM-dd"),
-      active : ''
+      created_on: new Date("dd/MM/yyyy"),
+      active: ''
     };
   }
 
   public static toFormGroup(site: Site = SiteHelper.getEmpty()): FormGroup {
     return new FormGroup({
       site_id: new FormControl(site.site_id),
-      name: new FormControl(site.name, [Validators.required]),
-      description: new FormControl(site.description, [Validators.required]),
-      created_on: new FormControl(new Date("yyyy-MM-dd")),
-      active: new FormControl(site.active, [Validators.required])
+      name: new FormControl(site.name),
+      description: new FormControl(site.description),
+      created_on: new FormControl(site.created_on.toString().slice(0, 10)),
+      active: new FormControl(site.active)
     });
   }
 

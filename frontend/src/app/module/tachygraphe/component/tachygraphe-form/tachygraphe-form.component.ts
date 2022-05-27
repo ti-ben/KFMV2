@@ -13,16 +13,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./tachygraphe-form.component.scss']
 })
 export class TachygrapheFormComponent implements OnInit {
-  //@Input() detail: Tachygraphe = TachygrapheHelper.getEmpty();
   tachoFormGroup!: FormGroup;
-
   user_id = this.userService.currentDetail$.value.user_id;
 
-  constructor(public tachographService: TachygrapheService, public userService: UserService, private router: Router) {
+  constructor(public tachographService: TachygrapheService, public userService: UserService) {
   }
 
   ngOnInit(): void {
-    console.log('route', this.router)
     this.initForm();
   }
 

@@ -1,6 +1,5 @@
-import { Period } from '@period/model/business';
-import { PeriodDto } from '@period/model';
-import {Grade, GradeDto} from "@grade/model";
+import {Period} from '@period/model/business';
+import {PeriodDto} from '@period/model';
 
 export class PeriodHelper {
   public static fromDto(dto: PeriodDto): Period {
@@ -10,19 +9,20 @@ export class PeriodHelper {
       end_date: dto.end_date
     }
   }
+
   public toDto(period: Period): PeriodDto {
     return {
       period_id: period.period_id,
-      start_date: new Date(),
-      end_date: new Date()
+      start_date: new Date("dd/MM/yyyy"),
+      end_date: new Date("dd/MM/yyyy")
     };
   }
 
-  static getEmpty():Period {
+  static getEmpty(): Period {
     return {
       period_id: '',
-      start_date: new Date(),
-      end_date: new Date()
+      start_date: new Date("dd/MM/yyyy"),
+      end_date: new Date("dd/MM/yyyy")
     };
   }
 

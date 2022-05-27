@@ -32,14 +32,6 @@ export class NumberplateDetailComponent implements OnInit {
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public numberplateService: NumberplateService, public siteService: SiteService) {
   }
 
-  public getControl(name: string): FormControl {
-    return this.formGroup.get(name) as FormControl;
-  }
-
-  private initForm(numberplate: Numberplate): void {
-    this.formGroup = NumberplateHelper.toFormGroup(numberplate);
-  }
-
   ngOnInit(): void {
     this.numberplateService.currentDetail$.subscribe((numberplate: Numberplate) => {
       this.detail = numberplate;
@@ -61,9 +53,19 @@ export class NumberplateDetailComponent implements OnInit {
   update(): void {
     if (this.formGroup.valid) {
       const payload: NumberplateUpdatePayload = this.formGroup.value;
+      console.log('payload',payload);
       payload.numberplate_id = this.detail.numberplate_id;
+      payload.site = this.detail.site;
       this.numberplateService.update(payload).subscribe();
     }
+  }
+
+  public getControl(name: string): FormControl {
+    return this.formGroup.get(name) as FormControl;
+  }
+
+  private initForm(numberplate: Numberplate): void {
+    this.formGroup = NumberplateHelper.toFormGroup(numberplate);
   }
 
   private setSelectConfig(): void {

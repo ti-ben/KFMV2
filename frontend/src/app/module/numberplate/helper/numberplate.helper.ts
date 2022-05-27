@@ -43,7 +43,7 @@ export class NumberplateHelper {
     return new FormGroup({
       numberplate_id: new FormControl(numberplate.numberplate_id),
       num_plate: new FormControl(numberplate.num_plate),
-      dop: new FormControl(numberplate.dop),
+      dop: new FormControl(numberplate.dop.toString().slice(0,10)),
       active: new FormControl(numberplate.active),
       site: new FormControl(numberplate.site)
     });

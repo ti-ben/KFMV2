@@ -40,7 +40,7 @@ export class NumberplateFormComponent implements OnInit {
   private initForm(): void {
     this.formGroup = new FormGroup({
       num_plate: new FormControl(''),
-      dop: new FormControl(''),
+      dop: new FormControl('')
     });
   }
 
