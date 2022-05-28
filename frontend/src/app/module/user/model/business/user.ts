@@ -20,7 +20,7 @@ export interface User {
   pob: string,
   active: string,
   site: Site,
-  grade: Grade,
+  //grade: Grade,
   status: Status,
   //address: Address
 }

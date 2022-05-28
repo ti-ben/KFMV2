@@ -32,7 +32,7 @@ export class UserHelper {
       pob: dto.pob,
       active: dto.active,
       site: SiteHelper.fromDto(dto.site),
-      grade: GradeHelper.fromDto(dto.grade),
+      //grade: GradeHelper.fromDto(dto.grade),
       status: StatusHelper.fromDto(dto.status),
       //address: AddressHelper.fromDto(dto.address)
     }
@@ -79,7 +79,7 @@ export class UserHelper {
       pob: user.pob,
       active: user.active,
       site: SiteHelper.toDto(user.site),
-      grade: GradeHelper.toDto(user.grade),
+      //grade: GradeHelper.toDto(user.grade),
       status: StatusHelper.toDto(user.status),
       //address: AddressHelper.toDto(user.address)
     };
@@ -103,7 +103,7 @@ export class UserHelper {
       telpro: '',
       user_id: '',
       site: SiteHelper.getEmpty(),
-      grade: GradeHelper.getEmpty(),
+      //grade: GradeHelper.getEmpty(),
       status: StatusHelper.getEmpty(),
       //address: AddressHelper.getEmpty()
     };

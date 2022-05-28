@@ -45,8 +45,14 @@ export class UserFormComponent implements OnInit {
       const payload: UserCreatePayload = this.formGroup.value;
       payload.site = {site_id: payload.site};
       payload.status = {status_id: payload.status};
-      //payload.address = {address_id: payload.address}
-      //payload.grade = {grade_id: payload.grade}
+      if(!this.formGroup.value.address)
+      {
+        //payload.address = {address_id: payload.address}
+      }
+      if(!this.formGroup.value.grade)
+      {
+        //payload.grade = {grade_id: payload.grade}
+      }
       payload.created_on = new Date();
       payload.avatar = "test.png";
       console.log('Payload', payload);

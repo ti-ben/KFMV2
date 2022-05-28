@@ -21,7 +21,7 @@ export interface UserDto extends DtoInterface {
   pob: string,
   active: string,
   site: SiteDto,
-  grade: GradeDto,
+  //grade: GradeDto,
   status: StatusDto,
   //address: AddressDto
 }

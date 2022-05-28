@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CardConfig, SelectConfig} from "@shared/model";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Params, Router} from "@angular/router";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
 import {ActifHelper} from "@shared/helper";
@@ -9,7 +9,7 @@ import {Numberplate, NumberplateUpdatePayload} from "@numberplate/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {NumberplateHelper} from "@numberplate/helper";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 import {Site} from "@site/model";
 import {SiteHelper} from "@site/helper";
 import {SiteService} from "@site/service/site.service";
@@ -38,6 +38,7 @@ export class NumberplateDetailComponent implements OnInit {
       this.initForm(numberplate);
       this.setSelectConfig();
     })
+
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -47,7 +48,6 @@ export class NumberplateDetailComponent implements OnInit {
           }
         })
       ).subscribe();
-
   }
 
   update(): void {
