@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
-    User findByEmail(String email);
+    //User findByEmail(String email);
 
     @Query("SELECT u FROM User u WHERE u.firstname LIKE %?1%"
             + " OR u.lastname LIKE %?1%")

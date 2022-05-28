@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface NumberplateRepository extends JpaRepository<Numberplate, UUID> {
-    @Query("SELECT n FROM Numberplate n WHERE n.num_plate LIKE %?1%")
+    @Query("SELECT n FROM Numberplate n WHERE n.num_plate LIKE %?1% ORDER BY n.active")
     public List<Numberplate> search(String keyword);
 }

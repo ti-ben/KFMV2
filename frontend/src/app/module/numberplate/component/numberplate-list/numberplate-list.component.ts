@@ -19,6 +19,7 @@ export class NumberplateListComponent extends WithMenuAndDestroyableBaseComponen
   list$ = new BehaviorSubject<Numberplate[]>([]);
   search$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   labelWithParam: LabelWithParam = {label: 'button.numberplate-add'};
+  color = '';
 
   constructor(public numberplateService: NumberplateService, public navigation: NavigationService) {
     super(navigation);
@@ -47,6 +48,16 @@ export class NumberplateListComponent extends WithMenuAndDestroyableBaseComponen
     const item = cloneDeep(MenuHelper.numberplateDetailMenuItem());
     item.link += numberplate.numberplate_id;
     this.navigation.navigate(item);
+  }
+
+  // Display the color red if user is inactive or green if user is active
+  isActive(value: string): string {
+    if(value == 'true'){
+      return this.color = 'color: #04AA6D';
+    }
+    else{
+      return this.color = 'color: #ff1a00';
+    }
   }
 }
 
