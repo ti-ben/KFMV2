@@ -7,6 +7,8 @@ import {Prestataire} from "@prestataire/model";
 import {PrestataireService} from "@prestataire/service/prestataire.service";
 import {SiteHelper} from "@site/helper";
 import {PrestataireHelper} from "@prestataire/helper";
+import {User} from "@user/model";
+import {UserHelper} from "@user/helper";
 
 @Component({
   selector: 'app-user-detail-medical-selection',
@@ -17,6 +19,7 @@ export class UserDetailMedicalSelectionComponent implements OnInit {
   prestataireSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   prestataireList: Prestataire[] = [];
   formGroup!: FormGroup;
+  @Input() detail: Prestataire = PrestataireHelper.getEmpty();
 
   constructor(public prestataireService: PrestataireService) { }
 
@@ -51,6 +54,7 @@ export class UserDetailMedicalSelectionComponent implements OnInit {
         label: {label: 'form.prestataire.label.name'},
         placeholder: 'form.prestataire.placeholder.name',
         ctrl: this.getControl('name'),
+        selected: this.detail.name,
         values: PrestataireHelper.toPrestataireOptionArray(list)
       });
     });

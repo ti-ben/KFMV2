@@ -10,13 +10,9 @@ export class SelectComponent implements OnInit {
   @Input() config!: SelectConfig;
   @Output() onBlur = new EventEmitter<void>();
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  ngOnChange() {
-
-  }
+  ngOnChange() { }
 }

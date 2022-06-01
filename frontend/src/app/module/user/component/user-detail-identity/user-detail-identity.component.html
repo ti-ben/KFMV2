@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" action="" *ngIf="userService.currentDetail$ | async as user">
   <div class="flex-row">
     <div class="flex-cell">
       <app-input-text [label]="{label:'form.user.label.lastname'}"
@@ -19,7 +19,6 @@
       </app-input-text>
     </div>
   </div>
-
 
   <div class="flex-row">
 
@@ -47,10 +46,10 @@
 
   <div class="flex-row">
     <div class="flex-cell">
-      <app-input-text [label]="{label:'form.user.label.gender'}"
-                      [placeholder]="'form.user.placeholder.gender'"
-                      [ctrl]="getControl('gender')" (onBlur)="update()">
-      </app-input-text>
+      <app-select *ngIf="genderSelectConfig$ | async as genderSelectConfig"
+                  [config]="genderSelectConfig"
+                  (onBlur)="update()">
+      </app-select>
     </div>
 
     <div class="flex-cell">
@@ -79,7 +78,6 @@
       <app-select *ngIf="driverSelectConfig$ | async as driverSelectConfig"
                   [config]="driverSelectConfig"
                   (onBlur)="update()">
-
       </app-select>
     </div>
 
@@ -87,16 +85,16 @@
       <app-select *ngIf="statusSelectConfig$ | async as statusSelectConfig"
                   [config]="statusSelectConfig"
                   (onBlur)="update()">
-
       </app-select>
+      <input autofocus value="{{user.status.name}}" type="text" disabled>
     </div>
 
     <div class="flex-cell">
       <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig"
                   [config]="siteSelectConfig"
                   (onBlur)="update()">
-
       </app-select>
+      <input autofocus value="{{user.site.name}}" type="text" disabled>
     </div>
 
     <div class="flex-cell">

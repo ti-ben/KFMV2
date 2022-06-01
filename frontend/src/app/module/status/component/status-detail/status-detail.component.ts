@@ -19,7 +19,7 @@ import {BehaviorSubject} from "rxjs";
 
 export class StatusDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.status.detail.title');
-  @Input() detail: Status = StatusHelper.getEmpty();
+  @Input() sDetail: Status = StatusHelper.getEmpty();
   id: string = '';
   actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   formGroup!: FormGroup;
@@ -37,7 +37,7 @@ export class StatusDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.statusService.currentDetail$.subscribe((status: Status) => {
-      this.detail = status;
+      this.sDetail = status;
       this.initForm(status);
       this.setSelectConfig();
     })
@@ -55,7 +55,7 @@ export class StatusDetailComponent implements OnInit {
   update(): void {
     if (this.formGroup.valid) {
       const payload: StatusUpdatePayload = this.formGroup.value;
-      payload.status_id = this.detail.status_id;
+      payload.status_id = this.sDetail.status_id;
       this.statusService.update(payload).subscribe();
     }
   }
@@ -65,6 +65,7 @@ export class StatusDetailComponent implements OnInit {
       label: {label: 'form.status.label.active'},
       placeholder: 'form.status.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.sDetail.active,
       values: ActifHelper.toSelectOption()
     });
   }

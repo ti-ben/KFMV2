@@ -18,9 +18,9 @@
     </div>
     <div class="menu-language" [class.menu-language-hide]="!showLanguageMenu"
          [class.menu-language-show]="showLanguageMenu" (click)="showLanguageMenu = !showLanguageMenu">
-      <div class="menu-language-action" (click)="onClick('fr')">{{'change-language.french' | translate}}</div>
-      <div class="menu-language-action" (click)="onClick('nl')">{{'change-language.dutch' | translate}}</div>
-      <div class="menu-language-action" (click)="onClick('en')">{{'change-language.english' | translate}}</div>
+      <div class="menu-language-action" (click)="onClick('fr')"><img src="assets/flags/FR%20-%20France.svg"> {{'change-language.french' | translate}}</div>
+      <div class="menu-language-action" (click)="onClick('nl')"><img src="assets/flags/NL%20-%20Netherlands.svg"> {{'change-language.dutch' | translate}}</div>
+      <div class="menu-language-action" (click)="onClick('en')"><img src="assets/flags/GB-UKM%20-%20United%20Kingdom.svg"> {{'change-language.english' | translate}}</div>
     </div>
   </div>
 </header>

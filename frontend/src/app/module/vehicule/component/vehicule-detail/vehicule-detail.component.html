@@ -1,4 +1,4 @@
-<div *ngIf="vehiculeService.currentDetail$ | async as detail" class="container-fluid p-4 shadow mx-auto" style="max-width: 1350px;">
+<app-card *ngIf="vehiculeService.currentDetail$ | async as detail" [config]="cardConfig">
   <ng-container *ngIf="detail.vehicule_id.length === 0; else data">
     <div class="alert alert-danger text-center" role="alert">
       Aucuns résultats trouvés.
@@ -16,4 +16,4 @@
       <app-vehicule-detail-numberplate *ngSwitchCase="VehiculeDetailTab.VEHICULE_NUMBERPLATE"></app-vehicule-detail-numberplate>
     </ng-container>
   </ng-template>
-</div>
+</app-card>

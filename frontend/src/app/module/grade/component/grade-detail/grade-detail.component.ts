@@ -18,7 +18,7 @@ import {ActifHelper} from "@shared/helper";
 
 export class GradeDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.grade.detail.title');
-  @Input() detail: Grade = GradeHelper.getEmpty();
+  @Input() gDetail: Grade = GradeHelper.getEmpty();
   id: string = '';
   actifSelectConfig!: SelectConfig;
   formGroup!: FormGroup;
@@ -36,7 +36,7 @@ export class GradeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.gradeService.currentDetail$.subscribe((grade: Grade) => {
-      this.detail = grade;
+      this.gDetail = grade;
       this.initForm(grade);
       this.setSelectConfig();
     })
@@ -56,7 +56,7 @@ export class GradeDetailComponent implements OnInit {
     console.log('mes valeurs', this.formGroup.value);
     if(this.formGroup.valid){
       const payload: GradeUpdatePayload = this.formGroup.value;
-      payload.grade_id = this.detail.grade_id;
+      payload.grade_id = this.gDetail.grade_id;
       this.gradeService.update(payload).subscribe();
     }
   }
@@ -66,6 +66,7 @@ export class GradeDetailComponent implements OnInit {
       label: {label: 'form.grade.label.active'},
       placeholder: 'form.grade.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.gDetail.active,
       values: ActifHelper.toSelectOption()
     };
   }

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {VehiculeCreatePayload} from "@vehicule/model";
+import {Component, Input, OnInit} from '@angular/core';
+import {Vehicule, VehiculeCreatePayload} from "@vehicule/model";
 import {ApiResponse, CardConfig} from '@shared/model';
 import {CardHelper} from '@shared/helper/card.helper';
 import {FormControl, FormGroup} from "@angular/forms";
@@ -7,6 +7,7 @@ import {VehiculeService} from "@vehicule/service/vehicule.service";
 import {VehiculeHelper} from "@vehicule/helper";
 import {ActifHelper, GenreHelper} from "@shared/helper";
 import {SelectConfig} from "@shared/model/select.config";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-vehicule-form',
@@ -15,9 +16,10 @@ import {SelectConfig} from "@shared/model/select.config";
 })
 export class VehiculeFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.vehicule.create.title');
+  @Input() detail: Vehicule = VehiculeHelper.getEmpty();
   formGroup!: FormGroup;
-  actifSelectConfig!: SelectConfig;
-  genreSelectConfig!: SelectConfig;
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  genreSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
 
   constructor(public vehiculeService: VehiculeService) {
   }
@@ -50,18 +52,20 @@ export class VehiculeFormComponent implements OnInit {
 
   private setSelectConfig(): void {
 
-    this.actifSelectConfig = {
+    this.actifSelectConfig$.next({
       label: {label: 'form.vehicule.label.active'},
       placeholder: 'form.vehicule.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.detail.active,
       values: ActifHelper.toSelectOption()
-    }
+    });
 
-    this.genreSelectConfig = {
+    this.genreSelectConfig$.next({
       label: {label: 'form.vehicule.label.genre'},
       placeholder: 'form.vehicule.placeholder.genre',
       ctrl: this.getControl('genre'),
+      selected: this.detail.active,
       values: GenreHelper.toSelectOption()
-    }
+    });
   }
 }

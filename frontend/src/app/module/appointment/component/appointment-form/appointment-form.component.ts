@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AppointmentService} from "@appointment/service/appointment.service";
 import {BehaviorSubject} from "rxjs";
 import {ApiResponse, SelectConfig} from "@shared/model";
 import {GenreHelper} from "@shared/helper";
 import {AppointmentHelper} from "@appointment/helper";
-import {AppointmentCreatePayload} from "@appointment/model";
+import {Appointment, AppointmentCreatePayload} from "@appointment/model";
 import {UserService} from "@user/service/user.service";
 import {Router} from "@angular/router";
+import {User} from "@user/model";
+import {UserHelper} from "@user/helper";
 
 @Component({
   selector: 'app-appointment-form',
@@ -17,7 +19,7 @@ import {Router} from "@angular/router";
 export class AppointmentFormComponent implements OnInit {
   typeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   adrFormGroup!: FormGroup;
-
+  @Input() aDetail: Appointment = AppointmentHelper.getEmpty();
   user_id = this.userService.currentDetail$.value;
   tab_tag = 'adr';
 
@@ -55,6 +57,7 @@ export class AppointmentFormComponent implements OnInit {
       label: {label: 'form.adr.label.type'},
       placeholder: 'form.adr.placeholder.type',
       ctrl: this.getControl('type'),
+      selected: this.aDetail.type,
       values: GenreHelper.toSelectOption()
     });
   }

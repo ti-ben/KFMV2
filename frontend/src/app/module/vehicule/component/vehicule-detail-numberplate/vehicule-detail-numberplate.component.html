@@ -1,10 +1,12 @@
 <form [formGroup]="formGroup">
   <div class="flex-row">
     <div class="flex-cell">
-      <app-select [config]="numberplateSelectConfig"></app-select>
+      <app-select *ngIf="numberplateSelectConfig$ | async as numberplateSelectConfig"
+                  [config]="numberplateSelectConfig"></app-select>
     </div>
     <div class="flex-cell">
-      <app-select [config]="siteSelectConfig"></app-select>
+      <app-select *ngIf="siteSelectConfig$ | async as siteSelectConfig"
+                  [config]="siteSelectConfig"></app-select>
     </div>
   </div>
 </form>

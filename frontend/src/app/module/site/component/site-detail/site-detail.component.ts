@@ -66,6 +66,7 @@ export class SiteDetailComponent implements OnInit {
       label: {label: 'form.site.label.active'},
       placeholder: 'form.site.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.detail.active,
       values: ActifHelper.toSelectOption()
     });
   }

@@ -4,7 +4,7 @@ import {User, UserUpdatePayload} from '@user/model';
 import {UserHelper} from '@user/helper';
 import {UserService} from "@user/service/user.service";
 import {CardConfig, SelectConfig} from "@shared/model";
-import {ActifHelper, CardHelper, DriverHelper} from "@shared/helper";
+import {ActifHelper, CardHelper, DriverHelper, GenderHelper} from "@shared/helper";
 import {Site} from "@site/model";
 import {SiteHelper} from "@site/helper";
 import {SiteService} from "@site/service/site.service";
@@ -23,12 +23,17 @@ import {GradeService} from '@grade/service/grade.service';
 export class UserDetailIdentityComponent implements OnInit, OnChanges {
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   @Input() detail: User = UserHelper.getEmpty();
+
   siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  siteList: Site[] = [];
+
   statusSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  statusList: Status[] = [];
+
   driverSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  siteList: Site[] = [];
-  statusList: Status[] = [];
+  genderSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+
   formGroup!: FormGroup;
   refresh$ = new Subject<any>();
 
@@ -50,7 +55,6 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       this.initForm(user);
       this.setSelectConfig();
     })
-    //this.setSelectConfig();
   }
 
   // Affiche les informations du user sélectionné
@@ -80,13 +84,18 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
   //todo update user information to db
 
   update(): void {
+    //console.log(this.formGroup.controls.site.touched);
     if (this.formGroup.valid) {
       const payload: UserUpdatePayload = this.formGroup.value;
       payload.user_id = this.detail.user_id;
-      payload.site = {site_id: payload.site};
-      payload.status = {status_id: payload.status};
+      if (this.formGroup.controls.site.touched) {
+        payload.site = {site_id: payload.site};
+      }
+      if (this.formGroup.controls.status.touched) {
+        payload.status = {status_id: payload.status};
+      }
       //payload.grade = {grade_id: payload.grade}
-      console.log('payload', payload);
+      console.log('payload', payload)
       this.userService.update(payload).subscribe();
     }
   }
@@ -99,6 +108,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
         label: {label: 'form.user.label.site_name'},
         placeholder: 'form.user.placeholder.site_name',
         ctrl: this.getControl('site'),
+        selected: this.detail.active,
         values: SiteHelper.toSiteOptionArray(list)
       });
     });
@@ -109,6 +119,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
         label: {label: 'form.user.label.status_name'},
         placeholder: 'form.user.placeholder.status_name',
         ctrl: this.getControl('status'),
+        selected: this.detail.active,
         values: StatusHelper.toStatusOptionArray(list)
       });
     });
@@ -117,13 +128,23 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       label: {label: 'form.user.label.driver_license'},
       placeholder: 'form.user.placeholder.driver_license',
       ctrl: this.getControl('driver_license'),
+      selected: this.detail.active,
       values: DriverHelper.getSelectOption()
     });
 
-    this.actifSelectConfig$.next( {
+    this.genderSelectConfig$.next({
+      label: {label: 'form.user.label.gender'},
+      placeholder: 'form.user.placeholder.gender',
+      ctrl: this.getControl('gender'),
+      selected: this.detail.active,
+      values: GenderHelper.genSelectOption()
+    });
+
+    this.actifSelectConfig$.next({
       label: {label: 'form.user.label.active'},
       placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.detail.active,
       values: ActifHelper.toSelectOption()
     });
   }

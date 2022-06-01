@@ -19,7 +19,7 @@ import {BehaviorSubject} from "rxjs";
 
 export class PrestataireDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.prestataire.detail.title');
-  @Input() detail: Prestataire = PrestataireHelper.getEmpty();
+  @Input() pDetail: Prestataire = PrestataireHelper.getEmpty();
   id: string = '';
   actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   formGroup!: FormGroup;
@@ -37,7 +37,7 @@ export class PrestataireDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.prestataireService.currentDetail$.subscribe((prestataire: Prestataire) => {
-      this.detail = prestataire;
+      this.pDetail = prestataire;
       this.initForm(prestataire);
       this.setSelectConfig();
     })
@@ -55,7 +55,7 @@ export class PrestataireDetailComponent implements OnInit {
   update(): void {
     if (this.formGroup.valid) {
       const payload: PrestataireUpdatePayload = this.formGroup.value;
-      payload.prestataire_id = this.detail.prestataire_id;
+      payload.prestataire_id = this.pDetail.prestataire_id;
       this.prestataireService.update(payload).subscribe();
     }
   }
@@ -65,6 +65,7 @@ export class PrestataireDetailComponent implements OnInit {
       label: {label: 'form.prestataire.label.active'},
       placeholder: 'form.prestataire.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.pDetail.active,
       values: ActifHelper.toSelectOption()
     });
   }

@@ -6,6 +6,7 @@ export interface SelectConfig {
   values: SelectOption[];
   label: LabelWithParam;
   placeholder: string;
+  selected: any;
   ctrl: FormControl;
 }
 

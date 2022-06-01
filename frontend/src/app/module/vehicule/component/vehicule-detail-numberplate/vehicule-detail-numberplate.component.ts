@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SelectConfig} from "@shared/model";
 import {SiteService} from "@site/service/site.service";
 import {Site} from "@site/model";
@@ -7,6 +7,10 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {NumberplateService} from "@numberplate/service/numberplate.service";
 import {Numberplate} from "@numberplate/model";
 import {NumberplateHelper} from "@numberplate/helper";
+import {BehaviorSubject} from "rxjs";
+import {User} from "@user/model";
+import {UserHelper} from "@user/helper";
+import {Vehicule} from "@vehicule/model";
 
 @Component({
   selector: 'app-vehicule-detail-numberplate',
@@ -14,8 +18,13 @@ import {NumberplateHelper} from "@numberplate/helper";
   styleUrls: ['./vehicule-detail-numberplate.component.scss']
 })
 export class VehiculeDetailNumberplateComponent implements OnInit {
-  siteSelectConfig!: SelectConfig;
-  numberplateSelectConfig!: SelectConfig;
+  siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  siteList: Site[] = [];
+
+  numberplateSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  numberplateList: Numberplate[] = [];
+
+  @Input() detail: Numberplate = NumberplateHelper.getEmpty();
   formGroup!: FormGroup;
 
   constructor(public siteService: SiteService, public numberplateService: NumberplateService) {
@@ -37,21 +46,25 @@ export class VehiculeDetailNumberplateComponent implements OnInit {
   private setSelectConfig(): void {
 
     this.siteService.list().subscribe((list: Site[]) => {
-      this.siteSelectConfig = {
+      this.siteList = list;
+      this.siteSelectConfig$.next({
         label: {label: 'form.vehicule.label.site_name'},
         placeholder: 'form.vehicule.placeholder.site_name',
         ctrl: this.getControl('site_name'),
+        selected: this.detail.site.name,
         values: SiteHelper.toSiteOptionArray(list)
-      }
+      });
     });
 
     this.numberplateService.list().subscribe((list: Numberplate[]) => {
-      this.numberplateSelectConfig = {
+      this.numberplateList = list;
+      this.numberplateSelectConfig$.next( {
         label: {label: 'form.vehicule.label.num_plate'},
         placeholder: 'form.vehicule.placeholder.num_plate',
         ctrl: this.getControl('num_plate'),
+        selected: this.detail.num_plate,
         values: NumberplateHelper.toNumberplateOptionArray(list)
-      }
+      });
     });
   }
 

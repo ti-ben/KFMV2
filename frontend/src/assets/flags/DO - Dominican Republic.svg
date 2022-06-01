@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>flags/M/DO - Dominican Republic</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="15"></rect>
+        <rect id="path-3" x="0" y="0" width="20" height="15"></rect>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="mask"></g>
+            <g id="contents" mask="url(#mask-2)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="background" fill="#C51918" xlink:href="#path-3"></use>
+                <g id="mark" mask="url(#mask-4)" fill="#F7FCFF">
+                    <polygon id="cross" points="8.75 0 11.25 0 11.25 6.25 20 6.25 20 8.75 11.25 8.75 11.25 15 8.75 15 8.75 8.75 0 8.75 0 6.25 8.75 6.25"></polygon>
+                </g>
+                <rect id="blue" fill="#4257BF" mask="url(#mask-4)" x="0" y="0" width="8.75" height="6.25"></rect>
+                <rect id="blue" fill="#4257BF" mask="url(#mask-4)" x="11.25" y="8.75" width="8.75" height="6.25"></rect>
+                <g id="mark" mask="url(#mask-4)">
+                    <g transform="translate(8.485777, 5.562496)">
+                        <path d="M0.0372933899,1.38170229 L0.659450132,1.44125049 C0.55296294,2.55382351 0.691346319,3.02261382 0.916215078,3.02261382 L0.916215078,3.64761382 C0.138471109,3.64761382 -0.101707724,2.83397918 0.0372933899,1.38170229 Z" id="Path-21" fill="#309404" fill-rule="nonzero"></path>
+                        <path d="M1.85547521,1.38170229 L2.47763195,1.44125049 C2.37114476,2.55382351 2.50952814,3.02261382 2.7343969,3.02261382 L2.7343969,3.64761382 C1.95665293,3.64761382 1.71647409,2.83397918 1.85547521,1.38170229 Z" id="Path-21" fill="#309404" fill-rule="nonzero" transform="translate(2.443182, 2.514658) scale(-1, 1) translate(-2.443182, -2.514658) "></path>
+                        <rect id="Rectangle-16" fill="#003994" fill-rule="evenodd" x="0.718768026" y="1.12019231" width="1" height="1"></rect>
+                        <path d="M1.62785894,2.21634615 L2.21876803,2.21634615 L2.21876803,2.68487762 C2.21876803,2.93591615 2.01526109,3.13942308 1.76422257,3.13942308 L1.62785894,3.13942308 L1.62785894,3.13942308 L1.62785894,2.21634615 Z" id="Rectangle-16" fill="#003994" fill-rule="evenodd"></path>
+                        <rect id="Rectangle-16" fill="#DE2110" fill-rule="evenodd" x="1.58240439" y="1.0625" width="1" height="1"></rect>
+                        <path d="M0.718768026,2.21634615 L1.30967712,2.21634615 L1.30967712,3.13942308 L1.17331348,3.13942308 C0.922274958,3.13942308 0.718768026,2.93591615 0.718768026,2.68487762 L0.718768026,2.21634615 L0.718768026,2.21634615 Z" id="Rectangle-16" fill="#DE2110" fill-rule="evenodd"></path>
+                        <path d="M0.473245877,1.06835221 L0.0551992663,0.603742664 C0.496666355,0.206519187 0.956761181,0 1.43061041,0 C1.90445963,0 2.36455446,0.206519187 2.80602155,0.603742664 L2.38797493,1.06835221 C2.05362698,0.767512438 1.73612991,0.625 1.43061041,0.625 C1.1250909,0.625 0.807593836,0.767512438 0.473245877,1.06835221 Z" id="Path-22" fill="#00319C" fill-rule="nonzero"></path>
+                        <path d="M0.518700422,4.18373683 L0.100653812,3.71912728 C0.5421209,3.3219038 1.00221573,3.11538462 1.47606495,3.11538462 C1.94991418,3.11538462 2.410009,3.3219038 2.85147609,3.71912728 L2.43342948,4.18373683 C2.09908152,3.88289705 1.78158446,3.74038462 1.47606495,3.74038462 C1.17054544,3.74038462 0.853048381,3.88289705 0.518700422,4.18373683 Z" id="Path-22" fill="#DE2110" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -4,6 +4,8 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {VehiculeService} from "@vehicule/service/vehicule.service";
 import {tap} from "rxjs/operators";
 import {isNil} from "lodash";
+import {User} from "@user/model";
+import {Vehicule} from "@vehicule/model";
 
 @Component({
   selector: 'app-vehicule-detail',
@@ -35,6 +37,9 @@ export class VehiculeDetailComponent implements OnInit {
           }
         })
       ).subscribe();
+    this.vehiculeService.currentDetail$.subscribe((data: Vehicule) => {
+      this.cardConfig.headerConfig = {title: {label: `${data.brand} ${data.numberplate.num_plate}`}}
+    })
   }
 
   private setTab(): void {

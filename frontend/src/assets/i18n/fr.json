@@ -16,9 +16,9 @@
     "false": "Non"
   },
   "change-language": {
-    "french": "Français",
-    "dutch": "Néerlandais",
-    "english": "Anglais"
+    "french": "FR",
+    "dutch": "NL",
+    "english": "EN"
   },
   "driver-license": {
     "b": "B",

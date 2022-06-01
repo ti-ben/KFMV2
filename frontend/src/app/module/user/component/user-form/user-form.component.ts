@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {UserCreatePayload} from '@user/model';
+import {Component, Input, OnInit} from '@angular/core';
+import {User, UserCreatePayload} from '@user/model';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ApiResponse, CardConfig, SelectConfig} from "@shared/model";
 import {UserService} from "@user/service/user.service";
@@ -21,6 +21,7 @@ import {DatePipe} from "@angular/common";
 
 export class UserFormComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
+  @Input() detail: User = UserHelper.getEmpty();
   formGroup!: FormGroup;
   genderSelectConfig!: SelectConfig;
   actifSelectConfig!: SelectConfig;
@@ -73,6 +74,7 @@ export class UserFormComponent implements OnInit {
       label: {label: 'form.user.label.driver_license'},
       placeholder: 'form.user.placeholder.driver_license',
       ctrl: this.getControl('driver_license'),
+      selected: this.detail.active,
       values: DriverHelper.getSelectOption()
     };
 
@@ -81,6 +83,7 @@ export class UserFormComponent implements OnInit {
         label: {label: 'form.user.label.site_name'},
         placeholder: 'form.user.placeholder.site_name',
         ctrl: this.getControl('site'),
+        selected: this.detail.active,
         values: SiteHelper.toSiteOptionArray(list)
       }
     });
@@ -90,6 +93,7 @@ export class UserFormComponent implements OnInit {
         label: {label: 'form.user.label.status_name'},
         placeholder: 'form.user.placeholder.status_name',
         ctrl: this.getControl('status'),
+        selected: this.detail.active,
         values: StatusHelper.toStatusOptionArray(list)
       }
     });
@@ -98,6 +102,7 @@ export class UserFormComponent implements OnInit {
       label: {label: 'form.user.label.gender'},
       placeholder: 'form.user.placeholder.gender',
       ctrl: this.getControl('gender'),
+      selected: this.detail.active,
       values: GenderHelper.genSelectOption()
     };
 
@@ -105,6 +110,7 @@ export class UserFormComponent implements OnInit {
       label: {label: 'form.user.label.active'},
       placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.detail.active,
       values: ActifHelper.toSelectOption()
     };
   }

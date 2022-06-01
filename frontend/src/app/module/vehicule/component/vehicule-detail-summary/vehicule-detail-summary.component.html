@@ -1,26 +1,20 @@
-<div class="row">
-  <div class="col-sm-4 col-md-3">
-    <a href="#"><img src="http://192.168.0.18/kfmframework../img/truck.jpg" class="card-img-top" alt=""></a>
-    <hr>
-    <h3 class="text-center">{{detail.brand}}</h3>
+<div class="flex-row">
+  <div class="flex-cell">
+    <img class="avatar" src="http://192.168.0.18/kfmframework../img/truck.jpg" alt="">
   </div>
-  <div class="col-sm-8 col-md-9 bg-light p-2">
-    <table class="table">
+  <div class="flex-cell flex-2">
+    <table>
       <tr>
-        <th>Marque :</th>
-        <td>{{detail.brand}}</td>
+        <th>N° chassis :</th>
+        <td>{{detail.num_chassis}}</td>
       </tr>
       <tr>
-        <th>Type de véhicule:</th>
-        <td>{{detail.type}}</td>
+        <th>Immatriculé par :</th>
+        <td>{{detail.numberplate.site.name}}</td>
       </tr>
       <tr>
         <th>N° plaque :</th>
         <td>{{detail.numberplate.num_plate}}</td>
-      </tr>
-      <tr>
-        <th>N° chassis :</th>
-        <td>{{detail.num_chassis}}</td>
       </tr>
       <tr>
         <th>Immatriculé par :</th>
@@ -32,7 +26,7 @@
       </tr>
       <tr>
         <th>Date d'achat :</th>
-        <td>{{detail.dop}}</td>
+        <td>{{detail.dop | date :  "dd.MM.y"}}</td>
       </tr>
       <tr>
         <th>Prix d'achat :</th>

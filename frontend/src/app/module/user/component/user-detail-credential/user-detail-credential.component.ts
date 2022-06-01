@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CardConfig} from "@shared/model";
 import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -10,6 +10,7 @@ import {GradeHelper} from "@grade/helper";
 import {ActifHelper} from "@shared/helper";
 import {BehaviorSubject} from "rxjs";
 import {UserService} from "@user/service/user.service";
+import {User} from "@user/model";
 
 @Component({
   selector: 'app-user-detail-credential',
@@ -19,9 +20,13 @@ import {UserService} from "@user/service/user.service";
 export class UserDetailCredentialComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.defaultConfigWithoutHeader();
   formGroup!: FormGroup;
+  @Input() uDetail: User = UserHelper.getEmpty();
+  @Input() gDetail: Grade = GradeHelper.getEmpty();
+
   gradeSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   gradeList: Grade[] = [];
+
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
 
   constructor(public gradeService: GradeService, public userService: UserService) {
   }
@@ -56,6 +61,7 @@ export class UserDetailCredentialComponent implements OnInit {
         label: {label: 'form.credential.label.grade_name'},
         placeholder: 'form.credential.placeholder.grade_name',
         ctrl: this.getControl('grade'),
+        selected: this.gDetail.name,
         values: GradeHelper.toGradeOptionArray(list)
       });
     });
@@ -64,6 +70,7 @@ export class UserDetailCredentialComponent implements OnInit {
       label: {label: 'form.user.label.active'},
       placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
+      selected: this.uDetail.active,
       values: ActifHelper.toSelectOption()
     });
   }

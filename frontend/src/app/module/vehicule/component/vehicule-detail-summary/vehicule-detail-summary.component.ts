@@ -9,6 +9,7 @@ import {Vehicule} from "@vehicule/model";
 })
 export class VehiculeDetailSummaryComponent implements OnInit {
   @Input() detail: Vehicule = VehiculeHelper.getEmpty();
+  vehiculeService: any;
 
   constructor() { }
 
