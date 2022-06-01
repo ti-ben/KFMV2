@@ -53,7 +53,7 @@ export class NumberplateDetailComponent implements OnInit {
         })
       ).subscribe();
 
-    console.log('ctrl-site', this.siteSelectConfig$)
+    //console.log('ctrl-site', this.siteSelectConfig$)
   }
 
   update(): void {

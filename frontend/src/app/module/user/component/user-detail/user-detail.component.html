@@ -8,7 +8,7 @@
     <app-user-detail-summary [detail]="detail"></app-user-detail-summary>
     <app-tab [list]="tabs" (clickHandler)="currentTab = $event.type"></app-tab>
     <ng-container [ngSwitch]="currentTab">
-      <app-user-detail-identity *ngSwitchCase="UserDetailTab.USER_IDENTITY" [detail]="detail"></app-user-detail-identity>
+      <app-user-detail-identity *ngSwitchCase="UserDetailTab.USER_IDENTITY" [uDetail]="detail"></app-user-detail-identity>
       <app-user-detail-address *ngSwitchCase="UserDetailTab.USER_ADDRESS"></app-user-detail-address>
       <app-user-detail-adr *ngSwitchCase="UserDetailTab.USER_ADR"></app-user-detail-adr>
       <app-user-detail-cap *ngSwitchCase="UserDetailTab.USER_CAP"></app-user-detail-cap>
