@@ -71,7 +71,7 @@ export class UserDetailCredentialComponent implements OnInit {
       placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
       selected: this.uDetail.active,
-      values: ActifHelper.toSelectOption()
+      values: ActifHelper.actifSelectOption()
     });
   }
 

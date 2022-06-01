@@ -20,14 +20,14 @@ import {DatePipe} from "@angular/common";
 })
 
 export class UserFormComponent implements OnInit {
-  cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
-  @Input() detail: User = UserHelper.getEmpty();
-  formGroup!: FormGroup;
   genderSelectConfig!: SelectConfig;
   actifSelectConfig!: SelectConfig;
   siteSelectConfig!: SelectConfig;
   driverSelectConfig!: SelectConfig;
   statusSelectConfig!: SelectConfig;
+  cardConfig: CardConfig = CardHelper.defaultConfig('page.user.create.title');
+  @Input() detail: User = UserHelper.getEmpty();
+  formGroup!: FormGroup;
 
   constructor(public userService: UserService, public siteService: SiteService, public statusService: StatusService) {
   }
@@ -111,7 +111,7 @@ export class UserFormComponent implements OnInit {
       placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
       selected: this.detail.active,
-      values: ActifHelper.toSelectOption()
+      values: ActifHelper.actifSelectOption()
     };
   }
 }

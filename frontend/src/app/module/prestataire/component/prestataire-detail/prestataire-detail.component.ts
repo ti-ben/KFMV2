@@ -66,7 +66,7 @@ export class PrestataireDetailComponent implements OnInit {
       placeholder: 'form.prestataire.placeholder.active',
       ctrl: this.getControl('active'),
       selected: this.pDetail.active,
-      values: ActifHelper.toSelectOption()
+      values: ActifHelper.actifSelectOption()
     });
   }
 

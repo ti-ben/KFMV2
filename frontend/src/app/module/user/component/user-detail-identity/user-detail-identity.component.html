@@ -79,6 +79,7 @@
                   [config]="driverSelectConfig"
                   (onBlur)="update()">
       </app-select>
+      <input autofocus value="{{user.driver_license}}" type="text" disabled>
     </div>
 
     <div class="flex-cell">
@@ -102,6 +103,7 @@
                   [config]="actifSelectConfig"
                   (onBlur)="update()">
       </app-select>
+      <input autofocus value="{{user.active}}" type="text" disabled>
     </div>
   </div>
 

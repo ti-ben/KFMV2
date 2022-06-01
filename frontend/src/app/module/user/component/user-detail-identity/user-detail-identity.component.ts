@@ -145,7 +145,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       placeholder: 'form.user.placeholder.active',
       ctrl: this.getControl('active'),
       selected: this.detail.active,
-      values: ActifHelper.toSelectOption()
+      values: ActifHelper.actifSelectOption()
     });
   }
 }

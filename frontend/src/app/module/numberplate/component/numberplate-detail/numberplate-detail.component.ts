@@ -21,15 +21,17 @@ import {SiteService} from "@site/service/site.service";
 })
 
 export class NumberplateDetailComponent implements OnInit {
-  cardConfig: CardConfig = CardHelper.numberplateConfig('page.numberplate.detail.title');
   siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
-  @Input() nDetail: Numberplate = NumberplateHelper.getEmpty();
-  id: string = '';
   siteList: Site[] = [];
-  formGroup!: FormGroup;
+
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+
+  cardConfig: CardConfig = CardHelper.numberplateConfig('page.numberplate.detail.title');
+  @Input() nDetail: Numberplate = NumberplateHelper.getEmpty();
+
   numberplate!: Numberplate;
-  selectedItem: any;
+  formGroup!: FormGroup;
+  id: string = '';
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public numberplateService: NumberplateService, public siteService: SiteService) {
   }
@@ -50,6 +52,8 @@ export class NumberplateDetailComponent implements OnInit {
           }
         })
       ).subscribe();
+
+    console.log('ctrl-site', this.siteSelectConfig$)
   }
 
   update(): void {
@@ -84,7 +88,7 @@ export class NumberplateDetailComponent implements OnInit {
         label: {label: 'form.site.label.site_name'},
         placeholder: 'form.site.placeholder.site_name',
         ctrl: this.getControl('site'),
-        selected: this.nDetail.site.name,
+        selected: {value: this.nDetail.site.site_id, label: this.nDetail.site.name},
         values: SiteHelper.toSiteOptionArray(list)
       });
     })
@@ -93,8 +97,8 @@ export class NumberplateDetailComponent implements OnInit {
       label: {label: 'form.numberplate.label.active'},
       placeholder: 'form.numberplate.placeholder.active',
       ctrl: this.getControl('active'),
-      selected: this.nDetail.active,
-      values: ActifHelper.toSelectOption()
+      selected: {value: this.nDetail.active, label: this.nDetail.active},
+      values: ActifHelper.actifSelectOption()
     });
   }
 }

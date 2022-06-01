@@ -20,9 +20,10 @@ import {BehaviorSubject} from "rxjs";
 export class StatusDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.status.detail.title');
   @Input() sDetail: Status = StatusHelper.getEmpty();
-  id: string = '';
+
   actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   formGroup!: FormGroup;
+  id: string = '';
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public statusService: StatusService) {
   }
@@ -66,7 +67,7 @@ export class StatusDetailComponent implements OnInit {
       placeholder: 'form.status.placeholder.active',
       ctrl: this.getControl('active'),
       selected: this.sDetail.active,
-      values: ActifHelper.toSelectOption()
+      values: ActifHelper.actifSelectOption()
     });
   }
 

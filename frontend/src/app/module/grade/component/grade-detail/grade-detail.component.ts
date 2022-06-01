@@ -9,6 +9,7 @@ import {CardHelper} from "@shared/helper/card.helper";
 import {FormControl, FormGroup} from "@angular/forms";
 import {GradeHelper} from "@grade/helper";
 import {ActifHelper} from "@shared/helper";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-grade-detail',
@@ -19,9 +20,12 @@ import {ActifHelper} from "@shared/helper";
 export class GradeDetailComponent implements OnInit {
   cardConfig: CardConfig = CardHelper.gradeConfig('page.grade.detail.title');
   @Input() gDetail: Grade = GradeHelper.getEmpty();
-  id: string = '';
-  actifSelectConfig!: SelectConfig;
+
+  actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
   formGroup!: FormGroup;
+
+  id: string = '';
+
 
   constructor(public router: Router, public activatedRouter: ActivatedRoute, public gradeService: GradeService) {
   }
@@ -40,7 +44,7 @@ export class GradeDetailComponent implements OnInit {
       this.initForm(grade);
       this.setSelectConfig();
     })
-    //this.setSelectConfig();
+
     this.activatedRouter.params
       .pipe(
         tap((params: Params) => {
@@ -62,13 +66,13 @@ export class GradeDetailComponent implements OnInit {
   }
 
   private setSelectConfig(): void {
-    this.actifSelectConfig = {
+    this.actifSelectConfig$.next( {
       label: {label: 'form.grade.label.active'},
       placeholder: 'form.grade.placeholder.active',
       ctrl: this.getControl('active'),
       selected: this.gDetail.active,
-      values: ActifHelper.toSelectOption()
-    };
+      values: ActifHelper.actifSelectOption()
+    });
   }
 
 }
