@@ -59,9 +59,8 @@ export class NumberplateDetailComponent implements OnInit {
       const payload: NumberplateUpdatePayload = this.formGroup.value;
       console.log('payload', payload);
       payload.numberplate_id = this.nDetail.numberplate_id;
-      payload.site = {site_id: payload.site};
+      payload.site = {site_id: payload.site.site_id, name: payload.site.siteName};
       this.numberplateService.update(payload).subscribe();
-      this.refreshDetails();
     }
   }
 
@@ -71,11 +70,6 @@ export class NumberplateDetailComponent implements OnInit {
 
   private initForm(numberplate: Numberplate): void {
     this.formGroup = NumberplateHelper.toFormGroup(numberplate);
-  }
-
-  refreshDetails(): void {
-    //alert('refresh');
-    //location.reload();
   }
 
   private setSelectConfig(): void {
