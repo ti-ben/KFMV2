@@ -38,14 +38,14 @@ export class UserDetailCapComponent implements OnInit {
   }
 
  addPeriod() {
-    alert('add period');
+    console.log('add period');
   }
 
   addAppointment(){
-    alert('add Session')
+    console.log('add Session')
   }
 
   deleteSession(){
-    alert('delete Session')
+    console.log('delete Session')
   }
 }

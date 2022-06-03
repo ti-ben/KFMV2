@@ -21,7 +21,7 @@ import {SiteService} from "@site/service/site.service";
 })
 
 export class NumberplateDetailComponent implements OnInit {
-  siteSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
+  siteSelectConfig$: BehaviorSubject<SelectConfig | null > = new BehaviorSubject<SelectConfig | null>(null);
   siteList: Site[] = [];
 
   actifSelectConfig$: BehaviorSubject<SelectConfig | null> = new BehaviorSubject<SelectConfig | null>(null);
@@ -52,8 +52,6 @@ export class NumberplateDetailComponent implements OnInit {
           }
         })
       ).subscribe();
-
-    //console.log('ctrl-site', this.siteSelectConfig$)
   }
 
   update(): void {

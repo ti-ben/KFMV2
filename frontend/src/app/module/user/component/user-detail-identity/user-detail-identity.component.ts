@@ -55,6 +55,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       this.initForm(user);
       this.setSelectConfig();
     })
+    console.log('current', this.userService.currentDetail$)
   }
 
   // Affiche les informations du user sélectionné
@@ -64,7 +65,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       lastname: new FormControl(this.uDetail.lastname),
       gender: new FormControl(this.uDetail.gender),
       avatar: new FormControl(this.uDetail.avatar),
-      dob: new FormControl(this.uDetail.dob),
+      dob: new FormControl(this.uDetail.dob.toString().slice(0, 10)),
       email: new FormControl(this.uDetail.email),
       telpro: new FormControl(this.uDetail.telpro),
       telperso: new FormControl(this.uDetail.telperso),
@@ -72,7 +73,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       numirn: new FormControl(this.uDetail.numirn),
       driver_license: new FormControl(this.uDetail.driver_license),
       created_on: new FormControl(this.uDetail.created_on),
-      pob: new FormControl(this.uDetail.pob),
+      pob: new FormControl(this.uDetail.pob.toString().slice(0, 10)),
       active: new FormControl(this.uDetail.active),
       site: new FormControl(this.uDetail.site.name), // MAIS ATTENTION DE BIEN REPRENDRE LE SITE AU MOMENT DE L ENVOI DU FORMULAIRE
       //address: new FormControl(this.detail.address.address_id),
@@ -81,10 +82,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
     })
   }
 
-  //todo update user information to db
-
   update(): void {
-    //console.log(this.formGroup.controls.site.touched);
     if (this.formGroup.valid) {
       const payload: UserUpdatePayload = this.formGroup.value;
       payload.user_id = this.uDetail.user_id;
@@ -108,7 +106,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
         label: {label: 'form.user.label.site_name'},
         placeholder: 'form.user.placeholder.site_name',
         ctrl: this.getControl('site'),
-        selected: {value: this.uDetail.site.site_id , label: this.uDetail.site.name },
+        selected: {value: this.uDetail.site.site_id, label: this.uDetail.site.name},
         values: SiteHelper.toSiteOptionArray(list)
       });
     });
@@ -119,7 +117,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
         label: {label: 'form.user.label.status_name'},
         placeholder: 'form.user.placeholder.status_name',
         ctrl: this.getControl('status'),
-        selected: {value: this.uDetail.status.status_id , label: this.uDetail.status.name },
+        selected: {value: this.uDetail.status.status_id, label: this.uDetail.status.name},
         values: StatusHelper.toStatusOptionArray(list)
       });
     });
@@ -128,7 +126,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       label: {label: 'form.user.label.driver_license'},
       placeholder: 'form.user.placeholder.driver_license',
       ctrl: this.getControl('driver_license'),
-      selected: {value: this.uDetail.driver_license , label: this.uDetail.driver_license },
+      selected: {value: this.uDetail.driver_license, label: this.uDetail.driver_license},
       values: DriverHelper.getSelectOption()
     });
 
@@ -136,7 +134,7 @@ export class UserDetailIdentityComponent implements OnInit, OnChanges {
       label: {label: 'form.user.label.gender'},
       placeholder: 'form.user.placeholder.gender',
       ctrl: this.getControl('gender'),
-      selected: {value: this.uDetail.gender , label: this.uDetail.gender },
+      selected: {value: this.uDetail.gender, label: this.uDetail.gender},
       values: GenderHelper.genSelectOption()
     });
 

@@ -2,10 +2,16 @@
   pour ajouter une nouvelle période
   <div class="flex-row">
     <div class="flex-cell">
-      <app-input-date></app-input-date>
+      <app-input-date [label]="{label:'form.cap.label.start_date'}"
+                      [placeholder]="'form.cap.placeholder.start_date'"
+                      [ctrl]="getControl('start_date')">
+      </app-input-date>
     </div>
     <div class="flex-cell">
-      <app-input-date></app-input-date>
+      <app-input-date [label]="{label:'form.cap.label.end_date'}"
+                      [placeholder]="'form.cap.placeholder.end_date'"
+                      [ctrl]="getControl('end_date')">
+      </app-input-date>
     </div>
     <div class="btn-area">
       <button (click)="addPeriod()">add</button>
